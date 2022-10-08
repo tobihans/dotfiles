@@ -3,14 +3,16 @@
 # Setup.sh
 # Configure my new machines and gitpod environments
 
-source tools.sh
+source ./tools.sh
 
 if is::gitpod
   install::omb
   install::neovim
   install::astro
   install::chezmoi
-else
+  exit
+fi
+
   install::omb
   install::chezmoi
   install::sdk
@@ -18,4 +20,4 @@ else
   install::rustup
   install::neovim
   install::astro
-fi
+
