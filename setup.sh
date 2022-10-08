@@ -84,9 +84,9 @@ function setup::local() {
 
 function setup::gitpod() {
   install::omb
+  install::chezmoi
   install::neovim
   install::astro
-  install::chezmoi
 }
 
 is::gitpod && setup::gitpod || setup::local
