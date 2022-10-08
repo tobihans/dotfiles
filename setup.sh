@@ -6,13 +6,12 @@
 source ./tools.sh
 
 if is::gitpod
+then
   install::omb
   install::neovim
   install::astro
   install::chezmoi
-  exit
-fi
-
+else
   install::omb
   install::chezmoi
   install::sdk
@@ -20,4 +19,4 @@ fi
   install::rustup
   install::neovim
   install::astro
-
+fi
