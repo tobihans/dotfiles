@@ -22,6 +22,7 @@ function install::chezmoi() {
   if ! [[ -x "$(command -v chezmoi)" ]]
   then
     if is::gitpod
+    then
       sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply --verbose ${GITHUB_USERNAME:-tobihans}
     else
       sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init ${GITHUB_USERNAME:-tobihans}
@@ -71,14 +72,7 @@ function install::astro() {
   nvim --headless +PackerSync +qa
 }
 
-
-if is::gitpod
-then
-  install::omb
-  install::neovim
-  install::astro
-  install::chezmoi
-else
+function setup::local() {
   install::omb
   install::chezmoi
   install::sdk
@@ -86,5 +80,13 @@ else
   install::rustup
   install::neovim
   install::astro
-fi
+}
 
+function setup::gitpod() {
+  install::omb
+  install::neovim
+  install::astro
+  install::chezmoi
+}
+
+is::gitpod && setup::gitpod || setup::local
