@@ -1,0 +1,21 @@
+alias load.env='while read -r line; do export $line; done < .env;'
+alias ace='node ace'
+alias art='php artisan'
+alias anaconda.nav='anaconda-navigator 1>/dev/null 2>&1 &'
+alias pj="/usr/bin/env python3 -m json.tool"
+alias screen="scrcpy >/dev/null 2>&1 &"
+alias style="black . && isort . --profile black"
+alias di="docker images"
+alias dangling='docker rmi -f $(docker images -f "dangling=true" -q) 2>/dev/null 1>&2'
+alias dvp="echo 'Y' | docker volume prune && echo && docker system df && echo -e '\ndocker builder prune'"
+alias dbp="echo 'Y' | docker builder prune && echo -e '\ndocker builder prune'"
+alias dpa='docker ps -a --format "\nID\t{{.ID}}\nNAMES\t{{.Names}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.RunningFor}}\nSTATUS\t> {{.Status}}\nPORTS\t{{.Ports}}\n"'
+alias gis="git status"
+alias gid="git diff"
+alias ga.="git add ."
+alias gpsh="git push"
+alias gpll="git pull"
+alias gtc="git commit"
+alias killall="ps -aux | grep $1 | grep -v grep | awk '{print \$2}' | tr '\n' ' ' | kill -9 "
+alias spk='echo `python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`'
+alias chezgit='chezmoi git'
