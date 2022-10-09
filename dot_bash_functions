@@ -1,0 +1,23 @@
+dsr() { 
+    if [ -z "$1" ]; then
+        echo -e "\nCall 'dsr2 <argument>' to run this command!\n";
+    else
+        docker ps -a | awk '{print $(NF)}' | grep $1 | xargs docker stop | xargs docker rm;
+    fi
+}
+
+dri() {
+  if [ -z "$1" ]; then
+    echo -e "\nCall 'dri <argument>' to run this command!\n"
+  else
+    docker images | awk 'NR>1 {print $1 ":" $2}' | grep $1 | xargs docker rmi
+  fi
+}
+
+watchexec() {
+  # See https://superuser.com/questions/181517/how-to-execute-a-command-whenever-a-file-changes
+  inotifywait -e close_write,moved_to,create -m $1 |
+  while read -r directory events filename; do
+    exec $2
+  done
+}
