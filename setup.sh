@@ -19,13 +19,15 @@ function install::omb() {
 }
 
 function install::chezmoi() {
+  dotfiles_location='https://github.com/tobihans/dotfiles.git'
+
   if ! [[ -x "$(command -v chezmoi)" ]]
   then
     if is::gitpod
     then
-      sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply --verbose ${GITHUB_USERNAME:-tobihans}
+      sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply --verbose $dotfiles_location
     else
-      sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init ${GITHUB_USERNAME:-tobihans}
+      sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init $dotfiles_location
       printf "chezmoi initialized: use diff and apply to finish the setup.\n"
     fi
   fi
@@ -67,9 +69,9 @@ function install::astro() {
   mv ~/.local/share/nvim/site ~/.local/share/nvim/site.bak &>/dev/null
 
   git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-  git clone https://github.com/${GITHUB_USERNAME:-tobihans}/dotfiles ~/.config/nvim/lua/user
+  git clone https://github.com/tobihans/nvim-config ~/.config/nvim/lua/user
 
-  nvim --headless +PackerSync +qa
+  ~/nvim/bin/nvim --headless +PackerSync +qa
 }
 
 function setup::local() {
@@ -83,6 +85,7 @@ function setup::local() {
 }
 
 function setup::gitpod() {
+  # true is used to keep going even when a step failed
   install::omb
   install::chezmoi
   install::neovim
@@ -90,3 +93,4 @@ function setup::gitpod() {
 }
 
 is::gitpod && setup::gitpod || setup::local
+
