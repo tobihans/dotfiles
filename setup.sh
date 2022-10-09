@@ -30,6 +30,7 @@ function install::chezmoi() {
       sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init $dotfiles_location
       printf "chezmoi initialized: use diff and apply to finish the setup.\n"
     fi
+    export PATH="$(pwd)/bin:$PATH"  # might be useful during the process
   fi
 }
 
