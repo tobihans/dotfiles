@@ -70,8 +70,14 @@ function install::astro() {
   mv ~/.config/nvim ~/.config/nvim.bak &>/dev/null &>/dev/null
   mv ~/.local/share/nvim/site ~/.local/share/nvim/site.bak &>/dev/null
 
-  git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-  git clone https://github.com/tobihans/nvim-config ~/.config/nvim/lua/user
+  if is::gitpod
+  then
+    git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+    git clone https://github.com/tobihans/nvim-config ~/.config/nvim/lua/user
+  else
+    git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+    git clone https://github.com/tobihans/nvim-config ~/.config/nvim/lua/user
+  fi
 
   nvim --headless +PackerSync +qa
 }
@@ -92,6 +98,13 @@ function setup::gitpod() {
   install::chezmoi
   install::neovim
   install::astro
+}
+
+function pre::setup() {
+  if is::gitpod
+  then
+    git config --global credential.helper='/usr/bin/gp credential-helper'
+  fi
 }
 
 is::gitpod && setup::gitpod || setup::local
