@@ -73,7 +73,7 @@ function install::astro() {
   git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
   git clone https://github.com/tobihans/nvim-config ~/.config/nvim/lua/user
 
-  ~/nvim/bin/nvim --headless +PackerSync +qa
+  nvim --headless +PackerSync +qa
 }
 
 function setup::local() {
