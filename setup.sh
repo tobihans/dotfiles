@@ -87,7 +87,6 @@ function setup::local() {
 }
 
 function setup::gitpod() {
-  # true is used to keep going even when a step failed
   install::omb
   install::chezmoi
   install::neovim
