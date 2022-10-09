@@ -59,6 +59,8 @@ function install::neovim() {
     wget -cO /tmp/nvim.tar.gz $NVIM_RELEASE
     tar -xzvf /tmp/nvim.tar.gz -C ~
     mv ~/nvim-linux64 ~/nvim
+
+    export PATH="$HOME/nvim/bin:$PATH"
   else
     printf "found nvim 0.8 installation.\n"
   fi
