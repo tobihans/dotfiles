@@ -1,2 +1,2 @@
-# Empty for the moment
-#
+export PATH="$HOME/nvim/bin:$PATH"
+
