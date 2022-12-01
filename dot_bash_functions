@@ -21,3 +21,8 @@ watchexec() {
     exec $2
   done
 }
+
+zipvid() {
+    ffmpeg -i $1 -vcodec libx265 -crf 35 $2
+}
+
