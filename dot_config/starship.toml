@@ -69,7 +69,7 @@ format = ''
 
 [azure]
 disabled = true
-format = '\[[$symbol($subscription)]($style)\]'
+format = '{[$symbol($subscription)]($style)}'
 
 [battery]
 [[battery.display]]
@@ -78,88 +78,88 @@ style = 'yellow'
 
 [c]
 symbol = " "
-format = '\[[$symbol($version(-$name))]($style)\]'
+format = '{[$symbol($version(-$name))]($style)}'
 
 [cmake]
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [cmd_duration]
-format = '\[[⏱ $duration]($style)\]'
+format = '{[⏱ $duration]($style)}'
 style = 'yellow'
 
 [conda]
 symbol = " "
-format = '\[[$symbol$environment]($style)\]'
+format = '{[$symbol$environment]($style)}'
 
 [dart]
 symbol = " "
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [deno]
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [docker_context]
 symbol = " "
-format = '\[[$symbol$context]($style)\]'
+format = '{[$symbol$context]($style)}'
 
 [dotnet]
-format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
+format = '{[$symbol($version)(🎯 $tfm)]($style)}'
 
 [directory]
 read_only = " "
 
 [elixir]
 symbol = " "
-format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
+format = '{[$symbol($version \(OTP $otp_version\))]($style)}'
 
 [gcloud]
 disabled = true
-format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+format = '{[$symbol$account(@$domain)(\($region\))]($style)}'
 
 [git_branch]
 symbol = " "
-format = '\[[$symbol$branch]($style)\]'
+format = '{[$symbol$branch]($style)}'
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
+format = '([{$all_status$ahead_behind}]($style))'
 
 [golang]
 symbol = " "
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [helm]
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [java]
 symbol = " "
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [kotlin]
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [kubernetes]
 disabled = true
-format = '\[[$symbol$context( \($namespace\))]($style)\]'
+format = '{[$symbol$context( \($namespace\))]($style)}'
 
 [lua]
 symbol = " "
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [memory_usage]
 symbol = " "
-format = '\[$symbol[$ram( | $swap)]($style)\]'
+format = '{$symbol[$ram( | $swap)]($style)}'
 
 [nim]
 symbol = " "
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [nix_shell]
 symbol = " "
-format = '\[[$symbol$state( \($name\))]($style)\]'
+format = '{[$symbol$state( \($name\))]($style)}'
 
 [nodejs]
 symbol = " "
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [os]
 format = '[$symbol]($style)|'
@@ -205,31 +205,31 @@ Windows = " "
 
 [package]
 symbol = " "
-format = '\[[$symbol$version]($style)\]'
+format = '{[$symbol$version]($style)}'
 
 [perl]
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [php]
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [python]
 symbol = " "
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+format = '{[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)}'
 
 [ruby]
 symbol = " "
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [rust]
 symbol = " "
-format = '\[[$symbol($version)]($style)\]'
+format = '{[$symbol($version)]($style)}'
 
 [sudo]
-format = '\[[as $symbol]\]'
+format = '{[as $symbol]}'
 
 [terraform]
-format = '\[[$symbol$workspace]($style)\]'
+format = '{[$symbol$workspace]($style)}'
 
 [time]
 disabled = false
@@ -238,4 +238,4 @@ format = '|[$time]($style)|'
 style = 'yellow'
 
 [username]
-format = '\[[$user]($style)\]'
+format = '{[$user]($style)}'
