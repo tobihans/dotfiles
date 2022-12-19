@@ -1,5 +1,5 @@
 add_newline = false
-continuation_prompt = "~~"
+continuation_prompt = "[~>](yellow) "
 format = """
 $username\
 $hostname\
@@ -164,7 +164,7 @@ format = '\[[$symbol($version)]($style)\]'
 [os]
 format = '[$symbol]($style)|'
 disabled = false
-style = 'white'
+style = 'green bold'
 [os.symbols]
 Alpine = " "
 Amazon = " "
