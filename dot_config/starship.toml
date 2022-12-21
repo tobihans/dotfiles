@@ -73,7 +73,7 @@ format = '{[$symbol($subscription)]($style)}'
 
 [battery]
 [[battery.display]]
-threshold = 65
+threshold = 100
 style = 'yellow'
 
 [c]
