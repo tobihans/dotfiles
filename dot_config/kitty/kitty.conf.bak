@@ -12,11 +12,19 @@ remember_window_size yes
 shell_integration title
 placement_strategy top-left
 
+# Tab
+tab_bar_edge bottom
+tab_bar_min_tabs 2
+tab_fade 0.25 0.5 0.75 1
+tab_bar_style powerline
+tab_activity_symbol ◉
+tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}{sup.index}"
+
 # Mappings
 map ctrl+shift+t new_tab_with_cwd
 
 
 # BEGIN_KITTY_THEME
-# Aquarium Dark
+# Rosé Pine
 include current-theme.conf
 # END_KITTY_THEME
