@@ -1,0 +1,8 @@
+cd () {
+    builtin cd "$@" || return
+
+    if [ -f .exec ];
+    then
+        source .exec
+    fi
+}

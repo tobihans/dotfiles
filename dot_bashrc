@@ -25,8 +25,15 @@ plugins=(
 
 export EDITOR='nvim'
 
+# HISTORY
+shopt -s histappend  # append to history file
+# Ignore duplicates & limit file size
+export HISTFILESIZE=2000
+export HISTCONTROL=ignoredups:erasedups 
+
 source $OSH/oh-my-bash.sh
 source $HOME/.profile
+source $HOME/.functions
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
@@ -38,6 +45,6 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-# PS1
+# PS1 + PS2
 eval "$(starship init bash)"
 
