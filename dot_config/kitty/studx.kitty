@@ -1,0 +1,13 @@
+# FRONTEND
+cd ~/github/studx
+launch pnpm dev
+
+# BACKEND
+new_tab
+cd ~/github/studx
+launch make dev
+
+# ROOMS
+new_tab
+cd  ~/github/studx-rooms
+launch echo "cargo run"
