@@ -1,15 +1,22 @@
+# NVIM custom installation
 export PATH="$HOME/nvim/bin:$HOME/bin:$PATH"
 
+# SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# PNPM
 export PNPM_HOME="/home/tobi/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+
+# Nim
+export PATH="$HOME/.nimble/bin:$PATH"
 
 # Ensure $USER bin folders are part of $PATH
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]

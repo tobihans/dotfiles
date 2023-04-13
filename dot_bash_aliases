@@ -4,7 +4,7 @@ alias art='php artisan'
 alias mng='python manage.py'
 alias anaconda.nav='anaconda-navigator 1>/dev/null 2>&1 &'
 alias pj="/usr/bin/env python3 -m json.tool"
-alias screen="scrcpy >/dev/null 2>&1 &"
+alias screen-replica="scrcpy >/dev/null 2>&1 &"
 alias style="black . && isort . --profile black"
 alias di="docker images"
 alias dangling='docker rmi -f $(docker images -f "dangling=true" -q) 2>/dev/null 1>&2'

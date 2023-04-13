@@ -13,7 +13,7 @@ shell_integration title
 placement_strategy center
 window_padding_width 0 0 0 1
 # window_margin_width 4
-background_opacity 0.92
+background_opacity 0.985
 resize_in_steps yes 
 
 # Tab
@@ -46,6 +46,6 @@ map alt+0 goto_tab 10
 # map ctrl+f4 detach_tab ask
 
 # BEGIN_KITTY_THEME
-# Rosé Pine Moon
+# Bluloco Light
 include current-theme.conf
 # END_KITTY_THEME
