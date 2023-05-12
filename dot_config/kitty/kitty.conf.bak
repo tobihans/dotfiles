@@ -46,6 +46,6 @@ map alt+0 goto_tab 10
 # map ctrl+f4 detach_tab ask
 
 # BEGIN_KITTY_THEME
-# Bluloco Light
+# Molokai
 include current-theme.conf
 # END_KITTY_THEME
