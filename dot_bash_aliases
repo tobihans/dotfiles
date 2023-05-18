@@ -34,3 +34,4 @@ alias kitty-grep='kitty +kitten hyperlinked_grep'
 alias kitty-clip='kitty +kitten clipboard'
 alias kctl='kubectl'
 alias mkube='minikube'
+alias ds-all="docker ps | awk 'NR > 1 {print \$NF}' | xargs -I{} docker stop {}"
