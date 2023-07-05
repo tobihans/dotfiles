@@ -33,7 +33,7 @@ export HISTCONTROL=ignoredups:erasedups
 
 source $OSH/oh-my-bash.sh
 source $HOME/.profile
-source $HOME/.functions
+source $HOME/.bash_functions
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then

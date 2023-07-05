@@ -1,8 +1,24 @@
-cd () {
-    builtin cd "$@" || return
+dsr() { 
+    if [ -z "$1" ]; then
+        echo -e "\nCall 'dsr <argument>' to run this command!\n";
+    else
+        docker ps -a | awk '{print $(NF)}' | grep $1 | xargs docker stop | xargs docker rm;
+    fi
+}
 
-    if [ -f .exec ];
-    then
-        source .exec
+dri() {
+  if [ -z "$1" ]; then
+    echo -e "\nCall 'dri <argument>' to run this command!\n"
+  else
+    docker images | awk 'NR>1 {print $1 ":" $2}' | grep $1 | xargs docker rmi
+  fi
+}
+
+dsc () 
+{ 
+    if [ -z "$1" ]; then
+        echo -e "Usage: 'dsc <argument>'\n";
+    else
+        docker ps | awk '{print $(NF)}' | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} $1 | xargs docker stop;
     fi
 }
