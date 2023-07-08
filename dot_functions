@@ -22,3 +22,9 @@ dsc ()
         docker ps | awk '{print $(NF)}' | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} $1 | xargs docker stop;
     fi
 }
+
+function dip()
+{
+    docker inspect $1 -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+}
+
