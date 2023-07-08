@@ -33,7 +33,7 @@ export HISTCONTROL=ignoredups:erasedups
 
 source $OSH/oh-my-bash.sh
 source $HOME/.profile
-source $HOME/.bash_functions
+source $HOME/.functions
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
@@ -48,3 +48,7 @@ unset rc
 # PS1 + PS2
 eval "$(starship init bash)"
 
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
