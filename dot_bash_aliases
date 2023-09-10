@@ -35,3 +35,4 @@ alias kctl='kubectl'
 alias mkube='minikube'
 alias ds-all="docker ps | awk 'NR > 1 {print \$NF}' | xargs -I{} docker stop {}"
 alias ksh="kitty +kitten ssh"
+alias supabase="npx supabase"

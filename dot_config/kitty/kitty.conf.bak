@@ -16,8 +16,10 @@ remember_window_size yes
 shell_integration title
 placement_strategy center
 window_padding_width 0 0 0 1
-# window_margin_width 4
-background_opacity 0.95
+# background_opacity 0.96
+background_image ~/.config/kitty/wallpapers/3.png
+background_tint 0.95
+background_image_layout cscaled
 resize_in_steps yes 
 
 # Tab
@@ -46,12 +48,7 @@ map alt+8 goto_tab 8
 map alt+9 goto_tab 9
 map alt+0 goto_tab 10
 
-# moves the tab into a new OS window
-# map ctrl+f2 detach_tab
-# asks which OS Window to move the tab into
-# map ctrl+f4 detach_tab ask
-
 # BEGIN_KITTY_THEME
-# One Dark Pro
+# Melange Dark
 include current-theme.conf
 # END_KITTY_THEME
