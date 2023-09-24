@@ -70,6 +70,8 @@ function install::sdk() {
 }
 
 function install::sdk_packages() {
+	install::sdk
+
 	sdk install gradle
 	sdk install kotlin
 	sdk install maven
@@ -119,9 +121,10 @@ function setup() {
 	install::pacman_packages
 	install::yay_packages
 	install::cargo_packages
+	install::sdk_packages
+	install::cli_tools
 	install::omb
 	install::chezmoi
-	install::sdk
 	install::nvm
 	install::rustup
 	install::astro
