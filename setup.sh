@@ -4,18 +4,19 @@
 # TODO: Install and configure qemu
 
 function install::pacman_packages() {
-	sudo pacman -Syu "$@" android-tools android-udev \
+	sudo pacman -Syu android-tools android-udev \
 		base-devel bat btop \
 		chezmoi chromium cmake composer cython \
 		dart-sass discord docker docker-buildx docker-compose \
 		fd ffmpeg firefox-developer-edition \
 		gdu github-cli go \
+		jq \
 		kitty \
 		lazydocker lazygit luarocks \
 		m4 make mariadb minikube mosh \
 		neofetch neovim ninja \
 		onefetch onlyoffice-desktopeditors openssh \
-		php php-apache php-cgi php-embed php-fpm php-gd php-igbinary php-redis \
+		php php-apache php-cgi php-embed php-fpm php-gd php-igbinary php-redis python-pipx \
 		php-snmp postgresql postgresql-libs postman-bin powerdevil powertop protobuf \
 		redis remmina ripgrep \
 		scrcpy screen slack-desktop \
@@ -38,6 +39,8 @@ function install::yay() {
 }
 
 function install::yay_packages() {
+	install::yay
+
 	yay -Syu grpcurl \
 		ngrok \
 		passwordsafe-git postman-bin \
@@ -54,7 +57,8 @@ function install::chezmoi() {
 	dotfiles_location='https://github.com/tobihans/dotfiles.git'
 
 	if ! [[ -x "$(command -v chezmoi)" ]]; then
-		sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply --verbose $dotfiles_location
+		sudo pacman -Syu chezmoi
+		chezmoi init --verbose $dotfiles_location
 		printf "chezmoi initialized: use diff and apply to finish the setup.\n"
 	fi
 }
@@ -84,6 +88,8 @@ function install::rustup() {
 }
 
 function install::cargo_packages() {
+	install::rustup
+
 	cargo install cargo-expand cargo-watch cargo-msrv \
 	stylua tidy-viewer tree-sitter-cli
 	cargo install starship --locked
@@ -100,14 +106,19 @@ function install::astro() {
 }
 
 function install::cli_tools() {
-	# Install common CLI tools
-	echo 1
-	# pipx, poetry, sqlite-utils,jq,
-	# , haha games matter
+	if ! [[ -x "$(command -v pipx)" ]]; then
+		sudo pacman -Syu python-pipx
+	fi
+
+	pipx install poetry sqlite-utils
+	sqlite-utils install sqlean.py
+	sqlite-utils install sqlite-dump
 }
 
 function setup() {
-	install::yay
+	install::pacman_packages
+	install::yay_packages
+	install::cargo_packages
 	install::omb
 	install::chezmoi
 	install::sdk
