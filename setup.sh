@@ -1,20 +1,23 @@
 #!/usr/bin/env bash
 
+# TODO: add check for OS
+# TODO: Install and configure qemu
+
 function install::pacman_packages() {
 	sudo pacman -Syu "$@" android-tools android-udev \
-		base-devel btop \
+		base-devel bat btop \
 		chezmoi chromium cmake composer cython \
 		dart-sass discord docker docker-buildx docker-compose \
 		fd ffmpeg firefox-developer-edition \
-		github-cli go \
+		gdu github-cli go \
 		kitty \
 		lazydocker lazygit luarocks \
-		m4 make mariadb minikube \
+		m4 make mariadb minikube mosh \
 		neofetch neovim ninja \
 		onefetch onlyoffice-desktopeditors openssh \
 		php php-apache php-cgi php-embed php-fpm php-gd php-igbinary php-redis \
 		php-snmp postgresql postgresql-libs postman-bin powerdevil powertop protobuf \
-		redis remmina \
+		redis remmina ripgrep \
 		scrcpy screen slack-desktop \
 		tlp tlpui tmux tree
 }
@@ -38,7 +41,7 @@ function install::yay_packages() {
 	yay -Syu grpcurl \
 		ngrok \
 		passwordsafe-git postman-bin \
-		slack-desktop \
+		slack-desktop supertuxkart \
 		wkhtmltopdf \
 		zoom
 }
@@ -62,6 +65,12 @@ function install::sdk() {
 	fi
 }
 
+function install::sdk_packages() {
+	sdk install gradle
+	sdk install kotlin
+	sdk install maven
+}
+
 function install::nvm() {
 	if ! [[ -x "$(command -v nvm)" ]]; then
 		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -75,9 +84,10 @@ function install::rustup() {
 }
 
 function install::cargo_packages() {
-	cargo install cargo-expand cargo-watch cargo-msrv cargo-miri
-	cargo install tree-sitter-cli stylua
+	cargo install cargo-expand cargo-watch cargo-msrv \
+	stylua tidy-viewer tree-sitter-cli
 	cargo install starship --locked
+	cp /home/"$USER"/.cargo/bin/tidy-viewer ~/.local/bin/
 }
 
 function install::astro() {
@@ -91,37 +101,9 @@ function install::astro() {
 
 function install::cli_tools() {
 	# Install common CLI tools
-	yay -S lazydocker lazygit
-	pacman -S ripgrep
+	echo 1
 	# pipx, poetry, sqlite-utils,jq,
-	# ansible
-	# mosh
-	# docker
-	# scrcpy
-	# screen
-	# sass
-	# Android manual toolkit maybe
-	# go
-	# localstack (awslocal)
-	# gh
-	# tidy-viewer
-	# btm
-	# nim ?
-	# cargo-watch, cargo-msrv, cargo-miri,
-	# starship
-	# stylua
-	# supertuxkart, haha games matter
-	# tlp
-	# deno ?
-	# tmux ?
-	# distrobox ?
-	# kotlin gradle, through sdkman
-	# qemu and virsh and virtual manager
-	# luarocks
-	# gdu
-	# bat
-	# yay
-	# cargo install tree-sitter-cli
+	# , haha games matter
 }
 
 function setup() {

@@ -15,12 +15,6 @@ export NVM_DIR="$HOME/.nvm"
 export PNPM_HOME="/home/tobi/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
-# Nim
-export PATH="$HOME/.nimble/bin:$PATH"
-
-# Fvm
-export PATH="$PATH:$HOME/.pub-cache/bin"
-
 # Ensure $USER bin folders are part of $PATH
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
