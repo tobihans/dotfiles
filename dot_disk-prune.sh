@@ -23,4 +23,4 @@ poetry cache clear --all -n _default_cache
 go clean -modcache
 
 # System
-yay -Sc --noconfirm
+yay -Sc
