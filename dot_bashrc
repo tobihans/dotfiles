@@ -48,6 +48,6 @@ unset rc
 # PS1 + PS2
 eval "$(starship init bash)"
 
-MANPAGER='bat -l man --italic-text always --decorations always --style=rule,numbers,grid'
+MANPAGER='bat -l man --italic-text always --decorations always --style=numbers,grid'
 
 export PATH="$HOME/go/bin:$PATH"
