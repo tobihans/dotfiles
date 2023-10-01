@@ -19,7 +19,7 @@ function install::pacman_packages() {
 		php php-apache php-cgi php-embed php-fpm php-gd php-igbinary php-redis python-pipx \
 		php-snmp postgresql postgresql-libs postman-bin powerdevil powertop protobuf \
 		redis remmina ripgrep \
-		scrcpy screen slack-desktop \
+		scrcpy screen slack-desktop sniffnet \
 		tlp tlpui tmux tree
 }
 
