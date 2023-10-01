@@ -48,7 +48,6 @@ unset rc
 # PS1 + PS2
 eval "$(starship init bash)"
 
-# Use neovim for reading man pages
-export MANPAGER='nvim +Man!'
+MANPAGER='bat -l man --italic-text always --decorations always --style=rule,numbers,grid'
 
 export PATH="$HOME/go/bin:$PATH"
