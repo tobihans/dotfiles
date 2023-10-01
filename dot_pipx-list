@@ -1,15 +1,6 @@
-venvs are in /home/tobi/.local/pipx/venvs
-apps are exposed on your $PATH at /home/tobi/.local/bin
    package frappe-bench 5.17.2, installed using Python 3.11.3
-    - bench
    package honcho 1.1.0, installed using Python 3.11.3
-    - honcho
+   package mitmproxy 10.1.1, installed using Python 3.11.5
    package notebook 7.0.3, installed using Python 3.11.3
-    - jupyter-notebook
    package sqlite-utils 3.35.1, installed using Python 3.11.5
-    - sqlite-utils
    package supervisor 4.2.5, installed using Python 3.11.3
-    - echo_supervisord_conf
-    - pidproxy
-    - supervisorctl
-    - supervisord

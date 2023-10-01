@@ -51,4 +51,5 @@ alias load.env='while read -r line; do export $line; done < .env;'
 alias pj="/usr/bin/env python3 -m json.tool"
 alias xo='xdg-open >/dev/null 2>/dev/null'
 alias off='shutdown -h now'
+alias lpipx="rm -rf ~/.pipx-list && pipx list | grep -Ei '^\s+package' | awk '{print $2}' > ~/.pipx-list"
 
