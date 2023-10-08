@@ -1,0 +1,17 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = git@tobihans.space
+	name = Hans Tognon
+[init]
+	defaultBranch = main
+[color]
+	ui = true
+[core]
+	pager = less -r
+[status]
+	submodulesummary = 1
