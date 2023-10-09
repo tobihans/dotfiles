@@ -58,7 +58,7 @@ function install::chezmoi() {
 
 	if ! [[ -x "$(command -v chezmoi)" ]]; then
 		sudo pacman -Syu chezmoi
-		chezmoi init --verbose $dotfiles_location
+		chezmoi init --verbose --apply $dotfiles_location
 		printf "chezmoi initialized: use diff and apply to finish the setup.\n"
 	fi
 }
