@@ -4,7 +4,7 @@
 # TODO: Install and configure qemu
 
 function install::pacman_packages() {
-	sudo pacman -Syu android-tools android-udev \
+	sudo pacman -Syu --needed android-tools android-udev \
 		base-devel bat btop \
 		chezmoi chromium cmake composer cython \
 		dart-sass discord docker docker-buildx docker-compose \
@@ -20,7 +20,9 @@ function install::pacman_packages() {
 		php-snmp postgresql postgresql-libs postman-bin powerdevil powertop protobuf \
 		redis remmina ripgrep \
 		scrcpy screen slack-desktop sniffnet \
-		tlp tlpui tmux tree
+		tlp tlpui tmux tree \
+		unzip \
+		zip
 }
 
 function install::yay() {
@@ -30,7 +32,7 @@ function install::yay() {
 
 	if ! [[ -x "$(command -v yay)" ]]; then
 		cd /tmp/ || exit
-		git clone https://aur.archlinux.org/yay-git.git
+		git clone https://aur.archlinux.org/yay-git.git yay
 		cd yay || exit
 		makepkg -si
 		cd .. || exit
