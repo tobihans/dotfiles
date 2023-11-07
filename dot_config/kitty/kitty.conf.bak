@@ -16,7 +16,7 @@ remember_window_size yes
 shell_integration title
 placement_strategy center
 window_padding_width 0 0 0 1
-background_opacity 0.90
+background_opacity 0.92
 # background_image ~/.config/kitty/wallpapers/3.png
 # background_tint 0.95
 # background_image_layout cscaled
@@ -49,6 +49,6 @@ map alt+9 goto_tab 9
 map alt+0 goto_tab 10
 
 # BEGIN_KITTY_THEME
-# Liquid Carbon Transparent
+# Rosé Pine
 include current-theme.conf
 # END_KITTY_THEME
