@@ -8,7 +8,7 @@ function install::pacman_packages() {
 		base-devel bat btop \
 		chezmoi chromium cmake composer cython \
 		dart-sass discord docker docker-buildx docker-compose \
-		fd ffmpeg firefox-developer-edition \
+		fd ffmpeg firefox-developer-edition fzf \
 		gdu github-cli go \
 		jq \
 		kitty \
