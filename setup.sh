@@ -4,6 +4,8 @@
 # TODO: Install and configure qemu
 
 function install::pacman_packages() {
+	sudo pacman -S --needed base-devel
+
 	sudo pacman -Syu --needed android-tools android-udev \
 		base-devel bat btop \
 		chezmoi chromium cmake composer cython \
