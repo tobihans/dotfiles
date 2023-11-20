@@ -28,3 +28,13 @@ function dip()
     docker inspect $1 -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
 }
 
+function activate() {
+    for dir in {"venv","env",".env",".venv"}
+    do
+        if [[ -d "$dir" ]] && [[ -f "$dir/bin/activate" ]]; then
+            source "$dir/bin/activate"
+            return
+        fi
+    done
+    source $1/bin/activate
+}
