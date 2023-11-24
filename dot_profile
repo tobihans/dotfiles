@@ -1,6 +1,3 @@
-# NVIM custom installation
-export PATH="$HOME/nvim/bin:$HOME/bin:$PATH"
-
 # SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -18,7 +15,7 @@ export PATH="$PNPM_HOME:$PATH"
 # Ensure $USER bin folders are part of $PATH
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+    export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
-export PATH
 
+export PATH="$HOME/go/bin:$PATH"

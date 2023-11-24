@@ -7,7 +7,7 @@ function install::pacman_packages() {
 	sudo pacman -S --needed base-devel
 
 	sudo pacman -Syu --needed android-tools android-udev \
-		base-devel bat btop \
+		base-devel bat bob btop \
 		chezmoi chromium cmake composer cython \
 		dart-sass discord docker docker-buildx docker-compose \
 		fd ffmpeg firefox-developer-edition fzf \
@@ -63,7 +63,7 @@ function install::chezmoi() {
 	if ! [[ -x "$(command -v chezmoi)" ]]; then
 		sudo pacman -Syu chezmoi
 		chezmoi init --verbose --apply $dotfiles_location
-		printf "chezmoi initialized: use diff and apply to finish the setup.\n"
+		printf "chezmoi initialized with config applied"
 	fi
 }
 
@@ -87,6 +87,12 @@ function install::nvm() {
 	fi
 }
 
+function install::dvm() {
+	if ! [[ -x "$(command -v dvm)" ]]; then
+		curl -fsSL https://dvm.deno.dev | bash
+	fi
+}
+
 function install::rustup() {
 	if ! [[ -x "$(command -v rustup)" ]]; then
 		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -96,7 +102,7 @@ function install::rustup() {
 function install::cargo_packages() {
 	install::rustup
 
-	cargo install cargo-expand cargo-watch cargo-msrv \
+	cargo install cargo-expand cargo-watch \
 	stylua tidy-viewer tree-sitter-cli
 	cargo install starship --locked
 	cp /home/"$USER"/.cargo/bin/tidy-viewer ~/.local/bin/
@@ -116,9 +122,9 @@ function install::cli_tools() {
 		sudo pacman -Syu python-pipx
 	fi
 
-	pipx install poetry sqlite-utils
-	sqlite-utils install sqlean.py
-	sqlite-utils install sqlite-dump
+	python -m pipx install poetry sqlite-utils
+	printf "Instructions for sqlite-utils:\n"
+	printf "sqlite-utils install sqlean.py\nsqlite-utils install sqlite-dump"
 }
 
 function setup() {

@@ -1,0 +1,4 @@
+{
+    "enable_release_build": true,
+    "installation_location": "~/.local/bin"
+}

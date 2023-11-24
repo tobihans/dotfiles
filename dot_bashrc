@@ -35,7 +35,7 @@ source $OSH/oh-my-bash.sh
 source $HOME/.profile
 source $HOME/.functions
 
-# User specific aliases and functions
+# Machine specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
   for rc in ~/.bashrc.d/*; do
     if [ -f "$rc" ]; then
@@ -49,5 +49,3 @@ unset rc
 eval "$(starship init bash)"
 
 MANPAGER='bat -l man --italic-text always --decorations always --style=numbers,grid'
-
-export PATH="$HOME/go/bin:$PATH"

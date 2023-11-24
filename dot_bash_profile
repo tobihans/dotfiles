@@ -10,6 +10,5 @@
 export PATH="$PATH:/home/tobi/.local/share/JetBrains/Toolbox/scripts"
 
 
-if [ -e /home/tobi/.nix-profile/etc/profile.d/nix.sh ]; then . /home/tobi/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 export DVM_DIR="/home/tobi/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
