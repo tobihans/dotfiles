@@ -21,6 +21,7 @@ aliases=(
 
 plugins=(
   git
+  sudo
 )
 
 export EDITOR='nvim'
