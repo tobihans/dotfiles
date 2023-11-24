@@ -49,3 +49,6 @@ unset rc
 eval "$(starship init bash)"
 
 MANPAGER='bat -l man --italic-text always --decorations always --style=numbers,grid'
+
+# Nvim version manager
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
