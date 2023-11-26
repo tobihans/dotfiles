@@ -8,7 +8,7 @@ function install::pacman_packages() {
 
 	sudo pacman -Syu --needed android-tools android-udev \
 		base-devel bat bob btop \
-		chezmoi chromium cmake composer cython \
+		chezmoi chromium cmake composer cryfs cython \
 		dart-sass discord docker docker-buildx docker-compose \
 		fd ffmpeg firefox-developer-edition fzf \
 		gdu github-cli go \
