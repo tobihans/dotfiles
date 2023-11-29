@@ -15,6 +15,12 @@
 	pager = less -r
 [status]
 	submodulesummary = 1
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra
 [alias]
 	piccl = config user.email 'hans.tognon@pitchcardinal.com'
 	lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
