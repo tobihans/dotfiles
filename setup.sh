@@ -104,6 +104,7 @@ function install::cargo_packages() {
 
 	cargo install cargo-expand cargo-watch \
 	stylua tidy-viewer tree-sitter-cli
+	cargo install create-tauri-app --locked
 	cargo install starship --locked
 	cp /home/"$USER"/.cargo/bin/tidy-viewer ~/.local/bin/
 }
