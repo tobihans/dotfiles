@@ -48,6 +48,7 @@ alias lzg="lazygit"
 alias tv="tidy-viewer"
 alias scpy="scrcpy >/dev/null 2>&1 &"
 alias prism="npx @stoplight/prism-cli@latest"  # api mocking
+alias cookiecutter="pipx run cookiecutter"
 
 # Misc
 alias load.env='while read -r line; do export $line; done < .env;'
