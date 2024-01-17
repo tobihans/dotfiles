@@ -21,7 +21,7 @@ function install::pacman_packages() {
 		php php-apache php-cgi php-embed php-fpm php-gd php-igbinary php-redis python-pipx \
 		php-snmp postgresql postgresql-libs postman-bin powerdevil powertop protobuf \
 		redis remmina ripgrep \
-		scrcpy screen slack-desktop sniffnet \
+		scrcpy screen screenkey slack-desktop sniffnet \
 		tlp tlpui tmux tree \
 		unzip \
 		zip
@@ -123,7 +123,7 @@ function install::cli_tools() {
 		sudo pacman -Syu python-pipx
 	fi
 
-	python -m pipx install poetry sqlite-utils
+	python -m pipx install poetry sqlite-utils grip
 	printf "Instructions for sqlite-utils:\n"
 	printf "sqlite-utils install sqlean.py\nsqlite-utils install sqlite-dump"
 }
