@@ -19,3 +19,7 @@ then
 fi
 
 export PATH="$HOME/go/bin:$PATH"
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/home/tobi/.local/share/coursier/bin"
+# <<< coursier install directory <<<
