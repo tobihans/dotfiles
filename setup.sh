@@ -45,7 +45,7 @@ function install::yay() {
 function install::yay_packages() {
 	install::yay
 
-	yay -Syu grpcurl \
+	yay -Syu coursier grpcurl \
 		ngrok \
 		passwordsafe-git postman-bin \
 		slack-desktop supertuxkart \
