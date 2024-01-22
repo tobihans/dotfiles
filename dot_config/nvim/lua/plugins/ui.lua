@@ -2,6 +2,10 @@
 return {
   "AstroNvim/astroui",
   opts = {
+    icons = {
+      Clock = "\u{e641}",
+      Calendar = "\u{f455}",
+    },
     status = {
       attributes = {
         mode = { bold = true },

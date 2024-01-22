@@ -1,3 +1,5 @@
+-- luacheck: globals vim
+
 vim.opt.so = 7
 vim.opt.hid = true
 vim.opt.ruler = true

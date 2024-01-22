@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -20,16 +21,10 @@ return {
         ["<leader>O"] = { name = "  Octo /  Overseer" },
 
         ["<M-s"] = {
-          -- TODO: Consider honoring NVIM_APPNAME
+          -- TODO: Use stdpath 'config'
           function()
-            if vim.fn.has "unix" then
-              vim.cmd "edit ~/.config/nvim/init.lua"
-              vim.cmd "cd ~/.config/nvim/"
-            else
-              vim.fn.has "win32"
-              vim.cmd "edit ~\\AppData\\Local\\nvim\\init.lua"
-              vim.cmd "cd ~\\AppData\\Local\\nvim"
-            end
+            local config = vim.fn.stdpath("config")
+            vim.cmd("edit " .. config .. "/init.lua")
           end,
           desc = "Open neovim settings",
         },

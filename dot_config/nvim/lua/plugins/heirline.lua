@@ -2,6 +2,7 @@ return {
   "rebelot/heirline.nvim",
   opts = function(_, opts)
     local status = require "astroui.status"
+    local components = require "utilities.components"
 
     opts.winbar = nil
 
@@ -9,7 +10,7 @@ return {
       hl = { fg = "fg", bg = "bg" },
       status.component.mode {
         mode_text = { padding = { left = 1, right = 1 } },
-      }, -- add the mode text
+      },
       status.component.git_branch(),
       status.component.file_info(),
       status.component.git_diff(),
@@ -17,10 +18,11 @@ return {
       status.component.fill(),
       status.component.cmd_info(),
       status.component.fill(),
-      -- status.component.lsp(),
+      status.component.lsp { lsp_progress = false },
       status.component.virtual_env(),
       status.component.treesitter(),
-      status.component.nav(),
+      status.component.nav { percentage = false, scrollbar = false },
+      components.clock,
     }
 
     opts.statuscolumn = {
@@ -29,6 +31,8 @@ return {
       status.component.numbercolumn(),
       status.component.foldcolumn(),
     }
+
+    components.start_clock_timer()
 
     return opts
   end,

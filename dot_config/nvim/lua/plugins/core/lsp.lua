@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -15,7 +16,7 @@ return {
         },
       },
       disabled = {},
-      timeout_ms = 2500,
+      timeout_ms = 3500,
     },
     servers = {},
     ---@diagnostic disable: missing-fields
@@ -52,17 +53,6 @@ return {
     mappings = {
       n = {
         K = { function() vim.lsp.buf.hover() end, desc = "Hover symbol details" },
-        gl = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
-        gD = {
-          function() vim.lsp.buf.declaration() end,
-          desc = "Declaration of current symbol",
-          cond = "textDocument/declaration",
-        },
-        ["<leader>uY"] = {
-          function() require("astrolsp.toggles").buffer_semantic_tokens() end,
-          desc = "Toggle LSP semantic highlight (buffer)",
-          cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens end,
-        },
       },
     },
   },

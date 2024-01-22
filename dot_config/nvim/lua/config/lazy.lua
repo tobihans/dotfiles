@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not (vim.env.LAZY or vim.loop.fs_stat(lazypath)) then
   vim.g.astronvim_first_install = true -- lets AstroNvim know that this is an initial installation

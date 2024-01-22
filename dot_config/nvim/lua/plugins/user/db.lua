@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 ---@type LazySpec
 return {
   {

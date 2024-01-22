@@ -1,5 +1,11 @@
 {
     "diagnostics.disable": [
         "undefined-doc-name"
+    ],
+    "diagnostics.globals": [
+        "ignore",
+        "self",
+        "cache",
+        "globals"
     ]
 }
