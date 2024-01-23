@@ -22,6 +22,9 @@ return {
     lazy = not require("utilities").has_conflicts(),
     cmd = "GitConflictListQf",
     event = "User AstroGitFile",
+    opts = {
+      disable_diagnostics = false,
+    },
     init = function()
       require("which-key").register {
         ["<leader>gq"] = {
