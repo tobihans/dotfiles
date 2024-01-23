@@ -1,8 +1,10 @@
 -- luacheck: globals vim
 
 local function yaml_ft(path, bufnr)
-  local content = vim.filetype.getlines(bufnr)
-  if type(content) == "table" then content = table.concat(content, "\n") end
+  -- local content = vim.filetype.getlines(bufnr)
+  -- if type(content) == "table" then content = table.concat(content, "\n") end
+
+  local content = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n")
 
   -- check if file is in roles, tasks, or handlers folder
   local path_regex = vim.regex "(tasks\\|roles\\|handlers)/"
