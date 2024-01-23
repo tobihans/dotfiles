@@ -1,3 +1,5 @@
+-- luacheck: globals vim
+---@type LazySpec
 return {
   "rebelot/heirline.nvim",
   opts = function(_, opts)

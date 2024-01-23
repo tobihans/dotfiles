@@ -21,6 +21,11 @@ return {
     servers = {},
     ---@diagnostic disable: missing-fields
     config = {
+      clangd = {
+        capabilities = {
+          offsetEncoding = "utf-8",
+        },
+      },
       cssls = {
         settings = {
           css = {
@@ -30,25 +35,43 @@ return {
           },
         },
       },
-      clangd = {
-        capabilities = {
-          offsetEncoding = "utf-8",
+      dartls = {
+        settings = {
+          showTodos = false,
         },
+        on_attach = function(client, bufnr)
+          require("astrolsp").on_attach(client, bufnr)
+          require("which-key").register(require("config.mappings.lsp").dart, { buffer = bufnr })
+        end,
+      },
+      denols = {
+        root_dir = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc"),
+      },
+      eslint = {
+        root_dir = require("lspconfig.util").root_pattern("package.json", ".eslintrc.json", ".eslintrc.js"),
+      },
+      metals = {
+        on_attach = function(client, bufnr)
+          require("astrolsp").on_attach(client, bufnr)
+          require("which-key").register(require("config.mappings.lsp").scala, { buffer = bufnr })
+        end,
+      },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {},
+        },
+        on_attach = function(client, bufnr)
+          require("astrolsp").on_attach(client, bufnr)
+          require("which-key").register(require("config.mappings.lsp").rust, { buffer = bufnr })
+        end,
       },
       tsserver = {
         root_dir = require("lspconfig.util").root_pattern "package.json",
         single_file_support = false,
       },
-      eslint = {
-        root_dir = require("lspconfig.util").root_pattern("package.json", ".eslintrc.json", ".eslintrc.js"),
-      },
-      denols = {
-        root_dir = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc"),
-      },
     },
-    setup_handlers = {
-      -- function(server, opts) require("lspconfig")[server].setup(opts) end
-      rust_analyzer = false,
+    handlers = {
+      -- function(server, opts) require("lspconfig")[server].setup(opts) end, or false to deactivate the deault setup
     },
     mappings = {
       n = {

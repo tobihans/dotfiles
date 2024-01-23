@@ -1,14 +1,6 @@
 -- luacheck: globals vim
 
-vim.filetype.add {
-  filename = {
-    ["docker-compose.yaml"] = "yaml.docker-compose",
-  },
-}
-
-local M = {}
-
-function M.yaml(path, bufnr)
+local function yaml_ft(path, bufnr)
   local content = vim.filetype.getlines(bufnr)
   if type(content) == "table" then content = table.concat(content, "\n") end
 
@@ -21,4 +13,22 @@ function M.yaml(path, bufnr)
 
   return "yaml"
 end
-return M
+
+vim.filetype.add {
+  extension = {
+    yml = yaml_ft,
+    yaml = yaml_ft,
+    hurl = "hurl",
+  },
+  pattern = {
+    -- Chezmoi dotfiles
+    ["dot_bash.*"] = "bash",
+    ["dot.*.sh"] = "bash",
+    ["dot_functions.*"] = "bash",
+    ["env.*"] = "bash",
+    [".env.*"] = "bash",
+  },
+  filename = {
+    ["docker-compose.yaml"] = "yaml.docker-compose",
+  },
+}

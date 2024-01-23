@@ -1,22 +1,4 @@
 -- luacheck: globals vim
-local utilities = require "utilities"
-
--- Custom filetypes
-vim.filetype.add {
-  extension = {
-    yml = utilities.ft.yaml,
-    yaml = utilities.ft.yaml,
-    hurl = "hurl",
-  },
-  pattern = {
-    -- Chezmoi dotfiles
-    ["dot_bash.*"] = "bash",
-    ["dot.*.sh"] = "bash",
-    ["dot_functions.*"] = "bash",
-    ["env.*"] = "bash",
-    [".env.*"] = "bash",
-  },
-}
 
 -- LSP highlights
 -- https://www.reddit.com/r/neovim/comments/12gvms4/this_is_why_your_higlights_look_different_in_90/
@@ -40,4 +22,5 @@ for newgroup, oldgroup in pairs(links) do
   vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
 end
 
+pcall(require, "config.ft")
 pcall(require, "config.autocmds")

@@ -1,4 +1,5 @@
--- luacheck: globals vim
+-- luacheck: globals vim, ignore 631
+
 local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not (vim.env.LAZY or vim.loop.fs_stat(lazypath)) then
   vim.g.astronvim_first_install = true -- lets AstroNvim know that this is an initial installation
@@ -48,10 +49,27 @@ lazy.setup({
   { "AstroNvim/AstroNvim", branch = "v4", import = "astronvim.plugins" },
   -- TODO: Remove branch v4 on release
   { "AstroNvim/astrocommunity", branch = "v4" },
+
+  -- Packs
+  { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.zig" }, -- Hehe, let's have some fun
+  { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.proto" },
+  { import = "astrocommunity.pack.scala" },
+  { import = "astrocommunity.pack.ansible" },
+  { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.pack.typescript-all-in-one" },
+
+  -- Test
+  { import = "astrocommunity.test.neotest" },
+
+  -- Local
   { import = "plugins" },
   { import = "plugins.core" },
   { import = "plugins.user" },

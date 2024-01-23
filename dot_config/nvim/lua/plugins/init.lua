@@ -10,5 +10,6 @@ return {
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
     },
+    mappings = require "config.mappings",
   },
 }

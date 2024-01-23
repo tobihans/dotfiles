@@ -3,7 +3,7 @@ return {
   {
     "echasnovski/mini.move",
     lazy = false,
-    version = false,
+    version = nil,
     init = function()
       local wk = require "which-key"
 

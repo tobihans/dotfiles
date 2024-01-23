@@ -15,11 +15,11 @@ return {
             "ToggleTerm vertical split",
           },
           d = {
-            function() require("astronvim.utils").toggle_term_cmd "lazydocker" end,
+            function() require("astrocore").toggle_term_cmd "lazydocker" end,
             "ToggleTerm lazydocker",
           },
           b = {
-            function() require("astronvim.utils").toggle_term_cmd "btop" end,
+            function() require("astrocore").toggle_term_cmd "btop" end,
             "ToggleTerm btop",
           },
         },
@@ -27,4 +27,3 @@ return {
     end,
   },
 }
-

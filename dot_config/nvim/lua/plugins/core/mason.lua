@@ -20,6 +20,7 @@ return {
         opts.ensure_installed,
         "ansiblels",
         "bashls",
+        "bufls",
         "clangd",
         "cssls",
         "denols",
@@ -58,17 +59,19 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
+        "buf",
         "clang_format",
         "deno_fmt",
         "djlint",
         "gofumpt",
         "goimports",
         "gomodifytags",
+        "hadolint",
         "iferr",
         "impl",
         "ktlint",
-        "prettier",
-        "protolint",
+        "php-cs-fixer",
+        "prettierd",
         "shellcheck",
         "shfmt",
         "stylua"
@@ -89,7 +92,7 @@ return {
           require("null-ls").register(require("null-ls").builtins.formatting.deno_fmt.with {
             condition = function(utils) return utils.root_has_file "deno.json" or utils.root_has_file "deno.jsonc" end,
           })
-        end
+        end,
       }
 
       return opts

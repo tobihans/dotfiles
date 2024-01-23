@@ -59,6 +59,7 @@ return {
         "rust",
         "scss",
         "sql",
+        "swift",
         "toml",
         "tsx",
         "typescript",

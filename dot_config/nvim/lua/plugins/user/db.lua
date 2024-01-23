@@ -4,9 +4,20 @@ return {
   {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
-      { "tpope/vim-dotenv", lazy = true },
-      { "tpope/vim-dadbod", lazy = true },
-      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+      { "tpope/vim-dotenv" },
+      { "tpope/vim-dadbod" },
+      {
+        "kristijanhusak/vim-dadbod-completion",
+        ft = { "sql", "mysql", "plsql" },
+        init = function()
+          vim.api.nvim_create_autocmd("FileType", {
+            desc = "dadbod completion",
+            group = vim.api.nvim_create_augroup("dadbod_cmp", { clear = true }),
+            pattern = { "sql", "mysql", "plsql" },
+            callback = function() require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } } end,
+          })
+        end,
+      },
     },
     cmd = {
       "DBUI",
@@ -14,6 +25,7 @@ return {
       "DBUIAddConnection",
       "DBUIFindBuffer",
     },
+    event = "VeryLazy",
     init = function()
       vim.g.db_ui_use_nerd_fonts = 1
       vim.g.db_ui_winwidth = 30

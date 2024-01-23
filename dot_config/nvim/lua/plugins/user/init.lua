@@ -1,20 +1,15 @@
+---@diagnostic disable: missing-fields
 -- luacheck: globals vim
+
 ---@type LazySpec
 return {
-  { "theHamsta/nvim-dap-virtual-text" },
-  { "mattn/emmet-vim", lazy = false },
   { "kaarmu/typst.vim", ft = "typst" },
+  { "theHamsta/nvim-dap-virtual-text" },
   { "wakatime/vim-wakatime", lazy = false },
   { "folke/zen-mode.nvim", cmd = "ZenMode" },
   { "tiagovla/scope.nvim", lazy = false, priority = 1500 },
   { "kevinhwang91/nvim-bqf", event = "VeryLazy", ft = "qf" },
   { "kylechui/nvim-surround", event = "VeryLazy", lazy = false, opts = {} },
-  { "akinsho/git-conflict.nvim", version = "*", config = true, event = "User AstroGitFile" },
-  {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
-    cmd = "Refactor",
-  },
   {
     "folke/todo-comments.nvim",
     lazy = false,
@@ -22,26 +17,74 @@ return {
     config = true,
   },
   {
-    "mbbill/undotree",
-    cmd = "UndotreeToggle",
-    config = function()
-      vim.g.undotree_WindowLayout = 3
-      vim.g.undotree_SetFocusWhenToggle = 1
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    lazy = not require("utilities").has_conflicts(),
+    cmd = "GitConflictListQf",
+    event = "User AstroGitFile",
+    init = function()
+      require("which-key").register {
+        ["<leader>gq"] = {
+          function() vim.cmd [[GitConflictListQf]] end,
+          "Git Conflicts quickfix",
+          silent = true,
+        },
+      }
     end,
+    config = true,
+  },
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
+    opts = {},
+    init = function()
+      local wk = require "which-key"
+      local name = "󱌣 Refactoring"
+
+      require("telescope").load_extension "refactoring"
+
+      wk.register {
+        ["<leader>r"] = {
+          name = name,
+          r = { function() require("telescope").extensions.refactoring.refactors() end, "Refactors" },
+          p = { function() require("refactoring").debug.printf { below = true } end, "Debug print" },
+          v = { function() require("refactoring").debug.print_var { below = true } end, "Debug print var" },
+          c = { function() require("refactoring").debug.cleanup {} end, "Debug cleanup" },
+        },
+      }
+
+      wk.register({
+        ["<leader>r"] = {
+          name = name,
+          r = { function() require("telescope").extensions.refactoring.refactors() end, "Refactors" },
+          v = { function() require("refactoring").debug.print_var { below = true } end, "Debug print var" },
+        },
+      }, { mode = "x" })
+    end,
+    config = true,
   },
   {
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
     cmd = "Neogen",
     opts = { snippet_engine = "luasnip" },
+    init = function()
+      require("which-key").register {
+        ["<leader>lg"] = {
+          function() vim.cmd [[Neogen]] end,
+          "Generate symbol documentation",
+          silent = true,
+        },
+      }
+    end,
     config = true,
   },
   {
     "folke/drop.nvim",
     event = "VimEnter",
-    opts = function(opts, _)
+    opts = function()
       local themes = { "leaves", "snow", "stars", "spring", "summer" }
-      opts = {
+      local opts = {
         max = 65,
         screensaver = 1000 * 60 * 5,
         theme = themes[math.random(#themes)],

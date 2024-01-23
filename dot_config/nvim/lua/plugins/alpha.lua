@@ -1,3 +1,4 @@
+-- TODO: Combine figlet, lolcat, and boxes to make a dynamic header
 local headers = {
   [[
  ██╗  ██╗ ███████╗██╗     ██╗      █████╗   ██╗  ██╗ █████╗ ███╗  ██╗ ██████╗ ██╗
