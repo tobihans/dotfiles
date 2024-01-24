@@ -53,8 +53,6 @@ lazy.setup({
   -- Packs
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.zig" }, -- Hehe, let's have some fun
-  { import = "astrocommunity.pack.nim" }, -- Hehe, let's have some fun
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.java" },
