@@ -8,13 +8,25 @@ return {
   { "wakatime/vim-wakatime", lazy = false },
   { "folke/zen-mode.nvim", cmd = "ZenMode" },
   { "tiagovla/scope.nvim", lazy = false, priority = 1500 },
-  { "kevinhwang91/nvim-bqf", event = "VeryLazy", ft = "qf" },
   { "kylechui/nvim-surround", event = "VeryLazy", lazy = false, opts = {} },
   {
     "folke/todo-comments.nvim",
     lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
     config = true,
+  },
+  {
+    "kevinhwang91/nvim-bqf",
+    event = "VeryLazy",
+    ft = "qf",
+    opts = {
+      filter = {
+        fzf = {
+          extra_opts = { "--bind", "ctrl-o:toggle-all", "--delimiter", "│" },
+        },
+      },
+    },
   },
   {
     "akinsho/git-conflict.nvim",
