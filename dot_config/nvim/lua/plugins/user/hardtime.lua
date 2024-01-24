@@ -22,6 +22,7 @@ return {
         "mason",
         "neo-tree",
         "neo-tree-popup",
+        "neotest-summary",
         "netrw",
         "noice",
         "null-ls-info",
