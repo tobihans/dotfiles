@@ -23,3 +23,10 @@ export PATH="$HOME/go/bin:$PATH"
 # >>> coursier install directory >>>
 export PATH="$PATH:/home/tobi/.local/share/coursier/bin"
 # <<< coursier install directory <<<
+
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export PATH="$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$PATH"
+export PATH="$PATH:$HOME/flutter/bin"
+
+export DVM_DIR="/home/tobi/.dvm"
+export PATH="$DVM_DIR/bin:$PATH"

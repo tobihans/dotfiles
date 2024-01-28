@@ -26,6 +26,9 @@ local lazy_opts = {
       height = 0.8,
     },
   },
+  dev = {
+    path = "~/neovim",
+  },
   change_detection = {
     enabled = true,
     notify = false,

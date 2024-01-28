@@ -6,23 +6,16 @@ local M = {}
 --- This is used to know if we should enable git-conflicts
 --- on startup or delay it.
 ---@return boolean
-function M.has_conflicts()
-  local obj = vim.system({ "git", "diff", "--check" }, { stderr = false, text = true }):wait()
-  return obj.stdout ~= ""
-end
+function M.has_conflicts() return vim.fn.system { "git", "diff", "--check" } ~= "" end
 
+--- Pretty display for quickfix and location list
+---@param info table<string, any>
+---@return table<string>
 function M.quickfixtextfunc(info)
   local fn = vim.fn
   local items
   local ret = {}
-  -- The name of item in list is based on the directory of quickfix window.
-  -- Change the directory for quickfix window make the name of item shorter.
-  -- It's a good opportunity to change current directory in quickfixtextfunc :)
-  --
-  -- local alterBufnr = fn.bufname('#') -- alternative buffer is the buffer before enter qf window
-  -- local root = getRootByAlterBufnr(alterBufnr)
-  -- vim.cmd(('noa lcd %s'):format(fn.fnameescape(root)))
-  --
+
   if info.quickfix == 1 then
     items = fn.getqflist({ id = info.id, items = 0 }).items
   else

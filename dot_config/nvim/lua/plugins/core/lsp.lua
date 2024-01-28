@@ -4,9 +4,14 @@ return {
   "AstroNvim/astrolsp",
   ---@type AstroLSPOpts
   opts = {
+    features = {
+      diagnostics_mode = 2,
+      inlay_hints = true,
+    },
     diagnostics = {
       virtual_text = false,
       underline = true,
+      update_in_insert = false,
     },
     formatting = {
       format_on_save = {
@@ -16,7 +21,7 @@ return {
         },
       },
       disabled = {},
-      timeout_ms = 3500,
+      timeout_ms = 4500,
     },
     servers = {},
     ---@diagnostic disable: missing-fields
@@ -65,8 +70,11 @@ return {
           require("which-key").register(require("config.mappings.lsp").rust, { buffer = bufnr })
         end,
       },
-      tsserver = {
-        root_dir = require("lspconfig.util").root_pattern "package.json",
+      -- tsserver = {
+      --   root_dir = require("lspconfig.util").root_pattern "package.json",
+      --   single_file_support = false,
+      -- },
+      ["typescript-tools"] = {
         single_file_support = false,
       },
     },

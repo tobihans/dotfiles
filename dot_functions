@@ -29,6 +29,11 @@ function dip()
 }
 
 function activate() {
+    if [[ -f "pyproject.toml" ]]; then
+        poetry shell
+        return
+    fi
+
     for dir in {"venv","env",".env",".venv"}
     do
         if [[ -d "$dir" ]] && [[ -f "$dir/bin/activate" ]]; then

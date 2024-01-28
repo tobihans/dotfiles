@@ -34,7 +34,7 @@ if ! [[ -f "$DESKTOP_FILE_PATH" ]]; then
 		--set-icon="$PWD/lib/AudioRelay.png" \
 		--add-category="AudioVideo;Audio" \
 		--set-key="Type" --set-value="Application" \
-		--set-key="Exec" --set-value="$PWD/relay.sh" \
+		--set-key="Exec" --set-value="$PWD/bin/AudioRelay" \
 		--set-key="Terminal" --set-value="false" \
 		--set-key="StartupWMClass" --set-value="audiorelay" \
 		--set-key="StartupNotify" --set-value="true" \
