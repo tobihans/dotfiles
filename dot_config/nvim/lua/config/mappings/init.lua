@@ -8,7 +8,10 @@ return {
     ["<C-space>"] = { function() vim.api.nvim_feedkeys("?", "n", false) end },
 
     ["<leader>O"] = { name = "  Octo /  Overseer" },
-    ["<leader><cr>"] = { function() return "<cmd>noh<cr>" end, desc = "noh", silent = true, expr = true },
+    ["<leader><cr>"] = {
+      function() vim.api.nvim_feedkeys(":noh" .. vim.api.nvim_replace_termcodes("<cr>", true, false, true), "n", false) end,
+      desc = "noh",
+    },
     ["<leader>m"] = {
       function() return "mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm" end,
       desc = "Remove the ^M Windows line endings",
