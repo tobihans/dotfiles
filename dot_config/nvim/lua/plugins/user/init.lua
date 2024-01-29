@@ -10,6 +10,12 @@ return {
   { "tiagovla/scope.nvim", lazy = false, priority = 1500 },
   { "kylechui/nvim-surround", event = "VeryLazy", lazy = false, opts = {} },
   {
+    "zeioth/garbage-day.nvim",
+    dependencies = "neovim/nvim-lspconfig",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
     "folke/todo-comments.nvim",
     lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -27,6 +33,14 @@ return {
         },
       },
     },
+  },
+  {
+    "f-person/git-blame.nvim",
+    event = "User AstroGitFile",
+    init = function()
+      vim.g.gitblame_enabled = 0
+      vim.g.gitblame_message_template = "  <author> • <date> • <summary> -- <sha>"
+    end,
   },
   {
     "akinsho/git-conflict.nvim",
@@ -98,11 +112,12 @@ return {
     "folke/drop.nvim",
     event = "VimEnter",
     opts = function()
-      local themes = { "leaves", "snow", "stars", "spring", "summer" }
+      -- local themes = { "leaves", "snow", "stars", "spring", "summer" }
       local opts = {
         max = 65,
         screensaver = 1000 * 60 * 5,
-        theme = themes[math.random(#themes)],
+        -- theme = themes[math.random(#themes)],
+        theme = "snow", -- to match my nord theme
         filetypes = { "dashboard", "alpha", "starter" },
       }
       return opts

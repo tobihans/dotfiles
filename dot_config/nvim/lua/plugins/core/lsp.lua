@@ -11,7 +11,6 @@ return {
     diagnostics = {
       virtual_text = false,
       underline = true,
-      update_in_insert = false,
     },
     formatting = {
       format_on_save = {

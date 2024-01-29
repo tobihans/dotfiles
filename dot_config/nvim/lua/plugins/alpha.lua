@@ -1,5 +1,3 @@
--- TODO: Combine figlet, lolcat, and boxes to make a dynamic footer
-
 ---@type LazySpec
 return {
   "goolord/alpha-nvim",

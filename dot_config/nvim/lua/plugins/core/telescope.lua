@@ -5,7 +5,6 @@ return {
     {
       "nvim-telescope/telescope-smart-history.nvim",
       dependencies = { "kkharji/sqlite.lua" },
-      build = "mkdir -p ~/.local/share/nvim/databases",
     },
     { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0" },
     -- {"debugloop/telescope-undo.nvim"}
