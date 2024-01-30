@@ -68,8 +68,6 @@ lazy.setup({
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
 
-  { import = "astrocommunity.editing-support.conform-nvim" },
-
   { import = "astrocommunity.test.neotest" },
 
   -- Local

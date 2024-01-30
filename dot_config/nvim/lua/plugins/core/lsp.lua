@@ -84,7 +84,6 @@ return {
     mappings = {
       n = {
         K = { function() vim.lsp.buf.hover() end, desc = "Hover symbol details" },
-        ["<Leader>lf"] = false,
       },
     },
   },
