@@ -5,7 +5,7 @@ return {
     "akinsho/toggleterm.nvim",
     init = function()
       require("which-key").register {
-        ["<leader>t"] = {
+        ["<Leader>t"] = {
           h = {
             function() vim.cmd(vim.v.count .. "ToggleTerm size=10 direction=horizontal") end,
             "ToggleTerm horizontal split",

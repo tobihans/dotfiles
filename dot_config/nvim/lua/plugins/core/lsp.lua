@@ -11,6 +11,7 @@ return {
     diagnostics = {
       virtual_text = false,
       underline = true,
+      update_in_insert = true,
     },
     formatting = {
       format_on_save = {
@@ -83,6 +84,7 @@ return {
     mappings = {
       n = {
         K = { function() vim.lsp.buf.hover() end, desc = "Hover symbol details" },
+        ["<Leader>lf"] = false,
       },
     },
   },

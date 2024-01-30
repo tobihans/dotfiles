@@ -7,12 +7,12 @@ return {
     ["<space>"] = { function() vim.api.nvim_feedkeys("/", "n", false) end },
     ["<C-space>"] = { function() vim.api.nvim_feedkeys("?", "n", false) end },
 
-    ["<leader>O"] = { name = "  Octo /  Overseer" },
-    ["<leader><cr>"] = {
+    ["<Leader>O"] = { name = "  Octo /  Overseer" },
+    ["<Leader><cr>"] = {
       function() vim.api.nvim_feedkeys(":noh" .. vim.api.nvim_replace_termcodes("<cr>", true, false, true), "n", false) end,
       desc = "noh",
     },
-    ["<leader>m"] = {
+    ["<Leader>m"] = {
       function() return "mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm" end,
       desc = "Remove the ^M Windows line endings",
       silent = true,

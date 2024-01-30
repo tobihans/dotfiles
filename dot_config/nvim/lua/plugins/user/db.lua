@@ -34,7 +34,7 @@ return {
       vim.g.db_ui_win_position = "left"
 
       require("which-key").register {
-        ["<leader>D"] = {
+        ["<Leader>D"] = {
           name = "󰆼 Db Tools",
           u = { "<cmd>DBUIToggle<cr>", " DB UI Toggle" },
           f = { "<cmd>DBUIFindBuffer<cr>", " DB UI Find buffer" },

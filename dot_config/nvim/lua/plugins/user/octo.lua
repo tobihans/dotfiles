@@ -10,8 +10,8 @@ return {
     cmd = "Octo",
     init = function()
       require("which-key").register {
-        ["<leader>Oo"] = { "<cmd>Octo<cr>", " Pick" },
-        ["<leader>Oa"] = { "<cmd>Octo actions<cr>", " Actions" },
+        ["<Leader>Oo"] = { "<cmd>Octo<cr>", " Pick" },
+        ["<Leader>Oa"] = { "<cmd>Octo actions<cr>", " Actions" },
       }
     end,
     config = true,

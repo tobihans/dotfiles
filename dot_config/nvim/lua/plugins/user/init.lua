@@ -53,7 +53,7 @@ return {
     },
     init = function()
       require("which-key").register {
-        ["<leader>gq"] = {
+        ["<Leader>gq"] = {
           function() vim.cmd [[GitConflictListQf]] end,
           "Git Conflicts quickfix",
           silent = true,
@@ -73,7 +73,7 @@ return {
       require("telescope").load_extension "refactoring"
 
       wk.register {
-        ["<leader>r"] = {
+        ["<Leader>r"] = {
           name = name,
           r = { function() require("telescope").extensions.refactoring.refactors() end, "Refactors" },
           p = { function() require("refactoring").debug.printf { below = true } end, "Debug print" },
@@ -83,7 +83,7 @@ return {
       }
 
       wk.register({
-        ["<leader>r"] = {
+        ["<Leader>r"] = {
           name = name,
           r = { function() require("telescope").extensions.refactoring.refactors() end, "Refactors" },
           v = { function() require("refactoring").debug.print_var { below = true } end, "Debug print var" },
@@ -99,7 +99,7 @@ return {
     opts = { snippet_engine = "luasnip" },
     init = function()
       require("which-key").register {
-        ["<leader>lg"] = {
+        ["<Leader>lg"] = {
           function() vim.cmd [[Neogen]] end,
           "Generate symbol documentation",
           silent = true,

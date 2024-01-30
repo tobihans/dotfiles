@@ -12,7 +12,7 @@ return {
   init = function()
     local wk = require "which-key"
     wk.register {
-      ["<leader>f"] = {
+      ["<Leader>f"] = {
         g = {
           function() require("telescope-live-grep-args.shortcuts").grep_word_under_cursor() end,
           "Find word under cursor",
@@ -25,7 +25,7 @@ return {
     }
 
     wk.register({
-      ["<leader>f"] = {
+      ["<Leader>f"] = {
         name = " Find",
         v = {
           function() require("telescope-live-grep-args.shortcuts").grep_visual_selection() end,

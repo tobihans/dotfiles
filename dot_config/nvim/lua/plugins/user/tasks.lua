@@ -30,10 +30,9 @@ return {
     },
     init = function()
       require("which-key").register {
-        ["<leader>Or"] = { "<cmd>OverseerRun<CR>", " Run Task" },
-        ["<leader>Ot"] = { "<cmd>OverseerToggle<CR>", " Toggle tasks" },
+        ["<Leader>Or"] = { "<cmd>OverseerRun<CR>", " Run Task" },
+        ["<Leader>Ot"] = { "<cmd>OverseerToggle<CR>", " Toggle tasks" },
       }
     end,
   },
 }
-

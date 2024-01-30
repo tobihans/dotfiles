@@ -45,7 +45,7 @@ function install::yay() {
 function install::yay_packages() {
 	install::yay
 
-	yay -Syu coursier grpcurl \
+	yay -Syu grpcurl \
 		ngrok \
 		passwordsafe-git postman-bin \
 		slack-desktop supertuxkart \
@@ -103,7 +103,7 @@ function install::cargo_packages() {
 	install::rustup
 
 	cargo install cargo-expand cargo-watch \
-	stylua tidy-viewer tree-sitter-cli
+		stylua tidy-viewer tree-sitter-cli
 	cargo install create-tauri-app --locked
 	cargo install starship --locked
 	cp /home/"$USER"/.cargo/bin/tidy-viewer ~/.local/bin/
