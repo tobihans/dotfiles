@@ -5,7 +5,6 @@ return {
   ---@type AstroLSPOpts
   opts = {
     features = {
-      diagnostics_mode = 2,
       inlay_hints = true,
     },
     diagnostics = {

@@ -123,7 +123,8 @@ function install::cli_tools() {
 		sudo pacman -Syu python-pipx
 	fi
 
-	python -m pipx install poetry sqlite-utils grip
+	python -m pipx install poetry sqlite-utils grip ansible
+	python -m pipx inject --include-apps ansible ansible-lint
 	printf "Instructions for sqlite-utils:\n"
 	printf "sqlite-utils install sqlean.py\nsqlite-utils install sqlite-dump"
 }
