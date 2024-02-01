@@ -1,14 +1,29 @@
 -- luacheck: globals vim
 return {
   dart = {
-    ["<localleader>f"] = {
+    ["<Localleader>f"] = {
       name = " Flutter Tools",
       c = { function() require("telescope").extensions.flutter.commands() end, "Flutter Commands" },
       s = { function() require("telescope").extensions.flutter.fvm() end, "Flutter SDK (fvm)" },
     },
   },
+  go = {
+    ["<Localleader>g"] = {
+      name = " Go Tools",
+      c = { "<cmd>GoCmt", "GoCmt" },
+      f = { "<cmd>GoIfErr", "GoIfErr" },
+      i = { "<cmd>GoImpl ", "GoImpl" },
+      m = { "<cmd>GoMod ", "GoMod" },
+      r = { "<cmd>GoGet ", "GoGet" },
+      ta = { "<cmd>GoTagAdd ", "GoTagAdd" },
+      tr = { "<cmd>GoTagRm ", "GoTagRm" },
+      Ta = { "<cmd>GoTestAdd", "GoTestAdd" },
+      Te = { "<cmd>GoTestsExp", "GoTestsExp" },
+      TA = { "<cmd>GoTestsAll", "GoTestsAll" },
+    },
+  },
   rust = {
-    ["<localleader>r"] = {
+    ["<Localleader>r"] = {
       name = "󱘗 Rust Tools",
       x = { function() vim.cmd.RustLsp "expandMacro" end, " Expand Macros Recursively" },
       m = { function() vim.cmd.RustLsp "rebuildProcMacros" end, " Rebuild proc macros" },
@@ -23,8 +38,8 @@ return {
     },
   },
   scala = {
-    ["<localleader>s"] = {
-      name = " Scala (Metals)",
+    ["<Localleader>s"] = {
+      name = " Scala Tools",
       c = { function() require("telescope").extensions.metals.commands() end, "Metals Commands" },
     },
   },

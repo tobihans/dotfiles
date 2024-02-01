@@ -8,6 +8,7 @@ return {
         "",
         "aerial",
         "alpha",
+        "crates.nvim",
         "dap-repl",
         "dapui_breakpoints",
         "dapui_console",

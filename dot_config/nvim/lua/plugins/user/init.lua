@@ -35,14 +35,6 @@ return {
     },
   },
   {
-    "f-person/git-blame.nvim",
-    event = "User AstroGitFile",
-    init = function()
-      vim.g.gitblame_enabled = 0
-      vim.g.gitblame_message_template = "  <author> • <date> • <summary> -- <sha>"
-    end,
-  },
-  {
     "akinsho/git-conflict.nvim",
     version = "*",
     lazy = not require("utilities").has_conflicts(),
