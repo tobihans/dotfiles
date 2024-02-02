@@ -51,7 +51,7 @@ lazy.setup({
   -- TODO: change `branch="v4"` to `version="^4"` on release
   { "AstroNvim/AstroNvim", branch = "v4", import = "astronvim.plugins" },
   -- TODO: Remove branch v4 on release
-  { "AstroNvim/astrocommunity", branch = "v4", dev = true },
+  { "AstroNvim/astrocommunity", branch = "v4" },
 
   -- Packs
   { import = "astrocommunity.pack.go" },

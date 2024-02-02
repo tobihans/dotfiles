@@ -10,16 +10,23 @@ return {
   go = {
     ["<Localleader>g"] = {
       name = " Go Tools",
-      c = { "<cmd>GoCmt", "GoCmt" },
-      f = { "<cmd>GoIfErr", "GoIfErr" },
-      i = { "<cmd>GoImpl ", "GoImpl" },
-      m = { "<cmd>GoMod ", "GoMod" },
-      r = { "<cmd>GoGet ", "GoGet" },
-      ta = { "<cmd>GoTagAdd ", "GoTagAdd" },
-      tr = { "<cmd>GoTagRm ", "GoTagRm" },
-      Ta = { "<cmd>GoTestAdd", "GoTestAdd" },
-      Te = { "<cmd>GoTestsExp", "GoTestsExp" },
-      TA = { "<cmd>GoTestsAll", "GoTestsAll" },
+      c = { "<cmd>GoCmt<cr>", "Generate comment" },
+      e = { function() vim.api.nvim_feedkeys(":GoGet ", "n", false) end, "Run go get" },
+      f = { "<cmd>GoIfErr<cr>", "Generate if err" },
+      g = { function() vim.api.nvim_feedkeys(":GoGenerate ", "n", false) end, "go generate" },
+      i = { function() vim.api.nvim_feedkeys(":GoImpl ", "n", false) end, "Implement interace" },
+      m = { function() vim.api.nvim_feedkeys(":GoMod ", "n", false) end, "Run go mod" },
+      t = {
+        name = "󰓹 Tags",
+        a = { function() vim.api.nvim_feedkeys(":GoTagAdd ", "n", false) end, "Add yaml/json tag" },
+        r = { function() vim.api.nvim_feedkeys(":GoTagRm ", "n", false) end, "Rm yaml/json tag" },
+      },
+      T = {
+        name = "󰗇 Tests",
+        a = { "<cmd>GoTestAdd<cr>", "Generate test" },
+        e = { "<cmd>GoTestsExp<cr>", "Generate test for exported" },
+        A = { "<cmd>GoTestsAll<cr>", "Generate test for all" },
+      },
     },
   },
   rust = {
