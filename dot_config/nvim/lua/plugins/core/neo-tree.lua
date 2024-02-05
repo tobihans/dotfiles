@@ -6,4 +6,3 @@ return {
     return opts
   end,
 }
-

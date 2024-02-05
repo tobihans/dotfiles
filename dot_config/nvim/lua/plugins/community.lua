@@ -76,4 +76,31 @@ return {
       return opts
     end,
   },
+  {
+    "vuki656/package-info.nvim",
+    dependencies = "MunifTanjim/nui.nvim",
+    init = function()
+      require("telescope").load_extension "package_info"
+
+      vim.api.nvim_create_autocmd("BufRead", {
+        group = vim.api.nvim_create_augroup("PackageJsonKeymap", { clear = true }),
+        desc = "Setup package-info.nvim keymaps into package.json buffers",
+        pattern = "package.json",
+        callback = function()
+          local package_info = require "package-info"
+
+          require("which-key").register({
+            ["<Localleader>p"] = {
+              name = "󰏗 Package.json tools",
+              c = { "<cmd>Telescope package_info<cr>", "All commands" },
+              s = { package_info.show, "Show dependencies" },
+              d = { package_info.delete, "Delete package" },
+              v = { package_info.change_version, "Change package version" },
+              i = { package_info.install, "Install a package" },
+            },
+          }, { silent = true, noremap = true })
+        end,
+      })
+    end,
+  },
 }

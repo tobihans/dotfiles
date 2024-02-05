@@ -3,6 +3,8 @@ require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local lsp_util = require "lspconfig.util"
 
+local deno_root = lsp_util.root_pattern("deno.json", "deno.jsonc")
+
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -52,12 +54,13 @@ return {
           require("which-key").register(require("config.mappings.lsp").dart, { buffer = bufnr })
         end,
       },
-      denols = {
-        single_file_support = true,
-        root_dir = lsp_util.root_pattern("deno.json", "deno.jsonc", "supabase"),
-      },
+      denols = { root_dir = deno_root },
       eslint = {
-        root_dir = lsp_util.root_pattern("package.json", ".eslintrc.json", ".eslintrc.js"),
+        root_dir = function(filename, _)
+          if not deno_root(filename) then
+            return lsp_util.root_pattern("package.json", ".eslintrc.json", ".eslintrc.js")(filename)
+          end
+        end,
       },
       gopls = {
         settings = {
@@ -83,20 +86,21 @@ return {
         end,
       },
       rust_analyzer = {
-        settings = {
-          ["rust-analyzer"] = {},
-        },
         on_attach = function(client, bufnr)
           require("astrolsp").on_attach(client, bufnr)
           require("which-key").register(require("config.mappings.lsp").rust, { buffer = bufnr })
         end,
       },
-      -- tsserver = {
-      --   root_dir = require("lspconfig.util").root_pattern "package.json",
-      --   single_file_support = false,
-      -- },
+      tailwindcss = {
+        root_dir = function(filename, _)
+          if not deno_root(filename) then return lsp_util.root_pattern "tailwind.config.js"(filename) end
+        end,
+      },
       ["typescript-tools"] = {
         single_file_support = false,
+        root_dir = function(filename, _)
+          if not deno_root(filename) then return lsp_util.root_pattern "package.json"(filename) end
+        end,
       },
     },
     handlers = {
