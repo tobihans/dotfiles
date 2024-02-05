@@ -67,6 +67,7 @@ return {
         "gofumpt",
         "goimports",
         "goimports-reviser",
+        "golangci-lint",
         "golines",
         "gomodifytags",
         "iferr",
