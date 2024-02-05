@@ -92,8 +92,7 @@ return {
           require("which-key").register({
             ["<Localleader>p"] = {
               name = "󰏗 Package.json tools",
-              c = { "<cmd>Telescope package_info<cr>", "All commands" },
-              s = { package_info.show, "Show dependencies" },
+              s = { function() package_info.show { force = true } end, "Show dependencies" },
               d = { package_info.delete, "Delete package" },
               v = { package_info.change_version, "Change package version" },
               i = { package_info.install, "Install a package" },

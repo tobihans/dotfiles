@@ -5,9 +5,12 @@ return {
     config = function()
       require("lint").linters_by_ft = {
         htmldjango = { "djlint" },
-        sh = { "shellcheck" },
         markdown = { "markdownlint" },
-        php = { "psalm" },
+        php = { "psalm", "tlint" },
+        proto = { "protolint", "buf_lint" },
+        sh = { "shellcheck" },
+        sql = { "sqlfluff" },
+        yaml = { "yamllint" },
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
