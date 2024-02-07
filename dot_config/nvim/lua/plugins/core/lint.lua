@@ -3,7 +3,8 @@ return {
   {
     "mfussenegger/nvim-lint",
     config = function()
-      require("lint").linters_by_ft = {
+      local lint = require "lint"
+      lint.linters_by_ft = {
         go = { "golangcilint" },
         htmldjango = { "djlint" },
         markdown = { "markdownlint" },
@@ -12,6 +13,14 @@ return {
         sh = { "shellcheck" },
         sql = { "sqlfluff" },
         yaml = { "yamllint" },
+      }
+
+      lint.linters.yamllint.args = {
+        "-c",
+        vim.fn.stdpath "config" .. "/conf/yamllint.yml",
+        "--format",
+        "parsable",
+        "-",
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
