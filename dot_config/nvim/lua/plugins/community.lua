@@ -1,20 +1,5 @@
 ---@type LazySpec
 return {
-  -- TODO: Remove this once https://github.com/AstroNvim/astrocommunity/pull/746 is merged
-  {
-    "ray-x/go.nvim",
-    enabled = true,
-    opts = {
-      disable_defaults = true,
-    },
-  },
-  {
-    "olexsmir/gopher.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
   {
     "akinsho/flutter-tools.nvim",
     dependencies = {

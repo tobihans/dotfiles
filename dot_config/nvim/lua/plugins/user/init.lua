@@ -11,6 +11,7 @@ return {
   { "kylechui/nvim-surround", event = "VeryLazy", lazy = false, opts = {} },
   {
     "zeioth/garbage-day.nvim",
+    enabled = false,
     dependencies = "neovim/nvim-lspconfig",
     event = "VeryLazy",
     opts = {},

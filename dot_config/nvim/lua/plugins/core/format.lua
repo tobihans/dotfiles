@@ -21,7 +21,6 @@ return {
         sh = { "shfmt" },
         sql = { "sqlfluff" },
         svelte = { "prettier" },
-        toml = { "taplo" },
         typescriptreact = { "prettier" },
         typescript = function(bufnr)
           local deno_root = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
