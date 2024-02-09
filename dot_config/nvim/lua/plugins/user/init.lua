@@ -6,6 +6,7 @@ return {
   { "kaarmu/typst.vim", ft = "typst" },
   { "theHamsta/nvim-dap-virtual-text" },
   { "wakatime/vim-wakatime", lazy = false },
+  { "mg979/vim-visual-multi", lazy = false },
   { "folke/zen-mode.nvim", cmd = "ZenMode" },
   { "tiagovla/scope.nvim", lazy = false, priority = 1500 },
   { "kylechui/nvim-surround", event = "VeryLazy", lazy = false, opts = {} },
@@ -41,10 +42,9 @@ return {
     lazy = not require("utilities").has_conflicts(),
     cmd = "GitConflictListQf",
     event = "User AstroGitFile",
-    opts = {
-      disable_diagnostics = false,
-    },
-    init = function()
+    opts = function(_, opts)
+      opts.disable_diagnostics = false
+
       require("which-key").register {
         ["<Leader>gq"] = {
           function() vim.cmd [[GitConflictListQf]] end,
@@ -52,14 +52,15 @@ return {
           silent = true,
         },
       }
+
+      return opts
     end,
     config = true,
   },
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
-    opts = {},
-    init = function()
+    opts = function(_, opts)
       local wk = require "which-key"
       local name = "󱌣 Refactoring"
 
@@ -82,6 +83,8 @@ return {
           v = { function() require("refactoring").debug.print_var { below = true } end, "Debug print var" },
         },
       }, { mode = "x" })
+
+      return opts
     end,
     config = true,
   },
@@ -89,8 +92,9 @@ return {
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
     cmd = "Neogen",
-    opts = { snippet_engine = "luasnip" },
-    init = function()
+    opts = function(_, opts)
+      opts.snippet_engine = "luasnip"
+
       require("which-key").register {
         ["<Leader>lg"] = {
           function() vim.cmd [[Neogen]] end,
@@ -98,6 +102,8 @@ return {
           silent = true,
         },
       }
+
+      return opts
     end,
     config = true,
   },
@@ -114,24 +120,6 @@ return {
         filetypes = { "dashboard", "alpha", "starter" },
       }
       return opts
-    end,
-  },
-  {
-    "mg979/vim-visual-multi",
-    lazy = false,
-    config = function()
-      vim.g.VM_default_mappings = 1
-      vim.g.VM_mouse_mappings = 0
-
-      vim.g.VM_maps = {
-        ["Find Under"] = "<C-n>",
-        ["Find Subword Under"] = "<C-n>",
-        ["Select Cursor Down"] = "<M-C-Down>",
-        ["Select Cursor Up"] = "<M-C-Up>",
-        -- Enable undo/redo experimental feature
-        ["Undo"] = "u",
-        ["Redo"] = "<C-r>",
-      }
     end,
   },
 }

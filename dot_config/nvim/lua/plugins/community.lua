@@ -16,7 +16,6 @@ return {
   },
   {
     "Saecki/crates.nvim",
-    init = function() end,
     opts = function(_, opts)
       opts.popup = {
         autofocus = true,
@@ -24,12 +23,13 @@ return {
         border = "rounded",
       }
 
-      -- Setup some keybindings
-      vim.api.nvim_create_autocmd("BufRead", {
-        group = vim.api.nvim_create_augroup("CargoKeymap", { clear = true }),
-        desc = "Setup crates.nvim keymaps into Cargo buffers",
-        pattern = "Cargo.toml",
-        callback = function()
+      opts.null_ls = {
+        enabled = false,
+      }
+
+      opts.lsp = {
+        enabled = true,
+        on_attach = function(client, buf)
           local crates = require "crates"
           local wk = require "which-key"
           wk.register({
@@ -62,7 +62,7 @@ return {
             },
           }, { mode = "v", silent = true })
         end,
-      })
+      }
 
       return opts
     end,

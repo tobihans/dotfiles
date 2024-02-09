@@ -1,9 +1,6 @@
 -- luacheck: globals vim
 
 local function yaml_ft(path, bufnr)
-  -- local content = vim.filetype.getlines(bufnr)
-  -- if type(content) == "table" then content = table.concat(content, "\n") end
-
   local content = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n")
 
   -- check if file is in roles, tasks, or handlers folder
@@ -24,13 +21,15 @@ vim.filetype.add {
   },
   pattern = {
     -- Chezmoi dotfiles
-    ["dot_bash.*"] = "bash",
-    ["dot.*.sh"] = "bash",
-    ["dot_functions.*"] = "bash",
-    ["env.*"] = "bash",
-    [".env.*"] = "bash",
+    ["dot_bash.*"] = "sh",
+    ["dot.*.sh"] = "sh",
+    ["dot_functions.*"] = "sh",
   },
   filename = {
+    ["env.example"] = "sh",
+    ["env.dist"] = "sh",
+    [".env.example"] = "sh",
+    [".env.dist"] = "sh",
     ["docker-compose.yaml"] = "yaml.docker-compose",
   },
 }
