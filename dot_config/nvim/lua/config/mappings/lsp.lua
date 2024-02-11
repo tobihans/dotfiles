@@ -50,4 +50,11 @@ return {
       c = { function() require("telescope").extensions.metals.commands() end, "Metals Commands" },
     },
   },
+  typst = {
+    ["<Localleader>t"] = {
+      name = "󰈦 Typst tools",
+      w = { "<cmd>TypstWatch<cr>", "Watch and compile your document" },
+      c = { "<cmd>Tocv<cr>", "Table of contents" },
+    },
+  },
 }

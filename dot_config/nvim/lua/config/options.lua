@@ -69,6 +69,9 @@ vim.opt.encoding = "utf-8"
 vim.opt.ffs = "unix,dos"
 vim.opt.background = "dark"
 
+-- Local configs
+vim.o.exrc = true
+
 -- Quickfix
 _G.qftf = require("utilities").quickfixtextfunc
 vim.o.qftf = "{info -> v:lua._G.qftf(info)}"

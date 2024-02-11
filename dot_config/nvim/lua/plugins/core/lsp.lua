@@ -102,6 +102,15 @@ return {
           if not deno_root(filename) then return lsp_util.root_pattern "package.json"(filename) end
         end,
       },
+      typst_lsp = {
+        settings = {
+          exportPdf = "never", -- Choose onType, onSave or never.
+        },
+        on_attach = function(client, bufnr)
+          require("astrolsp").on_attach(client, bufnr)
+          require("which-key").register(require("config.mappings.lsp").typst, { buffer = bufnr })
+        end,
+      },
     },
     handlers = {
       -- function(server, opts) require("lspconfig")[server].setup(opts) end, or false to deactivate the deault setup

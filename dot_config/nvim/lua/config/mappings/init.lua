@@ -19,6 +19,10 @@ return {
       expr = true,
     },
 
+    ["<Localleader>l"] = { name = " Lists" },
+    ["<Localleader>lq"] = { "<cmd>cwindow<cr>", desc = "Quickfix list" },
+    ["<Localleader>ll"] = { "<cmd>cwindow<cr>", desc = "Location list" },
+
     ["<M-s>"] = {
       function()
         local config = vim.fn.stdpath "config"
