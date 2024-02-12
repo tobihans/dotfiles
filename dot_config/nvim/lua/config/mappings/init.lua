@@ -12,6 +12,7 @@ return {
       function() vim.api.nvim_feedkeys(":noh" .. vim.api.nvim_replace_termcodes("<cr>", true, false, true), "n", false) end,
       desc = "noh",
     },
+    ["<Leader>r"] = { function() vim.cmd [[edit %]] end, desc = "󰑓 Reload current buffer" },
     ["<Leader>m"] = {
       function() return "mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm" end,
       desc = "Remove the ^M Windows line endings",
