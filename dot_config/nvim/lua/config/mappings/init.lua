@@ -8,6 +8,7 @@ return {
     ["<C-space>"] = { function() vim.api.nvim_feedkeys("?", "n", false) end },
 
     ["<Leader>O"] = { name = "  Octo /  Overseer" },
+    ["<Leader>G"] = { name = "󱎓 Games" },
     ["<Leader><cr>"] = {
       function() vim.api.nvim_feedkeys(":noh" .. vim.api.nvim_replace_termcodes("<cr>", true, false, true), "n", false) end,
       desc = "noh",
