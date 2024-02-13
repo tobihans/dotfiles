@@ -13,7 +13,14 @@ return {
       }
     end,
     opts = {
-      enable_cody = false,
+      -- FIXME: This throws an error
+      -- .../share/nvim/lazy/sg.nvim/lua/sg/cody/plugin/commands.lua:211: Invalid command (not found): CodyChat
+      -- # stacktrace:
+      --   - /sg.nvim/lua/sg/cody/plugin/commands.lua:211 _in_ **delete_command**
+      --   - /sg.nvim/lua/sg/cody/plugin/commands.lua:228 _in_ **setup**
+      --   - /sg.nvim/lua/sg/init.lua:40 _in_ **setup**
+
+      -- enable_cody = false,
       accept_tos = true,
       on_attach = require("astrolsp").on_attach,
     },
