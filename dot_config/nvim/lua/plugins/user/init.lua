@@ -8,6 +8,7 @@ return {
   { "wakatime/vim-wakatime", lazy = false },
   { "mg979/vim-visual-multi", lazy = false },
   { "folke/zen-mode.nvim", cmd = "ZenMode" },
+  -- { "tamton-aquib/keys.nvim", cmd = "KeysToggle" },
   { "tiagovla/scope.nvim", lazy = false, priority = 1500 },
   { "kylechui/nvim-surround", event = "VeryLazy", lazy = false, opts = {} },
   {
@@ -122,7 +123,7 @@ return {
       -- local themes = { "leaves", "snow", "stars", "spring", "summer" }
       local opts = {
         max = 65,
-        screensaver = 1000 * 60 * 5,
+        screensaver = 1000 * 60 * 15, -- 15 minutes
         -- theme = themes[math.random(#themes)],
         theme = "snow", -- to match my nord theme
         filetypes = { "dashboard", "alpha", "starter" },
