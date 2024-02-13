@@ -21,6 +21,14 @@ return {
     "folke/todo-comments.nvim",
     lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
+    init = function()
+      require("which-key").register {
+        ["<Leader>fT"] = {
+          "<cmd>TodoTelescope<CR>",
+          "Find TODOs",
+        },
+      }
+    end,
     opts = {},
     config = true,
   },
