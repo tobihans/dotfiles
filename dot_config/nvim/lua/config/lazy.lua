@@ -8,8 +8,10 @@ local lazy_spec = {
     branch = "v4",
     import = "astronvim.plugins",
     opts = function(_, opts)
-      opts.mapleader = ","
-      opts.maplocalleader = ";"
+      require "config.options"
+
+      opts.mapleader = vim.g.mapleader
+      opts.maplocalleader = vim.g.maplocalleader
 
       return opts
     end,
