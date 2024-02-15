@@ -35,6 +35,7 @@ vim.opt.switchbuf = "useopen,usetab,uselast,vsplit"
 -- line break on 500 chars
 vim.opt.lbr = true
 vim.opt.tw = 500
+vim.opt.showbreak = "↪"
 vim.opt.ai = true -- auto indentation
 vim.opt.si = true -- smart indentation
 vim.opt.wrap = true
@@ -58,7 +59,10 @@ vim.opt.lazyredraw = false -- disabled due to noice.nvim
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-vim.opt.fillchars = "eob: "
+vim.opt.fillchars = { eob = " " }
+
+vim.opt.list = true
+vim.opt.listchars = { eol = "↲", tab = " ", trail = "•", extends = "»", precedes = "«" }
 
 vim.opt.backup = false
 vim.opt.wb = false
@@ -91,7 +95,7 @@ vim.g.autoformat_enabled = false
 vim.g.copilot_enabled = true
 vim.g.resession_enabled = true
 
-vim.g.VM_default_mappings = 1
+vim.g.VM_default_mappings = 0
 vim.g.VM_mouse_mappings = 0
 
 vim.g.VM_maps = {

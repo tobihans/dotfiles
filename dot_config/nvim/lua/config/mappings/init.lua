@@ -20,6 +20,7 @@ return {
       silent = true,
       expr = true,
     },
+    ["<Leader>uW"] = { "<cmd>set list!<cr>", desc = "Toggle whitespace" },
 
     ["<Localleader>l"] = { name = " Lists" },
     ["<Localleader>lq"] = { "<cmd>cwindow<cr>", desc = "Quickfix list" },
