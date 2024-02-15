@@ -62,7 +62,7 @@ vim.opt.foldlevelstart = 99
 vim.opt.fillchars = { eob = " " }
 
 vim.opt.list = true
-vim.opt.listchars = { eol = "↲", tab = " ", trail = "•", extends = "»", precedes = "«" }
+vim.opt.listchars = { eol = "↲", tab = " ", trail = "•", extends = "»", precedes = "«", nbsp = "␣" }
 
 vim.opt.backup = false
 vim.opt.wb = false
