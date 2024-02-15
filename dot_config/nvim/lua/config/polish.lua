@@ -22,5 +22,7 @@ for newgroup, oldgroup in pairs(links) do
   vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
 end
 
+vim.cmd [[set wrap]] -- NOTE: Until I figure out, why it's not took from options.lua
+
 pcall(require, "config.ft")
 pcall(require, "config.autocmds")
