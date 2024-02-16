@@ -1,5 +1,3 @@
--- luacheck: globals vim
-
 return {
   n = {
     ["0"] = { function() vim.api.nvim_feedkeys("^", "n", false) end, desc = "First non-blank character" },

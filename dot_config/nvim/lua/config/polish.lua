@@ -1,5 +1,3 @@
--- luacheck: globals vim
-
 -- LSP highlights
 -- https://www.reddit.com/r/neovim/comments/12gvms4/this_is_why_your_higlights_look_different_in_90/
 local links = {
@@ -22,7 +20,6 @@ for newgroup, oldgroup in pairs(links) do
   vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
 end
 
-vim.cmd [[set wrap]] -- NOTE: Until I figure out, why it's not took from options.lua
-
-pcall(require, "config.ft")
-pcall(require, "config.autocmds")
+require "config.options"
+require "config.ft"
+require "config.autocmds"

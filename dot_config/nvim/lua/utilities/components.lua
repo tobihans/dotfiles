@@ -1,4 +1,3 @@
--- luacheck: globals vim
 local M = {}
 local status = require "astroui.status"
 

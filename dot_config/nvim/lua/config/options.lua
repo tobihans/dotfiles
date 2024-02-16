@@ -1,5 +1,3 @@
--- luacheck: globals vim
-
 vim.opt.so = 7
 vim.opt.hid = true
 vim.opt.ruler = true
@@ -35,10 +33,10 @@ vim.opt.switchbuf = "useopen,usetab,uselast,vsplit"
 -- line break on 500 chars
 vim.opt.lbr = true
 vim.opt.tw = 500
-vim.opt.showbreak = "↪"
 vim.opt.ai = true -- auto indentation
 vim.opt.si = true -- smart indentation
 vim.opt.wrap = true
+vim.opt.showbreak = "↪"
 vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.tabstop = 4

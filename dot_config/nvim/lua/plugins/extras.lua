@@ -1,5 +1,4 @@
 ---@diagnostic disable: missing-fields
--- luacheck: globals vim
 
 ---@type LazySpec
 return {

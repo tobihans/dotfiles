@@ -1,5 +1,3 @@
--- luacheck: globals vim
-
 local M = {}
 
 --- Checks if there is a git conflict in the current dir

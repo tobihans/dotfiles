@@ -1,5 +1,3 @@
--- luacheck: globals vim, ignore 631
-
 ---@type LazySpec
 local lazy_spec = {
   -- TODO: change `branch="v4"` to `version="^4"` on release
@@ -8,10 +6,8 @@ local lazy_spec = {
     branch = "v4",
     import = "astronvim.plugins",
     opts = function(_, opts)
-      opts.mapleader = vim.g.mapleader
-      opts.maplocalleader = vim.g.maplocalleader
-
-      return opts
+      opts.mapleader = ","
+      opts.maplocalleader = ";"
     end,
   },
 
@@ -38,7 +34,7 @@ local lazy_spec = {
 
 ---@type LazyConfig
 local lazy_opts = {
-  install = { colorscheme = { "astrodark", "habamax" } },
+  install = { colorscheme = { "habamax" } },
   ui = {
     border = "double",
     size = {

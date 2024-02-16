@@ -1,4 +1,3 @@
--- luacheck: globals vim
 return {
   dart = {
     ["<Localleader>f"] = {

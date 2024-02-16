@@ -7,20 +7,13 @@ return {
       lint.linters_by_ft = {
         go = { "golangcilint" },
         htmldjango = { "djlint" },
+        lua = { "luacheck" },
         markdown = { "markdownlint" },
         php = { "psalm", "tlint" },
         proto = { "protolint", "buf_lint" },
         sh = { "shellcheck" },
         sql = { "sqlfluff" },
         yaml = { "yamllint" },
-      }
-
-      lint.linters.yamllint.args = {
-        "-c",
-        vim.fn.stdpath "config" .. "/conf/yamllint.yml",
-        "--format",
-        "parsable",
-        "-",
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {

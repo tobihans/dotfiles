@@ -1,4 +1,3 @@
--- luacheck: globals vim
 ---@type LazySpec
 return {
   "rebelot/heirline.nvim",
@@ -26,6 +25,7 @@ return {
       status.component.nav { percentage = false, scrollbar = false },
       components.clock,
     }
+    components.start_clock_timer()
 
     opts.statuscolumn = {
       init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
@@ -33,8 +33,6 @@ return {
       status.component.numbercolumn(),
       status.component.foldcolumn(),
     }
-
-    components.start_clock_timer()
 
     return opts
   end,

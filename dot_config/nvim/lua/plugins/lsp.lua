@@ -1,4 +1,3 @@
--- luacheck: globals vim
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local lsp_util = require "lspconfig.util"
