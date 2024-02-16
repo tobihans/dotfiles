@@ -40,14 +40,15 @@ alias spk='echo `python3 -c "from distutils.sysconfig import get_python_lib; pri
 alias gradl="./gradlew"
 alias mkube='minikube'
 alias supabase="npx supabase"
-alias http="python3 -m http.server"  # quick http server for files
+alias http="python3 -m http.server" # quick http server for files
+alias act="gh act"
 
 # Command line tools
 alias lzd="lazydocker"
 alias lzg="lazygit"
 alias tv="tidy-viewer"
 alias scpy="scrcpy >/dev/null 2>&1 &"
-alias prism="npx @stoplight/prism-cli@latest"  # api mocking
+alias prism="npx @stoplight/prism-cli@latest" # api mocking
 alias cookiecutter="pipx run cookiecutter"
 
 # Misc
@@ -56,4 +57,3 @@ alias pj="/usr/bin/env python3 -m json.tool"
 alias xo='xdg-open >/dev/null 2>/dev/null'
 alias off='shutdown -h now'
 alias lpipx="rm -rf ~/.pipx-list && pipx list | grep -Ei '^\s+package' | awk '{print $2}' > ~/.pipx-list"
-
