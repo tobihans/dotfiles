@@ -128,9 +128,6 @@ function install::cli_tools() {
 	python -m pipx inject --include-apps ansible ansible-lint
 	printf "Instructions for sqlite-utils:\n"
 	printf "sqlite-utils install sqlean.py\nsqlite-utils install sqlite-dump"
-
-	# gh exynos
-	gh extension install https://github.com/nektos/gh-act
 }
 
 function setup() {
