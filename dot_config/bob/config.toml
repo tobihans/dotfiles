@@ -1,0 +1,2 @@
+enable_release_build = true
+rollback_limit = 2
