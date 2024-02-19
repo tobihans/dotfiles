@@ -3,6 +3,7 @@ return {
   {
     "sourcegraph/sg.nvim",
     event = "VeryLazy",
+    enabled = false,
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
     init = function()
       require("which-key").register {
