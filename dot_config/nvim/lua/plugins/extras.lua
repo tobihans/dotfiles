@@ -5,7 +5,6 @@ return {
   { "kaarmu/typst.vim", ft = "typst" },
   { "theHamsta/nvim-dap-virtual-text" },
   { "wakatime/vim-wakatime", lazy = false },
-  { "mg979/vim-visual-multi", lazy = false },
   { "folke/zen-mode.nvim", cmd = "ZenMode" },
   -- { "tamton-aquib/keys.nvim", cmd = "KeysToggle" },
   { "tiagovla/scope.nvim", lazy = false, priority = 1500 },
@@ -43,6 +42,24 @@ return {
         },
       },
     },
+  },
+  {
+    "mg979/vim-visual-multi",
+    init = function()
+      vim.g.VM_default_mappings = 0
+      vim.g.VM_mouse_mappings = 0
+
+      vim.g.VM_maps = {
+        ["Find Under"] = "<C-n>",
+        ["Find Subword Under"] = "<C-n>",
+        ["Select Cursor Down"] = "<C-M-Down>",
+        ["Select Cursor Up"] = "<C-M-Up>",
+        -- Enable undo/redo experimental feature
+        ["Undo"] = "u",
+        ["Redo"] = "<C-r>",
+      }
+    end,
+    lazy = false,
   },
   {
     "akinsho/git-conflict.nvim",

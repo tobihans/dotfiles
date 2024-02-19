@@ -19,6 +19,7 @@ return {
         "dbui",
         "help",
         "lazy",
+        "leetcode.nvim",
         "lspinfo",
         "mason",
         "neo-tree",

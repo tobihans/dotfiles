@@ -93,19 +93,6 @@ vim.g.autoformat_enabled = false
 vim.g.copilot_enabled = true
 vim.g.resession_enabled = true
 
-vim.g.VM_default_mappings = 0
-vim.g.VM_mouse_mappings = 0
-
-vim.g.VM_maps = {
-  ["Find Under"] = "<C-n>",
-  ["Find Subword Under"] = "<C-n>",
-  ["Select Cursor Down"] = "<C-M-Down>",
-  ["Select Cursor Up"] = "<C-M-Up>",
-  -- Enable undo/redo experimental feature
-  ["Undo"] = "u",
-  ["Redo"] = "<C-r>",
-}
-
 -- Disable mouse item in context menu
 vim.api.nvim_exec2(
   [[
