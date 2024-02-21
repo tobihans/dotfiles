@@ -91,7 +91,6 @@ vim.g.loaded_perl_provider = false
 vim.g.icons_enabled = true
 vim.g.autoformat_enabled = false
 vim.g.copilot_enabled = true
-vim.g.resession_enabled = true
 
 -- Disable mouse item in context menu
 vim.api.nvim_exec2(
