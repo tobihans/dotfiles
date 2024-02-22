@@ -1,14 +1,13 @@
-#
+#!/usr/bin/env bash
+
 # ~/.bash_profile
 #
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 . "$HOME/.cargo/env"
 
-
 # Added by Toolbox App
 export PATH="$PATH:/home/tobi/.local/share/JetBrains/Toolbox/scripts"
-
 
 export DVM_DIR="/home/tobi/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"

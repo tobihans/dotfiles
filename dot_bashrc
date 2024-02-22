@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 export OSH=$HOME/.oh-my-bash
 
 OSH_THEME="" # using starship
