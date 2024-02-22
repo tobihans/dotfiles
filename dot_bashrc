@@ -1,6 +1,6 @@
 export OSH=$HOME/.oh-my-bash
 
-OSH_THEME=""  # using starship
+OSH_THEME="" # using starship
 
 HYPHEN_INSENSITIVE="true"
 
@@ -10,27 +10,31 @@ COMPLETION_WAITING_DOTS="true"
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+DISABLE_UPDATE_PROMPT=false
+
+DISABLE_AUTO_UPDATE=true
+
 completions=(
-  git
-  ssh
+	git
+	ssh
 )
 
 aliases=(
-  general
+	general
 )
 
 plugins=(
-  git
-  sudo
+	git
+	sudo
 )
 
 export EDITOR='nvim'
 
 # HISTORY
-shopt -s histappend  # append to history file
+shopt -s histappend # append to history file
 # Ignore duplicates & limit file size
 export HISTFILESIZE=2000
-export HISTCONTROL=ignoredups:erasedups 
+export HISTCONTROL=ignoredups:erasedups
 
 source $OSH/oh-my-bash.sh
 source $HOME/.profile
@@ -38,18 +42,15 @@ source $HOME/.functions
 
 # Machine specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-  for rc in ~/.bashrc.d/*; do
-    if [ -f "$rc" ]; then
-      . "$rc"
-    fi
-  done
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc"
+		fi
+	done
 fi
 unset rc
 
-# PS1 + PS2
-eval "$(starship init bash)"
-
 MANPAGER='bat -l man --italic-text always --decorations always --style=numbers,grid'
 
-# Nvim version manager
-export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+# PS1 + PS2
+eval "$(starship init bash)"

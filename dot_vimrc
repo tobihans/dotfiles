@@ -61,6 +61,9 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 set rnu
 set nu
 
+set clipboard+=unnamed  " use the clipboards of vim and win
+set paste               " Paste from a windows or from vim
+
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
@@ -148,7 +151,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme slate
+    colorscheme habamax
 catch
 endtry
 
@@ -390,3 +393,5 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+"https://stackoverflow.com/questions/38329792/is-it-possible-to-split-a-window-in-vim-vi-with-a-terminal

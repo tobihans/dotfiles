@@ -1,6 +1,0 @@
-   package frappe-bench 5.17.2, installed using Python 3.11.3
-   package honcho 1.1.0, installed using Python 3.11.3
-   package mitmproxy 10.1.1, installed using Python 3.11.5
-   package notebook 7.0.3, installed using Python 3.11.3
-   package sqlite-utils 3.35.1, installed using Python 3.11.5
-   package supervisor 4.2.5, installed using Python 3.11.3
