@@ -12,8 +12,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "awk",
         "bash",
         "c",
@@ -67,8 +66,8 @@ return {
         "vimdoc",
         "vue",
         "xml",
-        "yaml"
-      )
+        "yaml",
+      })
 
       opts.highlight = { enable = true }
       opts.indent = { enable = true }

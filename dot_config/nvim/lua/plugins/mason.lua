@@ -21,8 +21,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "ansiblels",
         "bashls",
         "bufls",
@@ -51,8 +50,8 @@ return {
         "unocss",
         "vimls",
         "volar",
-        "yamlls"
-      )
+        "yamlls",
+      })
 
       return opts
     end,
@@ -91,8 +90,7 @@ return {
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "bash",
         "codelldb",
         "delve",
@@ -100,8 +98,8 @@ return {
         "java-test",
         "kotlin",
         "php",
-        "python"
-      )
+        "python",
+      })
 
       return opts
     end,
