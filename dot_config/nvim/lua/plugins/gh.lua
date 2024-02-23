@@ -33,6 +33,18 @@ return {
           startup_failure = "",
         },
       },
+      split = {
+        size = 48,
+        win_options = {
+          wrap = false,
+          number = false,
+          foldlevel = nil,
+          foldcolumn = "0",
+          signcolumn = "no",
+          cursorcolumn = false,
+          relativenumber = false,
+        },
+      },
     },
     config = true,
   },

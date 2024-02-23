@@ -47,6 +47,7 @@ if ! [[ -x "$(command -v rustup)" ]]; then
 fi
 
 # SDK
+sudo pacman -Syu curl zip unzip
 if ! [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
 	curl -s "https://get.sdkman.io" | bash
 fi
