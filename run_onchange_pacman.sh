@@ -4,7 +4,7 @@
 packages=(
 	"android-tools" "android-udev"
 	"base-devel" "bat" "btop"
-	"chromium" "cmake" "composer" "cryfs"
+	"chezmoi" "chromium" "cmake" "composer" "cryfs"
 	"dart-sass" "discord" "docker" "docker-buildx" "docker-compose"
 	"fd" "ffmpeg" "firefox-developer-edition" "fzf"
 	"gdu" "git" "github-cli" "go"
