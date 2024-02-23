@@ -27,7 +27,7 @@ locked_cargo_packages=(
 )
 cargo install "${cargo_packages[@]}"
 cargo install --locked "${locked_cargo_packages[@]}"
-if ! [[ -x "$(command -v sqlite-utils)" ]]; then
+if [[ -x "$(command -v bob)" ]]; then
 	bob install nightly
 	bob install stable
 	bob use nightly
