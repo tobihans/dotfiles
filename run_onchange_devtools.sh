@@ -41,3 +41,11 @@ if ! [[ -x "$(command -v sqlite-utils)" ]]; then
 	sqlite-utils install sqlean.py
 	sqlite-utils install sqlite-dump
 fi
+
+# Go
+go_packages=(
+	"github.com/mikefarah/yq/v4@latest"
+)
+for pkg in "${go_packages[@]}"; do
+	go install "$pkg"
+done
