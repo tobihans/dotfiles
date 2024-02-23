@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Base requirements
 
+sudo pacman -Syu curl zip unzip git
+
 # Pacman base-devel
 base_devel=$(
 	pacman -Qi "base-devel" >/dev/null 2>&1
@@ -47,7 +49,6 @@ if ! [[ -x "$(command -v rustup)" ]]; then
 fi
 
 # SDK
-sudo pacman -Syu curl zip unzip
 if ! [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
 	curl -s "https://get.sdkman.io" | bash
 fi
