@@ -27,6 +27,11 @@ locked_cargo_packages=(
 )
 cargo install "${cargo_packages[@]}"
 cargo install --locked "${locked_cargo_packages[@]}"
+if ! [[ -x "$(command -v sqlite-utils)" ]]; then
+	bob install nightly
+	bob install stable
+	bob use nightly
+fi
 
 # PipX
 pipx_packages=(
