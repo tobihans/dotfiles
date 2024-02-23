@@ -31,7 +31,7 @@ for package in "${packages[@]}"; do
 
 	if [[ "$check" -ne "0" ]]; then
 		echo "$package [installing]"
-		sudo pacman -Syu --needed "$package"
+		sudo pacman -Syu --needed --noconfirm "$package"
 		echo "$package [installed]"
 	else
 		echo "$package [installed]"

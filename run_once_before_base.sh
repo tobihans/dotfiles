@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Base requirements
 
-sudo pacman -Syu curl zip unzip git
+sudo pacman -Syu --noconfirm curl zip unzip git
 
 # Pacman base-devel
 base_devel=$(
