@@ -32,4 +32,19 @@ return {
     },
     config = true,
   },
+  {
+    "EdenEast/nightfox.nvim",
+    priority = 10000,
+    lazy = false,
+    enabled = false, -- TODO: Enable later
+    opts = {
+      options = {
+        styles = {
+          comments = "italic",
+          keywords = "bold",
+          types = "italic,bold",
+        },
+      },
+    },
+  },
 }

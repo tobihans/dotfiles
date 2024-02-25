@@ -38,7 +38,6 @@ return {
         "jsonls",
         "kotlin_language_server",
         "lua_ls",
-        "marksman",
         "phpactor",
         "prismals",
         "pyright",
