@@ -19,7 +19,7 @@ return {
         -- https://github.com/ryanoasis/powerline-extra-symbols
         -- tab = { "", "" },
         -- tab = { "", "" },
-        tab = { "", "" },
+        -- tab = { "", "" },
         breadcrumbs = "  ",
         path = "  ",
       },

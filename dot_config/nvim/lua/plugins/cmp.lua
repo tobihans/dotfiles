@@ -1,5 +1,5 @@
 local function has_words_before()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local line, col = (unpack or table.unpack)(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
@@ -10,16 +10,33 @@ return {
     disabled = not vim.g.copilot_enabled,
     cmd = "Copilot",
     event = "User AstroFile",
-    opts = { panel = { enabled = false }, suggestion = { auto_trigger = true, debounce = 150 } },
+    opts = { panel = { enabled = false }, suggestion = { enabled = false } },
+  },
+  {
+    "onsails/lspkind.nvim",
+    opts = {
+      symbol_map = {
+        Copilot = "",
+      },
+    },
   },
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "zbirenbaum/copilot.lua", { "hrsh7th/cmp-cmdline", enabled = false } },
+    dependencies = {
+      { "hrsh7th/cmp-cmdline", enabled = false },
+      {
+        "zbirenbaum/copilot-cmp",
+        dependencies = { "zbirenbaum/copilot.lua" },
+        config = function() require("copilot_cmp").setup() end,
+      },
+    },
     opts = function(_, opts)
-      local cmp = require "cmp"
-      local luasnip = require "luasnip"
-      local copilot = require "copilot.suggestion"
+      local cmp, luasnip = require "cmp", require "luasnip"
 
+      if not opts.sources then opts.sources = {} end
+      table.insert(opts.sources, { name = "copilot", priority = 1500, group_index = 1 })
+
+      if not opts.mappings then opts.mappings = {} end
       opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -31,7 +48,6 @@ return {
           fallback()
         end
       end, { "i", "s" })
-
       opts.mapping["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -42,25 +58,14 @@ return {
         end
       end, { "i", "s" })
 
-      if vim.g.copilot_enabled then
-        opts.mapping["<C-c>"] = cmp.mapping(function()
-          if copilot.is_visible() then copilot.accept() end
-        end)
-
-        opts.mapping["<C-x>"] = cmp.mapping(function()
-          if copilot.is_visible() then copilot.next() end
-        end)
-
-        opts.mapping["<C-z>"] = cmp.mapping(function()
-          if copilot.is_visible() then copilot.prev() end
-        end)
-      end
-
       return opts
     end,
     config = function(_, opts)
-      local cmp = require "cmp"
+      local cmp, cmp_autopairs = require "cmp", require "nvim-autopairs.completion.cmp"
+
       cmp.setup(opts)
+      -- Add parentheses after selecting function or method item
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
       -- NOTE: Disabling for now as it breaks noice tab completion in cmdline mode
 
