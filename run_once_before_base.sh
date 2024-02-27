@@ -52,3 +52,8 @@ fi
 if ! [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
 	curl -s "https://get.sdkman.io" | bash
 fi
+
+# TODO: Setup Victor Mono Nerdfont
+# git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts ~/Code/nerd-fonts
+# cd nerd-fonts || exit
+# git sparse-checkout add patched-fonts/VictorMono
