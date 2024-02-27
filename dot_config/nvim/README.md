@@ -137,7 +137,6 @@ NVIM_APPNAME=tobihans/dotfiles/dot_config/nvim nvim
 ### utility
 
 - [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
-- [kawre/leetcode.nvim](https://dotfyle.com/plugins/kawre/leetcode.nvim)
 - [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
 
 ### workflow
