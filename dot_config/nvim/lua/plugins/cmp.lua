@@ -61,11 +61,12 @@ return {
       return opts
     end,
     config = function(_, opts)
-      local cmp, cmp_autopairs = require "cmp", require "nvim-autopairs.completion.cmp"
+      local cmp = require "cmp"
+      -- local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 
       cmp.setup(opts)
       -- Add parentheses after selecting function or method item
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
       -- NOTE: Disabling for now as it breaks noice tab completion in cmdline mode
 
