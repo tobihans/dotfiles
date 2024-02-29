@@ -2,6 +2,7 @@
 # Installs yay packages
 
 packages=(
+	"circumflex" "glow"
 	"lazydocker" "lazygit"
 	"ngrok"
 	"passwordsafe-git"

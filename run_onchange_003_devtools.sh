@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 # Install tools via development kits
 
+# Gitpod CLI
+if ! [[ -x "$(command -v gitpod)" ]]; then
+	curl --output "$HOME"/.local/bin/gitpod https://gitpod.io/static/bin/gitpod-cli-linux-amd64
+	chmod +x "$HOME"/.local/bin/gitpod
+	gitpod config set --telemetry=false
+fi
+
 # SDK
 sdk_packages=(
 	"gradle"
 	"kotlin"
 	"maven"
 )
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# shellcheck disable=SC1091
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME"/.sdkman/bin/sdkman-init.sh
 for pkg in "${sdk_packages[@]}"; do
 	sdk install "$pkg"
 done

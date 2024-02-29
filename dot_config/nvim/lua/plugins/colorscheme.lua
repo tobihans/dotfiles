@@ -18,12 +18,8 @@ return {
       diff = { mode = "fg" }, -- enables/disables colorful backgrounds when used in diff mode. values : [bg|fg]
       borders = true, -- Enable the border between verticaly split windows visible
       errors = { mode = "fg" }, -- Display mode for errors and diagnostics
-      -- values : [bg|fg|none]
       search = { theme = "vscode" }, -- theme for highlighting search results
-      -- values : [vim|vscode]
       styles = {
-        -- Style to be applied to different syntax groups
-        -- Value is any valid attr-list value for `:help nvim_set_hl`
         comments = { italic = true },
         keywords = {},
         functions = {},

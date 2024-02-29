@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
 # Base requirements
 
-sudo pacman -Syu --noconfirm curl zip unzip git
+requirements=(
+	"curl"
+	"git"
+	"unzip"
+	"zip"
+)
+for requirement in "${requirements[@]}"; do
+	if ! [[ -x "$(command -v "$requirement")" ]]; then
+		sudo pacman -Syu --noconfirm --needed "$requirement"
+	fi
+done
 
 # Pacman base-devel
 base_devel=$(
@@ -10,7 +20,7 @@ base_devel=$(
 )
 if [[ "$base_devel" -ne "0" ]]; then
 	echo "base-devel [installing]"
-	sudo pacman -S --needed "base-devel"
+	sudo pacman -S --needed --noconfirm "base-devel"
 	echo "base-devel [installed]"
 else
 	echo "base-devel [installed]"
@@ -18,7 +28,7 @@ fi
 
 # Yay
 if ! [[ -x "$(command -v git)" ]]; then
-	pacman -S git
+	pacman -S --noconfirm git
 fi
 if ! [[ -x "$(command -v yay)" ]]; then
 	pwdir=$(pwd)

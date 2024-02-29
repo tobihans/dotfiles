@@ -11,6 +11,7 @@ return {
         markdown = { "markdownlint" },
         php = { "psalm", "tlint" },
         proto = { "protolint", "buf_lint" },
+        python = { "ruff" }, -- TODO: Remove once I figure out why ruff lsp is failing
         sh = { "shellcheck" },
         sql = { "sqlfluff" },
         yaml = { "yamllint" },
