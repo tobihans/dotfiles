@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -eo pipefail
 
 # Installs yay packages
 
@@ -9,7 +9,7 @@ packages=(
 	"ngrok"
 )
 
-if [[ -n "$XDG_CURRENT_DESKTOP" ]]; then
+if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
 		"passwordsafe-git"
 		"slack-desktop" "supertuxkart"

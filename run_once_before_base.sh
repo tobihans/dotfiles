@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -eo pipefail
 
 # Base requirements
 
@@ -46,7 +46,7 @@ if ! [[ -x "$(command -v yay)" ]]; then
 fi
 
 # NVM
-if ! [[ -s "$NVM_DIR/nvm.sh" ]]; then
+if ! [[ -s "${NVM_DIR:-$HOME/.nvm}/nvm.sh" ]]; then
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 fi
 

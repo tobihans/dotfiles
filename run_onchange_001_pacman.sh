@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -eo pipefail
 
 # Installs pacman packages
 
@@ -24,7 +24,7 @@ packages=(
 	"zip"
 )
 
-if [[ -n "$XDG_CURRENT_DESKTOP" ]]; then
+if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
 		"chromium"
 		"discord"
