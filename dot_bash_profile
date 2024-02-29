@@ -7,11 +7,11 @@
 . "$HOME/.cargo/env"
 
 # Added by Toolbox App
-export PATH="$PATH:/home/tobi/.local/share/JetBrains/Toolbox/scripts"
+export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
-export DVM_DIR="/home/tobi/.dvm"
+export DVM_DIR="$HOME/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
 
 # >>> coursier install directory >>>
-export PATH="$PATH:/home/tobi/.local/share/coursier/bin"
+export PATH="$PATH:$HOME/.local/share/coursier/bin"
 # <<< coursier install directory <<<

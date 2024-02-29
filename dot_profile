@@ -9,7 +9,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # PNPM
-export PNPM_HOME="/home/tobi/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
 # Ensure $USER bin folders are part of $PATH
@@ -21,14 +21,14 @@ fi
 export PATH="$HOME/go/bin:$PATH"
 
 # >>> coursier install directory >>>
-export PATH="$PATH:/home/tobi/.local/share/coursier/bin"
+export PATH="$PATH:$HOME/.local/share/coursier/bin"
 # <<< coursier install directory <<<
 
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export PATH="$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$PATH"
 export PATH="$PATH:$HOME/flutter/bin"
 
-export DVM_DIR="/home/tobi/.dvm"
+export DVM_DIR="$HOME/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
