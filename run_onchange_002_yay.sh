@@ -5,10 +5,15 @@ packages=(
 	"circumflex" "glow"
 	"lazydocker" "lazygit"
 	"ngrok"
-	"passwordsafe-git"
-	"slack-desktop" "supertuxkart"
-	"zoom"
 )
+
+if [[ -n "$XDG_CURRENT_DESKTOP" ]]; then
+	packages+=(
+		"passwordsafe-git"
+		"slack-desktop" "supertuxkart"
+		"zoom"
+	)
+fi
 # "wkhtmltopdf"
 
 # Install packages
@@ -20,7 +25,7 @@ for package in "${packages[@]}"; do
 
 	if [[ "$check" -ne "0" ]]; then
 		echo "$package [installing]"
-		yay -Syu --noconfirm "$package"
+		yay -Syu --noconfirm --answerdiff None --answerclean None "$package"
 		echo "$package [installed]"
 	else
 		echo "$package [installed]"

@@ -4,24 +4,37 @@
 packages=(
 	"android-tools" "android-udev"
 	"base-devel" "bat" "btop"
-	"chezmoi" "chromium" "cmake" "composer" "cryfs"
-	"dart-sass" "discord" "docker" "docker-buildx" "docker-compose"
-	"fd" "ffmpeg" "firefox-developer-edition" "fzf"
+	"chezmoi" "cmake" "composer" "cryfs"
+	"dart-sass" "docker" "docker-buildx" "docker-compose"
+	"fd" "ffmpeg" "fzf"
 	"gdu" "git" "github-cli" "go"
 	"jq"
-	"kitty" "keepassxc"
 	"luarocks"
 	"m4" "make" "minikube" "mosh"
 	"neofetch" "ninja"
-	"onefetch" "onlyoffice-desktopeditors" "openssh"
+	"onefetch" "openssh"
 	"php" "php-apache" "php-cgi" "php-embed" "php-fpm" "php-gd" "php-igbinary" "php-redis" "python-pipx"
-	"php-snmp" "postgresql-libs" "powerdevil" "powertop" "protobuf"
-	"redis" "remmina" "ripgrep"
-	"scrcpy" "screen" "screenkey" "slack-desktop" "sniffnet"
-	"tlp" "tlpui" "tmux" "tree"
+	"php-snmp" "postgresql-libs"
+	"redis" "ripgrep"
+	"scrcpy" "screen"
+	"tmux" "tree"
 	"unzip"
 	"zip"
 )
+
+if [[ -n "$XDG_CURRENT_DESKTOP" ]]; then
+	packages+=(
+		"chromium"
+		"discord"
+		"firefox-developer-edition"
+		"kitty" "keepassxc"
+		"onlyoffice-desktopeditors"
+		"powerdevil" "powertop" "protobuf"
+		"remmina"
+		"tlp" "tlpui"
+		"screenkey" "sniffnet"
+	)
+fi
 
 for package in "${packages[@]}"; do
 	check=$(
