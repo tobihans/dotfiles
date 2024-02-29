@@ -7,7 +7,7 @@ packages=(
 	"android-tools" "android-udev"
 	"base-devel" "bat" "btop"
 	"chezmoi" "cmake" "composer" "cryfs"
-	"dart-sass" "docker" "docker-buildx" "docker-compose"
+	"dart-sass" "docker" "docker-buildx"
 	"fd" "ffmpeg" "fzf"
 	"gdu" "git" "github-cli" "go"
 	"jq"
@@ -27,7 +27,7 @@ packages=(
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
 		"chromium"
-		"discord"
+		"discord" "docker-compose"
 		"firefox-developer-edition"
 		"kitty" "keepassxc"
 		"onlyoffice-desktopeditors"
