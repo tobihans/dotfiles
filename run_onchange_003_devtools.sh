@@ -8,7 +8,7 @@ if ! [[ -x "$(command -v gitpod)" ]]; then
 	mkdir -p "$HOME"/.local/bin
 	curl --output "$HOME"/.local/bin/gitpod https://gitpod.io/static/bin/gitpod-cli-linux-amd64
 	chmod +x "$HOME"/.local/bin/gitpod
-	gitpod config set --telemetry=false
+	"$HOME"/.local/bin/gitpod config set --telemetry=false
 fi
 
 # SDK
