@@ -36,6 +36,8 @@ cargo_packages=(
 locked_cargo_packages=(
 	"starship"
 )
+# shellcheck disable=SC1091
+source "$HOME"/.cargo/env
 cargo install "${cargo_packages[@]}"
 cargo install --locked "${locked_cargo_packages[@]}"
 if [[ -x "$(command -v bob)" ]]; then
