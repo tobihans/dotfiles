@@ -36,7 +36,7 @@ if ! [[ -x "$(command -v yay)" ]]; then
 
 	git clone https://aur.archlinux.org/yay-git.git yay
 	cd yay || exit
-	makepkg -si
+	makepkg -si --noconfirm
 
 	cd .. || exit
 	rm -rf yay

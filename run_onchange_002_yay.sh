@@ -7,9 +7,9 @@ packages=(
 	"ngrok"
 	"passwordsafe-git"
 	"slack-desktop" "supertuxkart"
-	"wkhtmltopdf"
 	"zoom"
 )
+# "wkhtmltopdf"
 
 # Install packages
 for package in "${packages[@]}"; do
@@ -20,7 +20,7 @@ for package in "${packages[@]}"; do
 
 	if [[ "$check" -ne "0" ]]; then
 		echo "$package [installing]"
-		yay -Syu "$package"
+		yay -Syu --noconfirm "$package"
 		echo "$package [installed]"
 	else
 		echo "$package [installed]"
