@@ -52,3 +52,5 @@ for package in "${packages[@]}"; do
 		echo "$package [installed]"
 	fi
 done
+
+# Install lazydocker in gitpod

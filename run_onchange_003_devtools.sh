@@ -61,6 +61,8 @@ fi
 # Go
 go_packages=(
 	"github.com/mikefarah/yq/v4@latest"
+	"github.com/jesseduffield/lazygit@latest"
+	"github.com/jesseduffield/lazydocker@latest"
 )
 for pkg in "${go_packages[@]}"; do
 	go install "$pkg"

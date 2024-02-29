@@ -4,9 +4,7 @@ set -eo pipefail
 # Installs yay packages
 
 packages=(
-	"circumflex" "glow"
-	"lazydocker" "lazygit"
-	"ngrok"
+	"circumflex" "glow" "ngrok"
 )
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
