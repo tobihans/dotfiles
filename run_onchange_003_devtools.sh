@@ -69,3 +69,8 @@ go_packages=(
 for pkg in "${go_packages[@]}"; do
 	go install "$pkg"
 done
+
+# Install latest node LTS version if not already installed
+if ! [[ -x "$(command -v node)" ]]; then
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm install --lts && nvm alias node
+fi
