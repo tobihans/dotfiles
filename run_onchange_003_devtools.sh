@@ -3,6 +3,8 @@ set -eo pipefail
 
 # Install tools via development kits
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # Gitpod CLI
 if ! [[ -x "$(command -v gitpod)" ]]; then
 	mkdir -p "$HOME"/.local/bin
