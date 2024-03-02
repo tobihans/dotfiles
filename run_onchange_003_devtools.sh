@@ -37,6 +37,7 @@ cargo_packages=(
 )
 locked_cargo_packages=(
 	"starship"
+	"create-tauri-app"
 )
 # shellcheck disable=SC1091
 source "$HOME"/.cargo/env

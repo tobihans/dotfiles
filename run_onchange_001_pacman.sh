@@ -2,11 +2,10 @@
 set -eo pipefail
 
 # Installs pacman packages
-
 packages=(
 	"android-tools" "android-udev"
 	"base-devel" "bat" "btop"
-	"chezmoi" "cmake" "composer" "cryfs"
+	"chezmoi" "cmake" "composer" "cryfs" "curl"
 	"dart-sass" "docker" "docker-buildx"
 	"fd" "ffmpeg" "fzf"
 	"gdu" "git" "github-cli" "go"
@@ -14,7 +13,7 @@ packages=(
 	"luarocks"
 	"m4" "make" "minikube" "mosh"
 	"neofetch" "ninja"
-	"onefetch" "openssh"
+	"onefetch" "openssh" "openssl"
 	"php" "php-apache" "php-cgi" "php-embed" "php-fpm" "php-gd" "php-igbinary" "php-redis" "python-pipx"
 	"php-snmp" "postgresql-libs"
 	"redis" "ripgrep"
@@ -22,19 +21,24 @@ packages=(
 	"tmux" "tree"
 	"unzip"
 	"zip"
+	"wget"
 )
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
+		"appmenu-gtk-module"
 		"chromium"
 		"discord" "docker-compose"
 		"firefox-developer-edition"
+		"gtk3"
 		"kitty" "keepassxc"
+		"libappindicator-gtk3" "librsvg" "libvips"
 		"onlyoffice-desktopeditors"
 		"powerdevil" "powertop" "protobuf"
 		"remmina"
 		"tlp" "tlpui"
 		"screenkey" "sniffnet"
+		"webkit2gtk"
 	)
 fi
 
