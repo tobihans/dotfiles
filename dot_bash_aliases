@@ -45,6 +45,7 @@ alias mkube='minikube'
 alias supabase="npx supabase"
 alias http="python3 -m http.server" # quick http server for files
 alias gp="gitpod"
+alias j="just"
 
 # Command line tools
 alias lzd="lazydocker"

@@ -29,15 +29,16 @@ done
 cargo_packages=(
 	"bob-nvim"
 	"cargo-expand"
+	# "cargo-insta"
 	"cargo-watch"
+	"just"
+	"mdbook"
 	"stylua"
 	"tidy-viewer"
 	"tree-sitter-cli"
-	"cargo-insta"
 )
 locked_cargo_packages=(
 	"starship"
-	"create-tauri-app"
 )
 # shellcheck disable=SC1091
 source "$HOME"/.cargo/env
@@ -51,10 +52,10 @@ fi
 
 # PipX
 pipx_packages=(
+	"ansible"
+	"grip"
 	"poetry"
 	"sqlite-utils"
-	"grip"
-	"ansible"
 )
 python -m pipx install "${pipx_packages[@]}"
 python -m pipx inject --include-apps ansible ansible-lint
@@ -65,9 +66,9 @@ fi
 
 # Go
 go_packages=(
-	"github.com/mikefarah/yq/v4@latest"
-	"github.com/jesseduffield/lazygit@latest"
 	"github.com/jesseduffield/lazydocker@latest"
+	"github.com/jesseduffield/lazygit@latest"
+	"github.com/mikefarah/yq/v4@latest"
 )
 for pkg in "${go_packages[@]}"; do
 	go install "$pkg"
