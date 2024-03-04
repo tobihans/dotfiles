@@ -89,6 +89,16 @@ return {
           require("astrolsp").on_attach(client, bufnr)
           require("which-key").register(require("config.mappings.lsp").rust, { buffer = bufnr })
         end,
+        settings = {
+          ["rust-analyzer"] = {
+            ---@type RustAnalyzerOpts
+            checkOnSave = {
+              allFeatures = true,
+              command = "clippy",
+              extraArgs = { "--no-deps" },
+            },
+          },
+        },
       },
       tailwindcss = {
         root_dir = function(filename, _)

@@ -136,12 +136,11 @@ return {
     "folke/drop.nvim",
     event = "VimEnter",
     opts = function()
-      -- local themes = { "leaves", "snow", "stars", "spring", "summer" }
+      local themes = { "leaves", "snow", "stars", "spring", "summer" }
       local opts = {
         max = 65,
         screensaver = 1000 * 60 * 15, -- 15 minutes
-        -- theme = themes[math.random(#themes)],
-        theme = "snow", -- to match my nord theme
+        theme = themes[math.random(#themes)],
         filetypes = { "dashboard", "alpha", "starter" },
       }
       return opts

@@ -28,7 +28,7 @@ vim.opt.errorbells = false
 vim.opt.visualbell = false
 vim.opt.timeoutlen = 500
 
-vim.opt.switchbuf = "useopen,usetab,uselast,vsplit"
+vim.opt.switchbuf = "useopen,usetab,uselast"
 
 -- line break on 500 chars
 vim.opt.lbr = true
