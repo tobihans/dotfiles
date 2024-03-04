@@ -31,6 +31,7 @@
   "drop.nvim": { "branch": "main", "commit": "276f0a9e26c86946567cd91759ee08e0f21ec96c" },
   "flutter-tools.nvim": { "branch": "main", "commit": "01d72d9c1bdf2d454a60c5ba450f83e5ea783f6a" },
   "friendly-snippets": { "branch": "main", "commit": "dcd4a586439a1c81357d5b9d26319ae218cc9479" },
+  "garbage-day.nvim": { "branch": "main", "commit": "957499b8a493974bd7002b68b1f15f7d285e0dd1" },
   "gh-actions.nvim": { "branch": "main", "commit": "4e19683aa581d8670d99e74104610a673f11964d" },
   "git-conflict.nvim": { "branch": "main", "commit": "4c8e252b87d54d944c1e56bfb477f78b6fdaf661" },
   "github-nvim-theme": { "branch": "main", "commit": "d92e1143e5aaa0d7df28a26dd8ee2102df2cadd8" },

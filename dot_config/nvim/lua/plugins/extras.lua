@@ -2,32 +2,30 @@
 
 ---@type LazySpec
 return {
-  { "kaarmu/typst.vim", ft = "typst" },
   { "theHamsta/nvim-dap-virtual-text" },
   { "wakatime/vim-wakatime", lazy = false },
-  { "folke/zen-mode.nvim", cmd = "ZenMode" },
   -- { "tamton-aquib/keys.nvim", cmd = "KeysToggle" },
   { "tiagovla/scope.nvim", lazy = false, priority = 1500 },
   { "kylechui/nvim-surround", event = "VeryLazy", lazy = false, opts = {} },
+  { "folke/zen-mode.nvim", cmd = "ZenMode", keys = { { "<Leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } } },
   {
     "zeioth/garbage-day.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = "neovim/nvim-lspconfig",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      excluded_lsp_clients = {
+        "jdtls",
+        "rust_analyzer",
+      },
+    },
+    config = true,
   },
   {
     "folke/todo-comments.nvim",
     lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
-    init = function()
-      require("which-key").register {
-        ["<Leader>fT"] = {
-          "<cmd>TodoTelescope<CR>",
-          "Find TODOs",
-        },
-      }
-    end,
+    keys = { { "<Leader>fT", "<cmd>TodoTelescope<cr>", desc = "Find TODOs" } },
     opts = {},
     config = true,
   },
@@ -67,25 +65,36 @@ return {
     lazy = not require("utilities").has_conflicts(),
     cmd = "GitConflictListQf",
     event = "User AstroGitFile",
-    opts = function(_, opts)
-      opts.disable_diagnostics = false
-
-      require("which-key").register {
-        ["<Leader>gq"] = {
-          function() vim.cmd [[GitConflictListQf]] end,
-          "Git Conflicts quickfix",
-          silent = true,
-        },
+    keys = { { "<Leader>gq", "<cmd>GitConflictListQf<cr>", desc = "Git Conflicts quickfix" } },
+    opts = { disable_diagnostics = false },
+    config = true,
+  },
+  {
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    cmd = "Neogen",
+    keys = { { "<Leader>lg", "<cmd>Neogen<cr>", desc = "Generate symbol documentation" } },
+    opts = { snippet_engine = "luasnip" },
+    config = true,
+  },
+  {
+    "folke/drop.nvim",
+    event = "VimEnter",
+    opts = function()
+      local themes = { "leaves", "snow", "stars", "spring", "summer" }
+      local opts = {
+        max = 65,
+        screensaver = 1000 * 60 * 15, -- 15 minutes
+        theme = themes[math.random(#themes)],
+        filetypes = { "dashboard", "alpha", "starter" },
       }
-
       return opts
     end,
-    config = true,
   },
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
-    opts = function(_, opts)
+    init = function()
       local wk = require "which-key"
       local name = "󱌣 Refactoring"
 
@@ -108,42 +117,7 @@ return {
           v = { function() require("refactoring").debug.print_var { below = true } end, "Debug print var" },
         },
       }, { mode = "x" })
-
-      return opts
     end,
     config = true,
-  },
-  {
-    "danymat/neogen",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    cmd = "Neogen",
-    opts = function(_, opts)
-      opts.snippet_engine = "luasnip"
-
-      require("which-key").register {
-        ["<Leader>lg"] = {
-          function() vim.cmd [[Neogen]] end,
-          "Generate symbol documentation",
-          silent = true,
-        },
-      }
-
-      return opts
-    end,
-    config = true,
-  },
-  {
-    "folke/drop.nvim",
-    event = "VimEnter",
-    opts = function()
-      local themes = { "leaves", "snow", "stars", "spring", "summer" }
-      local opts = {
-        max = 65,
-        screensaver = 1000 * 60 * 15, -- 15 minutes
-        theme = themes[math.random(#themes)],
-        filetypes = { "dashboard", "alpha", "starter" },
-      }
-      return opts
-    end,
   },
 }
