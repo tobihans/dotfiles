@@ -5,10 +5,10 @@ return {
     source_selector = {
       winbar = false,
     },
-    filesystem = {
-      filtered_items = {
-        visible = true,
-      },
-    },
+    -- filesystem = {
+    --   filtered_items = {
+    --     visible = true,
+    --   },
+    -- },
   },
 }

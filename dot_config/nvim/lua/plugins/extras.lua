@@ -15,6 +15,7 @@ return {
     event = "VeryLazy",
     opts = {
       excluded_lsp_clients = {
+        "copilot",
         "jdtls",
         "rust_analyzer",
       },
