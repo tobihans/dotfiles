@@ -15,7 +15,7 @@ return {
         lua = { "stylua" },
         mardown = { "prettier" },
         markdown = { "prettier" },
-        php = { "pint", "php-cs-fixer" },
+        php = { "pint", "php_cs_fixer" },
         python = { "ruff_format" },
         rust = { "rustfmt" },
         sh = { "shfmt" },
@@ -30,7 +30,7 @@ return {
             return { "prettier" }
           end
         end,
-        -- typst = { "typstfmt" },
+        typst = { "typstfmt" },
         yaml = { "prettier" },
       },
       format_on_save = function(bufnr)
