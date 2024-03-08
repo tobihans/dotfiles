@@ -15,7 +15,6 @@ function M.new_file(opts)
         results = vim.fn.getcompletion("", "filetype"),
       },
       sorter = conf.generic_sorter(opts),
-      ---@diagnostic disable-next-line: unused-local
       attach_mappings = function(prompt_bufnr, _map)
         actions.select_default:replace(function()
           actions.close(prompt_bufnr)

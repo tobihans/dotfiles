@@ -45,14 +45,19 @@ return {
   {
     "mg979/vim-visual-multi",
     init = function()
+      vim.g.VM_leader = "\\"
       vim.g.VM_default_mappings = 0
       vim.g.VM_mouse_mappings = 0
+      vim.g.VM_quit_after_leaving_insert_mode = 1
+      vim.g.VM_insert_special_keys = { "c-v", "c-a", "c-e" }
+      vim.g.VM_reindent_filetypes = { "python", "yaml" }
 
       vim.g.VM_maps = {
         ["Find Under"] = "<C-n>",
         ["Find Subword Under"] = "<C-n>",
-        ["Select Cursor Down"] = "<C-M-Down>",
-        ["Select Cursor Up"] = "<C-M-Up>",
+        ["Select Cursor Down"] = "<C-M-j>",
+        ["Select Cursor Up"] = "<C-M-k>",
+        ["Reselect Last"] = "<C-M-.>",
         -- Enable undo/redo experimental feature
         ["Undo"] = "u",
         ["Redo"] = "<C-r>",
