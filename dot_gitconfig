@@ -19,6 +19,7 @@
 	rebase = true
 [diff]
 	colorMoved = zebra
+	wsErrorHighlight = all
 [alias]
 	piccl = config user.email 'hans.tognon@pitchcardinal.com'
 	lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
