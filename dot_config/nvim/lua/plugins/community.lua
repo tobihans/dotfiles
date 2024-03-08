@@ -29,7 +29,7 @@ return {
 
       opts.lsp = {
         enabled = true,
-        on_attach = function(client, buf)
+        on_attach = function(_client, _buf)
           local crates = require "crates"
           local wk = require "which-key"
           wk.register({
