@@ -74,17 +74,14 @@ format = '{[$symbol($subscription)]($style)}'
 
 [battery]
 format = '[$symbol$percentage]($style)'
+
 [[battery.display]]
 threshold = 30
 style = 'bold red'
 
 [[battery.display]]
-threshold = 65
-style = 'yellow'
-
-[[battery.display]]
 threshold = 100
-style = 'bold green'
+style = 'green'
 
 [c]
 symbol = " "
