@@ -11,6 +11,11 @@ return {
         highlighturl = true,
         notifications = true,
       },
+      diagnostics = {
+        virtual_text = false,
+        underline = true,
+        update_in_insert = true,
+      },
       mappings = require "config.mappings",
     },
   },

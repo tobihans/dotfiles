@@ -2,11 +2,12 @@ return {
   n = {
     ["0"] = { function() vim.api.nvim_feedkeys("^", "n", false) end, desc = "First non-blank character" },
 
-    ["<space>"] = { function() vim.api.nvim_feedkeys("/", "n", false) end },
-    ["<C-space>"] = { function() vim.api.nvim_feedkeys("?", "n", false) end },
+    ["<space>"] = { function() vim.api.nvim_feedkeys("/", "n", false) end, desc = "Search forward" },
+    ["<C-space>"] = { function() vim.api.nvim_feedkeys("?", "n", false) end, desc = "Search backward" },
 
     ["<Leader>O"] = { name = "  Octo /  Overseer" },
     ["<Leader>G"] = { name = "󱎓 Games" },
+    ["<Leader>n"] = { require("utilities.pickers").new_file, desc = "New File" },
     ["<Leader><cr>"] = {
       function() vim.api.nvim_feedkeys(":noh" .. vim.api.nvim_replace_termcodes("<cr>", true, false, true), "n", false) end,
       desc = "noh",
@@ -30,10 +31,10 @@ return {
     ["<M-s>"] = {
       function()
         local config = vim.fn.stdpath "config"
-        vim.cmd.edit(config .. "/init.lua")
         vim.cmd.cd(config)
+        vim.cmd.edit(config .. "/init.lua")
       end,
-      desc = "Open neovim settings",
+      desc = "Open neovim settings in a separate tab",
     },
   },
   t = {

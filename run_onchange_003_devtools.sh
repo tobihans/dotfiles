@@ -78,3 +78,11 @@ done
 if ! [[ -x "$(command -v node)" ]]; then
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm install --lts && nvm alias node
 fi
+
+# Node global packages
+npm_packages=(
+	"@vue/typescript-plugin"
+)
+for pkg in "${npm_packages[@]}"; do
+	npm install -g "$pkg"
+done

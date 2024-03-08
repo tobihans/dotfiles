@@ -4,7 +4,7 @@ local M = {}
 --- This is used to know if we should enable git-conflicts
 --- on startup or delay it.
 ---@return boolean
-function M.has_conflicts() return vim.fn.system { "git", "diff", "--check" } ~= "" end -- TODO: Use vim.system later
+function M.has_conflicts() return vim.fn.system { "git", "diff", "--check" } ~= "" end
 
 --- Diff with clipboard
 function M.compare_to_clipboard()

@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
   "jellydn/hurl.nvim",
-  enabled = false,
   ft = "hurl",
   dependencies = { "MunifTanjim/nui.nvim" },
   init = function()

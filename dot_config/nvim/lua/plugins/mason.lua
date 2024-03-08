@@ -48,7 +48,7 @@ return {
         "typst_lsp",
         "unocss",
         "vimls",
-        "volar",
+        "volar@1.8.27",
         "yamlls",
       })
 
@@ -77,6 +77,7 @@ return {
         "prettier",
         "protolint",
         "psalm",
+        "selene",
         "shellcheck",
         "shfmt",
         "sqlfluff",

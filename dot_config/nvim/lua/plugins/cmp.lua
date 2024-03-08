@@ -34,7 +34,7 @@ return {
       local cmp, luasnip = require "cmp", require "luasnip"
 
       if not opts.sources then opts.sources = {} end
-      table.insert(opts.sources, { name = "copilot", priority = 1500, group_index = 1 })
+      table.insert(opts.sources, { name = "copilot", priority = 1000, group_index = 1 })
 
       if not opts.mappings then opts.mappings = {} end
       opts.mapping["<Tab>"] = cmp.mapping(function(fallback)

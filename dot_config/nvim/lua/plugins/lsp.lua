@@ -12,11 +12,6 @@ return {
     features = {
       inlay_hints = false,
     },
-    diagnostics = {
-      virtual_text = false,
-      underline = true,
-      update_in_insert = true,
-    },
     formatting = {
       format_on_save = {
         enabled = true,
@@ -93,7 +88,7 @@ return {
           python = {
             analysis = {
               -- Ignore all files for analysis to exclusively use Ruff for linting
-              -- ignore = { "*" },
+              ignore = { "*" },
               typeCheckingMode = "standard",
             },
           },
