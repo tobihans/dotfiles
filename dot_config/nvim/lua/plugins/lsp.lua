@@ -1,11 +1,12 @@
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local lsp_util = require "lspconfig.util"
+local node_version = vim.fn.system { "node", "--version" }
 
 local deno_root = lsp_util.root_pattern("deno.json", "deno.jsonc")
 local ts_root = lsp_util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")
--- FIXME: This currently makes things slow on startup. I should find a way to limit the depth to 2/3
-local get_vue_sfcs = function(root) return vim.split(vim.fn.glob(root .. "/**/*.vue"), "\n", { trimempty = true }) end
+
+local function has_vue(root) return vim.fn.glob("`fd -d2 -tf -1 -e'vue' --base-directory " .. root .. " 'vue'`") ~= "" end
 
 ---@type LazySpec
 return {
@@ -127,7 +128,7 @@ return {
               name = "@vue/typescript-plugin",
               location = vim.env.HOME
                 .. "/.nvm/versions/node/"
-                .. vim.fn.system { "node", "--version" }
+                .. node_version
                 .. "/lib/node_modules/@vue/typescript-plugin",
               languages = { "javascript", "typescript", "vue" },
             },
@@ -145,7 +146,7 @@ return {
         root_dir = function(filename, _)
           if not deno_root(filename) then
             local root = ts_root(filename)
-            if #get_vue_sfcs(root) >= 1 then return root end
+            if root and has_vue(root) then return root end
           end
         end,
       },
@@ -154,7 +155,7 @@ return {
         root_dir = function(filename, _)
           if not deno_root(filename) then
             local root = ts_root(filename)
-            if #get_vue_sfcs(root) == 0 then return root end
+            if root and not has_vue(root) then return root end
           end
         end,
       },
