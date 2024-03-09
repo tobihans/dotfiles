@@ -1,20 +1,41 @@
+-- use async formatting when formatter is slow
+local format_async = {}
+
+local function get_autoformat(bufnr)
+  if vim.g.autoformat == nil then vim.g.autoformat = true end
+  local autoformat = vim.b[bufnr].autoformat
+  if autoformat == nil then autoformat = vim.g.autoformat end
+
+  return autoformat
+end
+
 ---@type LazySpec
 return {
   {
     "stevearc/conform.nvim",
     opts = {
+      formatters = {
+        hurlfmt = {
+          meta = {
+            url = "https://github.com/Orange-OpenSource/hurl",
+            description = "Run HTTP requests defined in a simple plain text format.",
+          },
+          command = "hurlfmt",
+          args = {},
+        },
+      },
       formatters_by_ft = {
         css = { "prettier" },
         go = { "goimports", "gofmt" },
         graphql = { "prettier" },
         html = { "prettier" },
         htmldjango = { "djlint" },
+        hurl = { "hurlfmt", "injected" },
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
-        json = { "prettier" },
+        json = { "jq" },
         lua = { "stylua" },
-        mardown = { "prettier" },
-        markdown = { "prettier" },
+        mardown = { "prettier", "injected" },
         php = { "pint", "php_cs_fixer" },
         python = { "ruff_format" },
         rust = { "rustfmt" },
@@ -30,14 +51,21 @@ return {
             return { "prettier" }
           end
         end,
-        typst = { "typstfmt" },
-        yaml = { "prettier" },
+        typst = { "typstfmt", "injected" },
+        yaml = { "yq" },
       },
       format_on_save = function(bufnr)
-        if vim.g.autoformat == nil then vim.g.autoformat = true end
-        local autoformat = vim.b[bufnr].autoformat
-        if autoformat == nil then autoformat = vim.g.autoformat end
-        if autoformat then return { timeout_ms = 1000, lsp_fallback = true } end
+        if format_async[vim.bo[bufnr].filetype] then return end
+        local function on_format(err)
+          if err and err:match "timeout$" then format_async[vim.bo[bufnr].filetype] = true end
+        end
+
+        if get_autoformat(bufnr) then return { timeout_ms = 500, lsp_fallback = true }, on_format end
+      end,
+      format_after_save = function(bufnr)
+        if not format_async[vim.bo[bufnr].filetype] then return end
+
+        if get_autoformat(bufnr) then return { lsp_fallback = true } end
       end,
     },
   },

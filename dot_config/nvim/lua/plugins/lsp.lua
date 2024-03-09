@@ -3,6 +3,9 @@ require("lspconfig.ui.windows").default_options.border = "rounded"
 local lsp_util = require "lspconfig.util"
 
 local deno_root = lsp_util.root_pattern("deno.json", "deno.jsonc")
+local ts_root = lsp_util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")
+-- FIXME: This currently makes things slow on startup. I should find a way to limit the depth to 2/3
+local get_vue_sfcs = function(root) return vim.split(vim.fn.glob(root .. "/**/*.vue"), "\n", { trimempty = true }) end
 
 ---@type LazySpec
 return {
@@ -115,10 +118,44 @@ return {
           if not deno_root(filename) then return lsp_util.root_pattern "tailwind.config.js"(filename) end
         end,
       },
+      -- TODO: Remove when typescript-tools get support for vue ts plugin
+      tsserver = {
+        single_file_support = false,
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = vim.env.HOME
+                .. "/.nvm/versions/node/"
+                .. vim.fn.system { "node", "--version" }
+                .. "/lib/node_modules/@vue/typescript-plugin",
+              languages = { "javascript", "typescript", "vue" },
+            },
+          },
+        },
+        filetypes = {
+          "javascript",
+          "javascriptreact",
+          "javascript.jsx",
+          "typescript",
+          "typescriptreact",
+          "typescript.tsx",
+          "vue",
+        },
+        root_dir = function(filename, _)
+          if not deno_root(filename) then
+            local root = ts_root(filename)
+            if #get_vue_sfcs(root) >= 1 then return root end
+          end
+        end,
+      },
       ["typescript-tools"] = {
         single_file_support = false,
         root_dir = function(filename, _)
-          if not deno_root(filename) then return lsp_util.root_pattern "package.json"(filename) end
+          if not deno_root(filename) then
+            local root = ts_root(filename)
+            if #get_vue_sfcs(root) == 0 then return root end
+          end
         end,
       },
       typst_lsp = {
@@ -132,7 +169,8 @@ return {
       },
     },
     handlers = {
-      -- function(server, opts) require("lspconfig")[server].setup(opts) end, or false to deactivate the deault setup
+      -- function(server, opts) require("lspconfig")[server].setup(opts) end,
+      tsserver = function(server, opts) require("lspconfig")[server].setup(opts) end,
     },
     mappings = {
       n = {
