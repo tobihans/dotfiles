@@ -1,12 +1,13 @@
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local lsp_util = require "lspconfig.util"
-local node_version = vim.fn.system { "node", "--version" }
 
 local deno_root = lsp_util.root_pattern("deno.json", "deno.jsonc")
 local ts_root = lsp_util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")
 
-local function has_vue(root) return vim.fn.glob("`fd -d2 -tf -1 -e'vue' --base-directory " .. root .. " 'vue'`") ~= "" end
+local function has_vue(root)
+  return vim.fn.glob("`fd -d2 -tf -1 -e'vue' --base-directory " .. root .. " --glob '*'`") ~= ""
+end
 
 ---@type LazySpec
 return {
@@ -126,11 +127,9 @@ return {
           plugins = {
             {
               name = "@vue/typescript-plugin",
-              location = vim.env.HOME
-                .. "/.nvm/versions/node/"
-                .. node_version
-                .. "/lib/node_modules/@vue/typescript-plugin",
-              languages = { "javascript", "typescript", "vue" },
+              -- TODO: Replace with mason path once https://github.com/mason-org/mason-registry/pull/4869 is merged
+              location = "/home/tobi/.nvm/versions/node/v20.11.1/lib/node_modules/@vue/typescript-plugin",
+              languages = { "vue" },
             },
           },
         },
