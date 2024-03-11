@@ -17,7 +17,7 @@ return {
     local resession = require "resession"
     resession.setup(opts)
 
-    -- NOTE: Highliting doesn't work on the current window when loading a session.
+    -- NOTE: Highlights doesn't work on the current window when loading a session.
     resession.add_hook("post_load", function() vim.cmd [[edit %]] end)
   end,
 }

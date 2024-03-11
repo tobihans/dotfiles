@@ -39,6 +39,7 @@ if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 		"tlp" "tlpui"
 		"screenkey" "sniffnet"
 		"webkit2gtk"
+		"zeal"
 	)
 fi
 

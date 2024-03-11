@@ -120,15 +120,14 @@ return {
           if not deno_root(filename) then return lsp_util.root_pattern "tailwind.config.js"(filename) end
         end,
       },
-      -- TODO: Remove when typescript-tools get support for vue ts plugin
       tsserver = {
         single_file_support = false,
         init_options = {
           plugins = {
             {
               name = "@vue/typescript-plugin",
-              -- TODO: Replace with mason path once https://github.com/mason-org/mason-registry/pull/4869 is merged
-              location = "/home/tobi/.nvm/versions/node/v20.11.1/lib/node_modules/@vue/typescript-plugin",
+              location = vim.fn.stdpath "data"
+                .. "/mason/packages/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin/",
               languages = { "vue" },
             },
           },
