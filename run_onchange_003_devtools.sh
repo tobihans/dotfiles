@@ -55,10 +55,13 @@ fi
 pipx_packages=(
 	"ansible"
 	"grip"
+	"harlequin[postgres,s3,mysql]"
 	"poetry"
 	"sqlite-utils"
 )
-python -m pipx install "${pipx_packages[@]}"
+for pkg in "${pipx_packages[@]}"; do
+	python -m pipx install "$pkg"
+done
 python -m pipx inject --include-apps ansible ansible-lint
 if ! [[ -x "$(command -v sqlite-utils)" ]]; then
 	sqlite-utils install sqlean.py

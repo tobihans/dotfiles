@@ -48,7 +48,7 @@ return {
         "typst_lsp",
         "unocss",
         "vimls",
-        "volar@1.8.27",
+        "volar",
         "yamlls",
       })
 

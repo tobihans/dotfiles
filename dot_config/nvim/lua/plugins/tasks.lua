@@ -21,7 +21,7 @@ return {
         "toggleterm",
         use_shell = true,
         direction = "horizontal",
-        quit_on_exit = "never",
+        quit_on_exit = "success",
       },
       templates = { "builtin" },
       task_list = {

@@ -1,0 +1,6 @@
+default_profile = "sqlite"
+
+[profiles.sqlite]
+adapter = "sqlite"
+theme = "one-dark"
+limit = 100000

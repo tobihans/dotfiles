@@ -30,6 +30,7 @@ local lazy_spec = {
   { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.test.neotest" },
+  { import = "astrocommunity.test.nvim-coverage" },
 
   { import = "plugins" },
 }
