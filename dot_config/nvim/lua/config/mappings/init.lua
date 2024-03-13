@@ -26,6 +26,7 @@ return {
     ["<Localleader>u"] = { name = "󰟻 Utilities" },
     ["<Localleader>uc"] = { require("utilities").compare_to_clipboard, desc = "Compare to clipboard" },
 
+    ["<M-r>"] = { "<cmd>edit %<cr>", desc = "Reload file" },
     ["<M-s>"] = {
       function()
         local config = vim.fn.stdpath "config"

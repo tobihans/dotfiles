@@ -23,7 +23,7 @@ return {
         direction = "horizontal",
         quit_on_exit = "success",
       },
-      templates = { "builtin" },
+      templates = { "builtin", "custom" },
       task_list = {
         direction = "right",
       },
