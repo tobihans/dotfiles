@@ -22,7 +22,7 @@ sdk_packages=(
 # shellcheck disable=SC1091
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME"/.sdkman/bin/sdkman-init.sh
 for pkg in "${sdk_packages[@]}"; do
-	sdk install "$pkg"
+	sdk install "$pkg" || true
 done
 
 # Cargo
@@ -43,12 +43,11 @@ locked_cargo_packages=(
 )
 # shellcheck disable=SC1091
 source "$HOME"/.cargo/env
-cargo install "${cargo_packages[@]}"
-cargo install --locked "${locked_cargo_packages[@]}"
+cargo install "${cargo_packages[@]}" || true
+cargo install --locked "${locked_cargo_packages[@]}" || true
 if [[ -x "$(command -v bob)" ]]; then
 	bob install nightly
-	bob install stable
-	bob use nightly
+	bob use nightly || true
 fi
 
 # PipX
@@ -60,12 +59,12 @@ pipx_packages=(
 	"sqlite-utils"
 )
 for pkg in "${pipx_packages[@]}"; do
-	python -m pipx install "$pkg"
+	python -m pipx install "$pkg" || true
 done
 python -m pipx inject --include-apps ansible ansible-lint
 if ! [[ -x "$(command -v sqlite-utils)" ]]; then
-	sqlite-utils install sqlean.py
-	sqlite-utils install sqlite-dump
+	sqlite-utils install sqlean.py || true
+	sqlite-utils install sqlite-dump || true
 fi
 
 # Go
@@ -75,10 +74,11 @@ go_packages=(
 	"github.com/mikefarah/yq/v4@latest"
 )
 for pkg in "${go_packages[@]}"; do
-	go install "$pkg"
+	go install "$pkg" || true
 done
 
-# Install latest node LTS version if not already installed
-if ! [[ -x "$(command -v node)" ]]; then
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm install --lts && nvm alias default node
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+	source "$NVM_DIR/nvm.sh"
+	nvm install --lts
+	nvm alias default node
 fi
