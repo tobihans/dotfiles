@@ -30,6 +30,7 @@ return {
         "null-ls-info",
         "octo",
         "oil",
+        "overseerform",
         "overseerlist",
         "qf",
         "toggleterm",
