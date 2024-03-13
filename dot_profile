@@ -25,6 +25,7 @@ export PATH="$PATH:$HOME/.local/share/coursier/bin"
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
 
+mkdir ~/Android/Sdk/ndk
 LATEST_NDK_VERSION=$(ls -l "$ANDROID_HOME"/ndk/ | awk '{print $NF}' | sort -n | tail -n 1)
 export NDK_HOME="$ANDROID_HOME/ndk/$LATEST_NDK_VERSION"
 
