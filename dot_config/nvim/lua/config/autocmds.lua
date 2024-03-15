@@ -13,13 +13,7 @@ vim.api.nvim_create_autocmd("BufReadPost", { -- Return to last edit position whe
 })
 
 -- Terminal Autocommands
-vim.api.nvim_create_augroup("TerminalSetup", { clear = true })
-vim.api.nvim_create_autocmd("TermEnter", {
-  group = "TerminalSetup",
-  callback = function()
-    vim.opt_local.number = false
-    vim.opt_local.relativenumber = false
-    vim.opt_local.signcolumn = false
-    vim.opt_local.statuscolumn = ""
-  end,
-})
+-- vim.api.nvim_create_autocmd("TermEnter", {
+--   group = vim.api.nvim_create_augroup("TerminalSetup", { clear = true }),
+--   command = [[setl nonumber norelativenumber signcolumn=no statusline=]],
+-- })

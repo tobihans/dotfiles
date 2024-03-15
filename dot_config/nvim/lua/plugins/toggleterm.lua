@@ -24,5 +24,19 @@ return {
         },
       }
     end,
+    opts = {
+      on_open = function(terminal)
+        local setl = function(name, value)
+          vim.api.nvim_set_option_value(name, value, {
+            win = terminal.window,
+          })
+        end
+
+        setl("number", false)
+        setl("relativenumber", false)
+        setl("signcolumn", "no")
+        setl("statuscolumn", "")
+      end,
+    },
   },
 }

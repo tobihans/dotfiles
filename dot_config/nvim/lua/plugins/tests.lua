@@ -14,6 +14,15 @@ return {
         },
       },
     },
+    ---@type neotest.Config
+    ---@diagnostic disable-next-line: missing-fields
+    opts = {
+      consumers = {
+        -- TODO: Write a consumer that notifies me when my test starts, when it ends and if it succedded/fail.
+        -- This will be useful when the summary pane is not open.
+        notify = function(client) end,
+      },
+    },
   },
   {
     "andythigpen/nvim-coverage",
