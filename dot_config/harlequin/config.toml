@@ -2,5 +2,5 @@ default_profile = "sqlite"
 
 [profiles.sqlite]
 adapter = "sqlite"
-theme = "one-dark"
+theme = "nord"
 limit = 100000

@@ -23,6 +23,12 @@ return {
           command = "hurlfmt",
           args = {},
         },
+        injected = {
+          options = {
+            ignore_errors = true,
+            lang_to_formatters = {},
+          },
+        },
       },
       formatters_by_ft = {
         css = { "prettier" },

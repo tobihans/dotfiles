@@ -1,4 +1,4 @@
--- TODO: This is rougly copied from https://github.com/Saecki/crates.nvim/issues/78#issuecomment-1773834720
+-- TODO: This is roughly copied from https://github.com/Saecki/crates.nvim/issues/78#issuecomment-1773834720
 -- I will clean this up later and make it generic
 -- Example: https://github.com/gh-liu/dotfiles/blob/6e4d59dd97dbb175bf5383d0affb11d51b59f74f/xdg_config/nvim/lua/liu/lsp/helper.lua
 local lsp = {}

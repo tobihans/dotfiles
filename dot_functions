@@ -30,32 +30,54 @@ function dip() {
 
 function activate() {
 	if [[ -f "pyproject.toml" ]]; then
-		poetry shell
-		return
+		if poetry shell; then
+			return
+		fi
 	fi
 
 	for dir in {"venv","env",".env",".venv"}; do
 		if [[ -d "$dir" ]] && [[ -f "$dir/bin/activate" ]]; then
-			source "$dir/bin/activate"
-			return
+			# shellcheck disable=SC1091
+			if source "$dir/bin/activate"; then
+				return
+			fi
 		fi
 	done
+	# shellcheck disable=SC1091,SC2086
 	source $1/bin/activate
 }
 
-function logcat {
-	pkg="$1"
-	shift
-	if [ -z "$pkg" ]; then
-		>&2 echo 'Usage: logcat pkg ...'
-		return 1
-	fi
+h2() {
+	if [ -z "$1" ]; then
+		echo -e "\nCall 'H2 <port>' to run this command\n"
+	else
+		echo "server {
+    listen       80;
+    listen  [::]:80;
+    server_name  127.0.0.1;
 
-	uid="$(adb shell pm list package -U $pkg | sed 's/.*uid://')"
-	if [ -z "$uid" ]; then
-		>&2 echo "pkg '$pkg' not found"
-		return 1
-	fi
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
 
-	adb logcat --uid="$uid" "$@"
+    location / {
+        proxy_pass http://127.0.0.1:$1;
+
+        proxy_http_version          1.1;
+        proxy_buffering             off;
+        proxy_redirect              off;
+        proxy_max_temp_file_size    0;
+    }
+}" >$HOME/default.conf
+
+		docker stop $(docker ps -a | awk '{print $(NF)}' | grep host80 | sed 's/==.*//g' | tr '\n' ' ') >/dev/null 2>&1
+		docker rm $(docker ps -a | awk '{print $(NF)}' | grep host80 | sed 's/==.*//g' | tr '\n' ' ') >/dev/null 2>&1
+
+		docker run --rm -d --network host \
+			--name host80 \
+			-v $HOME/default.conf:/etc/nginx/conf.d/default.conf nginx
+	fi
 }

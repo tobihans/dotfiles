@@ -22,6 +22,7 @@ return {
         enabled = true,
         allow_filetypes = {
           "lua",
+          "python",
         },
       },
       disabled = {},
@@ -93,7 +94,7 @@ return {
           python = {
             analysis = {
               -- Ignore all files for analysis to exclusively use Ruff for linting
-              ignore = { "*" },
+              -- ignore = { "*" },
               typeCheckingMode = "standard",
             },
           },
