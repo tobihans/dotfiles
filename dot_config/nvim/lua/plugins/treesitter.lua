@@ -37,6 +37,7 @@ return {
         "hurl",
         "java",
         "javascript",
+        "jq",
         "json",
         "json5",
         "jsonc",

@@ -25,6 +25,10 @@ return {
     debug = false,
     show_notification = false,
     mode = "popup",
+    env_file = {
+      ".env.hurl",
+      ".env.http",
+    },
     formatters = {
       json = { "jq" },
       html = {

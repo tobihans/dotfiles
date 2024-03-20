@@ -58,8 +58,10 @@ local lazy_opts = {
       disabled_plugins = {
         "gzip",
         "netrwPlugin",
+        "rplugin",
         "tarPlugin",
         "tohtml",
+        "tutor",
         "zipPlugin",
       },
     },

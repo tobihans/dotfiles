@@ -22,6 +22,15 @@ return {
         -- This will be useful when the summary pane is not open.
         notify = function(client) end,
       },
+      ---@diagnostic disable-next-line: missing-fields
+      floating = {
+        max_height = 0.5,
+        max_width = 0.5,
+      },
+      ---@diagnostic disable-next-line: missing-fields
+      summary = {
+        open = "botright vsplit | vertical resize 40",
+      },
     },
   },
   {
