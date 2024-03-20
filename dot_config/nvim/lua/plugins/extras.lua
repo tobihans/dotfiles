@@ -31,18 +31,6 @@ return {
     config = true,
   },
   {
-    "kevinhwang91/nvim-bqf",
-    event = "VeryLazy",
-    ft = "qf",
-    opts = {
-      filter = {
-        fzf = {
-          extra_opts = { "--bind", "ctrl-o:toggle-all", "--delimiter", "│" },
-        },
-      },
-    },
-  },
-  {
     "mg979/vim-visual-multi",
     init = function()
       vim.g.VM_leader = "\\"

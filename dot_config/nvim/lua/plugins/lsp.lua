@@ -23,6 +23,8 @@ return {
         allow_filetypes = {
           "lua",
           "python",
+          "toml",
+          "yaml",
         },
       },
       disabled = {},

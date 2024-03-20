@@ -20,6 +20,7 @@ function M.compare_to_clipboard()
 end
 
 --- Pretty display for quickfix and location list
+--- From github.com/kevinhwang91/nvim-bqf
 ---@param info table<string, any>
 ---@return table<string>
 function M.quickfixtextfunc(info)
