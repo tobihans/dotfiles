@@ -25,7 +25,6 @@ local lazy_spec = {
   { import = "astrocommunity.pack.proto" },
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.pack.scala" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.editing-support.conform-nvim" },

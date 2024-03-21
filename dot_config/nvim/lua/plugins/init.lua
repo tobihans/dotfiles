@@ -21,4 +21,6 @@ return {
   },
   { "nvimtools/none-ls.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },
+  { "dmmulroy/tsc.nvim", enabled = false },
+  { "linux-cultist/venv-selector.nvim", enabled = false },
 }
