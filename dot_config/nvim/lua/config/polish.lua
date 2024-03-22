@@ -20,6 +20,15 @@ for newgroup, oldgroup in pairs(links) do
   vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
 end
 
+-- Custom signs
+local get_icon = require("astroui").get_icon
+vim.fn.sign_define {
+  { name = "DiagnosticSignInfo", text = get_icon "DiagnosticInfo", texthl = "DiagnosticInfo" },
+  { name = "DiagnosticSignHint", text = get_icon "DiagnosticHint", texthl = "DiagnosticHint" },
+  { name = "DiagnosticSignWarn", text = get_icon "DiagnosticWarn", texthl = "DiagnosticWarn" },
+  { name = "DiagnosticSignError", text = get_icon "DiagnosticError", texthl = "DiagnosticError" },
+}
+
 require "config.options"
 require "config.ft"
 require "config.autocmds"
