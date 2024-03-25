@@ -11,7 +11,7 @@ return {
     opts = {
       filter = {
         fzf = {
-          extra_opts = { "--bind", "ctrl-o:toggle-all", "--delimiter", "│" },
+          extra_opts = { "--bind", "ctrl-o:toggle-all", "--delimiter", "║" },
         },
       },
     },

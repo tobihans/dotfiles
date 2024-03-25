@@ -1,5 +1,7 @@
 local M = {}
 
+local get_icon = require("astroui").get_icon
+
 --- Checks if there is a git conflict in the current dir
 --- This is used to know if we should enable git-conflicts
 --- on startup or delay it.
@@ -34,8 +36,8 @@ function M.quickfixtextfunc(info)
     items = fn.getloclist(info.winid, { id = info.id, items = 0 }).items
   end
   local limit = 31
-  local fnameFmt1, fnameFmt2 = "%-" .. limit .. "s", "…%." .. (limit - 1) .. "s"
-  local validFmt = "%s │%5d:%-3d│%s %s"
+  local fname_fmt1, fname_fmt2 = "%-" .. limit .. "s", "…%." .. (limit - 1) .. "s"
+  local valid_fmt = "%s ║%5d:%-3d║%s %s"
   for i = info.start_idx, info.end_idx do
     local e = items[i]
     ---@type string|nil
@@ -51,15 +53,27 @@ function M.quickfixtextfunc(info)
         end
         -- char in fname may occur more than 1 width, ignore this issue in order to keep performance
         if #fname <= limit then
-          fname = fnameFmt1:format(fname)
+          fname = fname_fmt1:format(fname)
         else
-          fname = fnameFmt2:format(fname:sub(1 - limit))
+          fname = fname_fmt2:format(fname:sub(1 - limit))
         end
       end
       local lnum = e.lnum > 99999 and -1 or e.lnum
       local col = e.col > 999 and -1 or e.col
       local qtype = e.type == "" and "" or " " .. e.type:sub(1, 1):upper()
-      str = validFmt:format(fname, lnum, col, qtype, e.text)
+      local icon = " "
+
+      if e.type == "E" then
+        icon = icon .. get_icon "DiagnosticError"
+      elseif e.type == "W" then
+        icon = icon .. get_icon "DiagnosticWarn"
+      elseif e.type == "I" then
+        icon = icon .. get_icon "DiagnosticInfo"
+      elseif e.type == "H" or e.type == "N" then
+        icon = icon .. get_icon "DiagnosticHint"
+      end
+
+      str = valid_fmt:format(fname, lnum, col, qtype .. icon .. " ", e.text)
     else
       str = e.text
     end
