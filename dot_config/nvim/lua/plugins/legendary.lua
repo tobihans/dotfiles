@@ -36,7 +36,7 @@ return {
             close_on_exit = true,
             on_exit = function(_term, _job, exit_code, _name)
               if exit_code ~= 0 then
-                require "notify"("😐 Looks like your run failed !", "error", {
+                require "notify"("😐 Looks like your run failed or there is nothing to watch !", "warn", {
                   title = "Github Actions",
                   icon = "",
                 })

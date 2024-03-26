@@ -1,6 +1,6 @@
 {
   "2048.nvim": { "branch": "main", "commit": "aee7c41a9a9473117465132768ae4b4da97435c3" },
-  "AstroNvim": { "branch": "v4", "commit": "42a93b9e8f3be9de7cf09fec32dc41ec5e4d5bdb" },
+  "AstroNvim": { "branch": "v4", "commit": "3657f466502d524492b9fed416a18326b179a0c2" },
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LuaSnip": { "branch": "master", "commit": "a7a4b4682c4b3e2ba82b82a4e6e5f5a0e79dec32" },
   "SchemaStore.nvim": { "branch": "main", "commit": "65f07cde64d9123eab8639c1a3f7aa7939060cde" },
@@ -32,7 +32,6 @@
   "flutter-tools.nvim": { "branch": "main", "commit": "01d72d9c1bdf2d454a60c5ba450f83e5ea783f6a" },
   "friendly-snippets": { "branch": "main", "commit": "dcd4a586439a1c81357d5b9d26319ae218cc9479" },
   "garbage-day.nvim": { "branch": "main", "commit": "035d83793199a5c7a801651098aa5119ef3227ab" },
-  "gh-actions.nvim": { "branch": "main", "commit": "4e19683aa581d8670d99e74104610a673f11964d" },
   "git-conflict.nvim": { "branch": "main", "commit": "4c8e252b87d54d944c1e56bfb477f78b6fdaf661" },
   "gitsigns.nvim": { "branch": "main", "commit": "078041e9d060a386b0c9d3a8c7a7b019a35d3fb0" },
   "go.nvim": { "branch": "master", "commit": "8b28f988779d86eaad28f8057b6c0187f35c191c" },
