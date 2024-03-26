@@ -6,11 +6,15 @@ return {
       require("which-key").register {
         ["<Leader>t"] = {
           h = {
-            function() vim.cmd(vim.v.count .. "ToggleTerm size=10 direction=horizontal") end,
+            function()
+              vim.cmd(vim.v.count1 .. "ToggleTerm size=10 direction=horizontal " .. "name=Terminal" .. vim.v.count1)
+            end,
             "ToggleTerm horizontal split",
           },
           v = {
-            function() vim.cmd(vim.v.count .. "ToggleTerm size=80 direction=vertical") end,
+            function()
+              vim.cmd(vim.v.count1 .. "ToggleTerm size=80 direction=vertical " .. "name=Terminal" .. vim.v.count1)
+            end,
             "ToggleTerm vertical split",
           },
           d = {
@@ -25,13 +29,6 @@ return {
       }
     end,
     opts = {
-      size = function(term)
-        if term.direction == "vertical" and term.cmd:sub(1, 2) == "gh" then
-          return 35
-        else
-          return 10
-        end
-      end,
       on_open = function(terminal)
         local setl = function(name, value)
           vim.api.nvim_set_option_value(name, value, {

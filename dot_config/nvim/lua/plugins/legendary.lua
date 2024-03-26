@@ -31,9 +31,7 @@ return {
       {
         function()
           require("astrocore").toggle_term_cmd {
-            count = 100,
             cmd = "gh run watch --exit-status",
-            direction = "vertical",
             auto_scroll = true,
             close_on_exit = true,
             on_exit = function(_term, _job, exit_code, _name)
@@ -46,7 +44,7 @@ return {
             end,
           }
         end,
-        description = "Watch action run",
+        description = "Watch GitHub Action run",
       },
     },
   },
