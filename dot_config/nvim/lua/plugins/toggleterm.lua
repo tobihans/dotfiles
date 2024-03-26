@@ -25,6 +25,13 @@ return {
       }
     end,
     opts = {
+      size = function(term)
+        if term.direction == "vertical" and term.cmd:sub(1, 2) == "gh" then
+          return 35
+        else
+          return 10
+        end
+      end,
       on_open = function(terminal)
         local setl = function(name, value)
           vim.api.nvim_set_option_value(name, value, {

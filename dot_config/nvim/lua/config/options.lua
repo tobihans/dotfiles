@@ -1,8 +1,8 @@
 vim.opt.so = 7
+vim.opt.mouse = ""
 vim.opt.hid = true
 vim.opt.ruler = true
 vim.opt.cmdheight = 0
-vim.opt.mouse = ""
 vim.opt.history = 500
 vim.opt.autoread = true
 vim.opt.updatetime = 250
