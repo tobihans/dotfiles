@@ -41,12 +41,7 @@ return {
       l = { function() vim.cmd.RustLsp "explainError" end, " Explain Error" },
       p = { function() vim.cmd.RustLsp "parentModule" end, " Go to parent module" },
       t = { function() vim.cmd.RustLsp "syntaxTree" end, " View syntax tree" },
-    },
-  },
-  scala = {
-    ["<Localleader>s"] = {
-      name = " Scala Tools",
-      c = { function() require("telescope").extensions.metals.commands() end, "Metals Commands" },
+      k = { function() vim.cmd.RustLsp "openDocs" end, " View syntax tree" },
     },
   },
   typst = {

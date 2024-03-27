@@ -81,12 +81,6 @@ return {
           require("which-key").register(require("config.mappings.lsp").go, { buffer = bufnr })
         end,
       },
-      metals = {
-        on_attach = function(client, bufnr)
-          require("astrolsp").on_attach(client, bufnr)
-          require("which-key").register(require("config.mappings.lsp").scala, { buffer = bufnr })
-        end,
-      },
       pyright = {
         settings = {
           pyright = {

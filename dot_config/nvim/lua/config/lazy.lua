@@ -39,6 +39,7 @@ local lazy_opts = {
   install = { colorscheme = { "habamax" } },
   ui = {
     border = "double",
+    backdrop = 100,
     size = {
       width = 0.8,
       height = 0.8,
