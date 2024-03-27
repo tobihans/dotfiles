@@ -16,33 +16,38 @@ local tmpl = {
   generator = function(opts, cb)
     local tasks = {}
     local manage_py = get_manage_py(opts)
-    local cmd = vim.system({ "python", manage_py, "help", "--commands" }, { stderr = false, text = true }):wait()
 
-    if cmd.code ~= 0 then
-      log:error "Failed to get available commands from manage.py"
-      cb(tasks)
-      return
-    end
+    vim.system({ "python", manage_py, "help", "--commands" }, {
+      text = true,
+      timeout = 5000,
+      stderr = false,
+      stdout = function(err, data)
+        if err ~= nil then log:error(string.format("`python %s help --commands` failed: %s.", manage_py, err)) end
+        if data == nil or err ~= nil then return end
 
-    local commands = vim.split(cmd.stdout, "\n", { trimempty = true })
+        for i, command in pairs(vim.split(data, "\n", { trimempty = true })) do
+          table.insert(tasks, {
+            name = string.format("manage.py %s", command),
+            priority = 70 + i,
+            params = {
+              args = { optional = true, type = "list", delimiter = " " },
+            },
+            builder = function(params)
+              return {
+                cmd = { "python", manage_py, command },
+                args = params.args,
+              }
+            end,
+          })
+        end
 
-    for i, command in pairs(commands) do
-      table.insert(tasks, {
-        name = string.format("manage.py %s", command),
-        priority = 70 + i,
-        params = {
-          args = { optional = true, type = "list", delimiter = " " },
-        },
-        builder = function(params)
-          return {
-            cmd = { "python", manage_py, command },
-            args = params.args,
-          }
-        end,
-      })
-    end
-
-    cb(tasks)
+        cb(tasks)
+      end,
+    }, function(obj)
+      if obj.code ~= 0 then
+        log:error(string.format("`python %s help --commands` exited with %d code.", manage_py, obj.code))
+      end
+    end)
   end,
 }
 
