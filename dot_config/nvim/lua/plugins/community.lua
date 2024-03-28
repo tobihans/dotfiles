@@ -93,6 +93,17 @@ return {
       })
     end,
   },
+  {
+    "mrcjkb/rustaceanvim",
+    opts = {
+      tools = {
+        reload_workspace_from_cargo_toml = true,
+        hover_actions = {
+          replace_builtin_hover = false,
+        },
+      },
+    },
+  },
   -- FIXME: Not working for now. Raising errors related to semantic tokens
   -- {
   --   "pmizio/typescript-tools.nvim",
