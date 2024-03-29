@@ -2,6 +2,7 @@
 
 ---@type LazySpec
 return {
+  { "tamton-aquib/duck.nvim" },
   { "theHamsta/nvim-dap-virtual-text" },
   { "wakatime/vim-wakatime", lazy = false },
   -- { "tamton-aquib/keys.nvim", cmd = "KeysToggle" },

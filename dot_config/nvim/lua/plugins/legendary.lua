@@ -7,7 +7,7 @@ return {
   keys = {
     -- I'm only interested in running my own functions with this.
     -- I already have telescope pickers for commands and many other things.
-    { "<Leader>fl", "<cmd>Legendary functions<cr>", desc = "Legendary" },
+    { "<space><space>", "<cmd>Legendary functions<cr>", desc = "Legendary" },
   },
   opts = {
     select_prompt = " Legendary ",
@@ -27,6 +27,43 @@ return {
       {
         require("utilities").compare_to_clipboard,
         description = "Compare current buffer to clipboard",
+      },
+      {
+        function()
+          local candidates = {
+            "🐉",
+            "🦆",
+            "🦕",
+            "🐈",
+            "🦀",
+            "🦐",
+            "🦜",
+            "🐎",
+            "🦖",
+            "🐤",
+            "🦑",
+            "🦎",
+            "ඞ",
+            "🐍",
+            "🦚",
+            "🦞",
+            "🐢",
+          }
+
+          for _ = 1, 5 do
+            require("duck").hatch(candidates[math.random(#candidates)])
+          end
+        end,
+        description = "Release the duck 🦆",
+      },
+      {
+        function()
+          for _, duck in ipairs(require("duck").ducks_list) do
+            duck["timer"]:stop()
+            vim.api.nvim_win_close(duck["name"], true)
+          end
+        end,
+        description = "Catch the duck 🦆",
       },
       {
         function()
