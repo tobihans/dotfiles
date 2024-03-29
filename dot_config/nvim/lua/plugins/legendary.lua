@@ -23,7 +23,6 @@ return {
       which_key = false,
     },
     funcs = {
-      -- TODO: Still some ideas from https://www.reddit.com/r/neovim/comments/um3epn/what_are_your_prizedfavorite_lua_functions/ :)
       {
         require("utilities").compare_to_clipboard,
         description = "Compare current buffer to clipboard",
@@ -62,6 +61,8 @@ return {
             duck["timer"]:stop()
             vim.api.nvim_win_close(duck["name"], true)
           end
+
+          require("duck").ducks_list = {}
         end,
         description = "Catch the duck 🦆",
       },
