@@ -36,7 +36,6 @@ return {
         "intelephense",
         "jdtls",
         "jsonls",
-        "kotlin_language_server",
         "lua_ls",
         "phpactor",
         "prismals",
@@ -98,7 +97,6 @@ return {
         "delve",
         "java-debug-adapter",
         "java-test",
-        "kotlin",
         "php",
         "python",
       })

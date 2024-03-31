@@ -5,7 +5,6 @@ return {
   { "tamton-aquib/duck.nvim" },
   { "theHamsta/nvim-dap-virtual-text" },
   { "wakatime/vim-wakatime", lazy = false },
-  -- { "tamton-aquib/keys.nvim", cmd = "KeysToggle" },
   { "tiagovla/scope.nvim", lazy = false, priority = 1500 },
   { "kylechui/nvim-surround", event = "VeryLazy", lazy = false, opts = {} },
   { "folke/zen-mode.nvim", cmd = "ZenMode", keys = { { "<Leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } } },

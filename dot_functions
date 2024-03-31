@@ -47,37 +47,11 @@ function activate() {
 	source $1/bin/activate
 }
 
-h2() {
+function urlencode() {
 	if [ -z "$1" ]; then
-		echo -e "\nCall 'H2 <port>' to run this command\n"
-	else
-		echo "server {
-    listen       80;
-    listen  [::]:80;
-    server_name  127.0.0.1;
-
-    # redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /usr/share/nginx/html;
-    }
-
-    location / {
-        proxy_pass http://127.0.0.1:$1;
-
-        proxy_http_version          1.1;
-        proxy_buffering             off;
-        proxy_redirect              off;
-        proxy_max_temp_file_size    0;
-    }
-}" >$HOME/default.conf
-
-		docker stop $(docker ps -a | awk '{print $(NF)}' | grep host80 | sed 's/==.*//g' | tr '\n' ' ') >/dev/null 2>&1
-		docker rm $(docker ps -a | awk '{print $(NF)}' | grep host80 | sed 's/==.*//g' | tr '\n' ' ') >/dev/null 2>&1
-
-		docker run --rm -d --network host \
-			--name host80 \
-			-v $HOME/default.conf:/etc/nginx/conf.d/default.conf nginx
+		echo -e "Call 'urlencode <argument>' to run this command!\n"
+		return
 	fi
+
+	jq -rn --arg x "$1" '$x|@uri'
 }

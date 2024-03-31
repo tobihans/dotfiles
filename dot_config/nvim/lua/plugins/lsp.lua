@@ -25,6 +25,7 @@ return {
           "python",
           "toml",
           "yaml",
+          "rust",
         },
       },
       disabled = {},

@@ -7,7 +7,6 @@ return {
       dependencies = { "kkharji/sqlite.lua" },
     },
     { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0" },
-    -- {"debugloop/telescope-undo.nvim"}
   },
   init = function()
     local wk = require "which-key"

@@ -10,19 +10,4 @@ return {
     end,
     config = true,
   },
-  {
-    "eandrju/cellular-automaton.nvim",
-    cmd = "CellularAutomaton",
-    init = function()
-      require("which-key").register {
-        ["<Leader>Gc"] = {
-          name = " Cellular Automaton",
-          g = { "<cmd>CellularAutomaton game_of_life<cr>", "Game of Life" },
-          r = { "<cmd>CellularAutomaton make_it_rain<cr>", "Make it Rain" },
-        },
-      }
-    end,
-    config = true,
-  },
-  -- { 'zyedidia/vim-snake' }
 }
