@@ -69,7 +69,6 @@ return {
         "gomodifytags",
         "iferr",
         "impl",
-        "ktlint",
         "markdownlint",
         "pint",
         "php-cs-fixer",
