@@ -1,9 +1,7 @@
 ---@type LazySpec
 local lazy_spec = {
-  -- TODO: change `branch="v4"` to `version="^4"` on release
   {
     "AstroNvim/AstroNvim",
-    branch = "v4",
     import = "astronvim.plugins",
     opts = function(_, opts)
       opts.mapleader = ","
@@ -11,8 +9,7 @@ local lazy_spec = {
     end,
   },
 
-  -- TODO: Remove branch v4 on release
-  { "AstroNvim/astrocommunity", branch = "v4" },
+  { "AstroNvim/astrocommunity" },
   { import = "astrocommunity.pack.ansible" },
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.cpp" },

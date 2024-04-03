@@ -23,6 +23,7 @@ return {
       which_key = false,
     },
     funcs = {
+      { function() vim.cmd [[CopilotChatToggle]] end, description = "Copilot Chat" },
       {
         require("utilities").compare_to_clipboard,
         description = "Compare current buffer to clipboard",
@@ -41,8 +42,8 @@ return {
             "🦖",
             "🐤",
             "🦑",
+            "🐙",
             "🦎",
-            "ඞ",
             "🐍",
             "🦚",
             "🦞",

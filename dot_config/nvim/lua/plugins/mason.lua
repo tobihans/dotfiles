@@ -41,7 +41,6 @@ return {
         "prismals",
         "pyright",
         "ruff_lsp",
-        "rust_analyzer",
         "taplo",
         "tsserver",
         "typst_lsp",

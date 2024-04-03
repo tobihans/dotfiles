@@ -8,6 +8,7 @@ return {
         "",
         "aerial",
         "alpha",
+        "copilot-chat",
         "crates.nvim",
         "dap-repl",
         "dapui_breakpoints",
