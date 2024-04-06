@@ -1,0 +1,5 @@
+[experimental]
+system-git-client = false
+
+[virtualenvs]
+in-project = true

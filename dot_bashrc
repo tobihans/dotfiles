@@ -58,3 +58,9 @@ MANPAGER='bat -l man --italic-text always --decorations always --style=numbers,g
 
 # PS1 + PS2
 eval "$(starship init bash)"
+
+#NOTE:http://blog.joncairns.com/2013/12/understanding-ssh-agent-and-ssh-add/
+# SSH agent
+source ~/.bash_ssh_agent
+# Automatically choose the first one
+ssh-add -l >&/dev/null || ssh-find-agent -a || eval "$(ssh-agent)" >/dev/null
