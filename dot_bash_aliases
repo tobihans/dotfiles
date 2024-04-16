@@ -47,6 +47,7 @@ alias http="python3 -m http.server" # quick http server for files
 alias gpd="gitpod"
 alias j="just"
 alias pnx="pnpm dlx"
+alias smee="npx smee-client"
 
 # Command line tools
 alias lzd="lazydocker"

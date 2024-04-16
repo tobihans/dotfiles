@@ -65,6 +65,21 @@ return {
           end
         end,
       },
+      emmet_ls = {
+        filetypes = {
+          "css",
+          "eruby",
+          "html",
+          "htmldjango",
+          "javascriptreact",
+          "less",
+          "pug",
+          "sass",
+          "scss",
+          "typescriptreact",
+          "markdown",
+        },
+      },
       gopls = {
         settings = {
           gopls = {

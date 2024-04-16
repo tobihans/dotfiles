@@ -7,7 +7,7 @@ local function yaml_ft(path, bufnr)
   if path_regex and path_regex:match_str(path) then
     return "yaml.docker-compose"
   else
-    regex = vim.regex "version:\\|services:\\|volumes:\\|networks:"
+    regex = vim.regex "services:\\|volumes:\\|networks:"
     if regex and regex:match_str(content) then return "yaml.docker-compose" end
   end
 

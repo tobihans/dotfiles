@@ -4,7 +4,7 @@ set -eo pipefail
 # Installs yay packages
 
 packages=(
-	"circumflex" "glow" "ngrok"
+	"circumflex" "fswatch" "glow" "ngrok"
 )
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
