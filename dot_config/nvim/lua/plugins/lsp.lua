@@ -182,6 +182,7 @@ return {
     handlers = {
       -- function(server, opts) require("lspconfig")[server].setup(opts) end,
       tsserver = function(server, opts) require("lspconfig")[server].setup(opts) end,
+      ruff_lsp = false, -- use the ruff server
     },
     mappings = {
       n = {
