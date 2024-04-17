@@ -31,6 +31,7 @@ cargo_packages=(
 	"cargo-expand"
 	# "cargo-insta"
 	"cargo-watch"
+	"eza"
 	"hurl"
 	"just"
 	"mdbook"

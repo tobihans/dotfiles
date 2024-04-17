@@ -1,6 +1,7 @@
 [user]
 	email = git@tobihans.space
 	name = Hans B. K. Tognon
+	useConfigOnly = true
 
 [includeIf "gitdir:~/github/piccl/"]
   path = piccl
@@ -20,6 +21,7 @@
 
 [status]
 	submodulesummary = 1
+	showStash = true
 [pull]
 	rebase = true
 [diff]

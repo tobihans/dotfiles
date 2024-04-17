@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 # Terminal
+alias cat="bat"
+alias ls="eza"
+
 alias kcat='kitty +kitten icat'
 alias kdiff='kitty +kitten diff'
 alias kgrep='kitty +kitten hyperlinked_grep'
