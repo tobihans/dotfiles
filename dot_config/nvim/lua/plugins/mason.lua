@@ -40,6 +40,7 @@ return {
         "phpactor",
         "prismals",
         "pyright",
+        "ruff_lsp",
         "taplo",
         "tsserver",
         "typst_lsp",

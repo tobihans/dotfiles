@@ -48,9 +48,6 @@ return {
         },
       },
     },
-    init = function()
-      vim.g.lsp_handlers_enabled = false
-      require("telescope").load_extension "noice"
-    end,
+    init = function() vim.g.lsp_handlers_enabled = false end,
   },
 }

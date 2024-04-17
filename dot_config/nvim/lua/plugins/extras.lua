@@ -6,6 +6,7 @@ return {
   { "theHamsta/nvim-dap-virtual-text" },
   { "wakatime/vim-wakatime", lazy = false },
   { "tiagovla/scope.nvim", lazy = false, priority = 1500 },
+  { "NStefan002/screenkey.nvim", cmd = "Screenkey", config = true },
   { "kylechui/nvim-surround", event = "VeryLazy", lazy = false, opts = {} },
   { "folke/zen-mode.nvim", cmd = "ZenMode", keys = { { "<Leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } } },
   {
@@ -91,8 +92,6 @@ return {
     init = function()
       local wk = require "which-key"
       local name = "󱌣 Refactoring"
-
-      require("telescope").load_extension "refactoring"
 
       wk.register {
         ["<Leader>r"] = {

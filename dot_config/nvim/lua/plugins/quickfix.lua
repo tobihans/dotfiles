@@ -2,7 +2,6 @@
 return {
   {
     "kevinhwang91/nvim-bqf",
-    event = "VeryLazy",
     ft = "qf",
     init = function()
       _G.qftf = require("utilities").quickfixtextfunc
