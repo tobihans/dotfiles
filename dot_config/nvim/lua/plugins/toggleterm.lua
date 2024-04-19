@@ -25,6 +25,10 @@ return {
             function() require("astrocore").toggle_term_cmd "btop" end,
             "ToggleTerm btop",
           },
+          g = {
+            function() require("astrocore").toggle_term_cmd "gh dash" end,
+            "ToggleTerm Github Dashboard",
+          },
         },
       }
     end,

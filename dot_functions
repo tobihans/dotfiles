@@ -60,6 +60,6 @@ function cheat() {
 	if [ -z "$1" ]; then
 		echo -e "Usage: 'cheat <command>'\n"
 	else
-		curl cheat.sh/"$1" 2>/dev/null | bat --file-name "cheat.sh/$1" --style=header-filename,grid
+		curl -s cheat.sh/"$1" | bat --file-name "cheat.sh/$1" --style=header-filename,grid
 	fi
 }

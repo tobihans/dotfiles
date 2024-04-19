@@ -2,7 +2,8 @@
 
 # Terminal
 alias cat="bat"
-alias ls="eza"
+alias ls="eza --icons --oneline --hyperlink"
+alias dir="eza --icons -long --hyperlink --group --smart-group --header"
 
 alias kcat='kitty +kitten icat'
 alias kdiff='kitty +kitten diff'

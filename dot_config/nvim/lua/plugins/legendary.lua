@@ -5,9 +5,7 @@ return {
   priority = 10000,
   lazy = false,
   keys = {
-    -- I'm only interested in running my own functions with this.
-    -- I already have telescope pickers for commands and many other things.
-    { "<space><space>", "<cmd>Legendary functions<cr>", desc = "Legendary" },
+    { "<space><space>", "<cmd>Legendary<cr>", desc = "Legendary" },
   },
   opts = {
     select_prompt = " Legendary ",
@@ -24,6 +22,7 @@ return {
     },
     funcs = {
       { function() vim.cmd [[CopilotChatToggle]] end, description = "Copilot Chat" },
+      { function() vim.cmd [[Screenkey]] end, description = "Screen Key" },
       {
         require("utilities").compare_to_clipboard,
         description = "Compare current buffer to clipboard",

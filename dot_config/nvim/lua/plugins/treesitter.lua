@@ -42,6 +42,7 @@ return {
         "json5",
         "jsonc",
         "just",
+        "kdl",
         "lua",
         "make",
         "markdown",
