@@ -28,7 +28,7 @@ vim.filetype.add {
     yml = yaml_ft,
     yaml = yaml_ft,
     hurl = "hurl",
-    mdx = "markdown",
+    mdx = "mdx",
   },
   pattern = {
     -- Chezmoi dotfiles
@@ -38,3 +38,4 @@ vim.filetype.add {
     ["\\.env(\\.\\w*)?"] = "sh",
   },
 }
+vim.treesitter.language.register("markdown", "mdx")
