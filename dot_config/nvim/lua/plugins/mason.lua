@@ -2,7 +2,7 @@
 return {
   {
     "williamboman/mason.nvim",
-    priority = 3000,
+    priority = 5000,
     opts = function(_, opts)
       opts.ui = {
         border = "double",
@@ -57,6 +57,8 @@ return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
+      -- run_on_start = false,
+      -- auto_update = false,
       ensure_installed = {
         "buf",
         "clang-format",
