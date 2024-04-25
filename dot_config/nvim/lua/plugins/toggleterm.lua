@@ -7,13 +7,25 @@ return {
         ["<Leader>t"] = {
           h = {
             function()
-              vim.cmd(vim.v.count1 .. "ToggleTerm size=10 direction=horizontal " .. "name=Terminal" .. vim.v.count1)
+              vim.cmd(
+                vim.v.count1
+                  .. "ToggleTerm size=10 direction=horizontal "
+                  .. "name='Interactive Terminal "
+                  .. vim.v.count1
+                  .. "'"
+              )
             end,
             "ToggleTerm horizontal split",
           },
           v = {
             function()
-              vim.cmd(vim.v.count1 .. "ToggleTerm size=80 direction=vertical " .. "name=Terminal" .. vim.v.count1)
+              vim.cmd(
+                vim.v.count1
+                  .. "ToggleTerm size=80 direction=vertical "
+                  .. "name='Interactive Terminal "
+                  .. vim.v.count1
+                  .. "'"
+              )
             end,
             "ToggleTerm vertical split",
           },

@@ -16,23 +16,22 @@ return {
       "OverseerTaskAction",
       "OverseerToggle",
     },
+    keys = {
+      { "<Leader>Or", "<cmd>OverseerRunCmd<cr>", desc = " Run Task" },
+      { "<Leader>Ot", "<cmd>OverseerToggle<CR>", desc = " Toggle tasks" },
+    },
     opts = {
       strategy = {
         "toggleterm",
-        use_shell = true,
+        use_shell = false,
         direction = "horizontal",
         quit_on_exit = "success",
+        on_create = function(terminal) terminal.display_name = string.format("%s", terminal.cmd) end,
       },
       templates = { "builtin", "custom" },
       task_list = {
         direction = "right",
       },
     },
-    init = function()
-      require("which-key").register {
-        ["<Leader>Or"] = { "<cmd>OverseerRun<CR>", " Run Task" },
-        ["<Leader>Ot"] = { "<cmd>OverseerToggle<CR>", " Toggle tasks" },
-      }
-    end,
   },
 }
