@@ -52,6 +52,7 @@ alias gpd="gitpod"
 alias j="just"
 alias pnx="pnpm dlx"
 alias smee="npx smee-client"
+alias act="gh act"
 
 # Command line tools
 alias lzd="lazydocker"

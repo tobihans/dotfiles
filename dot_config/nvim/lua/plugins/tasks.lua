@@ -17,7 +17,7 @@ return {
       "OverseerToggle",
     },
     keys = {
-      { "<Leader>Or", "<cmd>OverseerRunCmd<cr>", desc = " Run Task" },
+      { "<Leader>Or", "<cmd>OverseerRun<cr>", desc = " Run Task" },
       { "<Leader>Ot", "<cmd>OverseerToggle<CR>", desc = " Toggle tasks" },
     },
     opts = {
