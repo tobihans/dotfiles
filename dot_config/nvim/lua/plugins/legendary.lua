@@ -2,8 +2,6 @@
 return {
   "mrjones2014/legendary.nvim",
   dependencies = { "kkharji/sqlite.lua" },
-  priority = 10000,
-  lazy = false,
   keys = {
     { "<space><space>", "<cmd>Legendary<cr>", desc = "Legendary" },
   },

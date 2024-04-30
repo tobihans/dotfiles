@@ -8,12 +8,10 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     cmd = "Octo",
-    init = function()
-      require("which-key").register {
-        ["<Leader>Oo"] = { "<cmd>Octo<cr>", " Pick" },
-        ["<Leader>Oa"] = { "<cmd>Octo actions<cr>", " Actions" },
-      }
-    end,
+    keys = {
+      { "<Leader>Oo", "<cmd>Octo<cr>", desc = " Pick" },
+      { "<Leader>Oa", "<cmd>Octo actions<cr>", desc = " Actions" },
+    },
     config = true,
     opts = {
       enable_builtin = true,
