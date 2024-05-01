@@ -53,6 +53,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.lazyredraw = false -- disabled due to noice.nvim
+vim.opt.laststatus = 3
 
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
