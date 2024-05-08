@@ -1,6 +1,11 @@
 ---
 base: lua51
-
 globals:
   vim:
+    any: true
+  s:
+    any: true
+  t:
+    any: true
+  i:
     any: true

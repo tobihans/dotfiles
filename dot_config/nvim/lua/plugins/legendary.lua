@@ -9,6 +9,23 @@ return {
     select_prompt = " Legendary ",
     include_builtin = false,
     include_legendary_cmds = false,
+    col_separator_char = "",
+    ---@param item LegendaryItem
+    ---@return string[]
+    default_item_formatter = function(item)
+      local Toolbox = require "legendary.toolbox"
+      local icon = ""
+      if Toolbox.is_keymap(item) then
+        icon = "󰌆"
+      elseif Toolbox.is_command(item) then
+        icon = ""
+      elseif Toolbox.is_function(item) then
+        icon = "󰡱"
+      elseif Toolbox.is_itemgroup(item) then
+        icon = "󰋃"
+      end
+      return { icon, item.description }
+    end,
     sort = {
       frecency = {
         db_root = string.format("%s/legendary/", vim.fn.stdpath "data"),
@@ -18,9 +35,12 @@ return {
     extensions = {
       which_key = false,
     },
+    commands = {
+      { ":CopilotChatToggle", description = "Copilot Chat" },
+      { ":Screenkey", description = "Screen Key" },
+      { ":DevdocsOpenFloat", description = "Search documentation" },
+    },
     funcs = {
-      { function() vim.cmd [[CopilotChatToggle]] end, description = "Copilot Chat" },
-      { function() vim.cmd [[Screenkey]] end, description = "Screen Key" },
       {
         require("utilities").compare_to_clipboard,
         description = "Compare current buffer to clipboard",
@@ -69,15 +89,7 @@ return {
           require("astrocore").toggle_term_cmd {
             cmd = "gh run watch --exit-status",
             auto_scroll = true,
-            close_on_exit = true,
-            on_exit = function(_term, _job, exit_code, _name)
-              if exit_code ~= 0 then
-                require "notify"("😐 Looks like your run failed or there is nothing to watch !", "warn", {
-                  title = "Github Actions",
-                  icon = "",
-                })
-              end
-            end,
+            close_on_exit = false,
           }
         end,
         description = "Watch GitHub Action run",

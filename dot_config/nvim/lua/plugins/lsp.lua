@@ -130,12 +130,17 @@ return {
       },
       tailwindcss = {
         root_dir = function(filename, _)
-          if not deno_root(filename) then return lsp_util.root_pattern "tailwind.config.js"(filename) end
+          if not deno_root(filename) then
+            return lsp_util.root_pattern("tailwind.config.js", "tailwind.config.ts")(filename)
+          end
         end,
       },
       tsserver = {
         single_file_support = false,
         init_options = {
+          preferences = {
+            includeCompletionsForModuleExports = false,
+          },
           plugins = {
             {
               name = "@vue/typescript-plugin",
