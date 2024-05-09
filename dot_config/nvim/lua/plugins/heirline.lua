@@ -19,7 +19,7 @@ return {
       status.component.fill(),
       status.component.cmd_info(),
       status.component.fill(),
-      status.component.lsp(),
+      status.component.lsp { lsp_progress = false },
       status.component.virtual_env(),
       status.component.treesitter(),
       status.component.nav { percentage = false, scrollbar = false },

@@ -18,7 +18,7 @@ return {
       excluded_lsp_clients = {
         "copilot",
         "jdtls",
-        "rust_analyzer",
+        "rust-analyzer",
       },
     },
     config = true,

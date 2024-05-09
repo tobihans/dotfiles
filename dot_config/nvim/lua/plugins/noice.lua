@@ -15,7 +15,7 @@ return {
       },
       lsp = {
         progress = {
-          enabled = false,
+          enabled = true,
         },
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {

@@ -19,6 +19,7 @@ return {
       mappings = require "config.mappings",
     },
   },
+  { "AstroNvim/astrotheme", enabled = false },
   { "nvimtools/none-ls.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },
   { "dmmulroy/tsc.nvim", enabled = false },

@@ -5,9 +5,12 @@ local lsp_util = require "lspconfig.util"
 local deno_root = lsp_util.root_pattern("deno.json", "deno.jsonc")
 local ts_root = lsp_util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")
 
--- TODO: Replace with vim.find ?
 local function has_vue(root)
-  return vim.fn.glob("`fd -d2 -tf -1 -e'vue' --base-directory " .. root .. " --glob '*'`") ~= ""
+  local files = vim.fs.find(
+    function(name, _path) return name:match ".*%.vue$" end,
+    { limit = 1, type = "file", path = root }
+  )
+  return #files > 0
 end
 
 ---@type LazySpec
@@ -183,6 +186,14 @@ return {
           require("astrolsp").on_attach(client, bufnr)
           require("which-key").register(require("config.mappings.lsp").typst, { buffer = bufnr })
         end,
+      },
+      volar = {
+        filetypes = { "vue" },
+        init_options = {
+          vue = {
+            hybridMode = false,
+          },
+        },
       },
     },
     handlers = {

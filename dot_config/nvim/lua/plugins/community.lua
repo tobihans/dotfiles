@@ -82,10 +82,11 @@ return {
           require("which-key").register({
             ["<Localleader>p"] = {
               name = "󰏗 Package.json tools",
-              s = { function() package_info.show { force = true } end, "Show dependencies" },
+              t = { function() package_info.toggle { force = true } end, "Toggle" },
               d = { package_info.delete, "Delete package" },
-              v = { package_info.change_version, "Change package version" },
               i = { package_info.install, "Install a package" },
+              u = { package_info.update, "Update package" },
+              v = { package_info.change_version, "Change package version" },
             },
           }, { silent = true, noremap = true })
         end,
