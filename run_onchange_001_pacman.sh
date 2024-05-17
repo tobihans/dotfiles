@@ -37,7 +37,7 @@ if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 		"powerdevil" "powertop" "protobuf"
 		"remmina"
 		"tlp" "tlpui"
-		"screenkey" "sniffnet"
+		"sniffnet"
 		"webkit2gtk"
 		"zeal"
 	)

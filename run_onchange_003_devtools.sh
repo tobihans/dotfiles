@@ -58,6 +58,7 @@ pipx_packages=(
 	"harlequin[postgres,s3,mysql]"
 	"poetry"
 	"sqlite-utils"
+	"litecli"
 )
 for pkg in "${pipx_packages[@]}"; do
 	python -m pipx install "$pkg" || true

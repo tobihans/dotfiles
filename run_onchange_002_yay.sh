@@ -9,7 +9,7 @@ packages=(
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
-		"passwordsafe-git"
+		"plasma5-wallpapers-dynamic"
 		"slack-desktop" "supertuxkart"
 		"zoom"
 	)
