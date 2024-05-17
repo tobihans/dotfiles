@@ -12,6 +12,18 @@ return {
       desc = "noh",
     },
     ["<Leader>W"] = { "<cmd>wall<cr>", desc = "Save all" },
+    ["<Leader>w"] = {
+      function()
+        if vim.fn.getreg "%" == "" then
+          vim.ui.input({ prompt = "Path: ", completion = "file" }, function(input)
+            if input then vim.cmd.write { input, bang = true } end
+          end)
+        else
+          vim.cmd.write()
+        end
+      end,
+      desc = "Save",
+    },
     ["<Leader>m"] = {
       function() return "mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm" end,
       desc = "Remove the ^M Windows line endings",
