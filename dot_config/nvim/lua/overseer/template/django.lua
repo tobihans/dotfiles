@@ -22,7 +22,11 @@ local tmpl = {
       timeout = 5000,
       stderr = false,
       stdout = function(err, data)
-        if err ~= nil then log:error(string.format("`python %s help --commands` failed: %s.", manage_py, err)) end
+        if err ~= nil then
+          vim.schedule(
+            function() log:error(string.format("`python %s help --commands` failed: %s.", manage_py, err)) end
+          )
+        end
         if data == nil or err ~= nil then return end
 
         for i, command in pairs(vim.split(data, "\n", { trimempty = true })) do
@@ -45,7 +49,9 @@ local tmpl = {
       end,
     }, function(obj)
       if obj.code ~= 0 then
-        log:error(string.format("`python %s help --commands` exited with %d code.", manage_py, obj.code))
+        vim.schedule(
+          function() log:error(string.format("`python %s help --commands` exited with %d code.", manage_py, obj.code)) end
+        )
       end
     end)
   end,
