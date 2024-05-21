@@ -11,7 +11,6 @@ return {
   { "folke/zen-mode.nvim", cmd = "ZenMode", keys = { { "<Leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } } },
   {
     "zeioth/garbage-day.nvim",
-    enabled = true,
     dependencies = "neovim/nvim-lspconfig",
     event = "VeryLazy",
     opts = {
@@ -75,6 +74,7 @@ return {
   {
     "folke/drop.nvim",
     event = "VimEnter",
+    enabled = not vim.g.neovide,
     opts = function()
       local themes = { "leaves", "snow", "stars", "spring", "summer" }
       local opts = {

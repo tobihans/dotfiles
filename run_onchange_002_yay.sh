@@ -11,6 +11,7 @@ if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
 		"plasma5-wallpapers-dynamic"
 		"slack-desktop" "supertuxkart"
+		"wl-clipboard"
 		"zoom"
 	)
 fi
