@@ -63,3 +63,8 @@ function cheat() {
 		curl -s cheat.sh/"$1" | bat --file-name "cheat.sh/$1" --style=header-filename,grid
 	fi
 }
+
+function reduce_video_size() {
+	file=$1
+	ffmpeg -i "$file" -vcodec libx265 -crf 28 "${file/.mp4/.trimmed.mp4}"
+}
