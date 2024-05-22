@@ -73,8 +73,10 @@ return {
   },
   {
     "folke/drop.nvim",
-    event = "VimEnter",
-    enabled = not vim.g.neovide,
+    event = function(_, events)
+      if not vim.g.neovide then table.insert(events, "VimEnter") end
+      return events
+    end,
     opts = function()
       local themes = { "leaves", "snow", "stars", "spring", "summer" }
       local opts = {

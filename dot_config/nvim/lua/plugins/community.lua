@@ -104,17 +104,4 @@ return {
       },
     },
   },
-  -- FIXME: Not working for now. Raising errors related to semantic tokens
-  -- {
-  --   "pmizio/typescript-tools.nvim",
-  --   ft = { "vue" },
-  --   opts = {
-  --     filetypes = { "vue" },
-  --     settings = {
-  --       tsserver_plugins = {
-  --         "@vue/typescript-plugin",
-  --       },
-  --     },
-  --   },
-  -- },
 }

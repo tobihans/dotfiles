@@ -97,3 +97,9 @@ vim.api.nvim_exec2(
 ]],
   {}
 )
+
+if vim.g.neovide then
+  vim.g.neovide_transparency = 0.98
+  vim.g.neovide_fullscreen = true
+  vim.g.neovide_cursor_vfx_mode = "pixiedust"
+end
