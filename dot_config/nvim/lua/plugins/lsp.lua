@@ -1,17 +1,10 @@
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local lsp_util = require "lspconfig.util"
+local utils = require "utilities.lsp"
 
 local deno_root = lsp_util.root_pattern("deno.json", "deno.jsonc")
 local ts_root = lsp_util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")
-
-local function has_vue(root)
-  local files = vim.fs.find(
-    function(name, _path) return name:match ".*%.vue$" end,
-    { limit = 1, type = "file", path = root }
-  )
-  return #files > 0
-end
 
 ---@type LazySpec
 return {
@@ -102,6 +95,12 @@ return {
         end,
       },
       pyright = {
+        on_init = function(client)
+          if client.config.root_dir ~= nil then
+            client.config.settings.python.pythonPath = utils.get_python_path(client.config.root_dir)
+          end
+        end,
+        root_dir = function(fname) return lsp_util.root_pattern(unpack(utils.py_root_files))(fname) end,
         settings = {
           pyright = {
             -- Using Ruff's import organizer
@@ -165,7 +164,7 @@ return {
         root_dir = function(filename, _)
           if not deno_root(filename) then
             local root = ts_root(filename)
-            if root and has_vue(root) then return root end
+            if root and utils.has_vue(root) then return root end
           end
         end,
       },
@@ -174,7 +173,7 @@ return {
         root_dir = function(filename, _)
           if not deno_root(filename) then
             local root = ts_root(filename)
-            if root and not has_vue(root) then return root end
+            if root and not utils.has_vue(root) then return root end
           end
         end,
       },
