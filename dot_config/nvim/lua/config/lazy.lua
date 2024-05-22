@@ -15,7 +15,6 @@ local lazy_spec = {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.pack.docker" },
-  { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.lua" },
