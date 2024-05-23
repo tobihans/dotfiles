@@ -73,6 +73,7 @@ return {
   },
   {
     "folke/drop.nvim",
+    enabled = vim.fn.has "win32" == 0,
     event = function(_, events)
       if not vim.g.neovide then table.insert(events, "VimEnter") end
       return events

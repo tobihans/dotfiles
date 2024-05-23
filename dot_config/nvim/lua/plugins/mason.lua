@@ -21,7 +21,9 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+      local list_insert_unique = require("astrocore").list_insert_unique
+
+      opts.ensure_installed = list_insert_unique(opts.ensure_installed, {
         "ansiblels",
         "astro",
         "bashls",
@@ -38,7 +40,6 @@ return {
         "jdtls",
         "jsonls",
         "lua_ls",
-        "phpactor",
         "prismals",
         "pyright",
         "ruff_lsp",
@@ -50,6 +51,12 @@ return {
         "volar",
         "yamlls",
       })
+
+      if not vim.fn.has "win32" then
+        opts.ensure_installed = list_insert_unique(opts.ensure_installed, {
+          "phpactor",
+        })
+      end
 
       return opts
     end,

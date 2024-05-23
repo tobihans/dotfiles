@@ -29,6 +29,8 @@ vim.filetype.add {
     yaml = yaml_ft,
     hurl = "hurl",
     mdx = "mdx",
+    wsx = "xml",
+    wxl = "xml",
   },
   pattern = {
     -- Chezmoi dotfiles
