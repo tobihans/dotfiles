@@ -98,6 +98,25 @@ vim.api.nvim_exec2(
   {}
 )
 
+-- Windows
+if vim.fn.has "win32" == 1 then
+  if vim.fn.executable "pwsh" == 1 then
+    vim.o.shell = "pwsh"
+  else
+    vim.o.shell = "powershell"
+  end
+
+  vim.o.shellcmdflag =
+    "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues["
+
+  vim.o.shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+  vim.o.shellpipe = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
+
+  vim.o.shellquote = ""
+  vim.o.shellxquote = ""
+end
+
+-- Neovide
 if vim.g.neovide then
   vim.g.neovide_transparency = 0.98
   vim.g.neovide_fullscreen = true
