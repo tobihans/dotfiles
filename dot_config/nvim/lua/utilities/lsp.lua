@@ -1,19 +1,7 @@
-local util = require "lspconfig/util"
+local util = require "lspconfig.util"
 
 local path = util.path
-local M = {
-  py_root_files = {
-    "pyproject.toml",
-    "setup.py",
-    "setup.cfg",
-    "requirements.txt",
-    "Pipfile",
-    "pyrightconfig.json",
-    ".git",
-    ".venv/pyvenv.cfg",
-    ".env/pyvenv.cfg",
-  },
-}
+local M = {}
 
 function M.has_vue(root)
   local files = vim.fs.find(
@@ -34,15 +22,13 @@ function M.get_python_path(workspace)
     return path.join(venv, "bin", "python")
   end
 
-  -- .venv
-  local dot_venv = path.join(workspace, ".venv", "bin", "python")
-  match = vim.fn.glob(dot_venv)
-  if match ~= "" then return dot_venv end
+  local envs = { ".venv", ".env", "venv", "env" }
 
-  -- .env
-  local dot_env = path.join(workspace, ".venv", "bin", "python")
-  match = vim.fn.glob(dot_env)
-  if match ~= "" then return dot_env end
+  for _, venv in ipairs(envs) do
+    local python_path = path.join(workspace, venv, "bin", "python")
+    match = vim.fn.glob(python_path)
+    if match ~= "" then return python_path end
+  end
 
   -- Fallback to system Python.
   return vim.fn.exepath "python3" or vim.fn.exepath "python" or "python"

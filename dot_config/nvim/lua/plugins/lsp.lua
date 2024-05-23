@@ -5,6 +5,19 @@ local utils = require "utilities.lsp"
 
 local deno_root = lsp_util.root_pattern("deno.json", "deno.jsonc")
 local ts_root = lsp_util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")
+local py_root = lsp_util.root_pattern(
+  "pyproject.toml",
+  "setup.py",
+  "setup.cfg",
+  "requirements.txt",
+  "Pipfile",
+  "pyrightconfig.json",
+  ".git",
+  ".venv/pyvenv.cfg",
+  ".env/pyvenv.cfg",
+  "venv/pyvenv.cfg",
+  "env/pyvenv.cfg"
+)
 
 ---@type LazySpec
 return {
@@ -100,7 +113,7 @@ return {
             client.config.settings.python.pythonPath = utils.get_python_path(client.config.root_dir)
           end
         end,
-        root_dir = function(fname) return lsp_util.root_pattern(unpack(utils.py_root_files))(fname) end,
+        root_dir = py_root,
         settings = {
           pyright = {
             -- Using Ruff's import organizer
