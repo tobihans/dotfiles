@@ -1,19 +1,14 @@
-local M = {}
+local is_windows = vim.fn.has "win32" == 1
+
+local M = {
+  PATH_SEPARATOR = is_windows and "\\" or "/",
+}
 
 local get_icon = require("astroui").get_icon
 
-function M.tbl_flatten(t)
-  return vim.iter(t):flatten(math.huge):totable()
-end
+function M.tbl_flatten(t) return vim.iter(t):flatten(math.huge):totable() end
 
-
-function M.join_paths(...)
-    local sep = '/'
-    if vim.fn.has('win32') == 1 then
-        sep = '\\'
-    end
-    return table.concat(M.tbl_flatten { ... }, sep)
-end
+function M.join_paths(...) return table.concat(M.tbl_flatten { ... }, M.PATH_SEPARATOR) end
 
 --- Checks if there is a git conflict in the current dir
 --- This is used to know if we should enable git-conflicts
