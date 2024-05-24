@@ -2,7 +2,6 @@ require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local lsp_util = require "lspconfig.util"
 local utils = require "utilities.lsp"
-local join_paths = require("utilities").join_paths
 
 local deno_root = lsp_util.root_pattern("deno.json", "deno.jsonc")
 local ts_root = lsp_util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")
@@ -151,46 +150,6 @@ return {
           end
         end,
       },
-      tsserver = {
-        single_file_support = false,
-        init_options = {
-          preferences = {
-            includeCompletionsForModuleExports = false,
-          },
-          plugins = {
-            {
-              name = "@vue/typescript-plugin",
-              location = vim.fn.stdpath "data"
-                .. "/mason/packages/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin/",
-              languages = { "vue" },
-            },
-          },
-        },
-        filetypes = {
-          "javascript",
-          "javascriptreact",
-          "javascript.jsx",
-          "typescript",
-          "typescriptreact",
-          "typescript.tsx",
-          "vue",
-        },
-        root_dir = function(filename, _)
-          if not deno_root(filename) then
-            local root = ts_root(filename)
-            if root and utils.has_vue(root) then return root end
-          end
-        end,
-      },
-      ["typescript-tools"] = {
-        single_file_support = false,
-        root_dir = function(filename, _)
-          if not deno_root(filename) then
-            local root = ts_root(filename)
-            if root and not utils.has_vue(root) then return root end
-          end
-        end,
-      },
       typst_lsp = {
         settings = {
           exportPdf = "never", -- Choose onType, onSave or never.
@@ -200,18 +159,32 @@ return {
           require("which-key").register(require("config.mappings.lsp").typst, { buffer = bufnr })
         end,
       },
-      volar = {
-        filetypes = { "vue" },
-        init_options = {
-          vue = {
-            hybridMode = false,
-          },
+      vtsls = {
+        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+        single_file_support = false,
+        before_init = function(_params, config)
+          if config.root_dir and utils.has_vue(config.root_dir) then
+            local vue_plugin = {
+              name = "@vue/typescript-plugin",
+              location = require("mason-registry").get_package("vue-language-server"):get_install_path()
+                .. "/node_modules/@vue/language-server",
+              languages = { "vue" },
+              configNamespace = "typescript",
+              enableForWorkspaceTypeScriptVersions = true,
+            }
+            table.insert(config.settings.vtsls.tsserver.globalPlugins, vue_plugin)
+          end
+        end,
+        root_dir = function(filename, _)
+          if not deno_root(filename) then return ts_root(filename) end
+        end,
+        settings = {
+          vtsls = { tsserver = { globalPlugins = {} } },
         },
       },
     },
     handlers = {
-      -- function(server, opts) require("lspconfig")[server].setup(opts) end,
-      tsserver = function(server, opts) require("lspconfig")[server].setup(opts) end,
+      -- function(server, opts) require("lspconfig")[server].setup(opts) end | false,
       ruff = false, -- use the ruff_lsp server
     },
     mappings = {
