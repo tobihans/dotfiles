@@ -29,7 +29,7 @@ M.clock = status.component.builder {
 }
 
 function M.start_clock_timer()
-  vim.loop.new_timer():start(
+  vim.uv.new_timer():start(
     (60 - tonumber(os.date "%S")) * 1000, -- offset timer based on current seconds past the minute
     60000, -- update every 60 seconds
     vim.schedule_wrap(function()

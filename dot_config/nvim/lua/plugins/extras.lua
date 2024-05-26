@@ -10,6 +10,18 @@ return {
   { "kylechui/nvim-surround", event = "VeryLazy", lazy = false, opts = {} },
   { "folke/zen-mode.nvim", cmd = "ZenMode", keys = { { "<Leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } } },
   {
+    "kosayoda/nvim-lightbulb",
+    opts = {
+      autocmd = { enabled = true },
+      ignore = {
+        clients = { "ruff_lsp", "copilot" },
+        ft = {},
+        actions_without_kind = true,
+      },
+    },
+    config = true,
+  },
+  {
     "zeioth/garbage-day.nvim",
     dependencies = "neovim/nvim-lspconfig",
     event = "VeryLazy",

@@ -1,7 +1,5 @@
 std = "neovim"
 
-exclude = ["lua/utilities/lsp.lua"]
-
 [rules]
 global_usage = "allow"
 if_same_then_else = "allow"
