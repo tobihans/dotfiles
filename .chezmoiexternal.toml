@@ -9,3 +9,11 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://raw.githubusercontent.com/zzag/plasma5-wallpapers-dynamic-extras/master/dynamicwallpaperconverter"
 executable = true
+
+[".local/share/icons/hicolor/48x48/apps/neovide.svg"]
+type = "file"
+url = "https://github.com/neovide/neovide/raw/main/assets/neovide-48x48.png"
+
+[".local/share/icons/hicolor/scalable/apps/neovide.svg"]
+type = "file"
+url = "https://github.com/neovide/neovide/raw/main/assets/neovide.svg"

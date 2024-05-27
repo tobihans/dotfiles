@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Exec=neovide %F
-Icon=nvim
+Icon=neovide
 Name=Neovide
 Keywords=Text;Editor;
 Categories=Utility;TextEditor;
