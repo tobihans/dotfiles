@@ -44,11 +44,11 @@ return {
         "pyright",
         "ruff_lsp",
         "taplo",
-        "tsserver",
         "typst_lsp",
         "unocss",
         "vimls",
         "volar",
+        "vtsls",
         "yamlls",
       })
 
