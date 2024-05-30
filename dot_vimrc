@@ -151,9 +151,10 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme habamax
+    colorscheme nord
 catch
 endtry
+
 
 set background=dark
 
