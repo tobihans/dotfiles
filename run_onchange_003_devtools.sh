@@ -42,9 +42,13 @@ cargo_packages=(
 locked_cargo_packages=(
 	"starship"
 )
+cargo_repo_packages=(
+	"https://github.com/neovide/neovide"
+)
 # shellcheck disable=SC1091
 source "$HOME"/.cargo/env
 cargo install "${cargo_packages[@]}" || true
+cargo install --git "${cargo_repo_packages[@]}" || true
 cargo install --locked "${locked_cargo_packages[@]}" || true
 if [[ -x "$(command -v bob)" ]]; then
 	bob install nightly
