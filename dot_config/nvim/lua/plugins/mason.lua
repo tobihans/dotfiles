@@ -96,7 +96,8 @@ return {
           "tlint",
         })
       end
-    }
+    
+      return opts
     end,
     config = true,
   },
