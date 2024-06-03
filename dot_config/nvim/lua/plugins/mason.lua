@@ -1,3 +1,5 @@
+local list_insert_unique = require("astrocore").list_insert_unique
+
 ---@type LazySpec
 return {
   {
@@ -21,8 +23,6 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      local list_insert_unique = require("astrocore").list_insert_unique
-
       opts.ensure_installed = list_insert_unique(opts.ensure_installed, {
         "ansiblels",
         "astro",
@@ -63,10 +63,8 @@ return {
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    opts = {
-      -- run_on_start = false,
-      -- auto_update = false,
-      ensure_installed = {
+    opts = function(_, opts)
+      opts.ensure_installed = list_insert_unique(opts.ensure_installed, {
         "buf",
         "clang-format",
         "djlint",
@@ -79,21 +77,27 @@ return {
         "iferr",
         "impl",
         "markdownlint",
-        "pint",
         "php-cs-fixer",
         "prettier",
         "protolint",
-        "psalm",
         "selene",
         "shellcheck",
         "shfmt",
         "sqlfluff",
         "stylua",
-        "tlint",
         "typstfmt",
         "yamllint",
-      },
-    },
+      })
+
+      if not vim.fn.has "win32" then
+        opts.ensure_installed = list_insert_unique(opts.ensure_installed, {
+          "pint",
+          "psalm",
+          "tlint",
+        })
+      end
+    }
+    end,
     config = true,
   },
   {
