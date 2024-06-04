@@ -1,3 +1,4 @@
 *.md
 keepassxc-browser_settings.json
+dot_local/share/applications/nvim.desktop
 
