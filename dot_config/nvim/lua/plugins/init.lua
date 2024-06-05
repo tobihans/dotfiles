@@ -19,6 +19,7 @@ return {
       mappings = require "config.mappings",
     },
   },
+  { "windwp/nvim-ts-autotag", dev = true }, -- TODO: Remove later
   { "AstroNvim/astrotheme", enabled = false },
   { "nvimtools/none-ls.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },

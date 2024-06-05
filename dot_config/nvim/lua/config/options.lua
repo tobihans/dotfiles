@@ -3,6 +3,7 @@ vim.opt.mouse = ""
 vim.opt.hid = true
 vim.opt.ruler = true
 vim.opt.cmdheight = 0
+vim.opt.equalalways = false
 vim.opt.history = 500
 vim.opt.autoread = true
 vim.opt.updatetime = 250
@@ -100,18 +101,30 @@ vim.api.nvim_exec2(
 
 -- Windows
 if vim.fn.has "win32" == 1 then
-    vim.cmd([[
+  vim.cmd [[
 let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
 let &shellcmdflag = '-NoLogo -NoProfileLoadTime -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';Remove-Alias -Force -ErrorAction SilentlyContinue tee;'
 let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
 let &shellpipe  = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
 set shellquote= shellxquote=
-]])
+]]
 end
 
 -- Neovide
+
 if vim.g.neovide then
-  vim.g.neovide_transparency = 0.98
+  vim.g.neovide_theme = "auto"
+
+  vim.g.neovide_transparency = 0.975
   vim.g.neovide_fullscreen = true
+
+  vim.g.neovide_cursor_vfx_particle_density = 15.0
   vim.g.neovide_cursor_vfx_mode = "pixiedust"
+
+  vim.g.neovide_padding_top = 0
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_right = 0
+  vim.g.neovide_padding_left = 0
+
+  vim.g.neovide_floating_shadow = false
 end
