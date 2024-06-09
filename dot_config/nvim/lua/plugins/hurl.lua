@@ -28,6 +28,7 @@ return {
     env_file = {
       ".env.hurl",
       ".env.http",
+      ".vars",
     },
     formatters = {
       json = { "jq" },

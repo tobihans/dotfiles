@@ -179,7 +179,41 @@ return {
           if not deno_root(filename) then return ts_root(filename) end
         end,
         settings = {
-          vtsls = { tsserver = { globalPlugins = {} } },
+          vtsls = {
+            tsserver = { globalPlugins = {} },
+            typescript = {
+              inlayHints = {
+                parameterTypes = { enabled = true },
+                enumMemberValues = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                variableTypes = {
+                  enabled = true,
+                  suppressWhenTypeMatchesName = true,
+                },
+                parameterNames = {
+                  enabled = "all",
+                  suppressWhenArgumentMatchesName = true,
+                },
+              },
+            },
+            javascript = {
+              inlayHints = {
+                parameterTypes = { enabled = true },
+                enumMemberValues = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                variableTypes = {
+                  enabled = true,
+                  suppressWhenTypeMatchesName = true,
+                },
+                parameterNames = {
+                  enabled = "all",
+                  suppressWhenArgumentMatchesName = true,
+                },
+              },
+            },
+          },
         },
       },
     },

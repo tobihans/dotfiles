@@ -1,3 +1,23 @@
+local animals = {
+  "🐉",
+  "🦆",
+  "🦕",
+  "🐈",
+  "🦀",
+  "🦐",
+  "🦜",
+  "🐎",
+  "🦖",
+  "🐤",
+  "🦑",
+  "🐙",
+  "🦎",
+  "🐍",
+  "🦚",
+  "🦞",
+  "🐢",
+}
+
 ---@type LazySpec
 return {
   "mrjones2014/legendary.nvim",
@@ -42,33 +62,21 @@ return {
     },
     funcs = {
       {
+        require("peek").open,
+        description = "Preview markdown",
+      },
+      {
+        require("peek").close,
+        description = "Close markdown preview",
+      },
+      {
         require("utilities").compare_to_clipboard,
         description = "Compare current buffer to clipboard",
       },
       {
         function()
-          local candidates = {
-            "🐉",
-            "🦆",
-            "🦕",
-            "🐈",
-            "🦀",
-            "🦐",
-            "🦜",
-            "🐎",
-            "🦖",
-            "🐤",
-            "🦑",
-            "🐙",
-            "🦎",
-            "🐍",
-            "🦚",
-            "🦞",
-            "🐢",
-          }
-
           for _ = 1, 5 do
-            require("duck").hatch(candidates[math.random(#candidates)])
+            require("duck").hatch(animals[math.random(#animals)])
           end
         end,
         description = "Release the duck 🦆",

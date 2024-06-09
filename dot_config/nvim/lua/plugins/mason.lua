@@ -79,6 +79,7 @@ return {
         "markdownlint",
         "php-cs-fixer",
         "prettier",
+        "prettierd",
         "protolint",
         "selene",
         "shellcheck",
@@ -96,7 +97,7 @@ return {
           "tlint",
         })
       end
-    
+
       return opts
     end,
     config = true,

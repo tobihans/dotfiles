@@ -62,6 +62,7 @@ alias scpy="scrcpy >/dev/null 2>&1 &"
 alias prism="npx @stoplight/prism-cli@latest" # api mocking
 alias cookiecutter="pipx run cookiecutter"
 alias hackrnews="clx -n"
+alias mermaid="npx @mermaid-js/mermaid-cli@latest"
 
 # Misc
 # shellcheck disable=SC2154

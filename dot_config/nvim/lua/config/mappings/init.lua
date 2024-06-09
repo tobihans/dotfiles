@@ -1,4 +1,4 @@
-return {
+local M = {
   n = {
     ["0"] = { function() vim.api.nvim_feedkeys("^", "n", false) end, desc = "First non-blank character" },
     ["<space>"] = { function() vim.api.nvim_feedkeys("/", "n", false) end, desc = "Search forward" },
@@ -46,5 +46,10 @@ return {
   },
   t = {
     ["<M-esc>"] = { "<C-\\><C-n>", desc = " Exit Terminal Mode" },
+    ["<C-`>"] = { "<C-\\><C-n>", desc = " Exit Terminal Mode" },
   },
 }
+
+if vim.g.neovide then M["t"]["<C-S-V>"] = { "<C-\\><C-n>pi", desc = "Paste clipboard content" } end
+
+return M
