@@ -53,6 +53,7 @@ alias j="just"
 alias pnx="pnpm dlx"
 alias smee="npx smee-client"
 alias act="gh act"
+alias gl="glab"
 
 # Command line tools
 alias lzd="lazydocker"

@@ -78,6 +78,7 @@ go_packages=(
 	"github.com/jesseduffield/lazydocker@latest"
 	"github.com/jesseduffield/lazygit@latest"
 	"github.com/mikefarah/yq/v4@latest"
+	"gitlab.com/gitlab-org/cli/cmd/glab@main"
 )
 for pkg in "${go_packages[@]}"; do
 	go install "$pkg" || true

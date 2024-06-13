@@ -18,6 +18,12 @@ return {
         ft = {},
         actions_without_kind = true,
       },
+      sign = {
+        enabled = true,
+        text = "",
+        -- Highlight group to highlight the sign column text.
+        hl = "LightBulbSign",
+      },
     },
     config = true,
   },
@@ -28,6 +34,7 @@ return {
     opts = {
       excluded_lsp_clients = {
         "copilot",
+        "dartls",
         "jdtls",
         "rust-analyzer",
       },
