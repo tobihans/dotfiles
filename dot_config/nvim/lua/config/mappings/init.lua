@@ -34,6 +34,7 @@ local M = {
     ["<Localleader>l"] = { name = " Lists" },
     ["<Localleader>lq"] = { "<cmd>cwindow<cr>", desc = "Quickfix list" },
     ["<Localleader>ll"] = { "<cmd>lwindow<cr>", desc = "Location list" },
+    ["<Localleader>r"] = { "<cmd>edit<cr>", desc = "Reload Buffer" },
 
     ["<M-s>"] = {
       function()
@@ -45,11 +46,14 @@ local M = {
     },
   },
   t = {
-    ["<M-esc>"] = { "<C-\\><C-n>", desc = " Exit Terminal Mode" },
     ["<C-`>"] = { "<C-\\><C-n>", desc = " Exit Terminal Mode" },
   },
+  c = {},
 }
 
-if vim.g.neovide then M["t"]["<C-S-V>"] = { "<C-\\><C-n>pi", desc = "Paste clipboard content" } end
+-- stylua: ignore
+if vim.g.neovide then
+  M["t"]["<C-S-V>"] = { "<C-\\><C-n>pi", desc = "Paste clipboard content" }
+end
 
 return M

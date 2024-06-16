@@ -46,6 +46,7 @@ vim.opt.shiftwidth = 4
 vim.opt.magic = true -- magic on for regex
 vim.opt.showmatch = true -- show matching brackets
 vim.opt.mat = 2 -- blink for 2 thenth of a second for brackets matching
+vim.opt.spelllang:append "fr"
 
 -- Search
 vim.opt.ignorecase = true
@@ -118,6 +119,7 @@ if vim.g.neovide then
   vim.g.neovide_transparency = 0.975
   vim.g.neovide_fullscreen = true
 
+  vim.g.neovide_cursor_animate_command_line = false
   vim.g.neovide_cursor_vfx_particle_density = 15.0
   vim.g.neovide_cursor_vfx_mode = "pixiedust"
 

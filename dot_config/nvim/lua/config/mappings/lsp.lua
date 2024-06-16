@@ -51,4 +51,22 @@ return {
       c = { "<cmd>Tocv<cr>", "Table of contents" },
     },
   },
+  typescript = {
+    ["<Localleader>t"] = {
+      name = " Typescript tools",
+      a = { function() vim.cmd.VtsExec "fix_all" end, " Fix all" },
+      c = { function() vim.cmd.VtsExec "goto_project_config" end, " Open tsconfig.json" },
+      d = { function() vim.cmd.VtsExec "goto_source_definition" end, " Source definition" },
+      f = { function() vim.cmd.VtsExec "file_references" end, " File references" },
+      i = { function() vim.cmd.VtsExec "add_missing_imports" end, " Add missing imports" },
+      n = { function() vim.cmd.VtsExec "rename_file" end, " Rename file" },
+      o = { function() vim.cmd.VtsExec "organize_imports" end, " Organize imports" },
+      p = { function() vim.cmd.VtsExec "reload_projects" end, " Reload project" },
+      r = { function() vim.cmd.VtsExec "restart_tsserver" end, " Restart underlying tsserver" },
+      s = { function() vim.cmd.VtsExec "sort_imports" end, "Sort imports" },
+      u = { function() vim.cmd.VtsExec "remove_unused_imports" end, " Remove unused imports" },
+      v = { function() vim.cmd.VtsExec "select_ts_version" end, " Select ts version" },
+      x = { function() vim.cmd.VtsExec "remove_unused" end, " Remove unused" },
+    },
+  },
 }

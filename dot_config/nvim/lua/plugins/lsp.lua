@@ -180,8 +180,16 @@ return {
         end,
         settings = {
           vtsls = {
+            experimental = {
+              completion = {
+                enableServerSideFuzzyMatch = true,
+              },
+            },
             tsserver = { globalPlugins = {} },
             typescript = {
+              preferences = {
+                includePackageJsonAutoImports = "off",
+              },
               inlayHints = {
                 parameterTypes = { enabled = true },
                 enumMemberValues = { enabled = true },
@@ -198,6 +206,9 @@ return {
               },
             },
             javascript = {
+              preferences = {
+                includePackageJsonAutoImports = "off",
+              },
               inlayHints = {
                 parameterTypes = { enabled = true },
                 enumMemberValues = { enabled = true },
@@ -215,12 +226,16 @@ return {
             },
           },
         },
+        on_attach = function(client, bufnr)
+          require("astrolsp").on_attach(client, bufnr)
+          require("which-key").register(require("config.mappings.lsp").typescript, { buffer = bufnr })
+        end,
       },
     },
     handlers = {
       -- function(server, opts) require("lspconfig")[server].setup(opts) end | false,
       tsserver = false,
-      ruff = false, -- use the ruff_lsp server
+      ruff_lsp = false, -- use the ruff_lsp server
     },
     mappings = {
       n = {

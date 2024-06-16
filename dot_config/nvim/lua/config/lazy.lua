@@ -10,6 +10,7 @@ local lazy_spec = {
   },
 
   { "AstroNvim/astrocommunity" },
+  { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   { import = "astrocommunity.pack.ansible" },
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.cpp" },
@@ -23,6 +24,7 @@ local lazy_spec = {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
+  { import = "astrocommunity.project.nvim-spectre" },
   { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.test.nvim-coverage" },

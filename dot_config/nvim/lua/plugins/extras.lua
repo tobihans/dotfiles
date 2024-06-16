@@ -32,11 +32,13 @@ return {
     dependencies = "neovim/nvim-lspconfig",
     event = "VeryLazy",
     opts = {
+      grace_period = 60 * 30,
       excluded_lsp_clients = {
         "copilot",
         "dartls",
         "jdtls",
         "rust-analyzer",
+        "vtsls",
       },
     },
     config = true,

@@ -41,6 +41,7 @@ cargo_packages=(
 )
 locked_cargo_packages=(
 	"starship"
+	"difftastic"
 )
 cargo_repo_packages=(
 	"https://github.com/neovide/neovide"
