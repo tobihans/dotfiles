@@ -44,7 +44,7 @@ return {
         "pyright",
         "ruff_lsp",
         "taplo",
-        "typst_lsp",
+        "tinymist",
         "unocss",
         "vimls",
         "volar",

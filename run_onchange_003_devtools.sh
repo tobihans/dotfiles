@@ -35,6 +35,7 @@ cargo_packages=(
 	"hurl"
 	"just"
 	"mdbook"
+	"sleek"
 	"stylua"
 	"tidy-viewer"
 	"tree-sitter-cli"
@@ -42,6 +43,7 @@ cargo_packages=(
 locked_cargo_packages=(
 	"starship"
 	"difftastic"
+	"typstyle"
 )
 cargo_repo_packages=(
 	"https://github.com/neovide/neovide"

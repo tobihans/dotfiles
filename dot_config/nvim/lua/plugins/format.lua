@@ -29,6 +29,14 @@ return {
             lang_to_formatters = {},
           },
         },
+        sleek = {
+          meta = {
+            url = "https://github.com/nrempel/sleek",
+            description = "Sleek is a CLI tool for formatting SQL.",
+          },
+          command = "sleek",
+          args = { "-i", "4" },
+        },
       },
       formatters_by_ft = {
         astro = { "prettier" },
@@ -47,7 +55,7 @@ return {
         python = { "ruff_format" },
         rust = { "rustfmt" },
         sh = { "shfmt" },
-        sql = { "sqlfluff" },
+        sql = { "sleek" },
         svelte = { "prettier" },
         typescriptreact = { "prettier" },
         typescript = function(bufnr)
@@ -58,7 +66,7 @@ return {
             return { "prettier" }
           end
         end,
-        typst = { "typstfmt", "injected" },
+        typst = { "injected" },
         yaml = { "yq" },
       },
       format_on_save = function(bufnr)

@@ -150,9 +150,13 @@ return {
           end
         end,
       },
-      typst_lsp = {
+      tinymist = {
         settings = {
           exportPdf = "never", -- Choose onType, onSave or never.
+          formatterMode = "typstyle",
+          fontPaths = {
+            vim.env.HOME .. "/.local/share/fonts/",
+          },
         },
         on_attach = function(client, bufnr)
           require("astrolsp").on_attach(client, bufnr)
