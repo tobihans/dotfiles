@@ -37,6 +37,14 @@ return {
           command = "sleek",
           args = { "-i", "4" },
         },
+        typstyle = {
+          meta = {
+            url = "https://github.com/Enter-tainer/typstyle/",
+            description = "Beautiful and reliable typst code formatter.",
+          },
+          command = "typstyle",
+          args = { "-c", "120" },
+        },
       },
       formatters_by_ft = {
         astro = { "prettier" },
@@ -66,7 +74,7 @@ return {
             return { "prettier" }
           end
         end,
-        typst = { "injected" },
+        typst = { "typstyle", "injected" },
         yaml = { "yq" },
       },
       format_on_save = function(bufnr)

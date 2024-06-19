@@ -16,6 +16,4 @@ if not pcall(require, "lazy") then
 end
 
 require "config.lazy"
-
--- run polish file at the very end
-pcall(require, "config.polish")
+require "config.polish" -- run polish file at the very end

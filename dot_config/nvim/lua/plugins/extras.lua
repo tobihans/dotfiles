@@ -11,6 +11,7 @@ return {
   { "folke/zen-mode.nvim", cmd = "ZenMode", keys = { { "<Leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } } },
   {
     "kosayoda/nvim-lightbulb",
+    dev = true,
     opts = {
       autocmd = { enabled = true },
       ignore = {
@@ -21,8 +22,7 @@ return {
       sign = {
         enabled = true,
         text = "",
-        -- Highlight group to highlight the sign column text.
-        hl = "LightBulbSign",
+        hl = "SpecialChar",
       },
     },
     config = true,

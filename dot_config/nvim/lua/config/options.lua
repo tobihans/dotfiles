@@ -75,6 +75,7 @@ vim.opt.ffs = "unix,dos"
 vim.opt.background = "dark"
 
 -- Local configs
+vim.o.secure = true
 vim.o.exrc = true
 
 -- GLOBALS

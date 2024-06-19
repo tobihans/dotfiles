@@ -153,7 +153,6 @@ return {
       tinymist = {
         settings = {
           exportPdf = "never", -- Choose onType, onSave or never.
-          formatterMode = "typstyle",
           fontPaths = {
             vim.env.HOME .. "/.local/share/fonts/",
           },
