@@ -19,12 +19,16 @@ vim.api.nvim_create_autocmd("BufReadPost", { -- Return to last edit position whe
 vim.api.nvim_create_autocmd("DirChanged", {
   group = vim.api.nvim_create_augroup("LoadExrc", { clear = true }),
   pattern = "global",
-  callback = function(event)
-    print(vim.inspect(event))
-    local paths = {
+  callback = function(_event)
+    for _, exrc in pairs {
       ".nvim.lua",
       ".nvimrc",
       ".exrc",
-    }
+    } do
+      if vim.fn.filereadable(exrc) == 1 and vim.secure.read(exrc) ~= nil then
+        vim.cmd.source(exrc)
+        break
+      end
+    end
   end,
 })
