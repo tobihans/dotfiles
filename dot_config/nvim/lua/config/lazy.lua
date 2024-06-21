@@ -10,6 +10,8 @@ local lazy_spec = {
   },
 
   { "AstroNvim/astrocommunity" },
+  { import = "astrocommunity.color.nvim-highlight-colors" },
+  { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   { import = "astrocommunity.pack.ansible" },
   { import = "astrocommunity.pack.cmake" },
@@ -25,7 +27,7 @@ local lazy_spec = {
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.project.nvim-spectre" },
-  { import = "astrocommunity.editing-support.conform-nvim" },
+  { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.test.nvim-coverage" },
 

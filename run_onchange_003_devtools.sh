@@ -29,7 +29,6 @@ done
 cargo_packages=(
 	"bob-nvim"
 	"cargo-expand"
-	# "cargo-insta"
 	"cargo-watch"
 	"eza"
 	"hurl"
@@ -39,11 +38,13 @@ cargo_packages=(
 	"stylua"
 	"tidy-viewer"
 	"tree-sitter-cli"
+	# "cargo-insta"
 )
 locked_cargo_packages=(
-	"starship"
 	"difftastic"
+	"starship"
 	"typstyle"
+	"watchexec-cli"
 )
 cargo_repo_packages=(
 	"https://github.com/neovide/neovide"

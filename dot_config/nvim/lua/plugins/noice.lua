@@ -36,21 +36,17 @@ return {
           scrollbar = not vim.g.neovide,
         },
       },
+      ---@type NoiceRouteConfig[]
       routes = {
-        { filter = { event = "msg_show", find = "search hit" }, opts = { skip = true } },
-        {
-          filter = { find = "No information available" },
-          opts = { skip = true },
-        },
-        {
-          filter = { find = "No code actions available" },
-          opts = { skip = true },
-        },
+        ---@diagnostic disable-next-line: missing-fields
         {
           filter = {
-            event = "msg_show",
-            kind = "",
-            find = "written",
+            any = {
+              { find = "No information available" },
+              { find = "No code actions available" },
+              { event = "msg_show", find = "written" },
+              { event = "msg_show", find = "search hit" },
+            },
           },
           opts = { skip = true },
         },

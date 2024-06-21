@@ -1,12 +1,44 @@
 ---@type LazySpec
 return {
   {
+    "brenoprata10/nvim-highlight-colors",
+    event = "User AstroFile",
+    opts = {
+      render = "virtual",
+      virtual_symbol = "",
+      virtual_symbol_prefix = " ",
+      virtual_symbol_suffix = "",
+      virtual_symbol_position = "eow",
+      enable_named_colors = true,
+      enable_tailwind = true,
+    },
+  },
+  {
     "akinsho/flutter-tools.nvim",
     opts = {
+      dev_log = {
+        enabled = false,
+        notify_errors = true,
+        open_cmd = "40vnew",
+      },
+      widget_guides = {
+        enabled = false,
+      },
       debugger = {
         enabled = true,
         run_via_dap = false,
         exception_breakpoints = {},
+      },
+    },
+  },
+  {
+    "mrcjkb/rustaceanvim",
+    opts = {
+      tools = {
+        reload_workspace_from_cargo_toml = true,
+        hover_actions = {
+          replace_builtin_hover = false,
+        },
       },
     },
   },
@@ -88,16 +120,5 @@ return {
         end,
       })
     end,
-  },
-  {
-    "mrcjkb/rustaceanvim",
-    opts = {
-      tools = {
-        reload_workspace_from_cargo_toml = true,
-        hover_actions = {
-          replace_builtin_hover = false,
-        },
-      },
-    },
   },
 }

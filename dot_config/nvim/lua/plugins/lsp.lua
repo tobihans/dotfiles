@@ -238,7 +238,7 @@ return {
     handlers = {
       -- function(server, opts) require("lspconfig")[server].setup(opts) end | false,
       tsserver = false,
-      ruff_lsp = false, -- use the ruff_lsp server
+      ruff = false, -- use the ruff_lsp server
     },
     mappings = {
       n = {

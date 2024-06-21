@@ -4,11 +4,13 @@ set -eo pipefail
 # Installs yay packages
 
 packages=(
-	"circumflex" "fswatch" "glow" "ngrok"
+	"fswatch" "ngrok"
 )
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
+		"optimus-manager"
+		"optimus-manager-qt"
 		"plasma5-wallpapers-dynamic"
 		"slack-desktop" "supertuxkart"
 		"wl-clipboard"
