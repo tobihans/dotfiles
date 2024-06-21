@@ -9,8 +9,6 @@ packages=(
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
-		"optimus-manager"
-		"optimus-manager-qt"
 		"plasma5-wallpapers-dynamic"
 		"slack-desktop" "supertuxkart"
 		"wl-clipboard"
