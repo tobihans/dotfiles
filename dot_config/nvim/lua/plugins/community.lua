@@ -33,11 +33,21 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
+    dependencies = {
+      "stevearc/overseer.nvim",
+    },
+    ---@type RustaceanOpts
     opts = {
       tools = {
         reload_workspace_from_cargo_toml = true,
         hover_actions = {
           replace_builtin_hover = false,
+        },
+        executor = {
+          execute_command = function(cmd, args, cwd, _opts)
+            local task = require("overseer").new_task { cmd = cmd, args = args, cwd = cwd }
+            task:start()
+          end,
         },
       },
     },

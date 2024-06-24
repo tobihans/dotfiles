@@ -16,8 +16,8 @@ return {
   },
   opts = {
     editor = {
-      client = "astronvim",
-      tooltip = "An aesthetically pleasing and feature-rich Neovim configuration",
+      client = "Neovide",
+      tooltip = "I use Neovim BTW :), powered by AstroNvim.",
     },
     display = {
       show_repository = false,
@@ -29,6 +29,7 @@ return {
     buttons = {
       { label = "View AstroNvim", url = "https://astronvim.com" },
       { label = "View my GitHub profile", url = "https://github.com/tobihans" },
+      { label = "View my LinkedIn profile", url = "https://www.linkedin.com/in/tobihans/" },
     },
   },
 }
