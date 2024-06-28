@@ -24,6 +24,9 @@ local function yaml_ft(path, bufnr)
 end
 
 vim.filetype.add {
+  filename = {
+    [".swcrc"] = "json",
+  },
   extension = {
     yml = yaml_ft,
     yaml = yaml_ft,

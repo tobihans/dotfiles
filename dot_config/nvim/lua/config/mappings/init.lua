@@ -46,6 +46,7 @@ local M = {
     },
   },
   t = {
+    ["<M-Esc>"] = { "<C-\\><C-n>", desc = " Exit Terminal Mode" },
     ["<C-`>"] = { "<C-\\><C-n>", desc = " Exit Terminal Mode" },
   },
   c = {},

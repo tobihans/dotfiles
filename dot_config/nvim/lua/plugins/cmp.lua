@@ -6,28 +6,23 @@ end
 --@type LazySpec
 return {
   {
-    "zbirenbaum/copilot.lua",
-    disabled = not vim.g.copilot_enabled,
-    cmd = "Copilot",
-    event = "User AstroFile",
-    opts = { panel = { enabled = false }, suggestion = { enabled = false } },
-  },
-  {
-    "onsails/lspkind.nvim",
-    opts = {
-      symbol_map = {
-        Copilot = "",
-      },
-    },
-  },
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      { "hrsh7th/cmp-cmdline", enabled = false },
+      {
+        "supermaven-inc/supermaven-nvim",
+        opts = {
+          disable_inline_completion = true,
+          disable_keymaps = true,
+        },
+      },
       {
         "zbirenbaum/copilot-cmp",
-        dependencies = { "zbirenbaum/copilot.lua" },
-        config = function() require("copilot_cmp").setup() end,
+        dependencies = {
+          {
+            "zbirenbaum/copilot.lua",
+            opts = { panel = { enabled = false }, suggestion = { enabled = false } },
+          },
+        },
       },
     },
     opts = function(_, opts)
@@ -35,6 +30,7 @@ return {
 
       if not opts.sources then opts.sources = {} end
       table.insert(opts.sources, { name = "copilot", priority = 1000, group_index = 1 })
+      table.insert(opts.sources, { name = "supermaven", priority = 1200, group_index = 1 })
 
       if not opts.mappings then opts.mappings = {} end
       opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
@@ -48,6 +44,7 @@ return {
           fallback()
         end
       end, { "i", "s" })
+
       opts.mapping["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -59,38 +56,6 @@ return {
       end, { "i", "s" })
 
       return opts
-    end,
-    config = function(_, opts)
-      local cmp = require "cmp"
-      -- local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-
-      cmp.setup(opts)
-      -- Add parentheses after selecting function or method item
-      -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
-      -- NOTE: Disabling for now as it breaks noice tab completion in cmdline mode
-
-      ---@diagnostic disable-next-line: missing-fields
-      -- cmp.setup.cmdline("/", {
-      --   mapping = cmp.mapping.preset.cmdline(),
-      --   sources = {
-      --     { name = "buffer" },
-      --   },
-      -- })
-
-      -- cmp.setup.cmdline(":", {
-      --   mapping = cmp.mapping.preset.cmdline(),
-      --   sources = cmp.config.sources({
-      --     { name = "path" },
-      --   }, {
-      --     {
-      --       name = "cmdline",
-      --       option = {
-      --         ignore_cmds = { "Man", "!" },
-      --       },
-      --     },
-      --   }),
-      -- })
     end,
   },
 }
