@@ -21,6 +21,9 @@ return {
         Supermaven = "",
       },
     },
-    init = function() vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#0055ff" }) end,
+    init = function()
+      vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#0055ff" })
+      vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+    end,
   },
 }

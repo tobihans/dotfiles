@@ -6,33 +6,49 @@ end
 --@type LazySpec
 return {
   {
-    "hrsh7th/nvim-cmp",
+    "supermaven-inc/supermaven-nvim",
+    opts = {
+      disable_inline_completion = true,
+      disable_keymaps = true,
+    },
+    event = "User AstroFile",
+    config = function(_, opts)
+      require("supermaven-nvim").setup(opts)
+      vim.cmd [[SupermavenUseFree]]
+      require("cmp").setup.global {
+        sources = {
+          { name = "supermaven", priority = 1200, group_index = 1 },
+        },
+      }
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    event = "User AstroFile",
     dependencies = {
       {
-        "supermaven-inc/supermaven-nvim",
-        opts = {
-          disable_inline_completion = true,
-          disable_keymaps = true,
-        },
-      },
-      {
-        "zbirenbaum/copilot-cmp",
-        dependencies = {
-          {
-            "zbirenbaum/copilot.lua",
-            opts = { panel = { enabled = false }, suggestion = { enabled = false } },
-          },
-        },
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        opts = { panel = { enabled = false }, suggestion = { enabled = false } },
       },
     },
+    config = function(_, opts)
+      require("copilot_cmp").setup(opts)
+      require("cmp").setup.global {
+        sources = {
+          { name = "copilot", priority = 1000, group_index = 1 },
+        },
+      }
+    end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = { { "zbirenbaum/copilot-cmp" } },
     opts = function(_, opts)
       local cmp, luasnip = require "cmp", require "luasnip"
 
-      if not opts.sources then opts.sources = {} end
-      table.insert(opts.sources, { name = "copilot", priority = 1000, group_index = 1 })
-      table.insert(opts.sources, { name = "supermaven", priority = 1200, group_index = 1 })
-
       if not opts.mappings then opts.mappings = {} end
+
       opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()

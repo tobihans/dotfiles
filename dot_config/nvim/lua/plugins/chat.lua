@@ -3,12 +3,7 @@ return {
   "CopilotC-Nvim/CopilotChat.nvim",
   branch = "canary",
   dependencies = {
-    {
-      "zbirenbaum/copilot.lua",
-      enabled = vim.g.copilot_enabled,
-      cmd = "Copilot",
-      event = "User AstroFile",
-    },
+    { "zbirenbaum/copilot.lua" },
     { "nvim-lua/plenary.nvim" },
   },
   cmd = { "CopilotChat" },
