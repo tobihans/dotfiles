@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-set -eo pipefail
+# shellcheck disable=SC1091
 
-# Install tools via development kits
+set -eo pipefail
 
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -19,7 +19,6 @@ sdk_packages=(
 	"kotlin"
 	"maven"
 )
-# shellcheck disable=SC1091
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME"/.sdkman/bin/sdkman-init.sh
 for pkg in "${sdk_packages[@]}"; do
 	sdk install "$pkg" || true
@@ -49,7 +48,6 @@ locked_cargo_packages=(
 cargo_repo_packages=(
 	"https://github.com/neovide/neovide"
 )
-# shellcheck disable=SC1091
 source "$HOME"/.cargo/env
 cargo install "${cargo_packages[@]}" || true
 cargo install --git "${cargo_repo_packages[@]}" || true
@@ -92,5 +90,6 @@ done
 if [[ -s "$NVM_DIR/nvm.sh" ]]; then
 	source "$NVM_DIR/nvm.sh"
 	nvm install --lts
-	nvm alias default node
+	nvm use --lts
+	nvm alias default "$(node --version)"
 fi
