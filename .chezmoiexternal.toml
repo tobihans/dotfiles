@@ -5,6 +5,11 @@ exact = true
 stripComponents = 1
 refreshPeriod = "168h"
 
+[".nvm"]
+type = "git-repo"
+url = "https://github.com/nvm-sh/nvm"
+refreshPeriod = "168h"
+
 [".vim/colors/nord.vim"]
 type = "file"
 url = "https://github.com/nordtheme/vim/raw/main/colors/nord.vim"
