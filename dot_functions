@@ -47,6 +47,14 @@ function activate() {
 	source $1/bin/activate
 }
 
+function cheat() {
+	if [ -z "$1" ]; then
+		echo -e "Usage: 'cheat <command>'\n"
+	else
+		curl -s cheat.sh/"$1" | bat --file-name "cheat.sh/$1" --style=header-filename,grid
+	fi
+}
+
 function urlencode() {
 	if [ -z "$1" ]; then
 		echo -e "Call 'urlencode <argument>' to run this command!\n"
@@ -56,15 +64,20 @@ function urlencode() {
 	jq -rn --arg x "$1" '$x|@uri'
 }
 
-function cheat() {
-	if [ -z "$1" ]; then
-		echo -e "Usage: 'cheat <command>'\n"
-	else
-		curl -s cheat.sh/"$1" | bat --file-name "cheat.sh/$1" --style=header-filename,grid
-	fi
-}
-
 function reduce_video_size() {
 	file=$1
 	ffmpeg -i "$file" -vcodec libx265 -crf 28 "${file/.mp4/.trimmed.mp4}"
+}
+
+function launch_editor() {
+	filename=$1
+	line=${2:-"1"}
+	column=${3:-"1"}
+	command="<C-\\><C-N>:call v:lua.require'utilities'.open_file('$filename', $line, $column)<CR>"
+
+	if [ -z ${NVIM_SOCK+x} ]; then
+		printf "\e[31mCannot find the neovim process to call. NVIM_SOCK is not set.\e[0m\n"
+	else
+		nvim --server "$NVIM_SOCK" --remote-send "$command"
+	fi
 }

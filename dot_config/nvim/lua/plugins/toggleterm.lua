@@ -56,6 +56,7 @@ return {
         setl("relativenumber", false)
         setl("signcolumn", "no")
         setl("statuscolumn", "")
+        setl("winfixbuf", true)
       end,
     },
   },

@@ -29,6 +29,8 @@ vim.fn.sign_define {
   { name = "DiagnosticSignError", text = get_icon "DiagnosticError", texthl = "DiagnosticError" },
 }
 
+vim.cmd [[let $NVIM_SOCK=v:servername]]
+
 require "config.options"
 require "config.ft"
 require "config.autocmds"

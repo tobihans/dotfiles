@@ -7,17 +7,19 @@ end
 return {
   {
     "supermaven-inc/supermaven-nvim",
+    event = "User AstroFile",
+    -- it's so fast, that it's bothering me. I'm no longer getting the full context from others sources like LSPs & ...
+    enabled = false,
     opts = {
       disable_inline_completion = true,
       disable_keymaps = true,
     },
-    event = "User AstroFile",
     config = function(_, opts)
       require("supermaven-nvim").setup(opts)
       vim.cmd [[SupermavenUseFree]]
       require("cmp").setup.global {
         sources = {
-          { name = "supermaven", priority = 1050, group_index = 1 },
+          { name = "supermaven", priority = 1000, group_index = 1 },
         },
       }
     end,
@@ -36,7 +38,7 @@ return {
       require("copilot_cmp").setup(opts)
       require("cmp").setup.global {
         sources = {
-          { name = "copilot", priority = 1010, group_index = 1 },
+          { name = "copilot", priority = 1000, group_index = 1 },
         },
       }
     end,

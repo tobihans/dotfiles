@@ -90,4 +90,10 @@ function M.quickfixtextfunc(info)
   return ret
 end
 
+function M.open_file(filename, line, column)
+  -- local window = require("window-picker").pick_window()
+  print(string.format("Display file from %s:%s,%s in window %s", filename, line, column, window))
+  vim.fn.cursor(line, column)
+end
+
 return M
