@@ -17,7 +17,7 @@ return {
       vim.cmd [[SupermavenUseFree]]
       require("cmp").setup.global {
         sources = {
-          { name = "supermaven", priority = 1200, group_index = 1 },
+          { name = "supermaven", priority = 1050, group_index = 1 },
         },
       }
     end,
@@ -36,7 +36,7 @@ return {
       require("copilot_cmp").setup(opts)
       require("cmp").setup.global {
         sources = {
-          { name = "copilot", priority = 1000, group_index = 1 },
+          { name = "copilot", priority = 1010, group_index = 1 },
         },
       }
     end,
