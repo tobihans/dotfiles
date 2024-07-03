@@ -1,14 +1,8 @@
 ---@type LazySpec
 return {
   {
-    "AstroNvim/astroui",
-    ---@type AstroUIOpts
-    opts = {
-      colorscheme = "onenord",
-    },
-  },
-  {
     "rmehri01/onenord.nvim",
+    enabled = false,
     lazy = false,
     priority = 1000,
     opts = {
@@ -20,9 +14,22 @@ return {
       },
     },
   },
-  -- {
-  --   "mcchrish/zenbones.nvim",
-  --   lazy = false,
-  --   dependencies = { "rktjmp/lush.nvim" },
-  -- },
+  {
+    "sainnhe/everforest",
+    lazy = false,
+    priority = 1000,
+    init = function()
+      vim.g.everforest_background = "soft"
+      vim.g.everforest_enable_italic = true
+      vim.g.everforest_diagnostic_virtual_text = "colored"
+      vim.g.everforest_better_performance = 1
+    end,
+  },
+  {
+    "AstroNvim/astroui",
+    ---@type AstroUIOpts
+    opts = {
+      colorscheme = "everforest",
+    },
+  },
 }

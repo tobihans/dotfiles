@@ -9,12 +9,13 @@ return {
       unique = true,
       recent_first = true,
     }
+
+    return opts
   end,
   config = function(_, opts)
     local resession = require "resession"
+
     resession.setup(opts)
-    -- HACK: Restore global statusline after loading session.
-    -- Can't really explain why it happens.
-    resession.add_hook("post_load", function() vim.cmd [[set laststatus=3]] end)
+    resession.add_hook("post_load", require("utilities").load_exrc)
   end,
 }

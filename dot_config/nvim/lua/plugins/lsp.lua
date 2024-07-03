@@ -185,7 +185,7 @@ return {
           vtsls = {
             experimental = {
               enableProjectDiagnostics = true,
-              maxInlayHintLength = 30,
+              maxInlayHintLength = 10,
               completion = {
                 enableServerSideFuzzyMatch = true,
               },
@@ -194,7 +194,7 @@ return {
             typescript = {
               preferences = {
                 includePackageJsonAutoImports = "off",
-                importModuleSpecifier = "project-relative",
+                importModuleSpecifier = "relative",
               },
               inlayHints = {
                 parameterTypes = { enabled = true },
@@ -214,7 +214,7 @@ return {
             javascript = {
               preferences = {
                 includePackageJsonAutoImports = "off",
-                importModuleSpecifier = "project-relative",
+                importModuleSpecifier = "relative",
               },
               inlayHints = {
                 parameterTypes = { enabled = true },

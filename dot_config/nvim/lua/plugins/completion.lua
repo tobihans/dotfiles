@@ -8,8 +8,6 @@ return {
   {
     "supermaven-inc/supermaven-nvim",
     event = "User AstroFile",
-    -- it's so fast, that it's bothering me. I'm no longer getting the full context from others sources like LSPs & ...
-    enabled = false,
     opts = {
       disable_inline_completion = true,
       disable_keymaps = true,
@@ -17,11 +15,6 @@ return {
     config = function(_, opts)
       require("supermaven-nvim").setup(opts)
       vim.cmd [[SupermavenUseFree]]
-      require("cmp").setup.global {
-        sources = {
-          { name = "supermaven", priority = 1000, group_index = 1 },
-        },
-      }
     end,
   },
   {
@@ -34,14 +27,6 @@ return {
         opts = { panel = { enabled = false }, suggestion = { enabled = false } },
       },
     },
-    config = function(_, opts)
-      require("copilot_cmp").setup(opts)
-      require("cmp").setup.global {
-        sources = {
-          { name = "copilot", priority = 1000, group_index = 1 },
-        },
-      }
-    end,
   },
   {
     "hrsh7th/nvim-cmp",
@@ -50,6 +35,10 @@ return {
       local cmp, luasnip = require "cmp", require "luasnip"
 
       if not opts.mappings then opts.mappings = {} end
+      if not opts.sources then opts.sources = {} end
+
+      table.insert(opts.sources, { name = "copilot", priority = 1000, group_index = 1 })
+      table.insert(opts.sources, { name = "supermaven", priority = 1000, group_index = 1 })
 
       opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then

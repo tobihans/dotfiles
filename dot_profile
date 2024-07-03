@@ -40,4 +40,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Nvim version manager
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
-export LAUNCH_EDITOR=launch_editor
+export LAUNCH_EDITOR="launch_editor.sh"

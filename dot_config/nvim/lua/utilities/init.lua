@@ -90,10 +90,28 @@ function M.quickfixtextfunc(info)
   return ret
 end
 
+--- Open a file. Provided for integration purposes
+---@param filename string
+---@param line integer
+---@param column integer
 function M.open_file(filename, line, column)
   -- local window = require("window-picker").pick_window()
-  print(string.format("Display file from %s:%s,%s in window %s", filename, line, column, window))
-  vim.fn.cursor(line, column)
+  print(string.format("Display file from %s:%s,%s", filename, line, column))
+  -- vim.fn.cursor(line, column)
+end
+
+--- Loads local configuration file. Useful when cwd changes in process.
+function M.load_exrc()
+  for _, exrc in pairs {
+    ".nvim.lua",
+    ".nvimrc",
+    ".exrc",
+  } do
+    if vim.fn.filereadable(exrc) == 1 and vim.secure.read(exrc) ~= nil then
+      vim.cmd.source(exrc)
+      break
+    end
+  end
 end
 
 return M
