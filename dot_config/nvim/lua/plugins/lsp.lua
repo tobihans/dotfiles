@@ -185,7 +185,7 @@ return {
           vtsls = {
             experimental = {
               enableProjectDiagnostics = true,
-              maxInlayHintLength = 18,
+              maxInlayHintLength = 20,
               completion = {
                 enableServerSideFuzzyMatch = true,
               },

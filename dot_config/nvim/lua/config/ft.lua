@@ -34,6 +34,7 @@ vim.filetype.add {
     mdx = "mdx",
     wsx = "xml",
     wxl = "xml",
+    meta = "json",
   },
   pattern = {
     -- Chezmoi dotfiles

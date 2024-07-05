@@ -53,10 +53,11 @@ return {
   },
   {
     "mg979/vim-visual-multi",
+    lazy = false,
     init = function()
-      vim.g.VM_leader = "\\"
-      vim.g.VM_default_mappings = 0
-      vim.g.VM_mouse_mappings = 0
+      vim.g.VM_leader = "<Localleader>v"
+      vim.g.VM_default_mappings = 1
+      vim.g.VM_mouse_mappings = 1
       vim.g.VM_quit_after_leaving_insert_mode = 1
       vim.g.VM_insert_special_keys = { "c-v", "c-a", "c-e" }
       vim.g.VM_reindent_filetypes = { "python", "yaml" }
@@ -72,7 +73,14 @@ return {
         ["Redo"] = "<C-r>",
       }
     end,
-    lazy = false,
+    config = function(_, __)
+      require("which-key").register {
+        ["<Localleader>v"] = {
+          name = "Visual Multi",
+          mode = { "n", "v" },
+        },
+      }
+    end,
   },
   {
     "akinsho/git-conflict.nvim",

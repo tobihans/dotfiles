@@ -1,5 +1,6 @@
 -- use async formatting when formatter is slow
 local format_async = {}
+local prettier = { "prettierd", "prettier" }
 
 local function get_autoformat(bufnr)
   if vim.g.autoformat == nil then vim.g.autoformat = true end
@@ -47,31 +48,31 @@ return {
         },
       },
       formatters_by_ft = {
-        astro = { "prettier" },
-        css = { "prettier" },
+        astro = { prettier },
+        css = { prettier },
         go = { "goimports", "gofmt" },
-        graphql = { "prettier" },
-        html = { "prettier" },
+        graphql = { prettier },
+        html = { prettier },
         htmldjango = { "djlint" },
         hurl = { "hurlfmt", "injected" },
-        javascript = { "prettier" },
-        javascriptreact = { "prettier" },
+        javascript = { prettier },
+        javascriptreact = { prettier },
         json = { "jq" },
         lua = { "stylua" },
-        mardown = { "prettier", "injected" },
+        mardown = { prettier, "injected" },
         php = { "pint", "php_cs_fixer" },
         python = { "ruff_format" },
         rust = { "rustfmt" },
         sh = { "shfmt" },
         sql = { "sleek" },
-        svelte = { "prettier" },
-        typescriptreact = { "prettier" },
+        svelte = { prettier },
+        typescriptreact = { prettier },
         typescript = function(bufnr)
           local deno_root = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
           if deno_root(vim.api.nvim_buf_get_name(bufnr)) then
             return { "deno_fmt" }
           else
-            return { "prettier" }
+            return { prettier }
           end
         end,
         typst = { "typstyle", "injected" },

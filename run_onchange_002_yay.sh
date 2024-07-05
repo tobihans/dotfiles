@@ -10,8 +10,9 @@ packages=(
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
 		"plasma5-wallpapers-dynamic"
+        "python-pyclip"
 		"slack-desktop" "supertuxkart"
-		"wl-clipboard"
+		"wl-clipboard" "waydroid"
 		"zoom"
 	)
 fi

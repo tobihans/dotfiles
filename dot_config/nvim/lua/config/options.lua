@@ -112,20 +112,18 @@ set shellquote= shellxquote=
 end
 
 --- Neovide
-if vim.g.neovide then
-  vim.g.neovide_theme = "auto"
+vim.g.neovide_theme = "auto"
 
-  vim.g.neovide_transparency = 0.982
-  vim.g.neovide_fullscreen = true
+vim.g.neovide_transparency = 0.982
+vim.g.neovide_fullscreen = true
 
-  vim.g.neovide_cursor_animate_command_line = false
-  vim.g.neovide_cursor_vfx_particle_density = 15.0
-  vim.g.neovide_cursor_vfx_mode = "pixiedust"
+vim.g.neovide_cursor_animate_command_line = false
+vim.g.neovide_cursor_vfx_particle_density = 15.0
+vim.g.neovide_cursor_vfx_mode = "pixiedust"
 
-  vim.g.neovide_padding_top = 0
-  vim.g.neovide_padding_bottom = 0
-  vim.g.neovide_padding_right = 0
-  vim.g.neovide_padding_left = 0
+vim.g.neovide_padding_top = 0
+vim.g.neovide_padding_bottom = 0
+vim.g.neovide_padding_right = 0
+vim.g.neovide_padding_left = 0
 
-  vim.g.neovide_floating_shadow = false
-end
+vim.g.neovide_floating_shadow = false

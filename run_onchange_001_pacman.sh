@@ -39,6 +39,7 @@ if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 		"tlp" "tlpui"
 		"sniffnet"
 		"webkit2gtk"
+		"xdg-desktop-portal-gtk"
 	)
 fi
 
