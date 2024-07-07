@@ -107,7 +107,7 @@ return {
           require("which-key").register(require("config.mappings.lsp").go, { buffer = bufnr })
         end,
       },
-      pyright = {
+      basedpyright = {
         on_init = function(client)
           if client.config.root_dir ~= nil then
             client.config.settings.python.pythonPath = utils.get_python_path(client.config.root_dir)

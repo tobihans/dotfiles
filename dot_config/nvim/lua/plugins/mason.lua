@@ -26,6 +26,7 @@ return {
       opts.ensure_installed = list_insert_unique(opts.ensure_installed, {
         "ansiblels",
         "astro",
+        "basedpyright",
         "bashls",
         "bufls",
         "clangd",
@@ -41,7 +42,7 @@ return {
         "jsonls",
         "lua_ls",
         "prismals",
-        "pyright",
+        -- "pyright",
         "ruff_lsp",
         "taplo",
         "tinymist",
