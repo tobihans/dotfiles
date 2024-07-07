@@ -1,5 +1,4 @@
 ---@diagnostic disable: missing-fields
-
 ---@type LazySpec
 return {
   { "tamton-aquib/duck.nvim" },
@@ -103,17 +102,60 @@ return {
   {
     "folke/drop.nvim",
     enabled = vim.fn.has "win32" == 0,
-    event = function(_, events)
-      if not vim.g.neovide then table.insert(events, "VimEnter") end
-      return events
-    end,
+    event = "VimEnter",
     opts = function()
-      local themes = { "leaves", "snow", "stars", "spring", "summer" }
+      local themes = {
+        "april_fools",
+        "arcade",
+        "art",
+        "bakery",
+        "beach",
+        "bugs",
+        "business",
+        "candy",
+        "cards",
+        "carnival",
+        "cats",
+        "coffee",
+        "cyberpunk",
+        "deepsea",
+        "desert",
+        "dice",
+        "diner",
+        "emotional",
+        "explorer",
+        "farm",
+        "garden",
+        "jungle",
+        "leaves",
+        "lunar",
+        "mathematical",
+        "musical",
+        "mystery",
+        "nocturnal",
+        "ocean",
+        "pirate",
+        "retro",
+        "snow",
+        "spa",
+        "space",
+        "spring",
+        "stars",
+        "summer",
+        "summer",
+        "temporal",
+        "travel",
+        "tropical",
+        "urban",
+        "wilderness",
+        "wildwest",
+      }
+
       local opts = {
-        max = 65,
+        max = 40,
         screensaver = 1000 * 60 * 15, -- 15 minutes
         theme = themes[math.random(#themes)],
-        filetypes = { "dashboard", "alpha", "starter" },
+        filetypes = vim.g.neovide and {} or { "dashboard", "alpha", "starter" },
       }
       return opts
     end,
