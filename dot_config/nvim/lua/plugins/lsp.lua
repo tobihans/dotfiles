@@ -185,13 +185,14 @@ return {
           vtsls = {
             experimental = {
               enableProjectDiagnostics = true,
-              maxInlayHintLength = 20,
+              maxInlayHintLength = 40,
               completion = {
                 enableServerSideFuzzyMatch = true,
               },
             },
             tsserver = { globalPlugins = {} },
             typescript = {
+              tsdk = "./node_modules/typescript/lib",
               preferences = {
                 includePackageJsonAutoImports = "off",
                 importModuleSpecifier = "relative",
@@ -202,7 +203,7 @@ return {
                 functionLikeReturnTypes = { enabled = true },
                 propertyDeclarationTypes = { enabled = true },
                 variableTypes = {
-                  enabled = true,
+                  enabled = false,
                   suppressWhenTypeMatchesName = true,
                 },
                 parameterNames = {
@@ -222,7 +223,7 @@ return {
                 functionLikeReturnTypes = { enabled = true },
                 propertyDeclarationTypes = { enabled = true },
                 variableTypes = {
-                  enabled = true,
+                  enabled = false,
                   suppressWhenTypeMatchesName = true,
                 },
                 parameterNames = {
@@ -241,8 +242,10 @@ return {
     },
     handlers = {
       -- function(server, opts) require("lspconfig")[server].setup(opts) end | false,
-      tsserver = false,
-      ruff = false, -- use the ruff_lsp server
+      tsserver = false, -- vtsls
+      eslint = false, -- biome
+      pyright = false, -- basedpyright
+      ruff = false, -- ruff_lsp
     },
     mappings = {
       n = {

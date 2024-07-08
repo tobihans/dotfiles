@@ -1,6 +1,20 @@
-os:
-  editPreset: nvim
 gui:
   showBottomLine: false
   border: rounded
-  nerdFontsVersion: '3'
+  nerdFontsVersion: "3"
+  spinner:
+    #NOTE: https://stackoverflow.com/questions/2685435/cooler-ascii-spinners
+    frames:
+      - ⣾
+      - ⣽
+      - ⣻
+      - ⢿
+      - ⡿
+      - ⣟
+      - ⣯
+      - ⣷
+    rate: 35
+git:
+  parseEmoji: true
+os:
+  editPreset: vim

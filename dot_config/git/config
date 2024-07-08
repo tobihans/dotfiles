@@ -24,6 +24,7 @@
 	ui = true
 [core]
 	pager = less -r
+	editor = vim
 
 [status]
 	submodulesummary = 1
