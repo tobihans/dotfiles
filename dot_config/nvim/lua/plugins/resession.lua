@@ -8,6 +8,11 @@ return {
     opts.extensions.overseer = {
       unique = true,
       recent_first = true,
+      name_not = true,
+      name = {
+        ".local",
+        ".ignore",
+      },
     }
 
     return opts
@@ -16,6 +21,6 @@ return {
     local resession = require "resession"
 
     resession.setup(opts)
-    resession.add_hook("post_load", require("utilities").load_exrc)
+    resession.add_hook("post_load", function() vim.schedule(require("utilities").load_exrc) end)
   end,
 }

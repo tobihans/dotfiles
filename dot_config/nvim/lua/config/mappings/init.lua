@@ -1,17 +1,16 @@
 local M = {
   n = {
-    ["0"] = { function() vim.api.nvim_feedkeys("^", "n", false) end, desc = "First non-blank character" },
-    ["<space>"] = { function() vim.api.nvim_feedkeys("/", "n", false) end, desc = "Search forward" },
-    ["<C-space>"] = { function() vim.api.nvim_feedkeys("?", "n", false) end, desc = "Search backward" },
+    ["0"] = { "^", desc = "First non-blank character" },
 
     ["<Leader>O"] = { name = "  Octo /  Overseer" },
     ["<Leader>G"] = { name = "󱎓 Games" },
     ["<Leader>n"] = { require("utilities.pickers").new_file, desc = "New File" },
-    ["<Leader><cr>"] = {
-      function() vim.api.nvim_feedkeys(":noh" .. vim.api.nvim_replace_termcodes("<cr>", true, false, true), "n", false) end,
-      desc = "noh",
+    ["<Leader>m"] = {
+      function() return "mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm" end,
+      desc = "Remove the ^M Windows line endings",
+      silent = true,
+      expr = true,
     },
-    ["<Leader>W"] = { "<cmd>wall<cr>", desc = "Save all" },
     ["<Leader>w"] = {
       function()
         if vim.fn.getreg "%" == "" then
@@ -23,12 +22,6 @@ local M = {
         end
       end,
       desc = "Save",
-    },
-    ["<Leader>m"] = {
-      function() return "mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm" end,
-      desc = "Remove the ^M Windows line endings",
-      silent = true,
-      expr = true,
     },
 
     ["<Localleader>l"] = { name = " Lists" },
