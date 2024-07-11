@@ -58,20 +58,24 @@ return {
     commands = {
       { ":CopilotChatToggle", description = "Copilot Chat" },
       { ":Screenkey", description = "Screen Key" },
-      { ":DevdocsOpenFloat", description = "Search documentation" },
+      { ":DevdocsOpenFloat", description = "Search Documentation" },
     },
     funcs = {
       {
-        require("peek").open,
-        description = "Preview markdown",
-      },
-      {
-        require("peek").close,
-        description = "Close markdown preview",
+        function()
+          local peek = require "peek"
+
+          if peek.is_open() then
+            peek.close()
+          else
+            peek.open()
+          end
+        end,
+        description = "Markdown Preview",
       },
       {
         require("utilities").compare_to_clipboard,
-        description = "Compare current buffer to clipboard",
+        description = "Compare to Clipboard",
       },
       {
         function()
@@ -79,7 +83,7 @@ return {
             require("duck").hatch(animals[math.random(#animals)])
           end
         end,
-        description = "Release the duck 🦆",
+        description = "Release Duck & co. 🦆",
       },
       {
         function()
@@ -90,7 +94,7 @@ return {
 
           require("duck").ducks_list = {}
         end,
-        description = "Catch the duck 🦆",
+        description = "Catch Duck & co. 🦆",
       },
       {
         function()
@@ -100,7 +104,17 @@ return {
             close_on_exit = false,
           }
         end,
-        description = "Watch GitHub Action run",
+        description = "Github Action Watch",
+      },
+      {
+        function()
+          require("astrocore").toggle_term_cmd {
+            cmd = "glab pipeline ci view",
+            auto_scroll = false,
+            close_on_exit = false,
+          }
+        end,
+        description = "Gitlab CI View",
       },
     },
   },
