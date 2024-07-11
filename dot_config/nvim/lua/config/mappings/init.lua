@@ -24,9 +24,6 @@ local M = {
       desc = "Save",
     },
 
-    ["<Localleader>l"] = { name = " Lists" },
-    ["<Localleader>lq"] = { "<cmd>cwindow<cr>", desc = "Quickfix list" },
-    ["<Localleader>ll"] = { "<cmd>lwindow<cr>", desc = "Location list" },
     ["<Localleader>r"] = { "<cmd>edit<cr>", desc = "Reload Buffer" },
 
     ["<M-s>"] = {

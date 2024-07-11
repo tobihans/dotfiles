@@ -13,10 +13,11 @@ if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
         "python-pyclip"
 		"slack-desktop" "supertuxkart"
 		"xwaylandvideobridge"
-		"wl-clipboard" "waydroid"
+		"wl-clipboard"
 		"zoom"
 	)
 fi
+# "waydroid"
 # "wkhtmltopdf"
 
 # Install packages
