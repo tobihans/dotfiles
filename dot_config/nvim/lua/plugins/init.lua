@@ -4,7 +4,6 @@ return {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
     opts = {
-      mappings = require "config.mappings",
       features = {
         large_buf = { size = 1024 * 100, lines = 10000 },
         autopairs = true,

@@ -31,6 +31,7 @@ vim.fn.sign_define {
 
 vim.cmd [[let $NVIM_SOCK=v:servername]]
 
-require "config.options"
 require "config.ft"
+require "config.options"
+require "config.mappings"
 require "config.autocmds"

@@ -10,28 +10,30 @@ return {
   },
   init = function()
     local wk = require "which-key"
-    wk.register {
-      ["<Leader>f"] = {
-        g = {
-          function() require("telescope-live-grep-args.shortcuts").grep_word_under_cursor() end,
-          "Find word under cursor",
-        },
-        w = {
-          function() require("telescope").extensions.live_grep_args.live_grep_args() end,
-          "Find words",
-        },
+    wk.add {
+      {
+        "<Leader>fg",
+        function() require("telescope-live-grep-args.shortcuts").grep_word_under_cursor() end,
+        desc = "Find word under cursor",
+      },
+      {
+        "<Leader>fw",
+        function() require("telescope").extensions.live_grep_args.live_grep_args() end,
+        desc = "Find words",
       },
     }
 
-    wk.register({
-      ["<Leader>f"] = {
-        name = " Find",
-        v = {
+    wk.add {
+      {
+        { mode = "v" },
+        { "<Leader>f", group = " Find" },
+        {
+          "<Leader>fv",
           function() require("telescope-live-grep-args.shortcuts").grep_visual_selection() end,
-          "Find visual selection",
+          desc = "Find visual selection",
         },
       },
-    }, { mode = "v" })
+    }
   end,
   opts = function(_, opts)
     local lga_actions = require "telescope-live-grep-args.actions"

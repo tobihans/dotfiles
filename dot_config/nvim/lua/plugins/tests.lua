@@ -44,8 +44,8 @@ return {
   {
     "andythigpen/nvim-coverage",
     init = function()
-      require("which-key").register {
-        ["<Leader>Tc"] = { name = " Coverage" },
+      require("which-key").add {
+        { "<Leader>Tc", group = " Coverage" },
       }
     end,
     keys = {

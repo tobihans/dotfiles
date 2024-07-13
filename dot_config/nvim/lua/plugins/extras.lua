@@ -73,11 +73,8 @@ return {
       }
     end,
     config = function(_, __)
-      require("which-key").register {
-        ["<Localleader>v"] = {
-          name = "Visual Multi",
-          mode = { "n", "v" },
-        },
+      require("which-key").add {
+        { "<Localleader>v", group = "Visual Multi", mode = { "n", "v" } },
       }
     end,
   },
@@ -165,25 +162,32 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
     init = function()
       local wk = require "which-key"
-      local name = "󱌣 Refactoring"
+      local group = "󱌣 Refactoring"
 
-      wk.register {
-        ["<Leader>r"] = {
-          name = name,
-          r = { function() require("telescope").extensions.refactoring.refactors() end, "Refactors" },
-          p = { function() require("refactoring").debug.printf { below = true } end, "Debug print" },
-          v = { function() require("refactoring").debug.print_var { below = true } end, "Debug print var" },
-          c = { function() require("refactoring").debug.cleanup {} end, "Debug cleanup" },
+      wk.add {
+        { "<Leader>r", group = group },
+        { "<Leader>rr", function() require("telescope").extensions.refactoring.refactors() end, desc = "Refactors" },
+        { "<Leader>rp", function() require("refactoring").debug.printf { below = true } end, desc = "Debug print" },
+        {
+          "<Leader>rv",
+          function() require("refactoring").debug.print_var { below = true } end,
+          desc = "Debug print var",
         },
+        { "<Leader>rc", function() require("refactoring").debug.cleanup {} end, desc = "Debug cleanup" },
       }
 
-      wk.register({
-        ["<Leader>r"] = {
-          name = name,
-          r = { function() require("telescope").extensions.refactoring.refactors() end, "Refactors" },
-          v = { function() require("refactoring").debug.print_var { below = true } end, "Debug print var" },
+      wk.add {
+        {
+          { mode = "x" },
+          { "<Leader>r", group = group },
+          { "<Leader>rr", function() require("telescope").extensions.refactoring.refactors() end, desc = "Refactors" },
+          {
+            "<Leader>rv",
+            function() require("refactoring").debug.print_var { below = true } end,
+            desc = "Debug print var",
+          },
         },
-      }, { mode = "x" })
+      }
     end,
     config = true,
   },

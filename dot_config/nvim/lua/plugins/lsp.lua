@@ -64,7 +64,7 @@ return {
         },
         on_attach = function(client, bufnr)
           require("astrolsp").on_attach(client, bufnr)
-          require("which-key").register(require("config.mappings.lsp").dart, { buffer = bufnr })
+          require("which-key").add(require("config.mappings.lsp").dart, { buffer = bufnr })
         end,
       },
       denols = { root_dir = deno_root },
@@ -104,7 +104,7 @@ return {
         },
         on_attach = function(client, bufnr)
           require("astrolsp").on_attach(client, bufnr)
-          require("which-key").register(require("config.mappings.lsp").go, { buffer = bufnr })
+          require("which-key").add(require("config.mappings.lsp").go, { buffer = bufnr })
         end,
       },
       basedpyright = {
@@ -130,7 +130,7 @@ return {
       rust_analyzer = {
         on_attach = function(client, bufnr)
           require("astrolsp").on_attach(client, bufnr)
-          require("which-key").register(require("config.mappings.lsp").rust, { buffer = bufnr })
+          require("which-key").add(require("config.mappings.lsp").rust, { buffer = bufnr })
         end,
         settings = {
           ["rust-analyzer"] = {
@@ -159,7 +159,7 @@ return {
         },
         on_attach = function(client, bufnr)
           require("astrolsp").on_attach(client, bufnr)
-          require("which-key").register(require("config.mappings.lsp").typst, { buffer = bufnr })
+          require("which-key").add(require("config.mappings.lsp").typst, { buffer = bufnr })
         end,
       },
       vtsls = {
@@ -236,7 +236,7 @@ return {
         },
         on_attach = function(client, bufnr)
           require("astrolsp").on_attach(client, bufnr)
-          require("which-key").register(require("config.mappings.lsp").typescript, { buffer = bufnr })
+          require("which-key").add(require("config.mappings.lsp").typescript, { buffer = bufnr })
         end,
       },
     },

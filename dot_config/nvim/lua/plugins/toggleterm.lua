@@ -3,44 +3,47 @@ return {
   {
     "akinsho/toggleterm.nvim",
     init = function()
-      require("which-key").register {
-        ["<Leader>t"] = {
-          h = {
-            function()
-              vim.cmd(
-                vim.v.count1
-                  .. "ToggleTerm size=10 direction=horizontal "
-                  .. "name='Interactive Terminal "
-                  .. vim.v.count1
-                  .. "'"
-              )
-            end,
-            "ToggleTerm horizontal split",
-          },
-          v = {
-            function()
-              vim.cmd(
-                vim.v.count1
-                  .. "ToggleTerm size=80 direction=vertical "
-                  .. "name='Interactive Terminal "
-                  .. vim.v.count1
-                  .. "'"
-              )
-            end,
-            "ToggleTerm vertical split",
-          },
-          d = {
-            function() require("astrocore").toggle_term_cmd "lazydocker" end,
-            "ToggleTerm lazydocker",
-          },
-          b = {
-            function() require("astrocore").toggle_term_cmd "btop" end,
-            "ToggleTerm btop",
-          },
-          g = {
-            function() require("astrocore").toggle_term_cmd "gh dash" end,
-            "ToggleTerm Github Dashboard",
-          },
+      require("which-key").add {
+        {
+          "<Leader>th",
+          function()
+            vim.cmd(
+              vim.v.count1
+                .. "ToggleTerm size=10 direction=horizontal "
+                .. "name='Interactive Terminal "
+                .. vim.v.count1
+                .. "'"
+            )
+          end,
+          desc = "ToggleTerm horizontal split",
+        },
+        {
+          "<Leader>tv",
+          function()
+            vim.cmd(
+              vim.v.count1
+                .. "ToggleTerm size=80 direction=vertical "
+                .. "name='Interactive Terminal "
+                .. vim.v.count1
+                .. "'"
+            )
+          end,
+          desc = "ToggleTerm vertical split",
+        },
+        {
+          "<Leader>td",
+          function() require("astrocore").toggle_term_cmd "lazydocker" end,
+          desc = "ToggleTerm lazydocker",
+        },
+        {
+          "<Leader>tb",
+          function() require("astrocore").toggle_term_cmd "btop" end,
+          desc = "ToggleTerm btop",
+        },
+        {
+          "<Leader>tg",
+          function() require("astrocore").toggle_term_cmd "gh dash" end,
+          desc = "ToggleTerm Github Dashboard",
         },
       }
     end,
