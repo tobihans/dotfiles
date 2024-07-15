@@ -111,7 +111,7 @@ return {
           require("astrocore").toggle_term_cmd {
             cmd = "glab pipeline ci view",
             auto_scroll = false,
-            close_on_exit = false,
+            close_on_exit = true,
           }
         end,
         description = "Gitlab CI View",

@@ -1,6 +1,7 @@
 local M = {}
 local status = require "astroui.status"
 
+--- Clock component
 M.clock = status.component.builder {
   {
     provider = function()
@@ -40,5 +41,6 @@ function M.start_clock_timer()
     end)
   )
 end
+--- END Clock component
 
 return M
