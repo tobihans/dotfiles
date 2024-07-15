@@ -7,8 +7,8 @@ refreshPeriod = "168h"
 
 [".nvm"]
 type = "git-repo"
-url = "https://github.com/nvm-sh/nvm"
 refreshPeriod = "168h"
+url = "https://github.com/nvm-sh/nvm"
 
 [".vim/colors/nord.vim"]
 type = "file"
@@ -16,13 +16,19 @@ url = "https://github.com/nordtheme/vim/raw/main/colors/nord.vim"
 
 ["bin/dynamicwallpaperconverter"]
 type = "file"
+executable = true
 url = "https://raw.githubusercontent.com/zzag/plasma5-wallpapers-dynamic-extras/master/dynamicwallpaperconverter"
-executable = true
 
-["bin/trunk"]
+["bin/snyk"]
 type = "file"
-url = "https://trunk.io/releases/trunk"
 executable = true
+refreshPeriod = "672h"
+url = "https://static.snyk.io/cli/latest/snyk-linux"
+
+# ["bin/trunk"]
+# type = "file"
+# url = "https://trunk.io/releases/trunk"
+# executable = true
 
 [".local/share/icons/hicolor/48x48/apps/neovide.svg"]
 type = "file"

@@ -1,4 +1,4 @@
-local wk = require("which-key")
+local wk = require "which-key"
 
 local M = {
   n = {
@@ -6,7 +6,16 @@ local M = {
 
     { "<Leader>G", group = "󱎓 Games" },
     { "<Leader>O", group = "  Octo /  Overseer" },
+
     { "<Leader>n", require("utilities.pickers").new_file, desc = "New File" },
+    {
+      "<Leader>um",
+      function()
+        vim.o.mouse = vim.o.mouse ~= "" and "" or "a"
+        vim.notify("Mouse: " .. (vim.o.mouse ~= "" and vim.o.mouse or "off"))
+      end,
+      desc = "Toggle mouse",
+    },
     {
       "<Leader>m",
       function() return "mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm" end,
@@ -37,27 +46,30 @@ local M = {
         vim.cmd.cd(config)
         vim.cmd.edit(config .. "/init.lua")
       end,
-      desc = "Open neovim settings in a separate tab",
+      desc = "Open ~/.config/nvim",
     },
   },
   t = {
-    { "<M-Esc>", "<C-\\><C-n>", desc = " Exit Terminal Mode" },
-    -- { "<C-`>", "<C-\\><C-n>", desc = " Exit Terminal Mode" },
+    { "<C-`>", "<C-\\><C-n>", desc = " Exit Terminal Mode" },
   },
   c = {},
 }
 
 -- stylua: ignore
 if vim.g.neovide then
-  table.insert(M["t"], { "<C-S-V>", "<C-\\><C-n>pi", desc = "Paste clipboard content" })
-  -- M["t"]["<C-S-V>"] = { "<C-\\><C-n>pi", desc = "Paste clipboard content" }
+  table.insert(M["t"], {
+    "<C-S-V>", "<C-\\><C-n>pi",
+    desc = "Paste clipboard content",
+    silent = true,
+    expr = true,
+  })
 end
 
 for mode, mappings in pairs(M) do
-    wk.add {
-        {
-            { mode = mode },
-            unpack(mappings)
-        }
-    }
+  wk.add {
+    {
+      { mode = mode },
+      unpack(mappings),
+    },
+  }
 end
