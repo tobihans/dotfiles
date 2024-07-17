@@ -60,8 +60,6 @@ if vim.g.neovide then
   table.insert(M["t"], {
     "<C-S-V>", "<C-\\><C-n>pi",
     desc = "Paste clipboard content",
-    silent = true,
-    expr = true,
   })
 end
 

@@ -2,6 +2,7 @@
 return {
   "kawre/leetcode.nvim",
   build = ":TSUpdate html",
+  cmd = "Leet",
   opts = {
     lang = "python3",
     plugins = {

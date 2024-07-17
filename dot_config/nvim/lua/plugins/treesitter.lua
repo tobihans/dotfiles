@@ -2,7 +2,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter-context",
-    lazy = false,
+    event = "VeryLazy",
     opts = {
       enable = true,
       max_lines = 5,

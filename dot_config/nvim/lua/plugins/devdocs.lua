@@ -6,6 +6,7 @@ return {
     "nvim-telescope/telescope.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
+  cmd = "DevdocsOpenFloat",
   opts = {
     -- TODO: This should adapt to resizes
     float_win = {

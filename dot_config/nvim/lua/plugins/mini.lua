@@ -2,7 +2,7 @@
 return {
   {
     "echasnovski/mini.move",
-    lazy = false,
+    event = "VeryLazy",
     version = nil,
     init = function()
       local wk = require "which-key"
@@ -14,16 +14,14 @@ return {
         { "M-l", desc = "Move line left" },
       }
 
-      wk.add {
-        {
-          mode = { "v" },
-          { "M-h", desc = "Move selection right" },
-          { "M-j", desc = "Move selection down" },
-          { "M-k", desc = "Move selection up" },
-          { "M-l", desc = "Move selection left" },
-        },
-      }
+      wk.add({
+        { "M-h", desc = "Move selection right" },
+        { "M-j", desc = "Move selection down" },
+        { "M-k", desc = "Move selection up" },
+        { "M-l", desc = "Move selection left" },
+      }, { mode = { "v" } })
     end,
     config = true,
   },
 }
+

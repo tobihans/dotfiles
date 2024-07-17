@@ -94,14 +94,11 @@ return {
             { "<Localleader>cC", crates.open_crates_io, desc = "Open crates.io" },
           }, { silent = true })
 
-          wk.add {
-            {
-              { mode = "v", silent = true },
-              { "<Localleader>c", group = " Cargo tools" },
-              { "<Localleader>cu", crates.update_crates, desc = "Update crates" },
-              { "<Localleader>cU", crates.upgrade_crates, desc = "Upgrade crates" },
-            },
-          }
+          wk.add({
+            { "<Localleader>c", group = " Cargo tools" },
+            { "<Localleader>cu", crates.update_crates, desc = "Update crates" },
+            { "<Localleader>cU", crates.upgrade_crates, desc = "Upgrade crates" },
+          }, { mode = "v", silent = true })
         end,
       }
 

@@ -3,10 +3,10 @@
 return {
   { "tamton-aquib/duck.nvim" },
   { "theHamsta/nvim-dap-virtual-text" },
-  { "wakatime/vim-wakatime", lazy = false },
-  { "tiagovla/scope.nvim", lazy = false, priority = 1500 },
+  { "wakatime/vim-wakatime", event = "VeryLazy" },
+  { "tiagovla/scope.nvim", event = "VeryLazy", priority = 1500 },
   { "NStefan002/screenkey.nvim", cmd = "Screenkey", config = true },
-  { "kylechui/nvim-surround", event = "VeryLazy", lazy = false, opts = {} },
+  { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
   { "folke/zen-mode.nvim", cmd = "ZenMode", keys = { { "<Leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } } },
   {
     "kosayoda/nvim-lightbulb",
@@ -44,7 +44,7 @@ return {
   },
   {
     "folke/todo-comments.nvim",
-    lazy = false,
+    event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = { { "<Leader>fT", "<cmd>TodoTelescope<cr>", desc = "Find TODOs" } },
     opts = {},
@@ -52,7 +52,7 @@ return {
   },
   {
     "mg979/vim-visual-multi",
-    lazy = false,
+    event = "VeryLazy",
     init = function()
       vim.g.VM_leader = "<Localleader>v"
       vim.g.VM_default_mappings = 1
@@ -81,7 +81,6 @@ return {
   {
     "akinsho/git-conflict.nvim",
     version = "*",
-    lazy = not require("utilities").has_conflicts(),
     cmd = "GitConflictListQf",
     event = "User AstroGitFile",
     keys = { { "<Leader>gq", "<cmd>GitConflictListQf<cr>", desc = "Git Conflicts quickfix" } },

@@ -10,12 +10,6 @@ function M.tbl_flatten(t) return vim.iter(t):flatten(math.huge):totable() end
 
 function M.join_paths(...) return table.concat(M.tbl_flatten { ... }, M.PATH_SEPARATOR) end
 
---- Checks if there is a git conflict in the current dir
---- This is used to know if we should enable git-conflicts
---- on startup or delay it.
----@return boolean
-function M.has_conflicts() return vim.fn.system { "git", "diff", "--check" } ~= "" end
-
 --- Diff with clipboard
 function M.compare_to_clipboard()
   local ftype = vim.api.nvim_eval "&filetype"

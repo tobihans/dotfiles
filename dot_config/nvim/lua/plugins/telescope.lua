@@ -23,17 +23,14 @@ return {
       },
     }
 
-    wk.add {
+    wk.add({
+      { "<Leader>f", group = " Find" },
       {
-        { mode = "v" },
-        { "<Leader>f", group = " Find" },
-        {
-          "<Leader>fv",
-          function() require("telescope-live-grep-args.shortcuts").grep_visual_selection() end,
-          desc = "Find visual selection",
-        },
+        "<Leader>fv",
+        function() require("telescope-live-grep-args.shortcuts").grep_visual_selection() end,
+        desc = "Find visual selection",
       },
-    }
+    }, { mode = "v" })
   end,
   opts = function(_, opts)
     local lga_actions = require "telescope-live-grep-args.actions"
