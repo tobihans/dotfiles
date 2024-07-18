@@ -8,8 +8,7 @@ return {
     -- opts.extensions.overseer = {
     --   unique = true,
     --   recent_first = true,
-    --   name_not = true,
-    --   name = {},
+    --   status = { "RUNNING" },
     -- }
 
     return opts

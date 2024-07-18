@@ -1,6 +1,10 @@
 -- use async formatting when formatter is slow
 local format_async = {}
-local biome_or_prettier = { "biome", "prettierd", "prettier" }
+local prettier_and_co = {
+  --[[ "biome", ]]
+  "prettierd",
+  "prettier",
+}
 
 local function get_autoformat(bufnr)
   if vim.g.autoformat == nil then vim.g.autoformat = true end
@@ -48,31 +52,31 @@ return {
         },
       },
       formatters_by_ft = {
-        astro = { biome_or_prettier },
-        css = { biome_or_prettier },
+        astro = { prettier_and_co },
+        css = { prettier_and_co },
         go = { "goimports", "gofmt" },
-        graphql = { biome_or_prettier },
-        html = { biome_or_prettier },
+        graphql = { prettier_and_co },
+        html = { prettier_and_co },
         htmldjango = { "djlint" },
         hurl = { "hurlfmt", "injected" },
-        javascript = { biome_or_prettier },
-        javascriptreact = { biome_or_prettier },
+        javascript = { prettier_and_co },
+        javascriptreact = { prettier_and_co },
         json = { "jq" },
         lua = { "stylua" },
-        mardown = { biome_or_prettier, "injected" },
+        mardown = { prettier_and_co, "injected" },
         php = { "pint", "php_cs_fixer" },
         python = { "ruff_format" },
         rust = { "rustfmt" },
         sh = { "shfmt" },
         sql = { "sleek" },
-        svelte = { biome_or_prettier },
-        typescriptreact = { biome_or_prettier },
+        svelte = { prettier_and_co },
+        typescriptreact = { prettier_and_co },
         typescript = function(bufnr)
           local deno_root = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
           if deno_root(vim.api.nvim_buf_get_name(bufnr)) then
             return { "deno_fmt" }
           else
-            return { biome_or_prettier }
+            return { prettier_and_co }
           end
         end,
         typst = { "typstyle", "injected" },

@@ -37,7 +37,7 @@ local M = {
       desc = "Save",
     },
 
-    { "<Localleader>r", "<cmd>edit<cr>", desc = "Reload Buffer" },
+    { "<Localleader>R", "<cmd>edit<cr>", desc = "Reload Buffer" },
 
     {
       "<M-s>",
@@ -52,7 +52,6 @@ local M = {
   t = {
     { "<C-`>", "<C-\\><C-n>", desc = " Exit Terminal Mode" },
   },
-  c = {},
 }
 
 -- stylua: ignore
@@ -65,9 +64,6 @@ end
 
 for mode, mappings in pairs(M) do
   wk.add {
-    {
-      { mode = mode },
-      unpack(mappings),
-    },
+    { mode = mode, unpack(mappings) },
   }
 end

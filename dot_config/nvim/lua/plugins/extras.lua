@@ -161,10 +161,9 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
     init = function()
       local wk = require "which-key"
-      local group = "󱌣 Refactoring"
 
       wk.add {
-        { "<Leader>r", group = group },
+        { "<Leader>r", group = "󱌣 Refactoring", mode = { "n", "v" } },
         { "<Leader>rr", function() require("telescope").extensions.refactoring.refactors() end, desc = "Refactors" },
         { "<Leader>rp", function() require("refactoring").debug.printf { below = true } end, desc = "Debug print" },
         {
@@ -177,8 +176,7 @@ return {
 
       wk.add {
         {
-          { mode = "x" },
-          { "<Leader>r", group = group },
+          mode = { "x" },
           { "<Leader>rr", function() require("telescope").extensions.refactoring.refactors() end, desc = "Refactors" },
           {
             "<Leader>rv",

@@ -243,7 +243,7 @@ return {
     handlers = {
       -- function(server, opts) require("lspconfig")[server].setup(opts) end | false,
       tsserver = false, -- vtsls
-      eslint = false, -- biome
+      biome = false, -- eslint
       pyright = false, -- basedpyright
       ruff = false, -- ruff_lsp
     },

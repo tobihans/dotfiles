@@ -44,6 +44,7 @@ return {
             any = {
               { find = "No information available" },
               { find = "No code actions available" },
+              { find = "No LSP client found that supports symbols" },
               { event = "msg_show", find = "written" },
               { event = "msg_show", find = "search hit" },
             },
