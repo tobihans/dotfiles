@@ -41,3 +41,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
 export LAUNCH_EDITOR="launch_editor.sh"
+
+# GIT CREDENTIAL MANAGER
+export GCM_CREDENTIAL_STORE="secretservice"

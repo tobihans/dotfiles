@@ -39,3 +39,8 @@
 	lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [log]
 	showSignature = true
+[credential]
+	helper = 
+	helper = /home/tobi/bin/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
