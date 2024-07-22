@@ -7,6 +7,7 @@ local M = {
     { "<Leader>G", group = "󱎓 Games" },
     { "<Leader>O", group = "  Octo /  Overseer" },
 
+    { "<Leader><Enter>", "<cmd>noh<cr>", desc = "No Highlight" },
     { "<Leader>n", require("utilities.pickers").new_file, desc = "New File" },
     {
       "<Leader>um",
