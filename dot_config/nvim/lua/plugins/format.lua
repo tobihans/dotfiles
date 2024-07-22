@@ -4,6 +4,7 @@ local prettier_and_co = {
   --[[ "biome", ]]
   "prettierd",
   "prettier",
+  stop_after_first = true,
 }
 
 local function get_autoformat(bufnr)
@@ -52,31 +53,31 @@ return {
         },
       },
       formatters_by_ft = {
-        astro = { prettier_and_co },
-        css = { prettier_and_co },
+        astro = prettier_and_co,
+        css = prettier_and_co,
         go = { "goimports", "gofmt" },
-        graphql = { prettier_and_co },
-        html = { prettier_and_co },
+        graphql = prettier_and_co,
+        html = prettier_and_co,
         htmldjango = { "djlint" },
         hurl = { "hurlfmt", "injected" },
-        javascript = { prettier_and_co },
-        javascriptreact = { prettier_and_co },
+        javascript = prettier_and_co,
+        javascriptreact = prettier_and_co,
         json = { "jq" },
         lua = { "stylua" },
-        mardown = { prettier_and_co, "injected" },
+        mardown = { "prettierd", "prettier", "injected" },
         php = { "pint", "php_cs_fixer" },
         python = { "ruff_format" },
         rust = { "rustfmt" },
         sh = { "shfmt" },
         sql = { "sleek" },
-        svelte = { prettier_and_co },
-        typescriptreact = { prettier_and_co },
+        svelte = prettier_and_co,
+        typescriptreact = prettier_and_co,
         typescript = function(bufnr)
           local deno_root = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
           if deno_root(vim.api.nvim_buf_get_name(bufnr)) then
             return { "deno_fmt" }
           else
-            return { prettier_and_co }
+            return prettier_and_co
           end
         end,
         typst = { "typstyle", "injected" },

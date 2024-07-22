@@ -10,32 +10,25 @@ type = "git-repo"
 refreshPeriod = "168h"
 url = "https://github.com/nvm-sh/nvm"
 
-[".vim/colors/nord.vim"]
-type = "file"
-url = "https://github.com/nordtheme/vim/raw/main/colors/nord.vim"
-
-# https://github.com/thjbdvlt/spell-fr.vim
-[".config/nvim/spell/fr.utf-8.spl"]
-type = "file"
-refreshPeriod = "672h"
-url = "https://raw.githubusercontent.com/thjbdvlt/spell-fr.vim/sea/vim/st.utf-8.spl"
+["bin/"]
+type = "archive"
+include = ["git-credential-manager", "libHarfBuzzSharp.so", "libSkiaSharp.so"]
+url = "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.5.1/gcm-linux_amd64.2.5.1.tar.gz"
 
 ["bin/dynamicwallpaperconverter"]
 type = "file"
 executable = true
 url = "https://raw.githubusercontent.com/zzag/plasma5-wallpapers-dynamic-extras/master/dynamicwallpaperconverter"
 
-["bin/snyk"]
+[".vim/colors/nord.vim"]
 type = "file"
-executable = true
+url = "https://github.com/nordtheme/vim/raw/main/colors/nord.vim"
+
+[".config/nvim/spell/fr.utf-8.spl"]
+# https://github.com/thjbdvlt/spell-fr.vim
+type = "file"
 refreshPeriod = "672h"
-url = "https://static.snyk.io/cli/latest/snyk-linux"
-
-
-# ["bin/trunk"]
-# type = "file"
-# url = "https://trunk.io/releases/trunk"
-# executable = true
+url = "https://raw.githubusercontent.com/thjbdvlt/spell-fr.vim/sea/vim/st.utf-8.spl"
 
 [".local/share/icons/hicolor/48x48/apps/neovide.png"]
 type = "file"
