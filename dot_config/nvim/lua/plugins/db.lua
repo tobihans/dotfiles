@@ -30,20 +30,15 @@ return {
       "DBUIAddConnection",
       "DBUIFindBuffer",
     },
+    keys = {
+      { "<Leader>D", "<cmd>DBUIToggle<cr>", desc = "󰆼 Database Explorer" },
+    },
     init = function()
       vim.g.db_ui_use_nerd_fonts = 1
       vim.g.db_ui_winwidth = 30
       vim.g.db_ui_show_help = 0
       vim.g.db_ui_use_nvim_notify = 1
       vim.g.db_ui_win_position = "left"
-
-      require("which-key").add {
-        { "<Leader>D", group = "󰆼 Db Tools" },
-        { "<Leader>Df", "<cmd>DBUIFindBuffer<cr>", desc = " DB UI Find buffer" },
-        { "<Leader>Dl", "<cmd>DBUILastQueryInfo<cr>", desc = " DB UI Last query infos" },
-        { "<Leader>Dr", "<cmd>DBUIRenameBuffer<cr>", desc = " DB UI Rename buffer" },
-        { "<Leader>Du", "<cmd>DBUIToggle<cr>", desc = " DB UI Toggle" },
-      }
     end,
   },
 }

@@ -17,4 +17,5 @@ gui:
 git:
   parseEmoji: true
 os:
-  editPreset: vim
+  editPreset: nvim
+  open: neovide {{filename}}

@@ -15,6 +15,14 @@ type = "archive"
 include = ["git-credential-manager", "libHarfBuzzSharp.so", "libSkiaSharp.so"]
 url = "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.5.1/gcm-linux_amd64.2.5.1.tar.gz"
 
+["~/.local/share/fonts/Monaspace"]
+type = "archive"
+url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monaspace.tar.xz"
+
+["~/.local/share/fonts/VictorMono"]
+type = "archive"
+url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/VictorMono.tar.xz"
+
 ["bin/dynamicwallpaperconverter"]
 type = "file"
 executable = true
