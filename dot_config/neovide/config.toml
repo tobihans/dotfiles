@@ -1,9 +1,9 @@
 [font]
-normal = ["VictorMono Nerd Font Mono"]
+normal = ["VictorMono Nerd Font"]
 size = 13.2
 
 [font.features]
-VictorMonoNFM-Regular = [
+VictorMonoNF-Regular = [
     "ss01",
     "ss02",
     "ss03",
