@@ -15,6 +15,7 @@ return {
           { "<Localleader>he", "<cmd>HurlRunnerToEntry<CR>", desc = "Run Api request to entry" },
           { "<Localleader>hm", "<cmd>HurlToggleMode<CR>", desc = "Hurl Toggle Mode" },
           { "<Localleader>hv", "<cmd>HurlVerbose<CR>", desc = "Run Api in verbose mode" },
+          { "<Localleader>h", ":HurlRunner<CR>", desc = "Hurl Runner", mode = "v" },
         }
       end,
     })
