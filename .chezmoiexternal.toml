@@ -19,18 +19,6 @@ url = "https://github.com/git-ecosystem/git-credential-manager/releases/download
 type = "archive"
 url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/VictorMono.tar.xz"
 
-# [".local/share/fonts/Monaspace"]
-# type = "archive"
-# url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monaspace.tar.xz"
-
-# [".local/share/fonts/Monoid"]
-# type = "archive"
-# url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monoid.tar.xz"
-
-# [".local/share/fonts/Mononoki"]
-# type = "archive"
-# url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Mononoki.tar.xz"
-
 ["bin/dynamicwallpaperconverter"]
 type = "file"
 executable = true

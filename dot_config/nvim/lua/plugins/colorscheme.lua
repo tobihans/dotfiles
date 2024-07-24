@@ -26,10 +26,29 @@ return {
     end,
   },
   {
+    "rose-pine/neovim",
+    enabled = false,
+    name = "rose-pine",
+    opts = {
+      dark_variant = "moon",
+    },
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      background = {
+        light = "latte",
+        dark = "frappe",
+      },
+    },
+  },
+  {
     "AstroNvim/astroui",
     ---@type AstroUIOpts
     opts = {
-      colorscheme = "everforest",
+      colorscheme = "catppuccin",
     },
   },
 }

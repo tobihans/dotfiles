@@ -35,14 +35,6 @@ return {
             lang_to_formatters = {},
           },
         },
-        sleek = {
-          meta = {
-            url = "https://github.com/nrempel/sleek",
-            description = "Sleek is a CLI tool for formatting SQL.",
-          },
-          command = "sleek",
-          args = { "-i", "4" },
-        },
         typstyle = {
           meta = {
             url = "https://github.com/Enter-tainer/typstyle/",
