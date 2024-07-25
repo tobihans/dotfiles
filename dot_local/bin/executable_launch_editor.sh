@@ -8,6 +8,7 @@ function launch_editor() {
 
 	if [ -z ${NVIM_SOCK+x} ]; then
 		printf "\e[31mCannot find the neovim process to call. NVIM_SOCK is not set.\e[0m\n"
+		printf "\e[31mIs this process running inside a Neovim terminal ?\e[0m\n"
 	else
 		nvim --server "$NVIM_SOCK" --remote-send "$command"
 	fi

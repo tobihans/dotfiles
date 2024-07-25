@@ -1,3 +1,9 @@
 *.md
 keepassxc-browser_settings.json
 
+**/.supermaven
+
+.config/nvim/spell/*.spl
+!.config/nvim/spell/*.add.spl
+
+assets/

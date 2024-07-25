@@ -28,16 +28,8 @@ url = "https://raw.githubusercontent.com/zzag/plasma5-wallpapers-dynamic-extras/
 type = "file"
 url = "https://github.com/nordtheme/vim/raw/main/colors/nord.vim"
 
-[".config/nvim/spell/fr.utf-8.spl"]
 # https://github.com/thjbdvlt/spell-fr.vim
+[".config/nvim/spell/fr.utf-8.spl"]
 type = "file"
 refreshPeriod = "672h"
 url = "https://raw.githubusercontent.com/thjbdvlt/spell-fr.vim/sea/vim/st.utf-8.spl"
-
-[".local/share/icons/hicolor/48x48/apps/neovide.png"]
-type = "file"
-url = "https://github.com/neovide/neovide/raw/main/assets/neovide-48x48.png"
-
-[".local/share/icons/hicolor/scalable/apps/neovide.svg"]
-type = "file"
-url = "https://github.com/neovide/neovide/raw/main/assets/neovide.svg"
