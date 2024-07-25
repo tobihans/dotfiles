@@ -55,14 +55,6 @@ local M = {
   },
 }
 
--- stylua: ignore
-if vim.g.neovide then
-  table.insert(M["t"], {
-    "<C-S-V>", "<C-\\><C-n>pi",
-    desc = "Paste clipboard content",
-  })
-end
-
 for mode, mappings in pairs(M) do
   wk.add {
     { mode = mode, unpack(mappings) },

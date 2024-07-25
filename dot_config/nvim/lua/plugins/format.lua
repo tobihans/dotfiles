@@ -1,7 +1,7 @@
 -- use async formatting when formatter is slow
 local format_async = {}
 local prettier_and_co = {
-  --[[ "biome", ]]
+  "biome",
   "prettierd",
   "prettier",
   stop_after_first = true,

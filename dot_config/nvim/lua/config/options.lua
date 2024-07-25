@@ -10,6 +10,9 @@ vim.opt.updatetime = 250
 vim.opt.writebackup = false
 vim.opt.relativenumber = true
 
+vim.opt.winblend = 25
+vim.opt.pumblend = 25
+
 vim.opt.shortmess:append "c"
 
 vim.opt.wildmenu = true

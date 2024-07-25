@@ -1,6 +1,7 @@
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local lsp_util = require "lspconfig.util"
+local srv_config = require "lspconfig.server_configurations.eslint"
 local utils = require "utilities.lsp"
 
 local deno_root = lsp_util.root_pattern("deno.json", "deno.jsonc")
@@ -71,7 +72,7 @@ return {
       eslint = {
         root_dir = function(filename, _)
           if not deno_root(filename) then
-            return lsp_util.root_pattern("package.json", ".eslintrc.json", ".eslintrc.js")(filename)
+            return require("lspconfig.server_configurations.eslint").default_config.root_dir(filename)
           end
         end,
       },
@@ -243,7 +244,6 @@ return {
     handlers = {
       -- function(server, opts) require("lspconfig")[server].setup(opts) end | false,
       tsserver = false, -- vtsls
-      biome = false, -- eslint
       pyright = false, -- basedpyright
       ruff = false, -- ruff_lsp
     },
