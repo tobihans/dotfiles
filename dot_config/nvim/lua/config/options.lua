@@ -1,5 +1,5 @@
 vim.opt.so = 7
-vim.opt.mouse = ""
+vim.opt.mouse = "nvi"
 vim.opt.hid = true
 vim.opt.ruler = true
 vim.opt.cmdheight = 0
@@ -10,8 +10,8 @@ vim.opt.updatetime = 250
 vim.opt.writebackup = false
 vim.opt.relativenumber = true
 
-vim.opt.winblend = 25
-vim.opt.pumblend = 25
+vim.opt.winblend = 30
+vim.opt.pumblend = 30
 
 vim.opt.shortmess:append "c"
 

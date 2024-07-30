@@ -1,6 +1,7 @@
 ---@diagnostic disable: missing-fields
 ---@type LazySpec
 return {
+  { "ibhagwan/fzf-lua" },
   { "tamton-aquib/duck.nvim" },
   { "theHamsta/nvim-dap-virtual-text" },
   { "wakatime/vim-wakatime", event = "VeryLazy" },
@@ -8,6 +9,21 @@ return {
   { "NStefan002/screenkey.nvim", cmd = "Screenkey", config = true },
   { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
   { "folke/zen-mode.nvim", cmd = "ZenMode", keys = { { "<Leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } } },
+  {
+    "sindrets/diffview.nvim",
+    keys = {
+      { "<Leader>gd", "<cmd>DiffviewOpen -- %<cr>", desc = "View Git diff" },
+      { "<Leader>gD", "<cmd>DiffviewOpen<cr>", desc = "Open Diffview" },
+    },
+  },
+  {
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    cmd = "Neogen",
+    keys = { { "<Leader>lg", "<cmd>Neogen<cr>", desc = "Generate symbol documentation" } },
+    opts = { snippet_engine = "luasnip" },
+    config = true,
+  },
   {
     "kosayoda/nvim-lightbulb",
     dev = true,
@@ -37,7 +53,6 @@ return {
         "dartls",
         "jdtls",
         "rust-analyzer",
-        "vtsls",
       },
     },
     config = true,
@@ -77,23 +92,6 @@ return {
         { "<Localleader>v", group = "Visual Multi", mode = { "n", "v" } },
       }
     end,
-  },
-  {
-    "akinsho/git-conflict.nvim",
-    version = "*",
-    cmd = "GitConflictListQf",
-    event = "User AstroGitFile",
-    keys = { { "<Leader>gq", "<cmd>GitConflictListQf<cr>", desc = "Git Conflicts quickfix" } },
-    opts = { disable_diagnostics = false },
-    config = true,
-  },
-  {
-    "danymat/neogen",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    cmd = "Neogen",
-    keys = { { "<Leader>lg", "<cmd>Neogen<cr>", desc = "Generate symbol documentation" } },
-    opts = { snippet_engine = "luasnip" },
-    config = true,
   },
   {
     "folke/drop.nvim",

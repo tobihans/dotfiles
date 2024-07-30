@@ -45,6 +45,7 @@ return {
       term_colors = true,
       integrations = {
         aerial = true,
+        diffview = true,
         indent_blankline = {
           enabled = true,
           scope_color = "",

@@ -14,7 +14,7 @@ return {
     },
     config = function(_, opts)
       require("supermaven-nvim").setup(opts)
-      vim.cmd [[SupermavenUseFree]]
+      -- vim.cmd [[SupermavenUseFree]]
     end,
   },
   {

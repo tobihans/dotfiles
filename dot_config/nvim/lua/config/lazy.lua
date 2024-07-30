@@ -16,6 +16,7 @@ local lazy_spec = {
   -- { import = "astrocommunity.pack.proto" },
   { import = "astrocommunity.color.nvim-highlight-colors" },
   { import = "astrocommunity.editing-support.conform-nvim" },
+  { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   { import = "astrocommunity.pack.ansible" },
   { import = "astrocommunity.pack.dart" },

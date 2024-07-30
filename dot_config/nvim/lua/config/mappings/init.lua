@@ -12,8 +12,8 @@ local M = {
     {
       "<Leader>um",
       function()
-        vim.o.mouse = vim.o.mouse ~= "" and "" or "a"
-        vim.notify("Mouse: " .. (vim.o.mouse ~= "" and vim.o.mouse or "off"))
+        vim.o.mouse = vim.o.mouse ~= "" and "" or "nvi"
+        vim.notify("Mouse Mode: " .. (vim.o.mouse ~= "" and vim.o.mouse or "off"))
       end,
       desc = "Toggle mouse",
     },
