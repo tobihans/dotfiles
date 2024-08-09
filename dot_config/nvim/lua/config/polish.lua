@@ -29,6 +29,7 @@ vim.fn.sign_define {
   { name = "DiagnosticSignError", text = get_icon "DiagnosticError", texthl = "DiagnosticError" },
 }
 
+-- Share nvim socket in builtin terminal
 vim.cmd [[let $NVIM_SOCK=v:servername]]
 
 require "config.ft"

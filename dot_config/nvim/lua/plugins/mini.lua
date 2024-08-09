@@ -1,9 +1,9 @@
 ---@type LazySpec
 return {
-  {
-    "echasnovski/mini.move",
-    event = "VeryLazy",
-    version = "*",
-    config = true,
-  },
+  "echasnovski/mini.nvim",
+  version = false,
+  config = function()
+    -- mini.move
+    require("mini.move").setup()
+  end,
 }

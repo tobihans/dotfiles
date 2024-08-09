@@ -28,7 +28,7 @@ export NDK_HOME="$ANDROID_HOME/ndk/$LATEST_NDK_VERSION"
 export PATH="$PATH:$HOME/flutter/bin"
 
 export DVM_DIR="$HOME/.dvm"
-export PATH="$DVM_DIR/bin:$PATH"
+export PATH="$DVM_DIR/bin:$HOME/.deno/bin:$PATH"
 
 export COREPACK_ENABLE_STRICT=0
 export NVM_DIR="$HOME/.nvm"

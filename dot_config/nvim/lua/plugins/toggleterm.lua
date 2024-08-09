@@ -48,6 +48,7 @@ return {
       }
     end,
     opts = {
+      direction = "float",
       on_open = function(terminal)
         local setl = function(name, value)
           vim.api.nvim_set_option_value(name, value, {
@@ -60,6 +61,8 @@ return {
         setl("signcolumn", "no")
         setl("statuscolumn", "")
         setl("winfixbuf", true)
+        setl("winfixheight", true)
+        setl("winfixwidth", true)
       end,
     },
   },

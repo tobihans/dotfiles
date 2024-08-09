@@ -18,26 +18,13 @@ return {
     end,
   },
   {
-    "zbirenbaum/copilot-cmp",
-    event = "User AstroFile",
-    dependencies = {
-      {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        opts = { panel = { enabled = false }, suggestion = { enabled = false } },
-      },
-    },
-  },
-  {
     "hrsh7th/nvim-cmp",
-    dependencies = { { "zbirenbaum/copilot-cmp" } },
     opts = function(_, opts)
       local cmp, luasnip = require "cmp", require "luasnip"
 
       if not opts.mappings then opts.mappings = {} end
       if not opts.sources then opts.sources = {} end
 
-      table.insert(opts.sources, { name = "copilot", priority = 1000, group_index = 1 })
       table.insert(opts.sources, { name = "supermaven", priority = 1000, group_index = 1 })
 
       opts.mapping["<Tab>"] = cmp.mapping(function(fallback)

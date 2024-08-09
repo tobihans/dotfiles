@@ -22,12 +22,48 @@ return {
           cwd = true,
         },
       },
+      options = {
+        opt = {
+          mouse = "a",
+        },
+      },
+      mappings = {
+        n = {
+          ["<C-Up>"] = false,
+          ["<C-Down>"] = false,
+          ["<C-Left>"] = false,
+          ["<C-Right>"] = false,
+        },
+      },
     },
   },
+  {
+    "AstroNvim/astroui",
+    opts = {
+      icons = {
+        Calendar = "",
+        Clock = "",
+        CloseNeovim = "󱎘",
+        Project = "",
+      },
+      status = {
+        attributes = {
+          mode = { bold = true },
+        },
+        colors = {},
+        separators = {
+          none = { "", "" },
+          left = { "", "  " },
+          right = { "  ", "" },
+          center = { "  ", "  " },
+        },
+      },
+    },
+  },
+  { "dmmulroy/tsc.nvim", enabled = false },
   { "windwp/nvim-ts-autotag", dev = true }, -- TODO: Remove later
   { "AstroNvim/astrotheme", enabled = false },
   { "nvimtools/none-ls.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },
-  { "dmmulroy/tsc.nvim", enabled = false },
   { "linux-cultist/venv-selector.nvim", enabled = false },
 }

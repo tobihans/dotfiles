@@ -163,6 +163,9 @@ return {
           require("which-key").add(require("config.mappings.lsp").typst, { buffer = bufnr })
         end,
       },
+      unocss = {
+        filetypes = { "html", "javascriptreact", "rescript", "typescriptreact", "vue", "svelte", "astro" },
+      },
       vtsls = {
         filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         single_file_support = false,

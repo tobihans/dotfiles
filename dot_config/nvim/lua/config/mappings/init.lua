@@ -3,6 +3,10 @@ local wk = require "which-key"
 local M = {
   n = {
     { "0", "^", desc = "First non-blank character" },
+    { "<M-Up>", "<Cmd>resize -2<CR>", desc = "Resize split up" },
+    { "<M-Down>", "<Cmd>resize +2<CR>", desc = "Resize split down" },
+    { "<M-Left>", "<Cmd>vertical resize -2<CR>", desc = "Resize split left" },
+    { "<M-Right>", "<Cmd>vertical resize +2<CR>", desc = "Resize split right" },
 
     { "<Leader>G", group = "󱎓 Games" },
     { "<Leader>O", group = "  Octo /  Overseer" },
@@ -12,7 +16,7 @@ local M = {
     {
       "<Leader>um",
       function()
-        vim.o.mouse = vim.o.mouse ~= "" and "" or "nvi"
+        vim.o.mouse = vim.o.mouse ~= "" and "" or "a"
         vim.notify("Mouse Mode: " .. (vim.o.mouse ~= "" and vim.o.mouse or "off"))
       end,
       desc = "Toggle mouse",

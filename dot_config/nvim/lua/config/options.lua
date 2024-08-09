@@ -1,5 +1,5 @@
-vim.opt.so = 7
-vim.opt.mouse = "nvi"
+vim.opt.so = 10
+vim.opt.mouse = "a"
 vim.opt.hid = true
 vim.opt.ruler = true
 vim.opt.cmdheight = 0
@@ -64,7 +64,7 @@ vim.opt.laststatus = 3
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-vim.opt.fillchars = { eob = " " }
+vim.opt.fillchars = { eob = " ", diff = "╱" }
 
 vim.opt.list = true
 vim.opt.listchars = { eol = "↲", tab = " ", trail = "•", nbsp = "␣", extends = "»", precedes = "«" }

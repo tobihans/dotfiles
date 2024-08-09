@@ -26,7 +26,7 @@ return {
   },
   {
     "kosayoda/nvim-lightbulb",
-    dev = true,
+    event = "User AstroFile",
     opts = {
       autocmd = { enabled = true },
       ignore = {
