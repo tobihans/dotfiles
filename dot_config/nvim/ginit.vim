@@ -1,5 +1,6 @@
 " GUI Configuration
 let g:neovide_scale_factor=1.0
+let g:neovide_theme = 'auto'
 
 function! ChangeScaleFactor(delta)
   let g:neovide_scale_factor = g:neovide_scale_factor * a:delta

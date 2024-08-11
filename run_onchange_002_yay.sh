@@ -14,6 +14,7 @@ if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 		"slack-desktop" "supertuxkart"
 		"xwaylandvideobridge"
 		"wl-clipboard"
+		"koi"
 		"zoom"
 	)
 fi

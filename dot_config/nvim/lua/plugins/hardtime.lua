@@ -34,6 +34,7 @@ return {
         "overseerform",
         "overseerlist",
         "qf",
+        "spectre_panel",
         "toggleterm",
         "undotree",
       },

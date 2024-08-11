@@ -76,7 +76,7 @@ vim.opt.swapfile = false
 -- Files
 vim.opt.encoding = "utf-8"
 vim.opt.ffs = "unix,dos"
-vim.opt.background = "dark"
+-- vim.opt.background = "dark"
 
 -- Local configs
 vim.o.secure = true

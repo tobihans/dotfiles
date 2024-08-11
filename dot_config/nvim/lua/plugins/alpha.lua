@@ -4,9 +4,8 @@ return {
   opts = function(_, dashboard)
     local get_icon = require("astroui").get_icon
 
-    -- TODO: Make the time dynamic later
     dashboard.section.header.val = {
-      os.date "%A, %d %B %Y %I:%M:%S %p",
+      os.date " %A, %d %B %Y  %I:%M:%S %p",
     }
 
     dashboard.section.buttons.val = {
@@ -38,7 +37,9 @@ return {
       callback = function()
         local stats = require("lazy").stats()
         local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
-        opts.section.footer.val = { " " .. stats.loaded .. "/" .. stats.count .. " " .. ms .. "ms" }
+        opts.section.footer.val = {
+          " " .. stats.loaded .. "/" .. stats.count .. " " .. ms .. "ms",
+        }
         pcall(vim.cmd.AlphaRedraw)
       end,
     })
