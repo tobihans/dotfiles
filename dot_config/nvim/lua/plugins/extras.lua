@@ -149,7 +149,7 @@ return {
         max = 40,
         screensaver = 1000 * 60 * 15, -- 15 minutes
         theme = themes[math.random(#themes)],
-        filetypes = vim.g.neovide and {} or { "dashboard", "alpha", "starter" },
+        filetypes = vim.g.neovide and {} or { "alpha" },
       }
       return opts
     end,

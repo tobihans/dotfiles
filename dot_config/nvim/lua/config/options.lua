@@ -76,7 +76,7 @@ vim.opt.swapfile = false
 -- Files
 vim.opt.encoding = "utf-8"
 vim.opt.ffs = "unix,dos"
--- vim.opt.background = "dark"
+vim.opt.background = "light"
 
 -- Local configs
 vim.o.secure = true
@@ -114,21 +114,3 @@ let &shellpipe  = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
 set shellquote= shellxquote=
 ]]
 end
-
---- Neovide
-vim.g.neovide_theme = "auto"
-
-vim.g.neovide_transparency = 0.981
-vim.g.neovide_fullscreen = false
-
-vim.g.neovide_cursor_animate_command_line = false
-vim.g.neovide_cursor_vfx_particle_lifetime = 2.1
-vim.g.neovide_cursor_vfx_particle_density = 20.0
-vim.g.neovide_cursor_vfx_mode = "pixiedust"
-
-vim.g.neovide_padding_top = 0
-vim.g.neovide_padding_bottom = 0
-vim.g.neovide_padding_right = 0
-vim.g.neovide_padding_left = 0
-
-vim.g.neovide_floating_shadow = false
