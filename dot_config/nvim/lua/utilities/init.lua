@@ -108,4 +108,10 @@ function M.load_exrc()
   end
 end
 
+function M.load_neovim_config()
+  vim.cmd.cd(vim.fn.stdpath "config")
+  vim.cmd.edit "init.lua"
+  require("resession").load(vim.fn.getcwd(), { dir = "dirsession", reset = true, silence_errors = true })
+end
+
 return M

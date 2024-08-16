@@ -5,7 +5,7 @@ return {
     local get_icon = require("astroui").get_icon
 
     dashboard.section.header.val = {
-      os.date " %A, %d %B %Y  %I:%M:%S %p",
+      os.date "%A, %d %B %Y %I:%M:%S %p",
     }
 
     dashboard.section.buttons.val = {
@@ -14,6 +14,7 @@ return {
       dashboard.button("LDR f '", get_icon("Bookmarks", 2, true) .. "Bookmarks  "),
       dashboard.button("LDR S F", get_icon("Project", 2, true) .. "Restore Session  "),
       dashboard.button("LDR S l", get_icon("Refresh", 2, true) .. "Last Session  "),
+      dashboard.button("LDR S c", get_icon("NeovimConfig", 2, true) .. "Open Config"),
       dashboard.button("LDR Q  ", get_icon("CloseNeovim", 2, true) .. "Close Neovim  "),
     }
 

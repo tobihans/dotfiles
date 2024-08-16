@@ -21,6 +21,7 @@ local M = {
       end,
       desc = "Toggle mouse",
     },
+    { "<Leader>uZ", "<cmd>ZenMode<cr>", desc = "Zen Mode" },
     {
       "<Leader>m",
       function() return "mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm" end,
@@ -45,13 +46,9 @@ local M = {
     { "<Localleader>R", "<cmd>edit<cr>", desc = "Reload Buffer" },
 
     {
-      "<M-s>",
-      function()
-        local config = vim.fn.stdpath "config"
-        vim.cmd.cd(config)
-        vim.cmd.edit(config .. "/init.lua")
-      end,
-      desc = "Open ~/.config/nvim",
+      "<Leader>Sc",
+      require("utilities").load_neovim_config,
+      desc = "Open Config",
     },
   },
   t = {

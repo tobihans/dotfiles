@@ -44,8 +44,8 @@ locked_cargo_packages=(
 	"starship"
 	"typstyle"
 	"watchexec-cli"
-    "yazi-cli"
-    "yazi-fm"
+	"yazi-cli"
+	"yazi-fm"
 )
 cargo_repo_packages=(
 	"https://github.com/neovide/neovide"
@@ -64,14 +64,14 @@ pipx_packages=(
 	"ansible"
 	"grip"
 	"harlequin[postgres,s3,mysql]"
+	"litecli"
 	"poetry"
 	"sqlite-utils"
-	"litecli"
+	"trash-cli"
 )
 for pkg in "${pipx_packages[@]}"; do
-	python -m pipx install "$pkg" || true
+	python -m pipx install --include-deps "$pkg" || true
 done
-python -m pipx inject --include-apps ansible ansible-lint
 if ! [[ -x "$(command -v sqlite-utils)" ]]; then
 	sqlite-utils install sqlean.py || true
 	sqlite-utils install sqlite-dump || true

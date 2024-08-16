@@ -44,6 +44,7 @@ return {
         Calendar = "",
         Clock = "",
         CloseNeovim = "󱎘",
+        NeovimConfig = "",
         Project = "",
       },
       status = {
