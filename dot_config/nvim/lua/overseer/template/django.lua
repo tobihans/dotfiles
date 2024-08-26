@@ -17,7 +17,11 @@ local tmpl = {
     local tasks = {}
     local manage_py = get_manage_py(opts)
 
-    vim.system({ "python", manage_py, "help", "--commands" }, {
+    if not manage_py then return end
+
+    local python = require("utilities.lsp").get_python_path(vim.fn.fnamemodify(manage_py, ":h"))
+
+    vim.system({ python, manage_py, "help", "--commands" }, {
       text = true,
       timeout = 5000,
       stderr = false,
@@ -38,14 +42,14 @@ local tmpl = {
             },
             builder = function(params)
               return {
-                cmd = { "python", manage_py, command },
+                cmd = { python, manage_py, command },
                 args = params.args,
               }
             end,
           })
         end
 
-        cb(tasks)
+        vim.schedule(function() cb(tasks) end)
       end,
     }, function(obj)
       if obj.code ~= 0 then

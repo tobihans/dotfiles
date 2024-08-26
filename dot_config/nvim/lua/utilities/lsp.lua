@@ -17,8 +17,15 @@ function M.get_python_path(workspace)
   if vim.env.VIRTUAL_ENV then return utilities.join_paths(vim.env.VIRTUAL_ENV, "bin", "python") end
 
   -- Poetry
-  if vim.fn.glob(utilities.join_paths(workspace, "poetry.lock")) ~= "" then
-    return utilities.join_paths(vim.fn.trim(vim.fn.system "poetry env info -p"), "bin", "python")
+  local glob = vim.fn.glob(utilities.join_paths(workspace, "poetry.lock"))
+  if glob ~= "" then
+    local venv = vim
+      .system({ "poetry", "env", "info", "-p" }, {
+        text = true,
+        cwd = vim.fn.fnamemodify(glob, ":h"),
+      })
+      :wait().stdout
+    return utilities.join_paths(vim.fn.trim(venv), "bin", "python")
   end
 
   -- Local virtualenv
