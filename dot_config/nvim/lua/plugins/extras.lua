@@ -25,24 +25,6 @@ return {
     config = true,
   },
   {
-    "kosayoda/nvim-lightbulb",
-    event = "User AstroFile",
-    opts = {
-      autocmd = { enabled = true },
-      ignore = {
-        clients = { "ruff_lsp", "copilot" },
-        ft = {},
-        actions_without_kind = true,
-      },
-      sign = {
-        enabled = true,
-        text = "",
-        hl = "SpecialChar",
-      },
-    },
-    config = true,
-  },
-  {
     "zeioth/garbage-day.nvim",
     dependencies = "neovim/nvim-lspconfig",
     event = "VeryLazy",
