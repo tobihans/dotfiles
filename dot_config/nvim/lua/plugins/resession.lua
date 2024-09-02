@@ -5,11 +5,6 @@ return {
     opts.extensions.quickfix = {}
     opts.extensions.scope = {}
     opts.extensions.aerial = {}
-    -- opts.extensions.overseer = {
-    --   unique = true,
-    --   recent_first = true,
-    --   status = { "RUNNING" },
-    -- }
 
     return opts
   end,

@@ -5,7 +5,7 @@ return {
     local get_icon = require("astroui").get_icon
 
     dashboard.section.header.val = {
-      os.date "%A, %d %B %Y %I:%M:%S %p",
+      os.date "%a, %d %B %Y %I:%M:%S %p",
     }
 
     dashboard.section.buttons.val = {

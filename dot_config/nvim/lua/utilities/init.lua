@@ -101,9 +101,10 @@ function M.load_exrc()
     ".nvimrc",
     ".exrc",
   } do
-    if vim.fn.filereadable(exrc) == 1 and vim.secure.read(exrc) ~= nil then
-      vim.cmd.source(exrc)
-      break
+    local source = vim.secure.read(exrc)
+    if source ~= nil then
+      assert(loadstring(source, exrc), string.format("Cannot load %s!", exrc))()
+      return exrc
     end
   end
 end
