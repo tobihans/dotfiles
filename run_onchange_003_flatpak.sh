@@ -2,7 +2,7 @@
 set -eo pipefail
 
 packages=(
-    "com.discordapp.Discord"
+    "dev.vencord.Vesktop"
     "io.github.seadve.Kooha"
 )
 
