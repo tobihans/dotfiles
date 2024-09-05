@@ -6,15 +6,11 @@ local lazy_spec = {
     opts = function(_, opts)
       opts.mapleader = ","
       opts.maplocalleader = ";"
-      -- opts.pin_plugins = true
     end,
   },
 
   { "AstroNvim/astrocommunity" },
-  -- { import = "astrocommunity.pack.cmake" },
-  -- { import = "astrocommunity.pack.cpp" },
-  -- { import = "astrocommunity.pack.go" },
-  -- { import = "astrocommunity.pack.proto" },
+  { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.color.nvim-highlight-colors" },
   { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
@@ -29,7 +25,6 @@ local lazy_spec = {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
-  { import = "astrocommunity.search.nvim-spectre" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.test.nvim-coverage" },
 

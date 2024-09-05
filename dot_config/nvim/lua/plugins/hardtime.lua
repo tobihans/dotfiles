@@ -7,6 +7,7 @@ return {
       disable_mouse = false,
       disabled_filetypes = {
         "",
+        "Avante",
         "aerial",
         "alpha",
         "copilot-chat",

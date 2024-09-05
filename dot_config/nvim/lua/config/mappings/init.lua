@@ -8,6 +8,8 @@ local M = {
     { "<M-Left>", "<Cmd>vertical resize -2<CR>", desc = "Resize split left" },
     { "<M-Right>", "<Cmd>vertical resize +2<CR>", desc = "Resize split right" },
 
+    { "<Leader>A", group = "󱙺 AI Assistance" },
+    { "<Leader>A", group = "󱙺 AI Assistance", mode = "v" },
     { "<Leader>G", group = "󱎓 Games" },
     { "<Leader>O", group = "  Octo /  Overseer" },
 

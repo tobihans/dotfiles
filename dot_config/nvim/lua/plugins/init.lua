@@ -22,11 +22,6 @@ return {
           cwd = true,
         },
       },
-      options = {
-        opt = {
-          mouse = "a",
-        },
-      },
       mappings = {
         n = {
           ["<C-Up>"] = false,
@@ -61,8 +56,15 @@ return {
       },
     },
   },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      disable = { ft = { "grug-far" } },
+    },
+  },
   { "dmmulroy/tsc.nvim", enabled = false },
   { "windwp/nvim-ts-autotag", dev = true }, -- TODO: Remove later
+  { "stevearc/aerial.nvim", dev = true }, -- HACK: Using dev versions with patches to fix that treesitter `iter_matches` api change.
   { "AstroNvim/astrotheme", enabled = false },
   { "nvimtools/none-ls.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },

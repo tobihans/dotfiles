@@ -46,6 +46,7 @@ return {
       integrations = {
         aerial = true,
         diffview = true,
+        grug_far = true,
         indent_blankline = {
           enabled = true,
           scope_color = "",
@@ -59,6 +60,7 @@ return {
         nvim_surround = true,
         window_picker = true,
         overseer = true,
+        render_markdown = true,
         which_key = true,
       },
     },
