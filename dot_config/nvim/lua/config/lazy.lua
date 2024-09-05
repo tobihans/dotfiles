@@ -6,6 +6,7 @@ local lazy_spec = {
     opts = function(_, opts)
       opts.mapleader = ","
       opts.maplocalleader = ";"
+      -- opts.pin_plugins = true
     end,
   },
 
