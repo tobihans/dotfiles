@@ -6,9 +6,7 @@ return {
       panel = { enabled = false },
       suggestion = { enabled = false },
       filetypes = {
-        ["grug-far"] = false,
-        ["grug-far-history"] = false,
-        ["grug-far-help"] = false,
+        ["*"] = false,
       },
     },
   },

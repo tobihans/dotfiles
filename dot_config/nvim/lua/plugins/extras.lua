@@ -118,7 +118,6 @@ return {
         "spring",
         "stars",
         "summer",
-        "summer",
         "temporal",
         "travel",
         "tropical",
