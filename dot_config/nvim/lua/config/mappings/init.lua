@@ -12,6 +12,7 @@ local M = {
     { "<Leader>A", group = "󱙺 AI Assistance", mode = "v" },
     { "<Leader>G", group = "󱎓 Games" },
     { "<Leader>O", group = "  Octo /  Overseer" },
+    { "<Leader>s", group = "󰛔 Search/Replace" },
 
     { "<Leader><Enter>", "<cmd>noh<cr>", desc = "No Highlight" },
     { "<Leader>n", require("utilities.pickers").new_file, desc = "New File" },

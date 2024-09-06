@@ -1,7 +1,7 @@
 ---@diagnostic disable: missing-fields
 ---@type LazySpec
 return {
-  { "ibhagwan/fzf-lua" },
+  { "junegunn/fzf" },
   { "tamton-aquib/duck.nvim" },
   { "theHamsta/nvim-dap-virtual-text" },
   { "wakatime/vim-wakatime", event = "VeryLazy" },

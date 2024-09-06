@@ -42,6 +42,7 @@ return {
           default = "<leader>At",
           debug = "<leader>Ad",
           hint = "<leader>Ah",
+          suggestion = "<leader>As",
         },
       },
     },
