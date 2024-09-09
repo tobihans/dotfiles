@@ -12,7 +12,7 @@ packages=(
 	"jq"
 	"luarocks"
 	"m4" "make" "minikube" "mosh"
-	"neofetch" "ninja"
+	"neofetch" "ninja" "nushell"
 	"onefetch" "openssh" "openssl"
 	"php" "php-apache" "php-cgi" "php-embed" "php-fpm" "php-gd" "php-igbinary" "php-redis" "python-pipx"
 	"php-snmp" "postgresql-libs"

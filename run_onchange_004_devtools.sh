@@ -44,8 +44,8 @@ locked_cargo_packages=(
 	"starship"
 	"typstyle"
 	"watchexec-cli"
-	"yazi-cli"
-	"yazi-fm"
+	"zoxide"
+	"xplr"
 )
 cargo_repo_packages=(
 	"https://github.com/neovide/neovide"
