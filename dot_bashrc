@@ -32,8 +32,6 @@ plugins=(
 	sudo
 )
 
-export EDITOR='nvim'
-
 # HISTORY
 shopt -s histappend # append to history file
 # Ignore duplicates & limit file size
@@ -54,15 +52,9 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
-export MANPAGER='bat -l man --italic-text always --decorations always --style=numbers,grid'
-
-# PS1 + PS2
-eval "$(starship init bash)"
-
 #NOTE:http://blog.joncairns.com/2013/12/understanding-ssh-agent-and-ssh-add/
 source ~/.bash_ssh_agent
 ssh-add -l >&/dev/null || ssh-find-agent -a || eval "$(ssh-agent)" >/dev/null # Automatically choose the first one
 
-# Turso
-export PATH="/home/tobi/.turso:$PATH"
+# start a nushell session
+nu
