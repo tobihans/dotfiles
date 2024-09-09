@@ -22,7 +22,6 @@ $tools | each { |tool| $env.PATH = ($env.PATH | split row (char esep) | prepend 
 # LATEST_NDK_VERSION=$(ls -l "$ANDROID_HOME"/ndk/ | awk '{print $NF}' | sort -n | tail -n 1)
 # export NDK_HOME="$ANDROID_HOME/ndk/$LATEST_NDK_VERSION"
 
-
 $env.FLUTTER_BIN = $"($env.HOME)/flutter/bin"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.FLUTTER_BIN)
 
@@ -48,9 +47,10 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend $"$($env.HOME)/.local/s
 # Jetbrains Toolbox
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"$($env.HOME)/.local/share/JetBrains/Toolbox/scripts")
 
-
 # Git
 $env.GCM_CREDENTIAL_STORE = "secretservice"
+
+$env.ASDF_DIR = $"($env.HOME)/.asdf"
 
 
 $env.LESS = '--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'

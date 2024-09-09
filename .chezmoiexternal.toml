@@ -5,10 +5,12 @@ exact = true
 stripComponents = 1
 refreshPeriod = "168h"
 
-[".nvm"]
+[".asdf"]
 type = "git-repo"
 refreshPeriod = "168h"
-url = "https://github.com/nvm-sh/nvm"
+clone.args = ["--branch", "v0.14.1"]
+url = "https://github.com/asdf-vm/asdf.git"
+
 
 ["bin/"]
 type = "archive"

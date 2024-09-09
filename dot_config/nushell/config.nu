@@ -3,4 +3,5 @@ $env.config = {
 }
 
 use ~/.cache/starship/init.nu
+source ~/.asdf/asdf.nu
 source ~/.cache/zoxide/init.nu

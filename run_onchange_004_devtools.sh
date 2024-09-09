@@ -13,15 +13,15 @@ if ! [[ -x "$(command -v gitpod)" ]]; then
 	"$HOME"/.local/bin/gitpod config set --telemetry=false
 fi
 
-# SDK
-sdk_packages=(
+# ASDF
+asdf_plugins=(
 	"gradle"
-	"kotlin"
-	"maven"
+	# "kotlin"
+	# "maven"
+	"nodejs"
 )
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME"/.sdkman/bin/sdkman-init.sh
-for pkg in "${sdk_packages[@]}"; do
-	sdk install "$pkg" || true
+for plugin in "${asdf_plugins[@]}"; do
+	asdf plugin add "$plugin"
 done
 
 # Cargo
@@ -88,10 +88,3 @@ go_packages=(
 for pkg in "${go_packages[@]}"; do
 	go install "$pkg" || true
 done
-
-if [[ -s "$NVM_DIR/nvm.sh" ]]; then
-	source "$NVM_DIR/nvm.sh"
-	nvm install --lts
-	nvm use --lts
-	nvm alias default "$(node --version)"
-fi
