@@ -32,6 +32,8 @@ plugins=(
 	sudo
 )
 
+export EDITOR='nvim'
+
 # HISTORY
 shopt -s histappend # append to history file
 # Ignore duplicates & limit file size
@@ -52,9 +54,4 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-#NOTE:http://blog.joncairns.com/2013/12/understanding-ssh-agent-and-ssh-add/
-source ~/.bash_ssh_agent
-ssh-add -l >&/dev/null || ssh-find-agent -a || eval "$(ssh-agent)" >/dev/null # Automatically choose the first one
-
-# start a nushell session
-nu
+. "$HOME/.asdf/asdf.sh"

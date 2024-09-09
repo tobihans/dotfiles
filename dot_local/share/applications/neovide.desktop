@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=neovide %F
+Exec=nu -l -c 'neovide %F'
 Icon=neovide
 Name=Neovide
 Keywords=Text;Editor;
