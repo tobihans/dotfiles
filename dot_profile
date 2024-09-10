@@ -1,5 +1,0 @@
-export PATH="$PATH:$HOME/flutter/bin"
-# Cargo
-export PATH="$HOME/.cargo/bin:$PATH"
-# Nvim version manager
-export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"

@@ -1,37 +1,6 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC1090,SC1091,SC2034
 
-export OSH=$HOME/.oh-my-bash
-
-OSH_THEME="" # using starship
-
-HYPHEN_INSENSITIVE="true"
-
-ENABLE_CORRECTION="true"
-
-COMPLETION_WAITING_DOTS="true"
-
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-DISABLE_UPDATE_PROMPT=false
-
-DISABLE_AUTO_UPDATE=true
-
-completions=(
-	git
-	ssh
-)
-
-aliases=(
-	general
-	docker
-)
-
-plugins=(
-	chezmoi
-	sudo
-)
-
 export EDITOR='nvim'
 
 # HISTORY
@@ -40,18 +9,11 @@ shopt -s histappend # append to history file
 export HISTFILESIZE=2000
 export HISTCONTROL=ignoredups:erasedups
 
-source "$OSH"/oh-my-bash.sh
-source "$HOME"/.profile
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+
 source "$HOME"/.functions
 
-# Machine specific aliases and functions
-if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
-fi
-unset rc
-
-. "$HOME/.asdf/asdf.sh"
+# HACK: Cannot just `chsh -s /bin/nu` due to https://github.com/sddm/sddm/issues/1768.
+export SHELL=/bin/nu
+nu

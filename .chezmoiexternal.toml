@@ -1,10 +1,3 @@
-[".oh-my-bash"]
-type = "archive"
-url = "https://github.com/ohmybash/oh-my-bash/archive/master.tar.gz"
-exact = true
-stripComponents = 1
-refreshPeriod = "168h"
-
 [".asdf"]
 type = "git-repo"
 refreshPeriod = "168h"
