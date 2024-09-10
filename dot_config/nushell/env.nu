@@ -58,6 +58,9 @@ $env.MANPAGER = 'bat -l man --italic-text always --decorations always --style=nu
 $env.SSH_AUTH_SOCK = (head -n 1 ~/.ssh/tmp)
 $env.SSH_AGENT_PID = (tail -n 1 ~/.ssh/tmp)
 
+$env.PET_GITHUB_ACCESS_TOKEN = (get_develop_secret PET_SNIPPET_SYNC)
+$env.GEMINI_API_KEY = (get_develop_secret GEMINI_API_KEY)
+
 
 # NOTE: This should always come last, to ensure we remove duplicates.
 $env.PATH = ($env.PATH | uniq)

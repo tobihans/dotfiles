@@ -7,4 +7,5 @@ source $"($nu.default-config-dir)/aliases.nu"
 use ~/.cache/starship/init.nu
 
 source ~/.asdf/asdf.nu
+source ~/.cache/atuin/init.nu
 source ~/.cache/zoxide/init.nu

@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC1090,SC1091,SC2034
 
-export EDITOR='nvim'
-
 # HISTORY
 shopt -s histappend # append to history file
 # Ignore duplicates & limit file size
 export HISTFILESIZE=2000
 export HISTCONTROL=ignoredups:erasedups
 
+export EDITOR='nvim'
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
