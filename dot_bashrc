@@ -12,8 +12,6 @@ export HISTCONTROL=ignoredups:erasedups
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
-source "$HOME"/.functions
-
 # HACK: Cannot just `chsh -s /bin/nu` due to https://github.com/sddm/sddm/issues/1768.
 export SHELL=/bin/nu
 nu

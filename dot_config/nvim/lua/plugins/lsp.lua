@@ -1,7 +1,6 @@
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local lsp_util = require "lspconfig.util"
-local srv_config = require "lspconfig.server_configurations.eslint"
 local utils = require "utilities.lsp"
 
 local deno_root = lsp_util.root_pattern("deno.json", "deno.jsonc")

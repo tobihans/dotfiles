@@ -28,13 +28,14 @@ vim.filetype.add {
     [".swcrc"] = "json",
   },
   extension = {
-    yml = yaml_ft,
-    yaml = yaml_ft,
+    har = "json",
     hurl = "hurl",
     mdx = "mdx",
+    meta = "json",
     wsx = "xml",
     wxl = "xml",
-    meta = "json",
+    yaml = yaml_ft,
+    yml = yaml_ft,
   },
   pattern = {
     -- Chezmoi dotfiles

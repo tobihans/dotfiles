@@ -26,6 +26,7 @@ done
 
 # Cargo
 cargo_packages=(
+	"atuin"
 	"bob-nvim"
 	"cargo-expand"
 	"cargo-watch"
@@ -45,7 +46,6 @@ locked_cargo_packages=(
 	"typstyle"
 	"watchexec-cli"
 	"zoxide"
-	"xplr"
 )
 cargo_repo_packages=(
 	"https://github.com/neovide/neovide"
@@ -62,6 +62,7 @@ fi
 # PipX
 pipx_packages=(
 	"ansible"
+	"elia-chat"
 	"grip"
 	"harlequin[postgres,s3,mysql]"
 	"litecli"
@@ -82,8 +83,9 @@ go_packages=(
 	"github.com/jesseduffield/lazydocker@latest"
 	"github.com/jesseduffield/lazygit@latest"
 	"github.com/mikefarah/yq/v4@latest"
-	"gitlab.com/gitlab-org/cli/cmd/glab@main"
+	"gitlab.com/gitlab-org/cli/cmd/glab@latest"
 	"github.com/k1LoW/tbls@latest"
+	"github.com/knqyf263/pet@latest"
 )
 for pkg in "${go_packages[@]}"; do
 	go install "$pkg" || true
