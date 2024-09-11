@@ -1,4 +1,3 @@
-# To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 $env.HOME_BIN = $"($env.HOME)/bin"
 $env.HOME_LOCAL_BIN = $"($env.HOME)/.local/bin"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.HOME_BIN)
@@ -17,10 +16,9 @@ $env.ANDROID_HOME = $"($env.HOME)/Android/Sdk"
 let tools = [cmdline-tools/latest/bin emulator platform-tools tools]
 $tools | each { |tool| $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.ANDROID_HOME)/$($tool)") }
 
-# TODO: Update this section
-# mkdir ~/Android/Sdk/ndk
-# LATEST_NDK_VERSION=$(ls -l "$ANDROID_HOME"/ndk/ | awk '{print $NF}' | sort -n | tail -n 1)
-# export NDK_HOME="$ANDROID_HOME/ndk/$LATEST_NDK_VERSION"
+( /bin/mkdir -p ~/Android/Sdk/ndk )
+$env.LATEST_NDK_VERSION = (/bin/ls -l $"($env.ANDROID_HOME)/ndk/" | awk '{print $NF}' | sort -n | tail -n 1)
+$env.NDK_HOME = $"($env.ANDROID_HOME)/ndk/($env.LATEST_NDK_VERSION)"
 
 $env.FLUTTER_BIN = $"($env.HOME)/flutter/bin"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.FLUTTER_BIN)
@@ -57,10 +55,6 @@ $env.MANPAGER = 'bat -l man --italic-text always --decorations always --style=nu
 
 $env.SSH_AUTH_SOCK = (head -n 1 ~/.ssh/tmp)
 $env.SSH_AGENT_PID = (tail -n 1 ~/.ssh/tmp)
-
-$env.PET_GITHUB_ACCESS_TOKEN = (get_develop_secret PET_SNIPPET_SYNC)
-$env.GEMINI_API_KEY = (get_develop_secret GEMINI_API_KEY)
-
 
 # NOTE: This should always come last, to ensure we remove duplicates.
 $env.PATH = ($env.PATH | uniq)
