@@ -12,7 +12,6 @@ if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 		"plasma5-wallpapers-dynamic"
         "python-pyclip"
 		"slack-desktop" "supertuxkart"
-		"xwaylandvideobridge"
 		"wl-clipboard"
 		"koi"
 		"zoom"
