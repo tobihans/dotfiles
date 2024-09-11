@@ -115,16 +115,14 @@ return {
         end,
         root_dir = py_root,
         settings = {
-          pyright = {
-            -- Using Ruff's import organizer
-            disableOrganizeImports = true,
-          },
-          python = {
+          basedpyright = {
             analysis = {
               autoImportCompletions = true,
+              disableOrganizeImports = true,
               typeCheckingMode = "standard",
             },
           },
+          python = {},
         },
       },
       rust_analyzer = {

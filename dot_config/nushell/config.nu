@@ -3,7 +3,7 @@ $env.config = {
     rm: {
         always_trash: false,
     },
-    use_kitty_protocol: ($env.KITTY_WINDOW_ID? != null),
+    # use_kitty_protocol: ($env.KITTY_WINDOW_ID? != null),
 }
 
 source aliases.nu

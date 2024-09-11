@@ -56,5 +56,6 @@ $env.MANPAGER = 'bat -l man --italic-text always --decorations always --style=nu
 $env.SSH_AUTH_SOCK = (head -n 1 ~/.ssh/tmp)
 $env.SSH_AGENT_PID = (tail -n 1 ~/.ssh/tmp)
 
+$env.SHELL = '/bin/nu'
 # NOTE: This should always come last, to ensure we remove duplicates.
 $env.PATH = ($env.PATH | uniq)

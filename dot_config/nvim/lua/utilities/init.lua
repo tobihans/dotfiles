@@ -103,7 +103,11 @@ function M.load_exrc()
   } do
     local source = vim.secure.read(exrc)
     if source ~= nil then
-      assert(loadstring(source, exrc), string.format("Cannot load %s!", exrc))()
+      if exrc == ".nvim.lua" then
+        assert(loadstring(source, exrc), string.format("Cannot load %s!", exrc))()
+      else
+        vim.cmd(source)
+      end
       return exrc
     end
   end
