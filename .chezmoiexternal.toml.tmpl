@@ -1,9 +1,9 @@
+# vim: ft=toml
 [".asdf"]
 type = "git-repo"
 refreshPeriod = "168h"
 clone.args = ["--branch", "v0.14.1"]
 url = "https://github.com/asdf-vm/asdf.git"
-
 
 ["bin/"]
 type = "archive"
@@ -18,6 +18,25 @@ url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/VictorMo
 type = "file"
 executable = true
 url = "https://raw.githubusercontent.com/zzag/plasma5-wallpapers-dynamic-extras/master/dynamicwallpaperconverter"
+
+["bin/minikube"]
+type = "file"
+executable = true
+refreshPeriod = "720h"
+url = "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
+
+["bin/kubectl"]
+type = "file"
+executable = true
+refreshPeriod = "720h"
+url = 'https://dl.k8s.io/release/{{ output "curl" "-L" "-s" "https://dl.k8s.io/release/stable.txt" | trim }}/bin/linux/amd64/kubectl'
+
+["bin/helm"]
+type = "archive-file"
+executable = true
+path = "{{ .chezmoi.os }}-{{ .chezmoi.arch }}/helm"
+refreshPeriod = "168h"
+url = 'https://get.helm.sh/helm-{{ output "curl" "-L" "-s" "https://get.helm.sh/helm-latest-version" | trim }}-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz'
 
 [".vim/colors/nord.vim"]
 type = "file"

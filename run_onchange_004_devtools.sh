@@ -69,6 +69,7 @@ pipx_packages=(
 	"poetry"
 	"sqlite-utils"
 	"trash-cli"
+	"virtualenv"
 )
 for pkg in "${pipx_packages[@]}"; do
 	python -m pipx install --include-deps "$pkg" || true
