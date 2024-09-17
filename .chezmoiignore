@@ -7,5 +7,6 @@ keepassxc-browser_settings.json
 !.config/nvim/spell/*.add.spl
 
 .config/nushell/history.txt
+.config/nushell/scripts/integrations
 
 assets/

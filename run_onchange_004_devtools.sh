@@ -35,6 +35,7 @@ cargo_packages=(
 	"just"
 	"mdbook"
 	"sleek"
+	"sshx"
 	"stylua"
 	"tidy-viewer"
 	"tree-sitter-cli"
@@ -55,8 +56,7 @@ cargo install "${cargo_packages[@]}" || true
 cargo install --git "${cargo_repo_packages[@]}" || true
 cargo install --locked "${locked_cargo_packages[@]}" || true
 if [[ -x "$(command -v bob)" ]]; then
-	bob install nightly
-	bob use nightly || true
+	bob update --all
 fi
 
 # PipX

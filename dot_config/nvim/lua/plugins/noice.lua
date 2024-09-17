@@ -33,6 +33,7 @@ return {
       },
       views = {
         hover = {
+          silent = true,
           scrollbar = not vim.g.neovide,
         },
       },

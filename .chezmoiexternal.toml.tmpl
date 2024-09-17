@@ -3,8 +3,41 @@
 type = "git-repo"
 refreshPeriod = "168h"
 clone.args = ["--branch", "v0.14.1"]
-url = "https://github.com/asdf-vm/asdf.git"
+pull.args = ["origin", "v0.14.1"]
+url = "https://github.com/asdf-vm/asdf"
 
+# External Scripts
+[".config/nushell/scripts/integrations/completions/ssh.nu"]
+type = "file"
+refreshPeriod = "72h"
+url = "https://github.com/nushell/nu_scripts/raw/main/custom-completions/ssh/ssh-completions.nu"
+
+[".config/nushell/scripts/integrations/completions/git.nu"]
+type = "file"
+refreshPeriod = "72h"
+url = "https://github.com/nushell/nu_scripts/raw/main/custom-completions/git/git-completions.nu"
+
+[".config/nushell/scripts/integrations/completions/docker.nu"]
+type = "file"
+refreshPeriod = "72h"
+url = "https://github.com/nushell/nu_scripts/raw/main/custom-completions/docker/docker-completions.nu"
+
+[".config/nushell/scripts/integrations/completions/make.nu"]
+type = "file"
+refreshPeriod = "72h"
+url = "https://github.com/nushell/nu_scripts/raw/main/custom-completions/make/make-completions.nu"
+
+[".config/nushell/scripts/integrations/completions/just.nu"]
+type = "file"
+refreshPeriod = "72h"
+url = "https://github.com/nushell/nu_scripts/raw/main/custom-completions/just/just-completions.nu"
+
+[".config/nushell/scripts/integrations/completions/virsh.nu"]
+type = "file"
+refreshPeriod = "72h"
+url = "https://github.com/nushell/nu_scripts/raw/main/custom-completions/virsh/virsh-completions.nu"
+
+# Binaries
 ["bin/"]
 type = "archive"
 include = ["git-credential-manager", "libHarfBuzzSharp.so", "libSkiaSharp.so"]
@@ -38,6 +71,7 @@ path = "{{ .chezmoi.os }}-{{ .chezmoi.arch }}/helm"
 refreshPeriod = "168h"
 url = 'https://get.helm.sh/helm-{{ output "curl" "-L" "-s" "https://get.helm.sh/helm-latest-version" | trim }}-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz'
 
+# Vim/Neovim
 [".vim/colors/nord.vim"]
 type = "file"
 url = "https://github.com/nordtheme/vim/raw/main/colors/nord.vim"
