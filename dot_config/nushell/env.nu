@@ -17,12 +17,6 @@ $env.LATEST_NDK_VERSION = (/bin/ls -l $"($env.ANDROID_HOME)/ndk/" | awk '{print 
 $env.NDK_HOME = $"($env.ANDROID_HOME)/ndk/($env.LATEST_NDK_VERSION)"
 $env.FLUTTER_BIN = $"($env.HOME)/flutter/bin"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.FLUTTER_BIN)
-# Deno
-# TODO: Remove once I replace all this with asdf/mise
-$env.DVM_DIR = $"($env.HOME)/.dvm"
-$env.DENO_BIN = $"($env.HOME)/.deno/bin"
-$env.PATH = ($env.PATH | split row (char esep) | prepend $env.DVM_DIR)
-$env.PATH = ($env.PATH | split row (char esep) | prepend $env.DENO_BIN)
 # Cargo
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.cargo/bin")
 # Turso
@@ -40,7 +34,6 @@ $env.EDITOR = 'nvim'
 $env.LAUNCH_EDITOR = "launch_editor.sh"
 # Git
 $env.GCM_CREDENTIAL_STORE = "secretservice"
-$env.ASDF_DIR = $"($env.HOME)/.asdf"
 $env.FZF_DEFAULT_OPTS = "
 --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 
 --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf 

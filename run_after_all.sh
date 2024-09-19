@@ -9,6 +9,6 @@ mkdir -p ~/.cache/starship
 rm -rf ~/.cache/starship/init.nu
 starship init nu > ~/.cache/starship/init.nu
 
-mkdir -p ~/.cache/zoxide
-rm -rf ~/.cache/zoxide/init.nu
-zoxide init nushell > ~/.cache/zoxide/init.nu
+mkdir -p ~/.cache/mise
+rm -rf ~/.cache/mise/init.nu
+mise activate nu > ~/.cache/mise/init.nu

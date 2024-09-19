@@ -13,16 +13,8 @@ if ! [[ -x "$(command -v gitpod)" ]]; then
 	"$HOME"/.local/bin/gitpod config set --telemetry=false
 fi
 
-# ASDF
-asdf_plugins=(
-	"gradle"
-	# "kotlin"
-	# "maven"
-	"nodejs"
-)
-for plugin in "${asdf_plugins[@]}"; do
-	asdf plugin add "$plugin"
-done
+# Mise
+mise install
 
 # Cargo
 cargo_packages=(
@@ -34,6 +26,8 @@ cargo_packages=(
 	"hurl"
 	"just"
 	"mdbook"
+	"mise"
+	"mprocs"
 	"sleek"
 	"sshx"
 	"stylua"
@@ -46,7 +40,6 @@ locked_cargo_packages=(
 	"starship"
 	"typstyle"
 	"watchexec-cli"
-	"zoxide"
 )
 cargo_repo_packages=(
 	"https://github.com/neovide/neovide"

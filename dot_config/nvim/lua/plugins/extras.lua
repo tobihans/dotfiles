@@ -15,10 +15,15 @@ return {
       { "<Leader>gd", "<cmd>DiffviewOpen -- %<cr>", desc = "View Git diff" },
       { "<Leader>gD", "<cmd>DiffviewOpen<cr>", desc = "Open Diffview" },
     },
+    opts = {
+      default_args = {
+        DiffviewOpen = { "--imply-local" },
+        DiffviewFileHistory = {},
+      },
+    },
   },
   {
     "danymat/neogen",
-    dependencies = "nvim-treesitter/nvim-treesitter",
     cmd = "Neogen",
     keys = { { "<Leader>lg", "<cmd>Neogen<cr>", desc = "Generate symbol documentation" } },
     opts = { snippet_engine = "luasnip" },

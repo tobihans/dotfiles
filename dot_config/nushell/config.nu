@@ -28,6 +28,5 @@ source integrations/completions/virsh.nu
 
 # External utilities
 use ~/.cache/starship/init.nu
-source ~/.asdf/asdf.nu
+use ~/.cache/mise/init.nu
 source ~/.cache/atuin/init.nu
-source ~/.cache/zoxide/init.nu
