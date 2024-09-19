@@ -1,3 +1,5 @@
+neovim-bin = "/home/tobi/.local/share/bob/nvim-bin/nvim"
+
 [font]
 normal = ["VictorMono Nerd Font"]
 size = 13.2
