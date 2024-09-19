@@ -1,4 +1,4 @@
-neovim-bin = "/home/tobi/.local/share/bob/nvim-bin/nvim"
+neovim-bin = "/home/tobi/.local/bin/nvim.nu"
 
 [font]
 normal = ["VictorMono Nerd Font"]
