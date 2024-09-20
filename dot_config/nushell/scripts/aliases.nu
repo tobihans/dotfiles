@@ -71,6 +71,3 @@ alias hackrnews = clx -n
 
 alias pj = /usr/bin/env python3 -m json.tool
 alias jitsi-link = python -c 'import uuid; print(f"https://meet.jit.si/{uuid.uuid4()}")'
-
-# Windows
-alias `composer.bat` = composer.cmd
