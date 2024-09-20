@@ -80,24 +80,35 @@ return {
         "impl",
         "markdownlint",
         "php-cs-fixer",
+        "pint",
         "prettier",
         "prettierd",
         "protolint",
+        "psalm",
         "selene",
         "shellcheck",
         "shfmt",
         "sqlfluff",
         "stylua",
+        "tlint",
         "typstfmt",
         "yamllint",
       })
 
-      if not vim.fn.has "win32" then
-        opts.ensure_installed = list_insert_unique(opts.ensure_installed, {
-          "pint",
-          "psalm",
-          "tlint",
-        })
+      local windows_blacklist = {
+        "ansible-lint",
+        "pint",
+        "psalm",
+        "tlint",
+      }
+      if vim.fn.has "win32" then
+        opts.ensure_installed = vim
+          .iter(opts.ensure_installed)
+          :filter(function(tool)
+            -- Remove any tool blacklisted on Windows
+            return not vim.iter(windows_blacklist):any(function(item) return item == tool end)
+          end)
+          :totable()
       end
 
       return opts
