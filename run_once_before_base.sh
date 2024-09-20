@@ -8,6 +8,7 @@ requirements=(
 	"git"
 	"unzip"
 	"zip"
+	"manjaro-tools-base"
 )
 for requirement in "${requirements[@]}"; do
 	if ! [[ -x "$(command -v "$requirement")" ]]; then
@@ -45,29 +46,9 @@ if ! [[ -x "$(command -v yay)" ]]; then
 	cd "$pwdir" || exit
 fi
 
-# NVM
-if ! [[ -s "${NVM_DIR:-$HOME/.nvm}/nvm.sh" ]]; then
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-fi
-
-# DVM
-if ! [[ -x "$(command -v dvm)" ]]; then
-	curl -fsSL https://dvm.deno.dev | bash
-fi
-
 # Rustup
 if ! [[ -x "$(command -v rustup)" ]]; then
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 	# shellcheck disable=SC1091
 	source "$HOME"/.cargo/env
 fi
-
-# SDK
-if ! [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
-	curl -s "https://get.sdkman.io" | bash
-fi
-
-# TODO: Setup Victor Mono Nerdfont
-# git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts ~/Code/nerd-fonts
-# cd nerd-fonts || exit
-# git sparse-checkout add patched-fonts/VictorMono
