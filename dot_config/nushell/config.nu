@@ -29,4 +29,5 @@ source integrations/completions/virsh.nu
 # External utilities
 use ~/.cache/starship/init.nu
 use ~/.cache/mise/init.nu
+# NOTE: Not working on Windows. Keeping empty file for compliance.
 source ~/.cache/atuin/init.nu
