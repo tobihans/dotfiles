@@ -13,6 +13,10 @@ let g:neovide_padding_right = 0
 let g:neovide_padding_left = 0
 let g:neovide_floating_shadow = v:false
 
+if has("win32")
+  ChangeScaleFactor(1/1.125)
+endif
+
 function! ChangeScaleFactor(delta)
   let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
 endfunction

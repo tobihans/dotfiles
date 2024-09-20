@@ -17,7 +17,7 @@ vim.opt.shortmess:append "c"
 
 vim.opt.wildmenu = true
 vim.opt.wildignore:append "*.o,*~,*.pyc"
-if vim.fn.has "win32" or vim.fn.has "win32" then
+if vim.fn.has "win32" then
   vim.opt.wildignore:append ".git\\*,.hg\\*,.svn\\*"
 else
   vim.opt.wildignore:append "*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store"

@@ -15,7 +15,7 @@ return {
     event = "VeryLazy",
     lazy = false,
     version = false,
-    build = "make",
+    build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" or "make",
     opts = {
       provider = "copilot",
       windows = {
