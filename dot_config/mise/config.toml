@@ -1,6 +1,5 @@
 [tools]
 node = "latest"
-deno = "latest"
 "cargo:atuin" = "latest"
 cargo-binstall = "latest"
 "cargo:bob-nvim" = "latest"
@@ -36,6 +35,9 @@ uv = "latest"
 "pipx:grip" = "latest"
 "pipx:sqlite-utils" = "latest"
 "pipx:poetry" = "latest"
+deno = "latest"
+"npm:surge" = "latest"
+"cargo:ast-grep" = "latest"
 
 [settings]
 experimental = true

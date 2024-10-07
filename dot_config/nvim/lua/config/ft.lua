@@ -26,6 +26,7 @@ end
 vim.filetype.add {
   filename = {
     [".swcrc"] = "json",
+    ["inventory.txt"] = "confini",
   },
   extension = {
     har = "json",

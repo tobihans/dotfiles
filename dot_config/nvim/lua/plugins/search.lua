@@ -33,6 +33,11 @@ return {
     },
     opts = {
       transient = true,
+      engines = {
+        astgrep = {
+          path = "ast-grep",
+        },
+      },
     },
   },
 }

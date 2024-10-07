@@ -26,9 +26,6 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.local/sh
 # Jetbrains Toolbox
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.local/share/JetBrains/Toolbox/scripts")
 
-# NOTE: Always deduplicate.
-$env.PATH = ($env.PATH | uniq)
-
 # Editing
 $env.EDITOR = 'nvim'
 $env.LAUNCH_EDITOR = "launch_editor.sh"

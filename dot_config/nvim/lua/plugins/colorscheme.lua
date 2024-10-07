@@ -45,6 +45,7 @@ return {
       term_colors = true,
       integrations = {
         aerial = true,
+        dadbod_ui = true,
         diffview = true,
         grug_far = true,
         indent_blankline = {

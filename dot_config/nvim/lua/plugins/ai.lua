@@ -15,7 +15,15 @@ return {
     event = "VeryLazy",
     lazy = false,
     version = false,
-    build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" or "make",
+    build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+      or "make",
+    keys = {
+      {
+        "<leader>As",
+        function() require("utilities.pickers").avante_switch_llm() end,
+        desc = "avante: switch llm",
+      },
+    },
     opts = {
       provider = "copilot",
       windows = {
@@ -24,6 +32,9 @@ return {
         sidebar_header = {
           align = "left",
           rounded = false,
+        },
+        input = {
+          prefix = " ",
         },
       },
       mappings = {

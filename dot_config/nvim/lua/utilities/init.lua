@@ -39,7 +39,7 @@ function M.quickfixtextfunc(info)
   end
   local limit = 31
   local fname_fmt1, fname_fmt2 = "%-" .. limit .. "s", "…%." .. (limit - 1) .. "s"
-  local valid_fmt = "%s ║%5d:%-3d║%s %s"
+  local valid_fmt = "%s ┃%3d:%-3d┃%s %s"
   for i = info.start_idx, info.end_idx do
     local e = items[i]
     ---@type string|nil
@@ -117,6 +117,12 @@ function M.load_neovim_config()
   vim.cmd.cd(vim.fn.stdpath "config")
   vim.cmd.edit "init.lua"
   require("resession").load(vim.fn.getcwd(), { dir = "dirsession", reset = true, silence_errors = true })
+end
+
+---@param key string
+function M.secret(key)
+  local job = vim.system({ "get_develop_secret", key }, { text = true }):wait()
+  if job.code == 0 then return job.stdout:gsub("%s+", "") end
 end
 
 return M

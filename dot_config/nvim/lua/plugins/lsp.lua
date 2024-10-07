@@ -44,6 +44,27 @@ return {
     servers = {},
     ---@diagnostic disable: missing-fields
     config = {
+      basedpyright = {
+        on_init = function(client)
+          if client.config.root_dir ~= nil then
+            client.config.settings.python.pythonPath = utils.get_python_path(client.config.root_dir)
+          end
+        end,
+        root_dir = py_root,
+        settings = {
+          basedpyright = {
+            analysis = {
+              autoImportCompletions = true,
+              autoSearchPaths = true,
+              diagnosticMode = "openFilesOnly",
+              disableOrganizeImports = true,
+              typeCheckingMode = "standard",
+              useLibraryCodeForTypes = true,
+            },
+          },
+          python = {},
+        },
+      },
       clangd = {
         capabilities = {
           offsetEncoding = "utf-8",
@@ -71,7 +92,7 @@ return {
       eslint = {
         root_dir = function(filename, _)
           if not deno_root(filename) then
-            return require("lspconfig.server_configurations.eslint").default_config.root_dir(filename)
+            return require("lspconfig.configs.eslint").default_config.root_dir(filename)
           end
         end,
       },
@@ -106,24 +127,6 @@ return {
           require("astrolsp").on_attach(client, bufnr)
           require("which-key").add(require("config.mappings.lsp").go, { buffer = bufnr })
         end,
-      },
-      basedpyright = {
-        on_init = function(client)
-          if client.config.root_dir ~= nil then
-            client.config.settings.python.pythonPath = utils.get_python_path(client.config.root_dir)
-          end
-        end,
-        root_dir = py_root,
-        settings = {
-          basedpyright = {
-            analysis = {
-              autoImportCompletions = true,
-              disableOrganizeImports = true,
-              typeCheckingMode = "standard",
-            },
-          },
-          python = {},
-        },
       },
       rust_analyzer = {
         on_attach = function(client, bufnr)
@@ -245,7 +248,7 @@ return {
       -- function(server, opts) require("lspconfig")[server].setup(opts) end | false,
       tsserver = false, -- vtsls
       pyright = false, -- basedpyright
-      ruff = false, -- ruff_lsp
+      ruff_lsp = false,
     },
     mappings = {
       n = {

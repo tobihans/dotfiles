@@ -28,4 +28,41 @@ function M.new_file(opts)
     :find()
 end
 
+--- Switch between different LLMs for Avante.
+function M.avante_switch_llm(opts)
+  opts = opts or require("telescope.themes").get_dropdown {}
+  pickers
+    .new(opts, {
+      prompt_title = "Choose LLM",
+      finder = finders.new_table {
+        results = {
+          -- "claude",
+          "copilot",
+          "gemini",
+          -- "openai",
+        },
+      },
+      sorter = conf.generic_sorter(opts),
+      attach_mappings = function(prompt_bufnr, _map)
+        actions.select_default:replace(function()
+          actions.close(prompt_bufnr)
+          local selection = action_state.get_selected_entry()
+          local llm = selection[1]
+          local is_success, env = pcall(require, string.format("avante.providers.%s", llm))
+
+          if not is_success then return end
+          env = env.api_key_name
+
+          if llm ~= "copilot" and vim.env[env] == nil then vim.env[env] = require("utilities.init").secret(env) end
+
+          require("avante.config").override {
+            provider = llm,
+          }
+        end)
+        return true
+      end,
+    })
+    :find()
+end
+
 return M

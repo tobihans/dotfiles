@@ -13,6 +13,15 @@ $env.config = {
                 send: executehostcommand,
                 cmd: "pet-search"
             }
+        },
+        {
+            name: complete_history_hint
+            modifier: shift
+            keycode: backtab
+            mode: emacs
+            event: {
+                send: historyhintcomplete,
+            }
         }
     ],
 }
@@ -31,3 +40,5 @@ use ~/.cache/mise/init.nu # WARN: Should come before anything.
 use ~/.cache/starship/init.nu
 # NOTE: Not working on Windows. Keeping empty file for compliance.
 source ~/.cache/atuin/init.nu
+
+$env.PATH = ($env.PATH | split row (char esep) | uniq)

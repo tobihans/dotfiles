@@ -1,3 +1,4 @@
 return {
   "django",
+  "mprocs",
 }

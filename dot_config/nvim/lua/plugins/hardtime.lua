@@ -20,6 +20,8 @@ return {
         "dapui_watches",
         "dbout",
         "dbui",
+        "grug-far",
+        "grug-far-help",
         "help",
         "lazy",
         "leetcode.nvim",

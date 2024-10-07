@@ -4,7 +4,7 @@ set -eo pipefail
 # Installs yay packages
 
 packages=(
-	"fswatch" "ngrok"
+	"ast-grep" "atuin" "fswatch" "mise" "ngrok"
 )
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
