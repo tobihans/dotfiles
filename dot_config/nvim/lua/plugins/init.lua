@@ -6,7 +6,6 @@ return {
     opts = {
       features = {
         large_buf = { size = 1024 * 100, lines = 10000 },
-        autopairs = true,
         cmp = true,
         highlighturl = true,
         notifications = true,
@@ -28,6 +27,8 @@ return {
           ["<C-Down>"] = false,
           ["<C-Left>"] = false,
           ["<C-Right>"] = false,
+          ["<Leader>ua"] = false,
+          ["<Leader>uA"] = false,
         },
       },
     },
@@ -62,10 +63,16 @@ return {
       disable = { ft = { "grug-far" } },
     },
   },
+  { "rcarriga/nvim-notify", opts = {
+    render = "wrapped-compact",
+  } },
   { "dmmulroy/tsc.nvim", enabled = false },
-  { "windwp/nvim-ts-autotag", dev = true }, -- TODO: Remove later
+  { "windwp/nvim-ts-autotag", enabled = false },
   { "AstroNvim/astrotheme", enabled = false },
+  { "windwp/nvim-autopairs", enabled = false },
+  { "RRethy/vim-illuminate", enabled = false },
   { "nvimtools/none-ls.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },
+  { "js-everts/cmp-tailwind-colors", enabled = false },
   { "linux-cultist/venv-selector.nvim", enabled = false },
 }

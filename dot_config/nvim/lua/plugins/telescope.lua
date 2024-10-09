@@ -2,10 +2,6 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
-    {
-      "nvim-telescope/telescope-smart-history.nvim",
-      dependencies = { "kkharji/sqlite.lua" },
-    },
     { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0" },
   },
   init = function()
@@ -39,7 +35,6 @@ return {
     local lga_actions = require "telescope-live-grep-args.actions"
 
     opts["extensions"] = {
-      smart_history = {},
       live_grep_args = {
         auto_quoting = true,
         mappings = {

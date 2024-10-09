@@ -39,7 +39,7 @@ function M.quickfixtextfunc(info)
   end
   local limit = 31
   local fname_fmt1, fname_fmt2 = "%-" .. limit .. "s", "…%." .. (limit - 1) .. "s"
-  local valid_fmt = "%s ┃%3d:%-3d┃%s %s"
+  local valid_fmt = "%s ┃%5d:%-4d┃%s %s"
   for i = info.start_idx, info.end_idx do
     local e = items[i]
     ---@type string|nil

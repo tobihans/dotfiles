@@ -56,45 +56,12 @@ return {
       which_key = false,
     },
     commands = {
-      { ":CopilotChatToggle", description = "Copilot Chat" },
       { ":Screenkey", description = "Screen Key" },
-      { ":DevdocsOpenFloat", description = "Search Documentation" },
     },
     funcs = {
       {
-        function()
-          local peek = require "peek"
-
-          if peek.is_open() then
-            peek.close()
-          else
-            peek.open()
-          end
-        end,
-        description = "Markdown Preview",
-      },
-      {
         require("utilities").compare_to_clipboard,
         description = "Compare to Clipboard",
-      },
-      {
-        function()
-          for _ = 1, 5 do
-            require("duck").hatch(animals[math.random(#animals)])
-          end
-        end,
-        description = "Release Duck & co. 🦆",
-      },
-      {
-        function()
-          for _, duck in ipairs(require("duck").ducks_list) do
-            duck["timer"]:stop()
-            vim.api.nvim_win_close(duck["name"], true)
-          end
-
-          require("duck").ducks_list = {}
-        end,
-        description = "Catch Duck & co. 🦆",
       },
       {
         function()

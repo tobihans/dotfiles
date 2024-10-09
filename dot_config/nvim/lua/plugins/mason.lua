@@ -46,7 +46,7 @@ return {
         "pyright",
         "ruff_lsp",
         "taplo",
-        "tinymist",
+        -- "tinymist",
         "unocss",
         "vimls",
         "volar",
@@ -93,6 +93,7 @@ return {
         "tlint",
         "typstfmt",
         "yamllint",
+        "yamlfmt",
       })
 
       local windows_blacklist = {

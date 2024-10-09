@@ -9,7 +9,6 @@ cargo-binstall = "latest"
 "cargo:just" = "latest"
 "cargo:mdbook" = "latest"
 "cargo:mprocs" = "latest"
-"cargo:sleek" = "latest"
 "cargo:sshx" = "latest"
 "cargo:stylua" = "latest"
 "cargo:tidy-viewer" = "latest"
@@ -38,6 +37,7 @@ uv = "latest"
 deno = "latest"
 "npm:surge" = "latest"
 "cargo:ast-grep" = "latest"
+"cargo:sleek" = "latest"
 
 [settings]
 experimental = true

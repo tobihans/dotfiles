@@ -73,7 +73,7 @@ return {
           end
         end,
         typst = { "typstyle", "injected" },
-        yaml = prettier_and_co,
+        yaml = { "yamlfmt" },
       },
       format_on_save = function(bufnr)
         if format_async[vim.bo[bufnr].filetype] then return end

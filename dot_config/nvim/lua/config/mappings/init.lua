@@ -24,7 +24,6 @@ local M = {
       end,
       desc = "Toggle mouse",
     },
-    { "<Leader>uZ", "<cmd>ZenMode<cr>", desc = "Zen Mode" },
     {
       "<Leader>m",
       function() return "mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm" end,
