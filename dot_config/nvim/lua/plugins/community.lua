@@ -1,19 +1,6 @@
 ---@type LazySpec
 return {
   {
-    "brenoprata10/nvim-highlight-colors",
-    event = "User AstroFile",
-    opts = {
-      render = "virtual",
-      virtual_symbol = "",
-      virtual_symbol_prefix = " ",
-      virtual_symbol_suffix = "",
-      virtual_symbol_position = "eow",
-      enable_named_colors = true,
-      enable_tailwind = true,
-    },
-  },
-  {
     "akinsho/flutter-tools.nvim",
     opts = {
       dev_log = {

@@ -41,14 +41,6 @@ return {
     config = true,
   },
   {
-    "folke/todo-comments.nvim",
-    event = "VeryLazy",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    keys = { { "<Leader>fT", "<cmd>TodoTelescope<cr>", desc = "Find TODOs" } },
-    opts = {},
-    config = true,
-  },
-  {
     "mg979/vim-visual-multi",
     event = "VeryLazy",
     init = function()
