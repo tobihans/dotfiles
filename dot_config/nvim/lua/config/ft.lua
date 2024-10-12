@@ -33,6 +33,7 @@ vim.filetype.add {
     hurl = "hurl",
     mdx = "mdx",
     meta = "json",
+    tcss = "tcss",
     wsx = "xml",
     wxl = "xml",
     yaml = yaml_ft,
@@ -47,3 +48,4 @@ vim.filetype.add {
   },
 }
 vim.treesitter.language.register("markdown", "mdx")
+vim.treesitter.language.register("css", "tcss")

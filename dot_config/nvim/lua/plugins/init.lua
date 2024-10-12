@@ -60,6 +60,7 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
+      preset = "modern",
       disable = { ft = { "grug-far" } },
     },
   },

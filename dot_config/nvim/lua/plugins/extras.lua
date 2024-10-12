@@ -7,6 +7,8 @@ return {
   { "folke/zen-mode.nvim", cmd = "ZenMode", keys = { { "<Leader>uZ", "<cmd>ZenMode<cr>", desc = "ZenMode" } } },
   {
     "sindrets/diffview.nvim",
+    event = nil,
+    cmd = { "DiffviewOpen" },
     keys = {
       { "<Leader>gd", "<cmd>DiffviewOpen -- %<cr>", desc = "View Git diff" },
       { "<Leader>gD", "<cmd>DiffviewOpen<cr>", desc = "Open Diffview" },

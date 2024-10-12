@@ -104,23 +104,22 @@ vim.api.nvim_exec2(
   {}
 )
 
-vim.opt.sh = "nu"
-vim.opt.shelltemp = false
-vim.opt.shellredir = "out+err> %s"
-vim.opt.shellcmdflag = "--login --stdin --no-newline -c"
-vim.opt.shellxescape = ""
-vim.opt.shellxquote = ""
-vim.opt.shellquote = ""
-vim.opt.shellpipe =
-  "| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
-
--- Windows
--- if vim.fn.has "win32" == 1 then
---   vim.cmd [[
--- let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
--- let &shellcmdflag = '-NoLogo -NoProfileLoadTime -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';Remove-Alias -Force -ErrorAction SilentlyContinue tee;'
--- let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
--- let &shellpipe  = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
--- set shellquote= shellxquote=
--- ]]
--- end
+if vim.fn.executable "nu" == 1 then
+  vim.opt.sh = "nu"
+  vim.opt.shelltemp = false
+  vim.opt.shellredir = "out+err> %s"
+  vim.opt.shellcmdflag = "--login --stdin --no-newline -c"
+  vim.opt.shellxescape = ""
+  vim.opt.shellxquote = ""
+  vim.opt.shellquote = ""
+  vim.opt.shellpipe =
+    "| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
+elseif vim.fn.has "win32" == 1 then
+  vim.cmd [[
+  let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
+  let &shellcmdflag = '-NoLogo -NoProfileLoadTime -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';Remove-Alias -Force -ErrorAction SilentlyContinue tee;'
+  let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+  let &shellpipe  = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
+  set shellquote= shellxquote=
+  ]]
+end

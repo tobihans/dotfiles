@@ -38,6 +38,7 @@ deno = "latest"
 "npm:surge" = "latest"
 "cargo:ast-grep" = "latest"
 "cargo:sleek" = "latest"
+"go:github.com/air-verse/air" = "latest"
 
 [settings]
 experimental = true

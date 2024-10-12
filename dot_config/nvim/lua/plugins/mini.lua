@@ -20,7 +20,6 @@ return {
   config = function()
     require("mini.ai").setup()
     require("mini.map").setup()
-    require("mini.jump").setup()
     require("mini.move").setup()
     require("mini.bufremove").setup()
     require("mini.cursorword").setup()

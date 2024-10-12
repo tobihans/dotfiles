@@ -2,6 +2,7 @@
 return {
   {
     "zbirenbaum/copilot.lua",
+    event = "User AstroFile",
     opts = {
       panel = { enabled = false },
       suggestion = { enabled = false },
@@ -12,7 +13,7 @@ return {
   },
   {
     "yetone/avante.nvim",
-    event = "VeryLazy",
+    event = "User AstroFile",
     lazy = false,
     version = false,
     build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
