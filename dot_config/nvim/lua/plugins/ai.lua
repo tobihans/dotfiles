@@ -1,21 +1,22 @@
 ---@type LazySpec
 return {
   {
-    "zbirenbaum/copilot.lua",
-    event = "User AstroFile",
-    opts = {
-      panel = { enabled = false },
-      suggestion = { enabled = false },
-      filetypes = {
-        ["*"] = false,
-      },
-    },
-  },
-  {
     "yetone/avante.nvim",
     event = "User AstroFile",
     lazy = false,
     version = false,
+    dependencies = {
+      {
+        "zbirenbaum/copilot.lua",
+        opts = {
+          panel = { enabled = false },
+          suggestion = { enabled = false },
+          filetypes = {
+            ["*"] = false,
+          },
+        },
+      },
+    },
     build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
       or "make",
     keys = {

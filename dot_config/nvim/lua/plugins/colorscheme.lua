@@ -8,7 +8,7 @@ return {
       term_colors = true,
       background = {
         light = "latte",
-        dark = "frappe",
+        dark = "macchiato",
       },
       custom_highlights = function(colors)
         return {
