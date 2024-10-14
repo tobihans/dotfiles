@@ -39,7 +39,19 @@ deno = "latest"
 "cargo:ast-grep" = "latest"
 "cargo:sleek" = "latest"
 "go:github.com/air-verse/air" = "latest"
+"cargo:selene" = "latest"
+"ubi:koalaman/shellcheck" = "latest"
+"go:mvdan.cc/sh/v3/cmd/shfmt" = "latest"
+"pipx:sqlfluff" = "latest"
+"pipx:djlint" = "latest"
+"pipx:yamllint" = "latest"
+"ubi:google/yamlfmt" = "latest"
+"npm:markdownlint-cli" = "latest"
+"npm:@fsouza/prettierd" = "latest"
+"npm:prettier" = "latest"
 
 [settings]
 experimental = true
 pipx_uvx = true
+asdf = true
+vfox = true

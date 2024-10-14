@@ -56,5 +56,9 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      require("avante_lib").load()
+      require("avante").setup(opts)
+    end,
   },
 }

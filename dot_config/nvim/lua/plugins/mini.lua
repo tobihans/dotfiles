@@ -8,7 +8,8 @@ local mk_cs_pattern = function(pattern)
 
     local left, right = cs:match "^(.*)%%s(.-)$"
     left, right = vim.trim(left), vim.trim(right)
-    return string.format("^%%s*%s%%s*()%%s+%s[%%p%%s]?().*%s%%s*$", vim.pesc(left), pattern, vim.pesc(right))
+
+    return string.format("^%%s*%s%%s*()[%%s]%s[%%p%%s]?().*%s%%s*$", vim.pesc(left), pattern, vim.pesc(right))
   end
 end
 
@@ -47,15 +48,15 @@ return {
     local hi = require "mini.hipatterns"
     require("mini.hipatterns").setup {
       highlighters = {
-        fixme = { pattern = mk_cs_pattern "FIXME", group = "MiniHipatternsFixme" },
-        warn = { pattern = mk_cs_pattern "WARN", group = "MiniHipatternsWarn" },
-        hack = { pattern = mk_cs_pattern "HACK", group = "MiniHipatternsWarn" },
-        todo = { pattern = mk_cs_pattern "TODO", group = "MiniHipatternsTodo" },
-        note = { pattern = mk_cs_pattern "NOTE", group = "MiniHipatternsNote" },
-        info = { pattern = mk_cs_pattern "INFO", group = "MiniHipatternsNote" },
-        hint = { pattern = mk_cs_pattern "HINT", group = "MiniHipatternsNote" },
-        perf = { pattern = mk_cs_pattern "PERF", group = "MiniHipatternsPerf" },
-        test = { pattern = mk_cs_pattern "TEST", group = "MiniHipatternsPerf" },
+        warn = { pattern = mk_cs_pattern "WARN", group = "MiniHiWARN" },
+        hack = { pattern = mk_cs_pattern "HACK", group = "MiniHiWARN" },
+        todo = { pattern = mk_cs_pattern "TODO", group = "MiniHiTODO" },
+        note = { pattern = mk_cs_pattern "NOTE", group = "MiniHiNOTE" },
+        info = { pattern = mk_cs_pattern "INFO", group = "MiniHiNOTE" },
+        hint = { pattern = mk_cs_pattern "HINT", group = "MiniHiNOTE" },
+        perf = { pattern = mk_cs_pattern "PERF", group = "MiniHiPERF" },
+        test = { pattern = mk_cs_pattern "TEST", group = "MiniHiPERF" },
+        fixme = { pattern = mk_cs_pattern "FIXME", group = "MiniHiFIXME" },
 
         hex_color = hi.gen_highlighter.hex_color { priority = 2000 },
         shorthand = {

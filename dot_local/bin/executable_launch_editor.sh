@@ -6,11 +6,11 @@ function launch_editor() {
 	column=${3:-"1"}
 	command="<C-\\><C-N>:call v:lua.require'utilities'.open_file('$filename', $line, $column)<CR>"
 
-	if [ -z ${NVIM_SOCK+x} ]; then
-		printf "\e[31mCannot find the neovim process to call. NVIM_SOCK is not set.\e[0m\n"
+	if [ -z ${NVIM+x} ]; then
+		printf "\e[31mCannot find the neovim process to call. \$NVIM is not set.\e[0m\n"
 		printf "\e[31mIs this process running inside a Neovim terminal ?\e[0m\n"
 	else
-		nvim --server "$NVIM_SOCK" --remote-send "$command"
+		nvim --server "$NVIM" --remote-send "$command"
 	fi
 }
 

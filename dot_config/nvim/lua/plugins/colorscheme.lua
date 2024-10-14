@@ -13,11 +13,11 @@ return {
       custom_highlights = function(colors)
         return {
           MiniJump = { bold = true, fg = "fg", bg = "bg" },
-          MiniHipatternsFixme = { bg = colors.red, fg = colors.crust, bold = true },
-          MiniHipatternsWarn = { bg = colors.yellow, fg = colors.crust, bold = true },
-          MiniHipatternsTodo = { bg = colors.teal, fg = colors.crust, bold = true },
-          MiniHipatternsNote = { bg = colors.green, fg = colors.crust, bold = true },
-          MiniHipatternsPerf = { bg = colors.pink, fg = colors.crust, bold = true },
+          MiniHiFIXME = { bg = colors.red, fg = colors.crust, bold = true },
+          MiniHiWARN = { bg = colors.yellow, fg = colors.crust, bold = true },
+          MiniHiTODO = { bg = colors.teal, fg = colors.crust, bold = true },
+          MiniHiNOTE = { bg = colors.green, fg = colors.crust, bold = true },
+          MiniHiPERF = { bg = colors.pink, fg = colors.crust, bold = true },
         }
       end,
       integrations = {
