@@ -2,7 +2,7 @@
 return {
   {
     "m4xshen/hardtime.nvim",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    event = "User AstroFile",
     opts = {
       disable_mouse = false,
       force_exit_insert_mode = true,
@@ -45,6 +45,5 @@ return {
         "undotree",
       },
     },
-    event = "BufEnter",
   },
 }

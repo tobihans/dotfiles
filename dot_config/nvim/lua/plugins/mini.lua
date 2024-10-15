@@ -17,6 +17,7 @@ end
 return {
   "echasnovski/mini.nvim",
   priority = 500,
+  event = "User AstroFile",
   version = false,
   config = function()
     require("mini.ai").setup()
@@ -26,13 +27,6 @@ return {
     require("mini.cursorword").setup()
     require("mini.pairs").setup {
       modes = { insert = true, command = true },
-    }
-    require("mini.basics").setup {
-      options = { basic = false },
-      mappings = {
-        basic = true,
-        option_toggle_prefix = "",
-      },
     }
     require("mini.surround").setup {
       mappings = {

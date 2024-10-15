@@ -3,8 +3,9 @@ return {
   {
     "yetone/avante.nvim",
     event = "User AstroFile",
-    lazy = false,
     version = false,
+    build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+      or "make",
     dependencies = {
       {
         "zbirenbaum/copilot.lua",
@@ -17,8 +18,6 @@ return {
         },
       },
     },
-    build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-      or "make",
     keys = {
       {
         "<leader>As",

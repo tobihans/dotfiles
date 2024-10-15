@@ -5,6 +5,15 @@ return {
     dependencies = {
       { "nvim-neotest/neotest-jest" },
       {
+        "andythigpen/nvim-coverage",
+        opts = {
+          signs = {
+            covered = { hl = "GitSignsAdd", text = "┊" },
+            uncovered = { hl = "GitSignsDelete", text = "┊" },
+          },
+        },
+      },
+      {
         "AstroNvim/astrocore",
         opts = {
           mappings = {
@@ -40,14 +49,5 @@ return {
 
       return opts
     end,
-  },
-  {
-    "andythigpen/nvim-coverage",
-    opts = {
-      signs = {
-        covered = { hl = "GitSignsAdd", text = "┊" },
-        uncovered = { hl = "GitSignsDelete", text = "┊" },
-      },
-    },
   },
 }

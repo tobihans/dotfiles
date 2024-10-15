@@ -30,7 +30,7 @@ return {
   {
     "zeioth/garbage-day.nvim",
     dependencies = "neovim/nvim-lspconfig",
-    event = "VeryLazy",
+    event = "LspAttach",
     opts = {
       grace_period = 60 * 30,
       excluded_lsp_clients = {
@@ -44,12 +44,12 @@ return {
   },
   {
     "mg979/vim-visual-multi",
-    event = "VeryLazy",
+    event = "User AstroFile",
     init = function()
       vim.g.VM_leader = "<Localleader>v"
       vim.g.VM_default_mappings = 1
       vim.g.VM_mouse_mappings = 1
-      vim.g.VM_quit_after_leaving_insert_mode = 1
+      vim.g.VM_quit_after_leaving_insert_mode = 0
       vim.g.VM_insert_special_keys = { "c-v", "c-a", "c-e" }
       vim.g.VM_reindent_filetypes = { "python", "yaml" }
 
@@ -73,7 +73,7 @@ return {
   {
     "folke/drop.nvim",
     enabled = vim.fn.has "win32" == 0,
-    event = "VimEnter",
+    event = "User AstroFile",
     opts = function()
       local themes = {
         "bugs",
@@ -111,6 +111,7 @@ return {
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
+    event = "User AstroFile",
     init = function()
       local wk = require "which-key"
 

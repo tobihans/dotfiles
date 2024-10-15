@@ -1,6 +1,6 @@
 ---@type LazySpec
 return {
-  { "nushell/tree-sitter-nu" },
+  { "nushell/tree-sitter-nu", ft = "nu" },
   { "OXY2DEV/helpview.nvim", ft = "help" },
   { "tobihans/vim-caddyfile", ft = "caddyfile" },
   { "kaarmu/typst.vim", ft = "typst", init = function() vim.g.typst_syntax_highlight = 0 end },
