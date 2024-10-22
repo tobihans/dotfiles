@@ -48,11 +48,13 @@ return {
         ask = "<leader>Aa",
         edit = "<leader>Ae",
         refresh = "<leader>Ar",
+        focus = "<leader>Af",
         toggle = {
           default = "<leader>At",
           debug = "<leader>Ad",
           hint = "<leader>Ah",
           suggestion = "<leader>As",
+          repomap = "<leader>AR",
         },
       },
     },

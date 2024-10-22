@@ -2,6 +2,9 @@
 return {
   "stevearc/resession.nvim",
   opts = function(_, opts)
+    if not opts.extensions then opts.extensions = {} end
+
+    opts.extensions.dap = {}
     opts.extensions.quickfix = {}
     opts.extensions.scope = {}
     opts.extensions.aerial = {}

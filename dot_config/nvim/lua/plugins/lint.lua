@@ -2,6 +2,7 @@
 return {
   {
     "mfussenegger/nvim-lint",
+    event = "User AstroFile",
     config = function()
       local lint = require "lint"
       lint.linters_by_ft = {
