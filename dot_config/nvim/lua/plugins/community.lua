@@ -1,28 +1,7 @@
 ---@type LazySpec
 return {
   {
-    "akinsho/flutter-tools.nvim",
-    opts = {
-      dev_log = {
-        enabled = false,
-        notify_errors = true,
-        open_cmd = "40vnew",
-      },
-      widget_guides = {
-        enabled = false,
-      },
-      debugger = {
-        enabled = true,
-        run_via_dap = false,
-        exception_breakpoints = {},
-      },
-    },
-  },
-  {
     "mrcjkb/rustaceanvim",
-    dependencies = {
-      "stevearc/overseer.nvim",
-    },
     ---@type RustaceanOpts
     opts = {
       tools = {

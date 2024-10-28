@@ -50,6 +50,7 @@ uv = "latest"
 "ubi:google/yamlfmt" = "latest"
 "ubi:koalaman/shellcheck" = "latest"
 "npm:oxlint" = "latest"
+ruby = "3.3.5"
 
 [settings]
 experimental = true

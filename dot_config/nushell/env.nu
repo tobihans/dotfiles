@@ -2,7 +2,9 @@ $env.HOME_BIN = $"($env.HOME)/bin"
 $env.HOME_LOCAL_BIN = $"($env.HOME)/.local/bin"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.HOME_BIN)
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.HOME_LOCAL_BIN)
+
 # Pnpm
+$env.NODE_OPTIONS = "--disable-warning=ExperimentalWarning --disable-warning=DeprecationWarning"
 $env.PNPM_HOME = $"($env.HOME)/.local/share/pnpm"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.PNPM_HOME)
 # Go
@@ -32,10 +34,10 @@ $env.LAUNCH_EDITOR = "launch_editor.sh"
 # Git
 $env.GCM_CREDENTIAL_STORE = "secretservice"
 $env.FZF_DEFAULT_OPTS = "
---color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 
---color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf 
---color=marker:#babbf1,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 
---color=selected-bg:#51576d 
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
+--color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796
+--color=selected-bg:#494d64
 --multi"
 $env.LESS = '--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 $env.MANPAGER = 'bat -l man --italic-text always --decorations always --style=numbers,grid'

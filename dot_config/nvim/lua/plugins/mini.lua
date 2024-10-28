@@ -21,32 +21,14 @@ return {
   version = false,
   init = function()
     _G.minicursorword_disable = function()
-      local cword = vim.fn.expand "<cword>"
-
-      if #cword < 3 then
+      if #vim.fn.expand "<cword>" <= 2 then
         vim.b.minicursorword_disable = true
-        return
-      end
-
-      if vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] ~= nil then
-        vim.b.minicursorword_disable = not vim
+      elseif vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] ~= nil then
+        vim.b.minicursorword_disable = vim
           .iter(vim.treesitter.get_captures_at_cursor())
-          :any(function(capture) return capture:sub(1, #"keyword") == "keyword" end)
+          :any(function(capture) return capture:match "^keyword" end)
       end
-
-      local filetype = vim.bo.filetype
-
-      -- Add any disabling global or filetype-specific logic here
-      local blocklist = {}
-      if filetype == "lua" then
-        blocklist = { "local", "require" }
-      elseif filetype == "javascript" then
-        blocklist = { "import" }
-      end
-
-      vim.b.minicursorword_disable = vim.tbl_contains(blocklist, cword)
     end
-
     vim.cmd "au CursorMoved * lua _G.minicursorword_disable()"
   end,
   config = function()

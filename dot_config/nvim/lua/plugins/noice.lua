@@ -48,6 +48,7 @@ return {
               { find = "No LSP client found that supports symbols" },
               { event = "msg_show", find = "written" },
               { event = "msg_show", find = "search hit" },
+              { event = "msg_show", find = ":checkhealth vim.deprecated" },
             },
           },
           opts = { skip = true },

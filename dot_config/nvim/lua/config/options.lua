@@ -9,6 +9,7 @@ vim.opt.autoread = true
 vim.opt.updatetime = 250
 vim.opt.writebackup = false
 vim.opt.relativenumber = true
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.winblend = 30
 vim.opt.pumblend = 30

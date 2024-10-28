@@ -1,11 +1,23 @@
+local util = require "lspconfig.util"
+local root_p = util.root_pattern
+
 -- use async formatting when formatter is slow
 local format_async = {}
-local prettier_and_co = {
-  -- "biome",
-  "prettierd",
-  "prettier",
-  stop_after_first = true,
-}
+
+local function biome_or_prettier(bufnr)
+  local biome_root = root_p("biome.json", "biome.jsonc")(vim.api.nvim_buf_get_name(bufnr))
+
+  if biome_root then
+    -- Assuming formatting is always enabled
+    return { "biome" }
+  else
+    return {
+      "prettierd",
+      "prettier",
+      stop_after_first = true,
+    }
+  end
+end
 
 local function get_autoformat(bufnr)
   if vim.g.autoformat == nil then vim.g.autoformat = true end
@@ -45,15 +57,15 @@ return {
         },
       },
       formatters_by_ft = {
-        astro = prettier_and_co,
-        css = prettier_and_co,
+        astro = biome_or_prettier,
+        css = biome_or_prettier,
         go = { "goimports", "gofmt" },
-        graphql = prettier_and_co,
-        html = prettier_and_co,
+        graphql = biome_or_prettier,
+        html = biome_or_prettier,
         htmldjango = { "djlint" },
         hurl = { "hurlfmt", "injected" },
-        javascript = prettier_and_co,
-        javascriptreact = prettier_and_co,
+        javascript = biome_or_prettier,
+        javascriptreact = biome_or_prettier,
         json = { "jq" },
         lua = { "stylua" },
         mardown = { "prettierd", "prettier", "injected" },
@@ -62,14 +74,15 @@ return {
         rust = { "rustfmt" },
         sh = { "shfmt" },
         sql = { "sleek" },
-        svelte = prettier_and_co,
-        typescriptreact = prettier_and_co,
+        svelte = biome_or_prettier,
+        typescriptreact = biome_or_prettier,
         typescript = function(bufnr)
-          local deno_root = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
-          if deno_root(vim.api.nvim_buf_get_name(bufnr)) then
+          local deno_root = root_p("deno.json", "deno.jsonc")(vim.api.nvim_buf_get_name(bufnr))
+
+          if deno_root then
             return { "deno_fmt" }
           else
-            return prettier_and_co
+            return biome_or_prettier(bufnr)
           end
         end,
         typst = { "typstyle", "injected" },

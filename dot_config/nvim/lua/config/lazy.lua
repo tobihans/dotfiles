@@ -15,7 +15,6 @@ local lazy_spec = {
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   { import = "astrocommunity.pack.ansible" },
-  { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.java" },

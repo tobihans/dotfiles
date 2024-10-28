@@ -96,6 +96,7 @@ end
 
 --- Loads local configuration file. Useful when cwd changes in process.
 function M.load_exrc()
+  if not (vim.o.secure or vim.o.exrc) then return end
   for _, exrc in pairs {
     ".nvim.lua",
     ".nvimrc",
