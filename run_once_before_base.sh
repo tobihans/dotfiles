@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-# Base requirements
+# shellcheck disable=1091
+OS=$(
+	source /etc/os-release
+	echo "$ID"
+)
 
+if [[ "$OS" != "manjaro" ]]; then
+	echo "Not Manjaro, skipping."
+	exit 0
+fi
+
+# Base requirements
 requirements=(
 	"curl"
 	"git"
@@ -44,11 +54,4 @@ if ! [[ -x "$(command -v yay)" ]]; then
 	cd .. || exit
 	rm -rf yay
 	cd "$pwdir" || exit
-fi
-
-# Rustup
-if ! [[ -x "$(command -v rustup)" ]]; then
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-	# shellcheck disable=SC1091
-	source "$HOME"/.cargo/env
 fi

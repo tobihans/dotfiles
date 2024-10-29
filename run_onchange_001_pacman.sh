@@ -1,23 +1,33 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
+# shellcheck disable=1091
+OS=$(
+	source /etc/os-release
+	echo "$ID"
+)
+
+if [[ "$OS" != "manjaro" ]]; then
+	echo "Not Manjaro, skipping."
+	exit 0
+fi
+
 # Installs pacman packages
 packages=(
-	"android-tools" "android-udev"
 	"base-devel" "bat" "btop"
 	"chezmoi" "cmake" "composer" "cryfs" "curl"
-	"dart-sass" "docker" "docker-buildx"
+	"docker" "docker-buildx" "docker-compose"
 	"fd" "ffmpeg" "fzf"
 	"gdu" "git" "github-cli" "go"
 	"jq"
-	"luarocks"
+	"lua51" "luarocks"
 	"m4" "make" "mosh"
 	"neofetch" "ninja" "nushell"
 	"onefetch" "openssh" "openssl"
-	"php" "php-apache" "php-cgi" "php-embed" "php-fpm" "php-gd" "php-igbinary" "php-redis" "python-pipx"
+	"php" "php-apache" "php-cgi" "php-embed" "php-fpm" "php-gd" "php-igbinary" "php-redis"
 	"php-snmp" "postgresql-libs" "protobuf"
 	"redis" "ripgrep"
-	"scrcpy" "screen"
+	"screen"
 	"tmux" "tree"
 	"unzip"
 	"zip"
@@ -26,9 +36,8 @@ packages=(
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
-		"appmenu-gtk-module"
+		"android-tools" "android-udev" "appmenu-gtk-module"
 		"chromium"
-		"docker-compose"
 		"firefox-developer-edition"
 		"gtk3"
 		"keepassxc" "kimageformats" "kitty"
@@ -37,7 +46,7 @@ if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 		"powerdevil" "powertop"
 		"remmina"
 		"tlp" "tlpui"
-		"sniffnet"
+		"scrcpy" "sniffnet"
 		"webkit2gtk"
 		"xdg-desktop-portal-gtk"
 	)
@@ -57,5 +66,3 @@ for package in "${packages[@]}"; do
 		echo "$package [installed]"
 	fi
 done
-
-# Install lazydocker in gitpod

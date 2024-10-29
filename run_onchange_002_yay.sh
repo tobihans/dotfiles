@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-# Installs yay packages
+# shellcheck disable=1091
+OS=$(
+	source /etc/os-release
+	echo "$ID"
+)
 
+if [[ "$OS" != "manjaro" ]]; then
+	echo "Not Manjaro, skipping."
+	exit 0
+fi
+
+# Installs yay packages
 packages=(
 	"ast-grep" "atuin" "fswatch" "mise" "ngrok"
 )
@@ -10,7 +20,7 @@ packages=(
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
 		"plasma5-wallpapers-dynamic"
-        "python-pyclip"
+		"python-pyclip"
 		"slack-desktop" "supertuxkart"
 		"wl-clipboard"
 		"koi"

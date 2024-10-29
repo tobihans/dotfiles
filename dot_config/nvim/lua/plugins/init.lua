@@ -74,7 +74,7 @@ return {
   { "nvimtools/none-ls.nvim", enabled = false },
   { "NvChad/nvim-colorizer.lua", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },
-  { "js-everts/cmp-tailwind-colors", enabled = false },
+  { "js-everts/cmp-tailwind-colors", enabled = true },
   { "linux-cultist/venv-selector.nvim", enabled = false },
   { "folke/todo-comments.nvim", enabled = false },
   { "echasnovski/mini.bufremove", enabled = false },
