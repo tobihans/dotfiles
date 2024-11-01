@@ -55,7 +55,6 @@ source integrations/completions/tar.nu
 source integrations/completions/virsh.nu
 
 # External utilities
-use ~/.cache/mise/init.nu # WARN: Should come before anything.
-use ~/.cache/starship/init.nu
-# NOTE: Not working on Windows. Keeping empty file for compliance.
-source ~/.cache/atuin/init.nu
+use integrations/mise.nu # WARN: Should come before anything.
+use integrations/starship.nu
+source integrations/atuin.nu # WARN: Keep empty on Windows.

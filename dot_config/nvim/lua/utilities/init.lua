@@ -23,6 +23,8 @@ function M.compare_to_clipboard()
   vim.cmd "diffthis"
 end
 
+function M.trim(s) return (string.gsub(s, "^%s*(.-)%s*$", "%1")) end
+
 --- Pretty display for quickfix and location list
 --- From github.com/kevinhwang91/nvim-bqf
 ---@param info table<string, any>
@@ -37,9 +39,11 @@ function M.quickfixtextfunc(info)
   else
     items = fn.getloclist(info.winid, { id = info.id, items = 0 }).items
   end
+
   local limit = 31
   local fname_fmt1, fname_fmt2 = "%-" .. limit .. "s", "…%." .. (limit - 1) .. "s"
   local valid_fmt = "%s ┃%5d:%-4d┃%s %s"
+
   for i = info.start_idx, info.end_idx do
     local e = items[i]
     ---@type string|nil
@@ -63,22 +67,26 @@ function M.quickfixtextfunc(info)
       local lnum = e.lnum > 99999 and -1 or e.lnum
       local col = e.col > 999 and -1 or e.col
       local qtype = e.type == "" and "" or " " .. e.type:sub(1, 1):upper()
-      local icon = " "
+      local icon = " %s"
 
       if e.type == "E" then
-        icon = icon .. get_icon "DiagnosticError"
+        icon = icon:format(get_icon "DiagnosticError")
       elseif e.type == "W" then
-        icon = icon .. get_icon "DiagnosticWarn"
+        icon = icon:format(get_icon "DiagnosticWarn")
       elseif e.type == "I" then
-        icon = icon .. get_icon "DiagnosticInfo"
+        icon = icon:format(get_icon "DiagnosticInfo")
       elseif e.type == "H" or e.type == "N" then
-        icon = icon .. get_icon "DiagnosticHint"
+        icon = icon:format(get_icon "DiagnosticHint")
+      else
+        icon = icon:format(get_icon "DiagnosticUnknown")
       end
 
       str = valid_fmt:format(fname, lnum, col, qtype .. icon .. " ", e.text)
     else
-      str = e.text
+      -- NOTE: Don't trim unless it's actually empty.
+      str = string.format("%-" .. limit .. "s" .. " ┃%10s┃ %s", " ", " ", M.trim(e.text) ~= "" and e.text or "")
     end
+
     table.insert(ret, str)
   end
   return ret

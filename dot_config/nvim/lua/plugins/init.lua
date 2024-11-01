@@ -42,6 +42,7 @@ return {
         CloseNeovim = "󱎘",
         NeovimConfig = "",
         Project = "",
+        DiagnosticUnknown = "",
       },
       status = {
         attributes = {

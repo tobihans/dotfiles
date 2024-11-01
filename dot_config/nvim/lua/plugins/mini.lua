@@ -9,7 +9,7 @@ local mk_cs_pattern = function(pattern)
     local left, right = cs:match "^(.*)%%s(.-)$"
     left, right = vim.trim(left), vim.trim(right)
 
-    return string.format("^%%s*%s%%s*()[%%s]%s[%%p%%s]?().*%s%%s*$", vim.pesc(left), pattern, vim.pesc(right))
+    return string.format("%%s*%s%%s*()[%%s]%s[%%p%%s]?().*%s%%s*", vim.pesc(left), pattern, vim.pesc(right))
   end
 end
 
