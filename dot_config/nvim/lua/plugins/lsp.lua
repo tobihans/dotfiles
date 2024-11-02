@@ -30,16 +30,9 @@ return {
     formatting = {
       format_on_save = {
         enabled = true,
-        allow_filetypes = {
-          "lua",
-          "python",
-          "toml",
-          "yaml",
-          "rust",
-        },
       },
       disabled = {},
-      timeout_ms = 4500,
+      timeout_ms = 5000,
     },
     servers = {},
     ---@diagnostic disable: missing-fields
@@ -127,6 +120,15 @@ return {
           require("astrolsp").on_attach(client, bufnr)
           require("which-key").add(require("config.mappings.lsp").go, { buffer = bufnr })
         end,
+      },
+      ruby_lsp = {
+        init_options = {
+          enabledFeatures = {
+            formatting = false,
+            onTypeFormatting = false,
+          },
+          experimentalFeaturesEnabled = true,
+        },
       },
       rust_analyzer = {
         on_attach = function(client, bufnr)

@@ -12,7 +12,8 @@ return {
       },
       custom_highlights = function(colors)
         return {
-          MiniJump = { bold = true, fg = "fg", bg = "bg" },
+          LightBulbSign = { fg = colors.rosewater },
+          MiniJump = { fg = "fg", bg = "bg", bold = true },
           MiniHiFIXME = { bg = colors.red, fg = colors.crust, bold = true },
           MiniHiWARN = { bg = colors.yellow, fg = colors.crust, bold = true },
           MiniHiTODO = { bg = colors.teal, fg = colors.crust, bold = true },

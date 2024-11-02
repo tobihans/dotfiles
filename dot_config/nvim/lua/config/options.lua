@@ -94,7 +94,7 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 vim.g.icons_enabled = true
-vim.g.autoformat_enabled = false
+vim.g.autoformat_enabled = true
 
 -- Disable mouse item in context menu
 vim.api.nvim_exec2(

@@ -71,7 +71,7 @@ return {
         mardown = { "prettierd", "prettier", "injected" },
         php = { "pint", "php_cs_fixer" },
         python = { "ruff_format" },
-        ruby = { "standardrb" },
+        ruby = { "rufo" },
         rust = { "rustfmt" },
         sh = { "shfmt" },
         sql = { "sleek" },
