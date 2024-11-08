@@ -49,3 +49,4 @@ vim.filetype.add {
 }
 vim.treesitter.language.register("markdown", "mdx")
 vim.treesitter.language.register("css", "tcss")
+vim.treesitter.language.register("yaml", "eruby.yaml")

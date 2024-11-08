@@ -59,6 +59,8 @@ return {
       formatters_by_ft = {
         astro = biome_or_prettier,
         css = biome_or_prettier,
+        eruby = { "erb_format" },
+        ["eruby.yaml"] = { "yamlfmt" },
         go = { "goimports", "gofmt" },
         graphql = biome_or_prettier,
         html = biome_or_prettier,

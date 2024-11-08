@@ -19,3 +19,5 @@ astro.is_available = function(plugin)
   local ok, _ = pcall(require, plugin)
   return ok or astro.get_plugin(plugin) ~= nil
 end
+
+vim.loader.enable()

@@ -44,7 +44,7 @@ if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 		"powerdevil" "powertop"
 		"remmina"
 		"tlp" "tlpui"
-		"scrcpy" "sniffnet"
+		"scrcpy"
 		"webkit2gtk"
 		"xdg-desktop-portal-gtk"
 	)
