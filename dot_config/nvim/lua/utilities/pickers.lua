@@ -36,10 +36,9 @@ function M.avante_switch_llm(opts)
       prompt_title = "Choose LLM",
       finder = finders.new_table {
         results = {
-          -- "claude",
           "copilot",
           "gemini",
-          -- "openai",
+          "groq",
         },
       },
       sorter = conf.generic_sorter(opts),
@@ -48,10 +47,7 @@ function M.avante_switch_llm(opts)
           actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
           local llm = selection[1]
-          local is_success, env = pcall(require, string.format("avante.providers.%s", llm))
-
-          if not is_success then return end
-          env = env.api_key_name
+          local env = string.format("%s_API_KEY", llm:upper())
 
           if llm ~= "copilot" and vim.env[env] == nil then vim.env[env] = require("utilities.init").secret(env) end
 

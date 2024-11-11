@@ -3,7 +3,7 @@
 return {
   { "tiagovla/scope.nvim", event = "VeryLazy", priority = 1500 },
   { "NStefan002/screenkey.nvim", cmd = "Screenkey", config = true },
-  { "folke/zen-mode.nvim", cmd = "ZenMode", keys = { { "<Leader>uZ", "<cmd>ZenMode<cr>", desc = "ZenMode" } } },
+  -- { "folke/zen-mode.nvim", cmd = "ZenMode", keys = { { "<Leader>uZ", "<cmd>ZenMode<cr>", desc = "ZenMode" } } },
   {
     "kosayoda/nvim-lightbulb",
     event = "LspAttach",

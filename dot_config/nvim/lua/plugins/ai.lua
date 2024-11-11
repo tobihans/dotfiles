@@ -57,6 +57,34 @@ return {
           repomap = "<leader>AR",
         },
       },
+      vendors = {
+        ---@type AvanteProvider
+        groq = {
+          endpoint = "https://api.groq.com/openai/v1/chat/completions",
+          model = "llama-3.1-70b-versatile",
+          api_key_name = "GROQ_API_KEY",
+          parse_curl_args = function(opts, code_opts)
+            return {
+              url = opts.endpoint,
+              headers = {
+                ["Accept"] = "application/json",
+                ["Content-Type"] = "application/json",
+                ["Authorization"] = "Bearer " .. os.getenv(opts.api_key_name),
+              },
+              body = {
+                model = opts.model,
+                messages = require("avante.providers.openai").parse_messages(code_opts),
+                temperature = 0,
+                max_tokens = 4096,
+                stream = true,
+              },
+            }
+          end,
+          parse_response_data = function(data_stream, event_state, opts)
+            require("avante.providers").openai.parse_response(data_stream, event_state, opts)
+          end,
+        },
+      },
     },
     config = function(_, opts)
       require("avante_lib").load()
