@@ -10,3 +10,4 @@ keepassxc-browser_settings.json
 .config/nushell/scripts/integrations
 
 assets/
+distrobox.ini
