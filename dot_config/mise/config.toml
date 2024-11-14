@@ -50,6 +50,7 @@ uv = "latest"
 "ubi:koalaman/shellcheck" = "latest"
 "npm:oxlint" = "latest"
 ruby = "3.3.5"
+"pipx:posting" = "latest"
 
 [settings]
 experimental = true

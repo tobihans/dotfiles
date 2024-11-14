@@ -41,9 +41,9 @@ return {
           desc = "ToggleTerm btop",
         },
         {
-          "<Leader>tg",
-          function() require("astrocore").toggle_term_cmd "gh dash" end,
-          desc = "ToggleTerm Github Dashboard",
+          "<Leader>tp",
+          function() require("astrocore").toggle_term_cmd "posting" end,
+          desc = "ToggleTerm Posting",
         },
       }
     end,

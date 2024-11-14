@@ -104,7 +104,7 @@ return {
       }
 
       local opts = {
-        max = 40,
+        max = 15,
         screensaver = 1000 * 60 * 15, -- 15 minutes
         theme = themes[math.random(#themes)],
         filetypes = {},

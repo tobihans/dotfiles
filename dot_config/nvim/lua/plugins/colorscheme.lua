@@ -3,11 +3,11 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000,
+    priority = 1500,
     opts = {
       term_colors = true,
       background = {
-        light = "latte",
+        light = "frappe",
         dark = "macchiato",
       },
       custom_highlights = function(colors)

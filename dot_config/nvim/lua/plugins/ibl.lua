@@ -4,7 +4,6 @@ return {
   main = "ibl",
   opts = {
     indent = {
-      -- this will configured by catppuccin
       highlight = {
         "RainbowRed",
         "RainbowYellow",
