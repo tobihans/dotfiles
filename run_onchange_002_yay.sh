@@ -14,7 +14,7 @@ fi
 
 # Installs yay packages
 packages=(
-	"ast-grep" "atuin" "fswatch" "mise"
+	"ast-grep" "atuin" "fswatch" "freeze" "mise" "vhs"
 )
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
