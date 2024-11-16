@@ -14,7 +14,7 @@ local M = {
     { "<Leader>O", group = "  Octo /  Overseer" },
     { "<Leader>s", group = "󰛔 Search/Replace" },
 
-    { "<Leader><Enter>", "<cmd>noh<cr>", desc = "No Highlight" },
+    { "<Leader><Enter>", "<cmd>noh | NoiceDismiss<cr>", desc = "No Highlight" },
     { "<Leader>n", require("utilities.pickers").new_file, desc = "New File" },
     {
       "<Leader>um",

@@ -57,3 +57,4 @@ experimental = true
 pipx_uvx = true
 asdf = true
 vfox = true
+paranoid = true

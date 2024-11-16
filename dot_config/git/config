@@ -1,3 +1,4 @@
+# vim: ft=gitconfig
 [user]
 	email = git@tobihans.space
 	name = Hans B. K. Tognon
@@ -6,6 +7,8 @@
 
 [includeIf "gitdir:~/github/piccl/"]
   path = piccl
+[includeIf "gitdir:~/gitlab/piccl/"]
+  path = piccl2
 
 ; NOTE: https://calebhearth.com/sign-git-with-ssh
 [gpg]

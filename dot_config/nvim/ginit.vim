@@ -1,11 +1,14 @@
 " GUI Configuration
 let g:neovide_scale_factor=1.0
 let g:neovide_theme = 'auto'
-let g:neovide_transparency = 0.981
+let g:neovide_transparency = 0.985
+let g:neovide_position_animation_length = 0.1
+let g:neovide_scroll_animation_length = 0.1
+let g:neovide_cursor_animation_length = 0.1
 let g:neovide_fullscreen = v:false
 let g:neovide_cursor_animate_command_line = v:false
-let g:neovide_cursor_vfx_particle_lifetime = 2.1
-let g:neovide_cursor_vfx_particle_density = 20.0
+let g:neovide_cursor_vfx_particle_lifetime = 1.1
+let g:neovide_cursor_vfx_particle_density = 10.0
 let g:neovide_cursor_vfx_mode = "pixiedust"
 let g:neovide_padding_top = 0
 let g:neovide_padding_bottom = 0

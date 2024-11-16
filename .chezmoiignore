@@ -1,13 +1,13 @@
 *.md
-keepassxc-browser_settings.json
-
 **/.supermaven
 
 .config/nvim/spell/*.spl
 !.config/nvim/spell/*.add.spl
-
 .config/nushell/history.txt
 .config/nushell/scripts/integrations
 
+.config/git/*
+!.config/git/config
+
 assets/
-distrobox.ini
+keepassxc-browser_settings.json
