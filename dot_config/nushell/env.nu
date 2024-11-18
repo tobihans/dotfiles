@@ -33,12 +33,23 @@ $env.EDITOR = 'nvim'
 $env.LAUNCH_EDITOR = "launch_editor.sh"
 # Git
 $env.GCM_CREDENTIAL_STORE = "secretservice"
+
+# Fzf
+# Catppuccin
+# $env.FZF_DEFAULT_OPTS = "
+# --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
+# --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
+# --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796
+# --color=selected-bg:#494d64
+# --multi"
+# Rose-Pine
 $env.FZF_DEFAULT_OPTS = "
---color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
---color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
---color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796
---color=selected-bg:#494d64
---multi"
+	--color=fg:#908caa,bg:#232136,hl:#ea9a97
+	--color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+	--color=border:#44415a,header:#3e8fb0,gutter:#232136
+	--color=spinner:#f6c177,info:#9ccfd8
+	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
+    --multi"
 $env.LESS = '--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 $env.MANPAGER = 'bat -l man --italic-text always --decorations always --style=numbers,grid'
 

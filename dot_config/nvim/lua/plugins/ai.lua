@@ -3,7 +3,8 @@ return {
   {
     "yetone/avante.nvim",
     event = "User AstroFile",
-    version = false,
+    -- version = false,
+    version = "0.0.9",
     build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
       or "make",
     dependencies = {
@@ -27,6 +28,9 @@ return {
     },
     opts = {
       provider = "copilot",
+      copilot = {
+        model = "claude-3.5-sonnet",
+      },
       windows = {
         width = 25,
         height = 30,

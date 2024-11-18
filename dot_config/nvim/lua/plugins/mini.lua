@@ -24,16 +24,15 @@ return {
       if #vim.fn.expand "<cword>" <= 2 then
         vim.b.minicursorword_disable = true
       elseif vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] ~= nil then
-        vim.b.minicursorword_disable = vim
-          .iter(vim.treesitter.get_captures_at_cursor())
-          :any(function(capture) return capture:match "^keyword" end)
+        vim.b.minicursorword_disable = vim.iter(vim.treesitter.get_captures_at_cursor()):any(
+          function(capture) return capture:match "^keyword" or capture:find "builtin" end
+        )
       end
     end
     vim.cmd "au CursorMoved * lua _G.minicursorword_disable()"
   end,
   config = function()
     require("mini.ai").setup()
-    require("mini.map").setup()
     require("mini.move").setup()
     require("mini.bufremove").setup()
     require("mini.cursorword").setup()

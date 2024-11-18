@@ -32,6 +32,9 @@ local lazy_spec = {
 ---@type LazyConfig
 local lazy_opts = {
   install = { colorscheme = { "habamax" } },
+  git = {
+    timeout = 300,
+  },
   ui = {
     border = "double",
     backdrop = 100,
