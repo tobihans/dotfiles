@@ -41,7 +41,7 @@ return {
           desc = "ToggleTerm btop",
         },
         {
-          "<Leader>tp",
+          "<Leader>tP",
           function() require("astrocore").toggle_term_cmd "posting" end,
           desc = "ToggleTerm Posting",
         },

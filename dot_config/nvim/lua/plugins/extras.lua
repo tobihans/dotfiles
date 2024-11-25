@@ -17,19 +17,13 @@ return {
     },
   },
   {
-    "sindrets/diffview.nvim",
-    event = nil,
-    cmd = { "DiffviewOpen" },
+    "akinsho/git-conflict.nvim",
+    event = "User AstroGitFile",
+    cmd = { "GitConflictListQf" },
     keys = {
-      { "<Leader>gd", "<cmd>DiffviewOpen -- %<cr>", desc = "View Git diff" },
-      { "<Leader>gD", "<cmd>DiffviewOpen<cr>", desc = "Open Diffview" },
+      { "<Leader>gq", "<cmd>GitConflictListQf<cr>", desc = "Git Conflict List" },
     },
-    opts = {
-      default_args = {
-        DiffviewOpen = { "--imply-local" },
-        DiffviewFileHistory = {},
-      },
-    },
+    config = true,
   },
   {
     "zeioth/garbage-day.nvim",

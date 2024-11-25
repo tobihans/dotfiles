@@ -12,7 +12,6 @@ local lazy_spec = {
   { "AstroNvim/astrocommunity" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.editing-support.conform-nvim" },
-  { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   { import = "astrocommunity.pack.ansible" },
   { import = "astrocommunity.pack.docker" },
