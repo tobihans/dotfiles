@@ -49,7 +49,7 @@ function M.avante_switch_llm(opts)
           local llm = selection[1]
           local env = string.format("%s_API_KEY", llm:upper())
 
-          if llm ~= "copilot" and vim.env[env] == nil then vim.env[env] = require("utilities.init").secret(env) end
+          if llm ~= "copilot" and vim.env[env] == nil then require("utilities").secret(env, true) end
 
           require("avante.config").override {
             provider = llm,

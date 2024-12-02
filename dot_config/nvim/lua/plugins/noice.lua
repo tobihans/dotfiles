@@ -46,6 +46,7 @@ return {
               { find = "No information available" },
               { find = "No code actions available" },
               { find = "No LSP client found that supports symbols" },
+              { find = "Fetching latest versions" },
               { event = "msg_show", find = "written" },
               { event = "msg_show", find = "search hit" },
               { event = "msg_show", find = ":checkhealth vim.deprecated" },

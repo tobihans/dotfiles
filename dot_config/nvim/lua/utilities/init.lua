@@ -129,9 +129,23 @@ function M.load_neovim_config()
 end
 
 ---@param key string
-function M.secret(key)
-  local job = vim.system({ "get_develop_secret", key }, { text = true }):wait()
-  if job.code == 0 then return job.stdout:gsub("%s+", "") end
+---@param set boolean | nil
+function M.secret(key, set)
+  if set then
+    vim.system(
+      { "get_develop_secret", key },
+      { text = true },
+      vim.schedule_wrap(function(job)
+        if job.code == 0 then
+          vim.env[key] = job.stdout:gsub("%s+", "")
+          -- vim.cmd(string.format('let %s="%s"', k, v))
+        end
+      end)
+    )
+  else
+    local job = vim.system({ "get_develop_secret", key }, { text = true }):wait()
+    if job.code == 0 then return job.stdout:gsub("%s+", "") end
+  end
 end
 
 return M
