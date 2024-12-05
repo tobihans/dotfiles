@@ -1,2 +1,0 @@
-# Disable status bar
-set -g status off
