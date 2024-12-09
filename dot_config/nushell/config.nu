@@ -5,18 +5,25 @@ $env.config = {
     },
     hooks: {
         env_change: {
-            PATH: {||
-                let type = ($env.PATH | describe)
-                if $type == "string" {
-                    $env.PATH = ($env.PATH | split row (char esep) | uniq)
+            PATH: [
+                {||
+                    let type = ($env.PATH | describe)
+                    if $type == "string" {
+                        $env.PATH = ($env.PATH | split row (char esep) | uniq)
+                    }
                 }
-            },
-            Path: {||
-                let type = ($env.Path | describe)
-                if $type == "string" {
-                    $env.Path = ($env.Path | split row (char esep) | uniq)
+            ],
+            Path: [
+                {||
+                    let type = ($env.Path | describe)
+                    if $type == "string" {
+                        $env.Path = ($env.Path | split row (char esep) | uniq)
+                    }
                 }
-            }
+            ],
+            PWD: [
+                (use integrations/hooks/nuenv.nu; nuenv setup),
+            ]
         }
     },
     keybindings: [
@@ -53,6 +60,9 @@ source integrations/completions/make.nu
 source integrations/completions/ssh.nu
 source integrations/completions/tar.nu
 source integrations/completions/virsh.nu
+source integrations/hooks/rusty-paths.nu
+
+use integrations/hooks/nuenv.nu [ "nuenv allow", "nuenv disallow" ]
 
 # External utilities
 use integrations/mise.nu # WARN: Should come before anything.

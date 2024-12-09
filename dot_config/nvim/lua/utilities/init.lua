@@ -135,17 +135,35 @@ function M.secret(key, set)
     vim.system(
       { "get_develop_secret", key },
       { text = true },
-      vim.schedule_wrap(function(job)
-        if job.code == 0 then
-          vim.env[key] = job.stdout:gsub("%s+", "")
-          -- vim.cmd(string.format('let %s="%s"', k, v))
-        end
+      vim.schedule_wrap(function(--[[@param job vim.SystemCompleted]]job)
+        if job.code == 0 then vim.env[key] = job.stdout:gsub("%s+", "") end
       end)
     )
   else
     local job = vim.system({ "get_develop_secret", key }, { text = true }):wait()
     if job.code == 0 then return job.stdout:gsub("%s+", "") end
   end
+end
+
+function M.load_dotenv(file_path)
+  if not file_path then file_path = ".env" end
+
+  local env_vars = {}
+  local file, _ = io.open(file_path, "r")
+  if not file then return end
+
+  local content = file:read "*all"
+  file:close()
+
+  for line in content:gmatch "[^\r\n]+" do
+    local key, value = line:match "^([%w_]+)%s*=%s*(.+)$"
+    if key and value then
+      value = value:gsub("^[\"'](.-)[\"']$", "%1")
+      env_vars[key] = value
+    end
+  end
+
+  return env_vars
 end
 
 return M

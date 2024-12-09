@@ -12,7 +12,7 @@ local function yaml_ft(path, bufnr)
   end
 
   -- Ansible
-  path_regex = vim.regex "(tasks\\|roles\\|handlers)/"
+  path_regex = vim.regex "(ansible\\|group_vars\\|handlers\\|host_vars\\|playbooks\\|roles\\|\\vars\\|tasks)/"
   if path_regex and path_regex:match_str(path) then
     return "yaml.ansible"
   else
