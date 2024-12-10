@@ -62,6 +62,7 @@ return {
       },
       vendors = {
         ---@type AvanteProvider
+        ---@diagnostic disable-next-line: missing-fields
         groq = {
           endpoint = "https://api.groq.com/openai/v1/chat/completions",
           model = "llama-3.1-70b-versatile",
@@ -92,6 +93,12 @@ return {
     config = function(_, opts)
       require("avante_lib").load()
       require("avante").setup(opts)
+
+      -- Prevents accidentally closing sidebar
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "Avante",
+        callback = function() vim.keymap.set({ "n", "o" }, "<ESC>", "<Nop>", { buffer = true }) end,
+      })
     end,
   },
 }
