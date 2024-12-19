@@ -25,6 +25,7 @@ end
 
 vim.filetype.add {
   filename = {
+    [".env"] = "dotenv",
     [".swcrc"] = "json",
     ["inventory.txt"] = "confini",
   },
@@ -44,10 +45,12 @@ vim.filetype.add {
     ["dot_bash.*"] = "sh",
     ["dot.*.sh"] = "sh",
     ["dot_functions.*"] = "sh",
-    ["\\.env(\\.\\w*)?"] = "sh",
+    ["%.env%.[%w_.-]+"] = "dotenv",
   },
 }
 
+-- Aliases
 vim.treesitter.language.register("markdown", "mdx")
+vim.treesitter.language.register("bash", "dotenv")
 vim.treesitter.language.register("css", "tcss")
 vim.treesitter.language.register("yaml", "eruby.yaml")

@@ -40,11 +40,10 @@ alias gie = nano .git/info/exclude
 # Docker
 
 alias di = docker images
-alias dangling = docker images -f "dangling=true" -q | split row "\n" | each { |e| if $e != "" { docker rmi -f $e } }
+# alias dangling = docker images -f "dangling=true" -q | split row "\n" | each { |e| if $e != "" { docker rmi -f $e } }
 
 # Coding helpers
 
-alias ace = node ace
 alias art = php artisan
 alias mng = python manage.py
 alias style = ruff format

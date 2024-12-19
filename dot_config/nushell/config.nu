@@ -13,16 +13,14 @@ $env.config = {
                     }
                 }
             ],
-            Path: [
-                {||
-                    let type = ($env.Path | describe)
-                    if $type == "string" {
-                        $env.Path = ($env.Path | split row (char esep) | uniq)
-                    }
-                }
-            ],
             PWD: [
                 (use integrations/hooks/nuenv.nu; nuenv setup),
+                {
+                    # Activate virtualenv for Poetry based projects.
+                    # Designed to be minimalistic. No way to deactivate on ..
+                    condition: {|_before, after| ($after | path join "pyproject.toml" | path exists) }
+                    code: {|_before, _after| if $env.VIRTUAL_ENV? == null { try { poetry -q shell } } }
+                }
             ]
         }
     },
@@ -62,9 +60,9 @@ source integrations/completions/tar.nu
 source integrations/completions/virsh.nu
 source integrations/hooks/rusty-paths.nu
 
-use integrations/hooks/nuenv.nu [ "nuenv allow", "nuenv disallow" ]
 
 # External utilities
 use integrations/mise.nu # WARN: Should come before anything.
 use integrations/starship.nu
+use integrations/hooks/nuenv.nu [ "nuenv allow", "nuenv disallow" ]
 source integrations/atuin.nu # WARN: Keep empty on Windows.

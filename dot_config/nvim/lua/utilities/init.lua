@@ -13,14 +13,20 @@ function M.join_paths(...) return table.concat(M.tbl_flatten { ... }, M.PATH_SEP
 --- Diff with clipboard
 function M.compare_to_clipboard()
   local ftype = vim.api.nvim_eval "&filetype"
-  vim.cmd "vsplit"
-  vim.cmd "enew"
-  vim.cmd "normal! P"
-  vim.cmd "setlocal buftype=nowrite"
-  vim.cmd("set filetype=" .. ftype)
-  vim.cmd "diffthis"
-  vim.cmd [[execute "normal! \<C-w>h"]]
-  vim.cmd "diffthis"
+  -- TODO: Perform ft detection and buffer auto description in script.
+  vim.cmd(string.format(
+    [[
+    vsplit
+    enew
+    normal! P
+    setlocal buftype=nowrite
+    set filetype=%s
+    diffthis
+    execute "normal! \<C-w>h"
+    diffthis
+ ]],
+    ftype
+  ))
 end
 
 function M.trim(s) return (string.gsub(s, "^%s*(.-)%s*$", "%1")) end

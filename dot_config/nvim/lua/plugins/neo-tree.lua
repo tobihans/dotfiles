@@ -9,8 +9,14 @@ return {
       -- filtered_items = {
       --   visible = true,
       -- },
+      window = {
+        mappings = {
+          ["d"] = "trash",
+          ["D"] = "delete",
+        },
+      },
       commands = {
-        delete = function(state)
+        trash = function(state)
           local inputs = require "neo-tree.ui.inputs"
           local path = state.tree:get_node().path
           local msg = string.format("Are you sure you want to trash '%s'?", path)
@@ -21,7 +27,7 @@ return {
             end
           end)
         end,
-        delete_visual = function(state, selected_nodes)
+        trash_visual = function(state, selected_nodes)
           local inputs = require "neo-tree.ui.inputs"
           local msg = string.format("Are you sure you want to trash %d items?", #selected_nodes)
           inputs.confirm(msg, function(confirmed)
