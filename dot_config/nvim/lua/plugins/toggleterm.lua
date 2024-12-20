@@ -61,8 +61,8 @@ return {
         setl("signcolumn", "no")
         setl("statuscolumn", "")
         setl("winfixbuf", true)
-        setl("winfixheight", true)
-        setl("winfixwidth", true)
+        -- setl("winfixheight", true)
+        -- setl("winfixwidth", true)
       end,
     },
   },
