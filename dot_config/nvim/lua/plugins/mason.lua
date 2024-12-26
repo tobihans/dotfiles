@@ -40,7 +40,6 @@ return {
         "jsonls",
         "lua_ls",
         "ruby_lsp",
-        "ruff_lsp",
         "solargraph",
         "taplo",
         "tinymist",
