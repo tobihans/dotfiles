@@ -13,7 +13,6 @@ function M.join_paths(...) return table.concat(M.tbl_flatten { ... }, M.PATH_SEP
 --- Diff with clipboard
 function M.compare_to_clipboard()
   local ftype = vim.api.nvim_eval "&filetype"
-  -- TODO: Perform ft detection and buffer auto description in script.
   vim.cmd(string.format(
     [[
     vsplit

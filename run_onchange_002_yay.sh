@@ -23,7 +23,7 @@ if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 		"slack-desktop" "supertuxkart"
 		"wl-clipboard"
 		"koi"
-		"zoom"
+		"zoom" "zen-browser-bin"
 	)
 fi
 # "waydroid"

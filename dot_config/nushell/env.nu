@@ -61,8 +61,3 @@ $env.FZF_DEFAULT_OPTS = "
 
 $env.LESS = '--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 $env.MANPAGER = 'bat -l man --italic-text always --decorations always --style=numbers,grid'
-
-$env.SSH_AUTH_SOCK = (head -n 1 ~/.ssh/tmp)
-$env.SSH_AGENT_PID = (tail -n 1 ~/.ssh/tmp)
-
-$env.SHELL = '/bin/nu'
