@@ -59,8 +59,6 @@ return {
       formatters_by_ft = {
         astro = biome_or_prettier,
         css = biome_or_prettier,
-        eruby = { "erb_format" },
-        ["eruby.yaml"] = { "yamlfmt" },
         go = { "goimports", "gofmt" },
         graphql = biome_or_prettier,
         html = biome_or_prettier,
@@ -73,7 +71,6 @@ return {
         mardown = { "prettierd", "prettier", "injected" },
         php = { "pint", "php_cs_fixer" },
         python = { "ruff_format" },
-        ruby = { "rufo" },
         rust = { "rustfmt" },
         sh = { "shfmt" },
         sql = { "sleek" },

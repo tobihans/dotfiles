@@ -6,8 +6,6 @@ return {
     config = function()
       local lint = require "lint"
       lint.linters_by_ft = {
-        eruby = { "erb_lint" },
-        ["eruby.yaml"] = { "yamllint" },
         go = { "golangcilint" },
         htmldjango = { "djlint" },
         lua = { "selene" },

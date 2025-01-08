@@ -5,11 +5,8 @@
 	useConfigOnly = true
 	signingKey = ~/.ssh/git.pub
 
-[includeIf "gitdir:~/github/piccl/"]
-  path = piccl
-[includeIf "gitdir:~/gitlab/piccl/"]
-  path = piccl2
-
+[includeIf "gitdir:~/dev/github/irawotaka/"]
+  path = irawo
 ; NOTE: https://calebhearth.com/sign-git-with-ssh
 [gpg]
 	format = ssh
@@ -17,10 +14,6 @@
 	allowedSignersFile = /home/tobi/.ssh/allowed_signers
 [commit]
 	gpgsign = true
-[credential "https://github.com"]
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = !/usr/bin/gh auth git-credential
 [init]
 	defaultBranch = main
 [color]
@@ -48,3 +41,7 @@
 	helper = /home/tobi/bin/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential

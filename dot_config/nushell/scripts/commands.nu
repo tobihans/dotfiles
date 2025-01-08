@@ -25,15 +25,3 @@ def pet --wrapped [...args: string] {
     }
     core-pet ...$args
 }
-
-
-alias core-elia = elia
-# elia [with credentials]
-def elia --wrapped [...args: string] {
-    $env.GEMINI_API_KEY = if $env.GEMINI_API_KEY? != null {
-        $env.GEMINI_API_KEY
-    } else {
-        (get_develop_secret GEMINI_API_KEY)
-    }
-    core-elia ...$args
-}

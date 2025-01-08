@@ -20,6 +20,7 @@ return {
   event = "User AstroFile",
   version = false,
   init = function()
+    -- mini.cursorword
     _G.minicursorword_disable = function()
       if #vim.fn.expand "<cword>" <= 2 then
         vim.b.minicursorword_disable = true
@@ -30,6 +31,12 @@ return {
       end
     end
     vim.cmd "au CursorMoved * lua _G.minicursorword_disable()"
+
+    -- mini.icons
+    package.preload["nvim-web-devicons"] = function()
+      require("mini.icons").mock_nvim_web_devicons()
+      return package.loaded["nvim-web-devicons"]
+    end
   end,
   config = function()
     require("mini.ai").setup()
@@ -50,6 +57,14 @@ return {
         update_n_lines = "ns",
       },
     }
+    require("mini.icons").setup {
+      style = "glyph",
+      default = {},
+      lsp = {
+        supermaven = { glyph = "", hl = "MiniIconsBlue" },
+      },
+    }
+
     local hi = require "mini.hipatterns"
     require("mini.hipatterns").setup {
       highlighters = {

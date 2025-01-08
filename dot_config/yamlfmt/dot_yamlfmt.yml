@@ -1,0 +1,5 @@
+formatter:
+  type: basic
+  retain_line_breaks: true
+  drop_merge_tag: true
+  eof_newline: true

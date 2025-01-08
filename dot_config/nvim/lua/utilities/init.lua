@@ -8,24 +8,28 @@ local get_icon = require("astroui").get_icon
 
 function M.tbl_flatten(t) return vim.iter(t):flatten(math.huge):totable() end
 
+--- Join a list of paths
+---@vararg string
+---@return string
 function M.join_paths(...) return table.concat(M.tbl_flatten { ... }, M.PATH_SEPARATOR) end
 
 --- Diff with clipboard
 function M.compare_to_clipboard()
   local ftype = vim.api.nvim_eval "&filetype"
-  vim.cmd(string.format(
-    [[
-    vsplit
-    enew
-    normal! P
-    setlocal buftype=nowrite
-    set filetype=%s
-    diffthis
-    execute "normal! \<C-w>h"
-    diffthis
- ]],
-    ftype
-  ))
+
+  vim.cmd.vsplit()
+  vim.cmd.enew()
+  vim.cmd.normal { args = { "P" }, bang = true }
+  vim.api.nvim_set_option_value("buftype", "nowrite", { scope = "local" })
+  vim.api.nvim_set_option_value("buflisted", false, { scope = "local" })
+  vim.api.nvim_set_option_value("bufhidden", "wipe", { scope = "local" })
+  vim.api.nvim_set_option_value("filetype", ftype, { scope = "local" })
+  vim.cmd.diffthis()
+  vim.cmd.wincmd "h"
+
+  -- diff original content
+  vim.cmd.diffthis()
+  vim.cmd.wincmd "l"
 end
 
 function M.trim(s) return (string.gsub(s, "^%s*(.-)%s*$", "%1")) end

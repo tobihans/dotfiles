@@ -92,7 +92,6 @@ return {
       emmet_ls = {
         filetypes = {
           "css",
-          "eruby",
           "html",
           "htmldjango",
           "javascriptreact",
@@ -120,15 +119,6 @@ return {
           require("astrolsp").on_attach(client, bufnr)
           require("which-key").add(require("config.mappings.lsp").go, { buffer = bufnr })
         end,
-      },
-      ruby_lsp = {
-        init_options = {
-          enabledFeatures = {
-            formatting = false,
-            onTypeFormatting = false,
-          },
-          experimentalFeaturesEnabled = true,
-        },
       },
       rust_analyzer = {
         on_attach = function(client, bufnr)
