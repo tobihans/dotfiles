@@ -16,7 +16,6 @@ end
 ---@type LazySpec
 return {
   "echasnovski/mini.nvim",
-  priority = 500,
   event = "User AstroFile",
   version = false,
   init = function()

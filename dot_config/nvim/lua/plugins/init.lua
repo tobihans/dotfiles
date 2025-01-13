@@ -20,6 +20,14 @@ return {
           last = true,
           cwd = true,
         },
+        ignore = {
+          dirs = {
+            vim.fn.expand "~",
+            vim.fn.expand "~/dev",
+          },
+          filetypes = { "gitcommit", "gitrebase" },
+          buftypes = {},
+        },
       },
       mappings = {
         n = {
@@ -68,6 +76,7 @@ return {
   { "rcarriga/nvim-notify", opts = { render = "wrapped-compact" } },
 
   { "AstroNvim/astrotheme", enabled = false },
+  { "L3MON4D3/LuaSnip", enabled = false },
   { "NvChad/nvim-colorizer.lua", enabled = false },
   { "RRethy/vim-illuminate", enabled = false },
   { "dmmulroy/tsc.nvim", enabled = false },

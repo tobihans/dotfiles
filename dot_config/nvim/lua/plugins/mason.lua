@@ -4,7 +4,6 @@ local list_insert_unique = require("astrocore").list_insert_unique
 return {
   {
     "williamboman/mason.nvim",
-    priority = 5000,
     opts = function(_, opts)
       opts.ui = {
         border = "double",

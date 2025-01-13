@@ -4,7 +4,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend $env.HOME_BIN)
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.HOME_LOCAL_BIN)
 
 # Node
-$env.NODE_OPTIONS = "--disable-warning=ExperimentalWarning --disable-warning=DeprecationWarning"
+# $env.NODE_OPTIONS = "--disable-warning=ExperimentalWarning --disable-warning=DeprecationWarning"
 $env.PNPM_HOME = $"($env.HOME)/.local/share/pnpm"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.PNPM_HOME)
 

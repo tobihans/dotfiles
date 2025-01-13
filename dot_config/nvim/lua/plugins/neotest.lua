@@ -3,8 +3,8 @@ return {
   {
     "nvim-neotest/neotest",
     dependencies = {
-      { "nvim-neotest/neotest-jest" },
-      { "olimorris/neotest-rspec" },
+      -- { "nvim-neotest/neotest-jest" },
+      -- { "marilari88/neotest-vitest" }, -- for vitest
       {
         "andythigpen/nvim-coverage",
         opts = {
@@ -45,9 +45,9 @@ return {
         unpack(opts.adapters),
         require "rustaceanvim.neotest",
         require "neotest-rspec",
-        require "neotest-jest" {
-          env = { CI = true },
-        },
+        -- require "neotest-jest" {
+        --   env = { CI = true },
+        -- },
       }
 
       return opts

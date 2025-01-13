@@ -3,7 +3,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1500,
+    lazy = true,
     opts = {
       term_colors = true,
       background = {

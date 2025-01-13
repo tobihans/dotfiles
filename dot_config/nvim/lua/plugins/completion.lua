@@ -8,6 +8,9 @@ local icon_provider = function(ctx)
   elseif ctx.item.source_name == "Path" then
     ctx.kind_icon, ctx.kind_hl_group = mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
   end
+
+  local tailwind_hl = require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx)
+  if tailwind_hl then ctx.kind_hl_group = tailwind_hl end
 end
 
 --@type LazySpec
@@ -28,11 +31,16 @@ return {
   },
   {
     "saghen/blink.cmp",
+    dependencies = { "rafamadriz/friendly-snippets" },
     ---@module 'blink.cmp'
     ---@param _ LazySpec
     ---@param opts blink.cmp.Config
     ---@return blink.cmp.Config
     opts = function(_, opts)
+      opts.snippets = nil
+      opts.completion.ghost_text = {
+        enabled = true,
+      }
       opts.sources = {
         default = { "supermaven", "lsp", "path", "snippets", "buffer", "dadbod" },
         providers = {
@@ -43,9 +51,6 @@ return {
             module = "blink.compat.source",
           },
         },
-      }
-      opts.completion.ghost_text = {
-        enabled = true,
       }
       opts.completion.menu.draw.components.kind_icon = {
         text = function(ctx)

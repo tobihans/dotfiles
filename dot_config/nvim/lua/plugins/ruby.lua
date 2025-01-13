@@ -2,6 +2,24 @@
 return {
   { "tpope/vim-rails", ft = { "ruby", "eruby" } },
   {
+    "nvim-neotest/neotest",
+    dependencies = {
+      { "olimorris/neotest-rspec" },
+    },
+    ---@param _ LazySpec
+    ---@param opts neotest.Config
+    ---@return neotest.Config
+    opts = function(_, opts)
+      if not opts.adapters then opts.adapters = {} end
+      opts.adapters = {
+        unpack(opts.adapters),
+        require "neotest-rspec",
+      }
+
+      return opts
+    end,
+  },
+  {
     "mfussenegger/nvim-dap",
     dependencies = { "suketa/nvim-dap-ruby", config = true },
   },
