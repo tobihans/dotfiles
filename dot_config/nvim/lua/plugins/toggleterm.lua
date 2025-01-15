@@ -2,51 +2,48 @@
 return {
   {
     "akinsho/toggleterm.nvim",
-    init = function()
-      require("which-key").add {
-        {
-          "<Leader>th",
-          function()
-            vim.cmd(
-              vim.v.count1
-                .. "ToggleTerm size=10 direction=horizontal "
-                .. "name='Interactive Terminal "
-                .. vim.v.count1
-                .. "'"
-            )
-          end,
-          desc = "ToggleTerm horizontal split",
-        },
-        {
-          "<Leader>tv",
-          function()
-            vim.cmd(
-              vim.v.count1
-                .. "ToggleTerm size=80 direction=vertical "
-                .. "name='Interactive Terminal "
-                .. vim.v.count1
-                .. "'"
-            )
-          end,
-          desc = "ToggleTerm vertical split",
-        },
-        {
-          "<Leader>td",
-          function() require("astrocore").toggle_term_cmd "lazydocker" end,
-          desc = "ToggleTerm lazydocker",
-        },
-        {
-          "<Leader>tb",
-          function() require("astrocore").toggle_term_cmd "btop" end,
-          desc = "ToggleTerm btop",
-        },
-        {
-          "<Leader>tP",
-          function() require("astrocore").toggle_term_cmd "posting" end,
-          desc = "ToggleTerm Posting",
-        },
-      }
-    end,
+    keys = {
+      {
+        "<Leader>th",
+        function()
+          local cmd = string.format(
+            [[%dToggleTerm size=10 direction=horizontal name='Interactive Terminal %d' ]],
+            vim.v.count1,
+            vim.v.count1
+          )
+          vim.cmd(cmd)
+        end,
+        desc = "ToggleTerm horizontal split",
+      },
+      {
+        "<Leader>tv",
+
+        function()
+          local cmd = string.format(
+            [[%dToggleTerm size=10 direction=vertical name='Interactive Terminal %d' ]],
+            vim.v.count1,
+            vim.v.count1
+          )
+          vim.cmd(cmd)
+        end,
+        desc = "ToggleTerm vertical split",
+      },
+      {
+        "<Leader>td",
+        function() require("astrocore").toggle_term_cmd "lazydocker" end,
+        desc = "ToggleTerm lazydocker",
+      },
+      {
+        "<Leader>tb",
+        function() require("astrocore").toggle_term_cmd "btop" end,
+        desc = "ToggleTerm btop",
+      },
+      {
+        "<Leader>tP",
+        function() require("astrocore").toggle_term_cmd "posting" end,
+        desc = "ToggleTerm Posting",
+      },
+    },
     opts = {
       direction = "float",
       on_open = function(terminal)

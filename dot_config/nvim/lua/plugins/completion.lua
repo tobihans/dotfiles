@@ -1,11 +1,13 @@
 local icon_provider = function(ctx)
   local mini_icons = require "mini.icons"
+  local source = --[[@type string]]
+    ctx.item.source_name
 
-  if ctx.item.source_name == "LSP" then
-    ctx.kind_icon, ctx.kind_hl_group, _ = mini_icons.get("lsp", ctx.kind or "")
-  elseif ctx.item.source_name == "supermaven" then
+  if source == "LSP" then
+    ctx.kind_icon, ctx.kind_hl_group, _ = mini_icons.get("lsp", ctx.kind or source:lower())
+  elseif source == "supermaven" then
     ctx.kind_icon, ctx.kind_hl_group, _ = mini_icons.get("lsp", "supermaven")
-  elseif ctx.item.source_name == "Path" then
+  elseif source == "Path" then
     ctx.kind_icon, ctx.kind_hl_group = mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
   end
 
@@ -42,14 +44,10 @@ return {
         enabled = true,
       }
       opts.sources = {
-        default = { "supermaven", "lsp", "path", "snippets", "buffer", "dadbod" },
+        default = { "supermaven", "lsp", "dadbod", "path", "snippets", "buffer" },
         providers = {
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
-          supermaven = {
-            enabled = true,
-            name = "supermaven",
-            module = "blink.compat.source",
-          },
+          supermaven = { name = "supermaven", module = "blink.compat.source" },
         },
       }
       opts.completion.menu.draw.components.kind_icon = {

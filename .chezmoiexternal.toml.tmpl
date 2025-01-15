@@ -99,6 +99,13 @@ path = "{{ .chezmoi.os }}-{{ .chezmoi.arch }}/helm"
 refreshPeriod = "168h"
 url = 'https://get.helm.sh/helm-{{ output "curl" "-L" "-s" "https://get.helm.sh/helm-latest-version" | trim }}-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz'
 
+["bin/ngrok"]
+type = "archive-file"
+executable = true
+path = "ngrok"
+refreshPeriod = "168h"
+url = 'https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz'
+
 # Vim/Neovim
 [".vim/colors/nord.vim"]
 type = "file"
