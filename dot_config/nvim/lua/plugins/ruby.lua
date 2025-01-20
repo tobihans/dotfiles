@@ -1,3 +1,4 @@
+---@diagnostic disable: inject-field
 ---@type LazySpec
 return {
   { "tpope/vim-rails", ft = { "ruby", "eruby" } },

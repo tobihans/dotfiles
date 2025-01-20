@@ -18,9 +18,19 @@ $env.config = {
                 {
                     # Activate virtualenv for Poetry based projects.
                     # Designed to be minimalistic. No way to deactivate on ..
-                    condition: {|_before, after| ($after | path join "pyproject.toml" | path exists) }
-                    code: {|_before, _after| if $env.VIRTUAL_ENV? == null { try { poetry -q shell } } }
-                }
+                    condition: {|_before, after| ($after | path join "pyproject.toml" | path exists) and ($env.VIRTUAL_ENV? == null) }
+                    code: { try { poetry -q shell } }
+                },
+                {
+                    condition: {|_before, after| ($after | path join 'node_modules/.bin' | path exists) }
+                    code: {
+                        $env.PATH = (
+                            $env.PATH
+                                | prepend ($env.PWD | path join 'node_modules/.bin')
+                                | uniq
+                            )
+                        }
+                    }
             ]
         }
     },
