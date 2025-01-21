@@ -6,9 +6,8 @@ $env.config = {
     hooks: {
         env_change: {
             PATH: [
-                {||
-                    let type = ($env.PATH | describe)
-                    if $type == "string" {
+                {
+                    if ($env.PATH | describe) == "string" {
                         $env.PATH = ($env.PATH | split row (char esep) | uniq)
                     }
                 }
@@ -16,21 +15,25 @@ $env.config = {
             PWD: [
                 (use integrations/hooks/nuenv.nu; nuenv setup),
                 {
-                    # Activate virtualenv for Poetry based projects.
-                    # Designed to be minimalistic. No way to deactivate on ..
-                    condition: {|_before, after| ($after | path join "pyproject.toml" | path exists) and ($env.VIRTUAL_ENV? == null) }
-                    code: { try { poetry -q shell } }
+                    condition: {|_before, after|
+                        (
+                            (["poetry.lock", "uv.lock"] | any {|| $after | path join $in | path exists })
+                            and ($after | path join ".venv/bin/activate.nu" | path exists)
+                            and ($env.VIRTUAL_ENV? == null)
+                        )
+                    }
+                    code: "$env.VIRTUAL_ENV_DISABLE_PROMPT = true; overlay use .venv/bin/activate.nu"
                 },
                 {
                     condition: {|_before, after| ($after | path join 'node_modules/.bin' | path exists) }
                     code: {
                         $env.PATH = (
                             $env.PATH
-                                | prepend ($env.PWD | path join 'node_modules/.bin')
-                                | uniq
-                            )
-                        }
+                            | prepend ($env.PWD | path join 'node_modules/.bin')
+                            | uniq
+                        )
                     }
+                }
             ]
         }
     },
