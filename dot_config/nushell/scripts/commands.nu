@@ -1,3 +1,9 @@
+def oldpwd [] {
+    if ($env.OLDPWD? != null) {
+        cd $env.OLDPWD
+    }
+}
+
 def xo [arg?: string] {
     let arg: string = if $arg != null { $arg } else { "." }
     if $nu.os-info.name == "windows" {

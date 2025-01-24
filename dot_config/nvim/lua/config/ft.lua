@@ -1,7 +1,7 @@
 vim.filetype.add {
   filename = {
     [".env"] = "dotenv",
-    [".swcrc"] = "json",
+    ["uv.lock"] = "toml",
     ["inventory.txt"] = "confini",
     ["docker-compose.yaml"] = "yaml.docker-compose",
   },

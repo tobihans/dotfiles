@@ -62,6 +62,7 @@ return {
       lsp = {
         supermaven = { glyph = "", hl = "MiniIconsBlue" },
       },
+      file = {},
     }
 
     local hi = require "mini.hipatterns"
