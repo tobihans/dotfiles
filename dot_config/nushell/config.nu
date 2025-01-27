@@ -39,7 +39,16 @@ $env.config = {
     },
     keybindings: [
         {
-            name: search_snippets_with_pet
+            name: complete_history_hint
+            modifier: shift
+            keycode: backtab
+            mode: emacs
+            event: {
+                send: historyhintcomplete,
+            }
+        },
+        {
+            name: pet_snippets
             modifier: control
             keycode: char_s
             mode: emacs
@@ -49,12 +58,23 @@ $env.config = {
             }
         },
         {
-            name: complete_history_hint
-            modifier: shift
-            keycode: backtab
+            name: elia_chat
+            modifier: control
+            keycode: char_g
             mode: emacs
             event: {
-                send: historyhintcomplete,
+                send: executehostcommand,
+                cmd: "elia"
+            }
+        }
+        {
+            name: television
+            modifier: control
+            keycode: char_f
+            mode: emacs
+            event: {
+                send: executehostcommand,
+                cmd: "television"
             }
         }
     ],

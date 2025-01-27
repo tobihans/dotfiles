@@ -1,13 +1,13 @@
 ---@type LazySpec
 return {
-  { "OXY2DEV/helpview.nvim",  ft = "help" },
+  { "OXY2DEV/helpview.nvim", ft = "help" },
   { "tobihans/vim-caddyfile", ft = "caddyfile" },
-  { "kaarmu/typst.vim",       ft = "typst",    init = function() vim.g.typst_syntax_highlight = 0 end },
+  { "kaarmu/typst.vim", ft = "typst", init = function() vim.g.typst_syntax_highlight = 0 end },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown", "Avante" },
     opts = {
-      file_types = { "markdown", "Avante" },
+      file_types = { "Avante", "markdown", "noice" },
       render_modes = { "n", "v", "i", "c" },
     },
   },
@@ -25,7 +25,7 @@ return {
     event = "User AstroFile",
     keys = {
       { "<Leader>rr", function() require("telescope").extensions.refactoring.refactors() end, desc = "Refactors" },
-      { "<Leader>rp", function() require("refactoring").debug.printf { below = true } end,    desc = "Debug print" },
+      { "<Leader>rp", function() require("refactoring").debug.printf { below = true } end, desc = "Debug print" },
       {
         "<Leader>rv",
         function() require("refactoring").debug.print_var { below = true } end,

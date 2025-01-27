@@ -1,18 +1,3 @@
-def oldpwd [] {
-    if ($env.OLDPWD? != null) {
-        cd $env.OLDPWD
-    }
-}
-
-def xo [arg?: string] {
-    let arg: string = if $arg != null { $arg } else { "." }
-    if $nu.os-info.name == "windows" {
-        explorer $arg
-        return
-    }
-    xdg-open $arg o+e>| ignore
-}
-
 alias core-pet = pet
 def pet-search [] {
     let query = (commandline)
@@ -23,11 +8,33 @@ def pet-search [] {
     }
 }
 # pet [with credentials]
-def pet --wrapped [...args: string] {
+def pet --wrapped --env [...args: string] {
     $env.PET_GITHUB_ACCESS_TOKEN = if $env.PET_GITHUB_ACCESS_TOKEN? != null {
         $env.PET_GITHUB_ACCESS_TOKEN
     } else {
         (get_develop_secret PET_SNIPPET_SYNC)
     }
-    core-pet ...$args
+    (core-pet ...$args)
+}
+
+alias core-elia = elia
+# elia [with credentials]
+def elia --wrapped --env [...args: string] {
+    $env.GROQ_API_KEY = if $env.GROQ_API_KEY? != null {
+        $env.GROQ_API_KEY
+    } else {
+        (get_develop_secret GROQ_API_KEY)
+    }
+    (core-elia ...$args)
+}
+
+def television [] {
+    let query = (commandline)
+    let channel = (tv list-channels | grep -v ':' | xargs | split row (char space) | input list --fuzzy 'tv channel')
+
+    let result = (tv -i $"($query)" $channel)
+
+    if $result != "" {
+        commandline edit --replace $result
+    }
 }

@@ -1,6 +1,16 @@
 ---@type LazySpec
 return {
   {
+    "f-person/auto-dark-mode.nvim",
+    enabled = vim.fn.has "win32" == 0,
+    event = "VeryLazy",
+    opts = {
+      update_interval = 5000,
+      set_dark_mode = function() vim.cmd [[set background=dark]] end,
+      set_light_mode = function() vim.cmd [[set background=light]] end,
+    },
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = true,

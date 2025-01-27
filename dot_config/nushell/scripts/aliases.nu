@@ -1,9 +1,7 @@
 # Terminal
 
 alias cat = bat
-# alias core-ls = ls
-alias ll = eza --icons --oneline --hyperlink
-alias dir = eza --icons -long --hyperlink --group --smart-group --header
+alias xo = start
 
 alias kcat = kitten icat
 alias kdiff = kitten diff
@@ -61,10 +59,9 @@ alias gl = glab
 
 alias lzd = lazydocker
 alias lzg = lazygit
-alias tv = tidy-viewer
+# alias tv = tidy-viewer # collides with television's tv
 alias prism = npx @stoplight/prism-cli@latest # api mocking
-alias cookiecutter = pipx run cookiecutter
-alias hackrnews = clx -n
+# alias cookiecutter = pipx run cookiecutter
 
 # alias load.env = 'while read -r line; do export $line; done < .env;'
 

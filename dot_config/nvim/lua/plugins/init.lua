@@ -24,8 +24,10 @@ return {
           dirs = {
             vim.fn.expand "~",
             vim.fn.expand "~/dev",
+            vim.fn.expand "~/dev/github",
+            vim.fn.expand "~/dev/gitlab",
           },
-          filetypes = { "gitcommit", "gitrebase" },
+          filetypes = { "gitcommit", "gitrebase", "octo", "sql" },
           buftypes = {},
         },
       },

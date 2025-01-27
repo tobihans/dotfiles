@@ -30,6 +30,15 @@ return {
     version = "*",
     lazy = true,
     opts = {},
+    config = function(_, opts)
+      require("blink-compat").setup(opts)
+
+      -- INFO: This prevent an error from avante_mentions providers.
+      -- TODO: Check if the error is fixed later.
+      require("cmp").ConfirmBehavior = {
+        Insert = "Insert",
+      }
+    end,
   },
   {
     "saghen/blink.cmp",
@@ -44,8 +53,21 @@ return {
         enabled = true,
       }
       opts.sources = {
-        default = { "supermaven", "lsp", "dadbod", "path", "snippets", "buffer" },
+        default = {
+          "avante_commands",
+          "avante_mentions",
+          "avante_files",
+          "supermaven",
+          "lsp",
+          "dadbod",
+          "path",
+          "snippets",
+          "buffer",
+        },
         providers = {
+          avante_commands = { name = "avante_commands", module = "blink.compat.source", score_offset = 90 },
+          avante_files = { name = "avante_files", module = "blink.compat.source", score_offset = 100 },
+          avante_mentions = { name = "avante_mentions", module = "blink.compat.source", score_offset = 1000 },
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
           supermaven = { name = "supermaven", module = "blink.compat.source" },
         },

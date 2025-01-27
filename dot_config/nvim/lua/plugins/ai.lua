@@ -30,6 +30,10 @@ return {
       copilot = {
         model = "claude-3.5-sonnet",
       },
+      file_selector = {
+        provider = "telescope",
+        provider_opts = {},
+      },
       windows = {
         width = 25,
         height = 30,
@@ -65,7 +69,7 @@ return {
         ---@diagnostic disable-next-line: missing-fields
         groq = {
           endpoint = "https://api.groq.com/openai/v1/chat/completions",
-          model = "llama-3.1-70b-versatile",
+          model = "llama-3.3-70b-versatile",
           api_key_name = "GROQ_API_KEY",
           parse_curl_args = function(opts, code_opts)
             return {
