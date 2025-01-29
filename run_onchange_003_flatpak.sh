@@ -7,7 +7,7 @@ fi
 
 packages=(
     "dev.vencord.Vesktop"
-    "io.github.seadve.Kooha"
+    # "io.github.seadve.Kooha"
 )
 
 for package in "${packages[@]}"; do
