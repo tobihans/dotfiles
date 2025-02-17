@@ -13,6 +13,11 @@ vim.api.nvim_create_autocmd("BufReadPost", { -- Return to last edit position whe
   pattern = "*",
   command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]],
 })
+vim.api.nvim_create_autocmd("FileType", {
+  group = "BufferManagement",
+  pattern = "man",
+  command = [[setl nobuflisted]],
+})
 
 --- Loads local configuration file when cwd changes
 --- This is especially useful with Neovide, where I use :cd a lot.

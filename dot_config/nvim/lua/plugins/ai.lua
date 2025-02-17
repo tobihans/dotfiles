@@ -25,6 +25,7 @@ return {
         desc = "avante: switch llm",
       },
     },
+    ---@type avante.Config
     opts = {
       provider = "copilot",
       copilot = {
@@ -63,34 +64,26 @@ return {
           suggestion = "<leader>As",
           repomap = "<leader>AR",
         },
+        sidebar = {
+          close = { "q" },
+        },
       },
       vendors = {
         ---@type AvanteProvider
         ---@diagnostic disable-next-line: missing-fields
+        deepseek = {
+          __inherited_from = "openai",
+          api_key_name = "DEEPSEEK_API_KEY",
+          endpoint = "https://api.deepseek.com",
+          model = "deepseek-coder",
+        },
+        ---@type AvanteProvider
+        ---@diagnostic disable-next-line: missing-fields
         groq = {
+          __inherited_from = "openai",
           endpoint = "https://api.groq.com/openai/v1/chat/completions",
           model = "llama-3.3-70b-versatile",
           api_key_name = "GROQ_API_KEY",
-          parse_curl_args = function(opts, code_opts)
-            return {
-              url = opts.endpoint,
-              headers = {
-                ["Accept"] = "application/json",
-                ["Content-Type"] = "application/json",
-                ["Authorization"] = "Bearer " .. os.getenv(opts.api_key_name),
-              },
-              body = {
-                model = opts.model,
-                messages = require("avante.providers.openai").parse_messages(code_opts),
-                temperature = 0,
-                max_tokens = 4096,
-                stream = true,
-              },
-            }
-          end,
-          parse_response_data = function(data_stream, event_state, opts)
-            require("avante.providers").openai.parse_response(data_stream, event_state, opts)
-          end,
         },
       },
     },
@@ -98,11 +91,7 @@ return {
       require("avante_lib").load()
       require("avante").setup(opts)
 
-      -- Prevents accidentally closing sidebar
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "Avante",
-        callback = function() vim.keymap.set({ "n", "o" }, "<ESC>", "<Nop>", { buffer = true }) end,
-      })
+      require("utilities").secret("TAVILY_API_KEY", true)
     end,
   },
 }

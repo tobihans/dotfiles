@@ -59,6 +59,14 @@ return {
     })
 
     opts["extensions"] = {
+      ast_grep = {
+        command = {
+          "sg",
+          "--json=stream",
+        }, -- must have --json=stream
+        grep_open_files = false, -- search in opened files
+        lang = nil, -- string value, specify language for ast-grep `nil` for default
+      },
       live_grep_args = {
         auto_quoting = true,
         mappings = {
@@ -74,6 +82,7 @@ return {
   end,
   config = function(...)
     require "astronvim.plugins.configs.telescope"(...)
+    require("telescope").load_extension "ast_grep"
     require("telescope").load_extension "smart_history"
     require("telescope").load_extension "live_grep_args"
   end,

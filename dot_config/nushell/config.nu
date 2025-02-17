@@ -54,19 +54,9 @@ $env.config = {
             mode: emacs
             event: {
                 send: executehostcommand,
-                cmd: "pet-search"
+                cmd: "try { pet-search }"
             }
         },
-        {
-            name: elia_chat
-            modifier: control
-            keycode: char_g
-            mode: emacs
-            event: {
-                send: executehostcommand,
-                cmd: "elia"
-            }
-        }
         {
             name: television
             modifier: control
@@ -74,7 +64,7 @@ $env.config = {
             mode: emacs
             event: {
                 send: executehostcommand,
-                cmd: "television"
+                cmd: "try { television }"
             }
         }
     ],

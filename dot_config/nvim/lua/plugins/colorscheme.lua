@@ -28,6 +28,7 @@ return {
           MiniHiTODO = { bg = colors.teal, fg = colors.crust, bold = true },
           MiniHiNOTE = { bg = colors.green, fg = colors.crust, bold = true },
           MiniHiPERF = { bg = colors.pink, fg = colors.crust, bold = true },
+          SnacksDashboardIcon = { fg = colors.crust, bold = true },
         }
       end,
       integrations = {
@@ -77,6 +78,8 @@ return {
         MiniHiTODO = { bg = "foam", fg = "surface", bold = true },
         MiniHiNOTE = { bg = "#098d8f", fg = "text", bold = true },
         MiniHiPERF = { bg = "rose", fg = "surface", bold = true },
+        SnacksDashboardIcon = { fg = "love", bold = true },
+        SnacksDashboardSpecial = { fg = "iris", bold = true },
       },
     },
   },

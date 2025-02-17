@@ -7,17 +7,20 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "features": {
+    "inline_completion_provider": "supermaven"
+  },
   "telemetry": {
     "metrics": false
   },
-  "base_keymap": "Atom",
+  "base_keymap": "JetBrains",
   "vim_mode": true,
   "ui_font_size": 18,
   "buffer_font_family": "VictorMono Nerd Font",
   "buffer_font_size": 18,
   "theme": {
     "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Frappé"
+    "light": "Rosé Pine Dawn",
+    "dark": "Rosé Pine Moon"
   }
 }

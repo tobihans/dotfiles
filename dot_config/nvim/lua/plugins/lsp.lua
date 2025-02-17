@@ -97,6 +97,7 @@ return {
           "javascriptreact",
           "less",
           "pug",
+          "php",
           "sass",
           "scss",
           "typescriptreact",
@@ -243,9 +244,7 @@ return {
       ruff_lsp = false,
     },
     mappings = {
-      n = {
-        K = { function() vim.lsp.buf.hover() end, desc = "Hover symbol details" },
-      },
+      n = {},
     },
   },
 }

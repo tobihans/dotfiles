@@ -5,6 +5,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend $env.HOME_LOCAL_BIN)
 
 # Node
 # $env.NODE_OPTIONS = "--disable-warning=ExperimentalWarning --disable-warning=DeprecationWarning"
+$env.COREPACK_ENABLE_AUTO_PIN = 0
 $env.PNPM_HOME = $"($env.HOME)/.local/share/pnpm"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.PNPM_HOME)
 

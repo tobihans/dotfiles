@@ -12,7 +12,7 @@ return {
         htmldjango = { "djlint" },
         lua = { "selene" },
         markdown = { "markdownlint" },
-        php = { "psalm", "tlint" },
+        php = { "tlint" },
         proto = { "protolint", "buf_lint" },
         sh = { "shellcheck" },
         sql = { "sqlfluff" },

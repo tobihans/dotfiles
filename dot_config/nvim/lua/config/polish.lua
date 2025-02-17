@@ -20,4 +20,7 @@ astro.is_available = function(plugin)
   return ok or astro.get_plugin(plugin) ~= nil
 end
 
+-- Additional LSPs
+require("lspconfig").nushell.setup {}
+
 vim.loader.enable()

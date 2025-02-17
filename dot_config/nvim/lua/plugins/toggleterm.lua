@@ -7,7 +7,7 @@ return {
         "<Leader>th",
         function()
           local cmd = string.format(
-            [[%dToggleTerm size=10 direction=horizontal name='Interactive Terminal %d' ]],
+            [[%dToggleTerm size=10 direction=horizontal name='Interactive Terminal %d']],
             vim.v.count1,
             vim.v.count1
           )
@@ -17,10 +17,9 @@ return {
       },
       {
         "<Leader>tv",
-
         function()
           local cmd = string.format(
-            [[%dToggleTerm size=10 direction=vertical name='Interactive Terminal %d' ]],
+            [[%dToggleTerm size=80 direction=vertical name='Interactive Terminal %d']],
             vim.v.count1,
             vim.v.count1
           )
@@ -37,11 +36,6 @@ return {
         "<Leader>tb",
         function() require("astrocore").toggle_term_cmd "btop" end,
         desc = "ToggleTerm btop",
-      },
-      {
-        "<Leader>tP",
-        function() require("astrocore").toggle_term_cmd "posting" end,
-        desc = "ToggleTerm Posting",
       },
     },
     opts = {

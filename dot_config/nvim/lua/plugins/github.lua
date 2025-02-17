@@ -8,8 +8,7 @@ return {
     },
     cmd = "Octo",
     keys = {
-      { "<Leader>Oo", "<cmd>Octo<cr>", desc = " Pick" },
-      { "<Leader>Oa", "<cmd>Octo actions<cr>", desc = " Actions" },
+      { "<Leader>Oo", "<cmd>Octo<cr>", desc = " Octo pick" },
     },
     config = true,
     opts = {

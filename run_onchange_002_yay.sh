@@ -14,13 +14,14 @@ fi
 
 # Installs yay packages
 packages=(
-	"ast-grep" "atuin" "fswatch" "mise"
+	"atuin" "fswatch" "mise"
 )
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
 		"plasma5-wallpapers-dynamic" "opensnitch" "python-pyclip"
 		"slack-desktop" "supertuxkart"
+		"trash-cli"
 		"wl-clipboard"
 		"koi"
 		"zoom" "zen-browser-bin"

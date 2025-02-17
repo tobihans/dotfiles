@@ -76,7 +76,6 @@ return {
     },
   },
   { "rcarriga/nvim-notify", opts = { render = "wrapped-compact" } },
-
   { "AstroNvim/astrotheme", enabled = false },
   { "L3MON4D3/LuaSnip", enabled = false },
   { "NvChad/nvim-colorizer.lua", enabled = false },
@@ -84,6 +83,7 @@ return {
   { "dmmulroy/tsc.nvim", enabled = false },
   { "echasnovski/mini.bufremove", enabled = false },
   { "folke/todo-comments.nvim", enabled = false },
+  { "goolord/alpha-nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },
   { "linux-cultist/venv-selector.nvim", enabled = false },
   { "nvim-tree/nvim-web-devicons", enabled = false },

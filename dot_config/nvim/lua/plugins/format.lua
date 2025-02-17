@@ -69,7 +69,7 @@ return {
         json = biome_or_prettier,
         lua = { "stylua" },
         mardown = { "prettierd", "prettier", "injected" },
-        php = { "pint", "php_cs_fixer" },
+        php = { "pint" },
         python = { "ruff_format" },
         rust = { "rustfmt" },
         sh = { "shfmt" },

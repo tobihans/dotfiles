@@ -1,3 +1,4 @@
+--- TODO: Clear no longer used mappings.
 return {
   dart = {
     { "<Localleader>f", group = " Flutter Tools" },

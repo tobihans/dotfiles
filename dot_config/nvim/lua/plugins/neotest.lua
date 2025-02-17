@@ -41,13 +41,13 @@ return {
 
       -- additional adapters
       if not opts.adapters then opts.adapters = {} end
-      opts.adapters = {
-        unpack(opts.adapters),
-        require "rustaceanvim.neotest",
+      table.insert(opts.adapters, require "rustaceanvim.neotest")
+      table.insert(
+        opts.adapters,
         require "neotest-jest" {
           env = { CI = true },
-        },
-      }
+        }
+      )
 
       return opts
     end,

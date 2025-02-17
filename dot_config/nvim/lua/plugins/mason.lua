@@ -43,7 +43,6 @@ return {
         "volar",
         "vtsls",
         "yamlls",
-        "psalm",
       })
 
       if not vim.fn.has "win32" then
