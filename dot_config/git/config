@@ -39,6 +39,7 @@
 [credential]
 	helper = 
 	helper = /home/tobi/bin/git-credential-manager
+	credentialStore = secretservice
 [credential "https://dev.azure.com"]
 	useHttpPath = true
 [credential "https://github.com"]
