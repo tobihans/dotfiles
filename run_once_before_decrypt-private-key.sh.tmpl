@@ -1,0 +1,8 @@
+#!/bin/sh
+# vim: ft=bash
+
+if [ ! -f "{{ .chezmoi.homeDir }}/.config/chezmoi/key.txt" ]; then
+    mkdir -p "{{ .chezmoi.homeDir }}/.config/chezmoi"
+    chezmoi age decrypt --output "{{ .chezmoi.homeDir }}/.config/chezmoi/key.txt" --passphrase "{{ .chezmoi.sourceDir }}/key.txt.age"
+    chmod 600 "{{ .chezmoi.homeDir }}/.config/chezmoi/key.txt"
+fi

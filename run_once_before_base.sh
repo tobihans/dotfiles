@@ -14,6 +14,7 @@ fi
 
 # Base requirements
 requirements=(
+	"age"
 	"curl"
 	"git"
 	"unzip"
