@@ -10,12 +10,12 @@ return {
       vim.api.nvim_create_autocmd("Filetype", {
         group = vim.api.nvim_create_augroup("QuickfixUtils", { clear = true }),
         pattern = "qf",
-        callback = function(_event)
+        callback = function(event)
           vim.keymap.set(
             "n",
             "zf",
             "<cmd>silent close | Telescope quickfix<cr>",
-            { desc = "Filter quickfix", silent = true }
+            { desc = "Filter quickfix", silent = true, buffer = event.buf }
           )
         end,
       })

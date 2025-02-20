@@ -37,12 +37,11 @@ return {
             "eruby",
           },
         },
-        -- TODO: Will be useful once I leave all projects that are on 2.7
         ruby_lsp = {
           init_options = {
             enabledFeatures = {
-              formatting = false,
-              onTypeFormatting = false,
+              formatting = true,
+              onTypeFormatting = true,
             },
             experimentalFeaturesEnabled = true,
           },
