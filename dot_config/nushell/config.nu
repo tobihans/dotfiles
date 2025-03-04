@@ -89,3 +89,6 @@ use integrations/mise.nu # WARN: Should come before anything.
 use integrations/starship.nu
 use integrations/hooks/nuenv.nu [ "nuenv allow", "nuenv disallow" ]
 source integrations/atuin.nu # WARN: Keep empty on Windows.
+
+# QoL
+ulimit -Sn unlimited

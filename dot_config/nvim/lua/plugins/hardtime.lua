@@ -2,7 +2,7 @@
 return {
   {
     "m4xshen/hardtime.nvim",
-    enabled = false,
+    -- enabled = false,
     event = "User AstroFile",
     opts = {
       disable_mouse = false,

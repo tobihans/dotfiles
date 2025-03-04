@@ -1,18 +1,34 @@
+--- NOTE: See https://github.com/AstroNvim/astrocommunity/blob/main/lua/astrocommunity/completion/blink-cmp/init.lua
+
+--- @type fun(ctx: blink.cmp.DrawItemContext)
 local icon_provider = function(ctx)
   local mini_icons = require "mini.icons"
-  local source = --[[@type string]]
-    ctx.item.source_name
+  local is_specific_color = ctx.kind_hl and ctx.kind_hl:match "^HexColor" ~= nil
 
-  if source == "LSP" then
-    ctx.kind_icon, ctx.kind_hl_group, _ = mini_icons.get("lsp", ctx.kind or source:lower())
-  elseif source == "supermaven" then
+  if ctx.item.source_name == "LSP" then
+    local icon, hl = mini_icons.get("lsp", ctx.kind or "")
+    if icon then
+      ctx.kind_icon = icon
+      if not is_specific_color then ctx.kind_hl = hl end
+    end
+  elseif ctx.item.source_name == "supermaven" then
+    ---@diagnostic disable-next-line: inject-field
     ctx.kind_icon, ctx.kind_hl_group, _ = mini_icons.get("lsp", "supermaven")
-  elseif source == "Path" then
-    ctx.kind_icon, ctx.kind_hl_group = mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
+  elseif ctx.item.source_name == "Path" then
+    ctx.kind_icon, ctx.kind_hl = mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
   end
+end
 
-  local tailwind_hl = require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx)
-  if tailwind_hl then ctx.kind_hl_group = tailwind_hl end
+--- @type fun(ctx: blink.cmp.DrawItemContext)
+local hl_provider = function(_ctx) end
+
+local function get_kind_icon(CTX)
+  -- Call resolved providers
+  icon_provider(CTX)
+  hl_provider(CTX)
+
+  -- Return text and highlight information
+  return { text = CTX.kind_icon .. CTX.icon_gap, highlight = CTX.kind_hl }
 end
 
 --@type LazySpec
@@ -73,15 +89,8 @@ return {
         },
       }
       opts.completion.menu.draw.components.kind_icon = {
-        text = function(ctx)
-          icon_provider(ctx)
-          return ctx.kind_icon .. ctx.icon_gap
-        end,
-        highlight = function(ctx)
-          icon_provider(ctx)
-          ---@diagnostic disable-next-line: undefined-field
-          return ctx.kind_hl_group
-        end,
+        text = function(ctx) return get_kind_icon(ctx).text end,
+        highlight = function(ctx) return get_kind_icon(ctx).highlight end,
       }
 
       return opts

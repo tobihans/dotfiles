@@ -121,6 +121,9 @@ return {
           require("which-key").add(require("config.mappings.lsp").go, { buffer = bufnr })
         end,
       },
+      html = {
+        filetypes = { "html", "templ", "eruby" },
+      },
       rust_analyzer = {
         on_attach = function(client, bufnr)
           require("astrolsp").on_attach(client, bufnr)
@@ -138,11 +141,12 @@ return {
         },
       },
       tailwindcss = {
-        root_dir = function(filename, _)
-          if not deno_root(filename) then
-            return lsp_util.root_pattern("tailwind.config.js", "tailwind.config.ts")(filename)
-          end
-        end,
+        -- NOTE: preparing for v4
+        -- root_dir = function(filename, _)
+        --   if not deno_root(filename) then
+        --     return lsp_util.root_pattern("tailwind.config.js", "tailwind.config.ts")(filename)
+        --   end
+        -- end,
       },
       tinymist = {
         settings = {

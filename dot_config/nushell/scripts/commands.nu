@@ -31,7 +31,6 @@ def elia --wrapped --env [...args: string] {
 def television [] {
     let query = (commandline)
     let channel = (tv list-channels | grep -v ':' | xargs | split row (char space) | input list --fuzzy 'tv channel')
-
     let result = (tv -i $"($query)" $channel)
 
     if $result != "" {

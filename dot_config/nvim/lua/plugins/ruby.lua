@@ -25,7 +25,8 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "solargraph" })
+      opts.ensure_installed =
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "solargraph", "ruby_lsp" })
     end,
   },
   {
@@ -44,6 +45,20 @@ return {
               onTypeFormatting = true,
             },
             experimentalFeaturesEnabled = true,
+          },
+        },
+        solargraph = {
+          settings = {
+            solargraph = {
+              autoformat = false,
+              formatting = false,
+              completion = true,
+              diagnostic = true,
+              folding = true,
+              references = true,
+              rename = true,
+              symbols = true,
+            },
           },
         },
       },

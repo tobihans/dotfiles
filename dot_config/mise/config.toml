@@ -44,7 +44,7 @@
 cargo-binstall = "latest"
 deno = "latest"
 node = "latest"
-ruby = "3.0.6"
+ruby = "3.2.7"
 uv = "latest"
 zig = "latest"
 zls = "latest"

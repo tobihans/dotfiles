@@ -1,8 +1,10 @@
+# vim: ft=gitignore
+
 *.md
 **/.supermaven
 
-.config/nvim/spell/*.spl
-!.config/nvim/spell/*.add.spl
+# .config/nvim/spell/*.spl
+# !.config/nvim/spell/*.add.spl
 .config/nushell/history.txt
 .config/nushell/scripts/integrations
 
