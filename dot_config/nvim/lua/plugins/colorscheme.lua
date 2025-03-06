@@ -1,8 +1,33 @@
 ---@type LazySpec
 return {
   {
+    "gbprod/nord.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      on_highlights = function(hls, colors)
+        hls["LightBulbSign"] = { fg = colors.aurora.orange }
+        hls["MiniHiFIXME"] = { bg = colors.aurora.red, fg = colors.snow_storm.origin, bold = true }
+        hls["MiniHiNOTE"] = { bg = colors.aurora.green, fg = colors.polar_night.bright, bold = true }
+        hls["MiniHiPERF"] = { bg = colors.aurora.purple, fg = colors.polar_night.bright, bold = true }
+        hls["MiniHiTODO"] = { bg = colors.frost.artic_ocean, fg = colors.snow_storm.origin, bold = true }
+        hls["MiniHiWARN"] = { bg = colors.aurora.yellow, fg = colors.polar_night.bright, bold = true }
+        hls["RainbowBlue"] = { fg = colors.frost.artic_ocean, blend = 0 }
+        hls["RainbowCyan"] = { fg = colors.frost.polar_water, blend = 0 }
+        hls["RainbowGreen"] = { fg = colors.aurora.green, blend = 0 }
+        hls["RainbowOrange"] = { fg = colors.aurora.orange, blend = 0 }
+        hls["RainbowRed"] = { fg = colors.aurora.red, blend = 0 }
+        hls["RainbowViolet"] = { fg = colors.aurora.purple, blend = 0 }
+        hls["RainbowYellow"] = { fg = colors.aurora.yellow, blend = 0 }
+        hls["SnacksDashboardIcon"] = { fg = colors.aurora.red, bold = true }
+        hls["SnacksDashboardSpecial"] = { fg = colors.aurora.yellow, bold = true }
+      end,
+    },
+  },
+  {
     "f-person/auto-dark-mode.nvim",
     enabled = vim.fn.has "win32" == 0,
+    optional = true, -- no needed for nord since the them is unique
     event = "VeryLazy",
     opts = {
       update_interval = 5000,
@@ -11,83 +36,8 @@ return {
     },
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = true,
-    opts = {
-      term_colors = true,
-      background = {
-        light = "latte",
-        dark = "frappe",
-      },
-      custom_highlights = function(colors)
-        return {
-          LightBulbSign = { fg = colors.rosewater },
-          MiniHiFIXME = { bg = colors.red, fg = colors.crust, bold = true },
-          MiniHiWARN = { bg = colors.yellow, fg = colors.crust, bold = true },
-          MiniHiTODO = { bg = colors.teal, fg = colors.crust, bold = true },
-          MiniHiNOTE = { bg = colors.green, fg = colors.crust, bold = true },
-          MiniHiPERF = { bg = colors.pink, fg = colors.crust, bold = true },
-          SnacksDashboardIcon = { fg = colors.crust, bold = true },
-        }
-      end,
-      integrations = {
-        aerial = true,
-        dadbod_ui = true,
-        dap = true,
-        dap_ui = true,
-        diffview = true,
-        grug_far = true,
-        indent_blankline = {
-          enabled = true,
-          scope_color = "",
-          colored_indent_levels = true,
-        },
-        mason = false,
-        neotree = false,
-        neotest = true,
-        treesitter = true,
-        notify = true,
-        window_picker = true,
-        overseer = true,
-        render_markdown = true,
-        which_key = true,
-      },
-    },
-  },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    opts = {
-      dark_variant = "moon",
-      enable = {
-        legacy_highlights = false,
-        migrations = true,
-      },
-      highlight_groups = {
-        RainbowRed = { fg = "love", blend = 0 },
-        RainbowYellow = { fg = "gold", blend = 0 },
-        RainbowBlue = { fg = "pine", blend = 0 },
-        RainbowOrange = { fg = "#f7914d", blend = 0 },
-        RainbowGreen = { fg = "#a6d089", blend = 0 },
-        RainbowViolet = { fg = "iris", blend = 0 },
-        RainbowCyan = { fg = "foam", blend = 0 },
-        LightBulbSign = { fg = "rosewater" },
-        MiniHiFIXME = { bg = "love", fg = "surface", bold = true },
-        MiniHiWARN = { bg = "gold", fg = "surface", bold = true },
-        MiniHiTODO = { bg = "foam", fg = "surface", bold = true },
-        MiniHiNOTE = { bg = "#098d8f", fg = "text", bold = true },
-        MiniHiPERF = { bg = "rose", fg = "surface", bold = true },
-        SnacksDashboardIcon = { fg = "love", bold = true },
-        SnacksDashboardSpecial = { fg = "iris", bold = true },
-      },
-    },
-  },
-  {
     "AstroNvim/astroui",
     ---@type AstroUIOpts
-    opts = {
-      colorscheme = "rose-pine",
-    },
+    opts = { colorscheme = "nord" },
   },
 }
