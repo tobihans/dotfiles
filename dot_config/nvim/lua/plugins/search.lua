@@ -4,28 +4,28 @@ return {
     "MagicDuck/grug-far.nvim",
     keys = {
       {
-        "<leader>ss",
+        "<Leader>ss",
         function() require("grug-far").open {} end,
         desc = "Grug",
       },
       {
-        "<leader>sf",
+        "<Leader>sf",
         function() require("grug-far").open { prefills = { paths = vim.fn.expand "%" } } end,
         desc = "Grug (current file)",
       },
       {
-        "<leader>sc",
+        "<Leader>sc",
         function() require("grug-far").open { prefills = { search = vim.fn.expand "<cword>" } } end,
         desc = "Grug (current word)",
       },
       {
-        "<leader>ss",
+        "<Leader>ss",
         function() require("grug-far").with_visual_selection {} end,
         desc = "Grug",
         mode = "v",
       },
       {
-        "<leader>sf",
+        "<Leader>sf",
         function() require("grug-far").with_visual_selection { prefills = { paths = vim.fn.expand "%" } } end,
         desc = "Grug (current file)",
         mode = "v",

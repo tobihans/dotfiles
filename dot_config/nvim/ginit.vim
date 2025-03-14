@@ -18,8 +18,6 @@ let g:neovide_padding_right = 0
 let g:neovide_padding_left = 5
 
 if has("win32")
-  " let g:neovide_title_background_color = "green"
-  " let g:neovide_title_text_color = "pink"
   let g:neovide_fullscreen = v:true
   let g:neovide_scale_factor = g:neovide_scale_factor * (1/1.125)
 endif

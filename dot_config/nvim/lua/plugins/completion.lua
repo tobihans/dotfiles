@@ -51,9 +51,9 @@ return {
 
       -- INFO: This prevent an error from avante_mentions providers.
       -- TODO: Check if the error is fixed later.
-      require("cmp").ConfirmBehavior = {
-        Insert = "Insert",
-      }
+      -- require("cmp").ConfirmBehavior = {
+      --   Insert = "Insert",
+      -- }
     end,
   },
   {

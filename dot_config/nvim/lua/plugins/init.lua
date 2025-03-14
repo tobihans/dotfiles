@@ -22,6 +22,8 @@ return {
         },
         ignore = {
           dirs = {
+            "/",
+            "/tmp",
             vim.fn.expand "~",
             vim.fn.expand "~/dev",
             vim.fn.expand "~/dev/github",
@@ -50,20 +52,32 @@ return {
         Calendar = "",
         Clock = "",
         CloseNeovim = "󱎘",
+        DiagnosticUnknown = "",
+        GitAdd = "",
+        GitBranch = "",
+        GitChange = "",
+        GitDelete = "",
         NeovimConfig = "",
         Project = "",
-        DiagnosticUnknown = "",
+        ScrollText = "",
+        VimIcon = "",
+        Linux = "",
       },
       status = {
         attributes = {
           mode = { bold = true },
         },
-        colors = {},
+        icon_highlights = {
+          file_icon = {
+            statusline = false,
+          },
+        },
         separators = {
-          none = { "", "" },
-          left = { "", "  " },
-          right = { "  ", "" },
           center = { "  ", "  " },
+          left = { "", "" },
+          none = { "", "" },
+          right = { " ", "" },
+          tab = { "", "" },
         },
       },
     },

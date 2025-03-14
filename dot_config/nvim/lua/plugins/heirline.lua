@@ -10,9 +10,15 @@ return {
     opts.statusline = {
       hl = { fg = "fg", bg = "bg" },
       status.component.mode {
-        mode_text = { padding = { left = 1, right = 1 } },
+        mode_text = {
+          icon = { kind = vim.uv.os_uname().sysname, padding = { right = 1, left = 1 } },
+          padding = { right = 1 },
+        },
       },
-      status.component.git_branch(),
+      status.component.git_branch {
+        git_branch = { padding = { left = 1 } },
+        surround = { separator = "none" },
+      },
       status.component.file_info(),
       status.component.git_diff(),
       status.component.diagnostics(),

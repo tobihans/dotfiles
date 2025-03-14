@@ -41,13 +41,13 @@
 "ubi:knqyf263/pet" = "latest"
 "ubi:koalaman/shellcheck" = "latest"
 "ubi:typst/typst" = "latest"
+"ubi:zigtools/zls" = "latest"
 cargo-binstall = "latest"
 deno = "latest"
 node = "latest"
 ruby = "3.2.7"
 uv = "latest"
 zig = "latest"
-zls = "latest"
 
 [settings]
 experimental = true
