@@ -21,6 +21,8 @@
 [core]
 	pager = less -r
 	editor = vim
+	fsmonitor = true
+	untrackedcache = true
 
 [status]
 	submodulesummary = 1
@@ -31,6 +33,7 @@
 	colorMoved = zebra
 	wsErrorHighlight = all
 	tool = nvimdiff
+	algorithm = histogram
 [alias]
 	lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	clown = clone --filter=blob:none --
@@ -46,3 +49,7 @@
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !/usr/bin/gh auth git-credential
+[branch]
+	sort = committerdate
+[push]
+	autosetupremote = true
