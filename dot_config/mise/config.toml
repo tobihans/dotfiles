@@ -34,6 +34,7 @@
 "pipx:yamllint" = "latest"
 "ubi:alexpasmantier/television" = { version = "latest", exe = "tv" }
 "ubi:ast-grep/ast-grep" = "latest"
+"ubi:git-lfs/git-lfs" = "latest"
 "ubi:google/yamlfmt" = "latest"
 "ubi:jesseduffield/lazydocker" = "latest"
 "ubi:jesseduffield/lazygit" = "latest"
