@@ -24,7 +24,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
     event = "User AstroFile",
     keys = {
-      { "<Leader>rr", function() require("telescope").extensions.refactoring.refactors() end, desc = "Refactors" },
+      { "<Leader>rr", function() require("refactoring").select_refactor() end, desc = "Refactors" },
       { "<Leader>rp", function() require("refactoring").debug.printf { below = true } end, desc = "Debug print" },
       {
         "<Leader>rv",
@@ -34,7 +34,7 @@ return {
       { "<Leader>rc", function() require("refactoring").debug.cleanup {} end, desc = "Debug cleanup" },
       {
         "<Leader>rr",
-        function() require("telescope").extensions.refactoring.refactors() end,
+        function() require("refactoring").select_refactor() end,
         desc = "Refactors",
         mode = "x",
       },

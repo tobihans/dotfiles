@@ -1,11 +1,9 @@
-local list_insert_unique = require("astrocore").list_insert_unique
-
 ---@type LazySpec
 return {
   {
     "williamboman/mason.nvim",
-    opts = function(_, opts)
-      opts.ui = {
+    opts = {
+      ui = {
         border = "double",
         width = 0.8,
         height = 0.8,
@@ -14,60 +12,43 @@ return {
           package_uninstalled = "✗",
           package_pending = "⟳",
         },
-      }
-
-      return opts
-    end,
+      },
+    },
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = list_insert_unique(opts.ensure_installed, {
-        "ansiblels",
-        "astro",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
+      ensure_installed = {
+        -- LSPs
+        "ansible-language-server",
+        "astro-language-server",
         "basedpyright",
-        "bashls",
+        "bash-language-server",
         "biome",
-        "cssls",
-        "denols",
-        "docker_compose_language_service",
-        "dockerls",
+        "css-lsp",
+        "deno",
+        "docker-compose-language-service",
+        "dockerfile-language-server",
         "gopls",
-        "html",
+        "html-lsp",
         "intelephense",
-        "jsonls",
-        "lua_ls",
+        "json-lsp",
+        "lua-language-server",
         "taplo",
         "tinymist",
-        "unocss",
-        "volar",
+        "unocss-language-server",
+        "vue-language-server",
         "vtsls",
-        "yamlls",
-      })
-
-      if not vim.fn.has "win32" then
-        opts.ensure_installed = list_insert_unique(opts.ensure_installed, {
-          "phpactor",
-        })
-      end
-
-      return opts
-    end,
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "bash",
+        "yaml-language-server",
+        -- DAPs
+        "bash-debug-adapter",
         "codelldb",
         "delve",
         "java-debug-adapter",
         "java-test",
-        "php",
-        "python",
-      })
-
-      return opts
-    end,
+        "php-debug-adapter",
+        "debugpy",
+      },
+    },
   },
 }

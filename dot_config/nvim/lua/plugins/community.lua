@@ -89,7 +89,6 @@ return {
         callback = function()
           local package_info = require "package-info"
 
-          require("telescope").load_extension "package_info"
           require("which-key").add({
             { "<Localleader>p", group = "󰏗 Package.json tools" },
             { "<Localleader>pt", function() package_info.toggle { force = true } end, desc = "Toggle" },

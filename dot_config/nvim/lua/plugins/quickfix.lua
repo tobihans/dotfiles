@@ -14,7 +14,7 @@ return {
           vim.keymap.set(
             "n",
             "zf",
-            "<cmd>silent close | Telescope quickfix<cr>",
+            function() require("snacks").picker.qflist() end,
             { desc = "Filter quickfix", silent = true, buffer = event.buf }
           )
         end,

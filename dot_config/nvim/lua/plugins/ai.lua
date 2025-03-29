@@ -31,10 +31,7 @@ return {
       copilot = {
         model = "claude-3.5-sonnet",
       },
-      file_selector = {
-        provider = "telescope",
-        provider_opts = {},
-      },
+      file_selector = {},
       windows = {
         width = 25,
         height = 30,

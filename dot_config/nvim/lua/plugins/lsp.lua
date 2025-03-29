@@ -72,15 +72,6 @@ return {
           },
         },
       },
-      dartls = {
-        settings = {
-          showTodos = false,
-        },
-        on_attach = function(client, bufnr)
-          require("astrolsp").on_attach(client, bufnr)
-          require("which-key").add(require("config.mappings.lsp").dart, { buffer = bufnr })
-        end,
-      },
       denols = { root_dir = deno_root },
       eslint = {
         root_dir = function(filename, _)

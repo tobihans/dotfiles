@@ -1,13 +1,5 @@
 --- TODO: Clear no longer used mappings.
 return {
-  dart = {
-    { "<Localleader>f", group = " Flutter Tools" },
-    {
-      "<Localleader>fc",
-      function() require("telescope").extensions.flutter.commands() end,
-      desc = " Flutter Commands",
-    },
-  },
   go = {
     { "<Localleader>g", group = " Go Tools" },
     { "<Localleader>gf", "<cmd>GoIfErr<cr>", desc = " Generate if err" },
