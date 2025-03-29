@@ -40,11 +40,7 @@
 [log]
 	showSignature = true
 [credential]
-	helper = 
-	helper = /home/tobi/bin/git-credential-manager
 	credentialStore = secretservice
-[credential "https://dev.azure.com"]
-	useHttpPath = true
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
