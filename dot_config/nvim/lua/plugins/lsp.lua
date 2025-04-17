@@ -83,16 +83,17 @@ return {
       emmet_ls = {
         filetypes = {
           "css",
+          "eruby",
           "html",
           "htmldjango",
           "javascriptreact",
           "less",
-          "pug",
+          "markdown",
           "php",
+          "pug",
           "sass",
           "scss",
           "typescriptreact",
-          "markdown",
         },
       },
       gopls = {

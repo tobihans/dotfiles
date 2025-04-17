@@ -17,6 +17,8 @@ function M.avante_switch_llm()
     "groq",
   }
   vim.ui.select(llms, { prompt = "Select LLM" }, function(llm)
+    if llm == nil then return end
+
     local env = string.format("%s_API_KEY", llm:upper())
 
     if llm ~= "copilot" and vim.env[env] == nil then require("utilities").secret(env, true) end
@@ -24,6 +26,15 @@ function M.avante_switch_llm()
     require("avante.config").override {
       provider = llm,
     }
+  end)
+end
+
+function M.quick_actions()
+  vim.ui.select(require "utilities.quick_actions", {
+    prompt = "󱘆 Quick Actions 󱘆",
+    format_item = function(item) return string.format("%s %s", item.icon, item.desc) end,
+  }, function(item)
+    if item then pcall(item.fn) end
   end)
 end
 

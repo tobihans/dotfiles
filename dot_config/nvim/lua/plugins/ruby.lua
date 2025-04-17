@@ -33,11 +33,6 @@ return {
     "AstroNvim/astrolsp",
     opts = {
       config = {
-        emmet_ls = {
-          filetypes = {
-            "eruby",
-          },
-        },
         ruby_lsp = {
           init_options = {
             enabledFeatures = {

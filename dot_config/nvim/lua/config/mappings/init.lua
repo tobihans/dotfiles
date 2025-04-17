@@ -7,6 +7,7 @@ local M = {
     { "<M-Down>", "<Cmd>resize +2<CR>", desc = "Resize split down" },
     { "<M-Left>", "<Cmd>vertical resize -2<CR>", desc = "Resize split left" },
     { "<M-Right>", "<Cmd>vertical resize +2<CR>", desc = "Resize split right" },
+    { "<Space><Space>", require("utilities.pickers").quick_actions, desc = "Quick Actions" },
 
     { "<Leader>a", group = "󱙺 AI Assistance" },
     { "<Leader>a", group = "󱙺 AI Assistance", mode = "v" },

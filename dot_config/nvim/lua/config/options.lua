@@ -34,8 +34,9 @@ vim.opt.visualbell = false
 vim.opt.timeoutlen = 500
 
 vim.opt.switchbuf = "useopen,usetab,uselast"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
--- line break on 500 chars
 vim.opt.lbr = true
 vim.opt.tw = 500
 vim.opt.ai = true -- auto indentation
@@ -45,12 +46,12 @@ vim.opt.showbreak = "↪"
 vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.magic = true -- magic on for regex
 vim.opt.showmatch = true -- show matching brackets
 vim.opt.mat = 2 -- blink for 2 thenth of a second for brackets matching
-vim.opt.nrformats = vim.fn.has "nvim-0.10" == 1 and "bin,hex,unsigned" or "bin,hex,blank" -- see CTRL-A and CTRL-X
+vim.opt.nrformats = "bin,hex,blank"
 vim.opt.spelllang:append "fr"
 
 -- Search
@@ -65,7 +66,7 @@ vim.opt.laststatus = 3
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-vim.opt.fillchars = { eob = " ", diff = "╱" }
+vim.opt.fillchars = { eob = " ", diff = "╱", fold = " " }
 
 vim.opt.list = true
 vim.opt.listchars = { eol = "↲", tab = " ", trail = "•", nbsp = "␣", extends = "»", precedes = "«" }

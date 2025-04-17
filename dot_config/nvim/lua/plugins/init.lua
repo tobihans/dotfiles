@@ -86,7 +86,6 @@ return {
     "folke/which-key.nvim",
     opts = {
       preset = "modern",
-      disable = { ft = { "grug-far" } },
     },
   },
   { "AstroNvim/astrotheme", enabled = false },

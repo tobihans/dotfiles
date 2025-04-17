@@ -23,12 +23,15 @@ return {
     end
   end,
   config = function()
-    require("mini.ai").setup()
     require("mini.move").setup()
     require("mini.bufremove").setup()
     require("mini.cursorword").setup()
     require("mini.pairs").setup {
       modes = { insert = true, command = true },
+    }
+    require("mini.ai").setup {
+      n_lines = 75,
+      search_method = "cover_or_nearest",
     }
     require("mini.surround").setup {
       mappings = {

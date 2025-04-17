@@ -107,6 +107,7 @@ end
 ---@param column integer
 function M.open_file(filename, line, column)
   -- local window = require("window-picker").pick_window()
+  -- TODO: Implement this function for use when opening neovim from web apps.
   print(string.format("Display file from %s:%s,%s", filename, line, column))
   -- vim.fn.cursor(line, column)
 end

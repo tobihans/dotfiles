@@ -12,7 +12,7 @@ let g:neovide_cursor_vfx_mode = rand() % 2 == 0 ? "sonicboom" : "pixiedust"
 let g:neovide_cursor_vfx_particle_lifetime = 1.1
 let g:neovide_cursor_vfx_particle_density = 10.0
 let g:neovide_floating_shadow = v:false
-let g:neovide_padding_top = 0
+let g:neovide_padding_top = 1
 let g:neovide_padding_bottom = 0
 let g:neovide_padding_right = 0
 let g:neovide_padding_left = 5

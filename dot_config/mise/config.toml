@@ -49,6 +49,7 @@ node = "latest"
 ruby = "3.2.7"
 uv = "latest"
 zig = "latest"
+"pipx:harlequin" = "latest"
 
 [settings]
 experimental = true
