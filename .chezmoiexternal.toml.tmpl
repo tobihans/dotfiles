@@ -80,31 +80,31 @@ type = "file"
 executable = true
 url = "https://raw.githubusercontent.com/zzag/plasma5-wallpapers-dynamic-extras/master/dynamicwallpaperconverter"
 
-["bin/minikube"]
-type = "file"
-executable = true
-refreshPeriod = "720h"
-url = "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
+# ["bin/minikube"]
+# type = "file"
+# executable = true
+# refreshPeriod = "720h"
+# url = "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
 
-["bin/kubectl"]
-type = "file"
-executable = true
-refreshPeriod = "720h"
-url = 'https://dl.k8s.io/release/{{ output "curl" "-L" "-s" "https://dl.k8s.io/release/stable.txt" | trim }}/bin/linux/amd64/kubectl'
+# ["bin/kubectl"]
+# type = "file"
+# executable = true
+# refreshPeriod = "720h"
+# url = 'https://dl.k8s.io/release/{{ output "curl" "-L" "-s" "https://dl.k8s.io/release/stable.txt" | trim }}/bin/linux/amd64/kubectl'
 
-["bin/helm"]
-type = "archive-file"
-executable = true
-path = "{{ .chezmoi.os }}-{{ .chezmoi.arch }}/helm"
-refreshPeriod = "168h"
-url = 'https://get.helm.sh/helm-{{ output "curl" "-L" "-s" "https://get.helm.sh/helm-latest-version" | trim }}-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz'
+# ["bin/helm"]
+# type = "archive-file"
+# executable = true
+# path = "{{ .chezmoi.os }}-{{ .chezmoi.arch }}/helm"
+# refreshPeriod = "168h"
+# url = 'https://get.helm.sh/helm-{{ output "curl" "-L" "-s" "https://get.helm.sh/helm-latest-version" | trim }}-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz'
 
-["bin/ngrok"]
-type = "archive-file"
-executable = true
-path = "ngrok"
-refreshPeriod = "168h"
-url = 'https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz'
+# ["bin/ngrok"]
+# type = "archive-file"
+# executable = true
+# path = "ngrok"
+# refreshPeriod = "168h"
+# url = 'https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz'
 
 # Vim/Neovim
 [".vim/colors/nord.vim"]
