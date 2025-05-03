@@ -9,10 +9,10 @@ local M = {
     { "<M-Right>", "<Cmd>vertical resize +2<CR>", desc = "Resize split right" },
     { "<Space><Space>", require("utilities.pickers").quick_actions, desc = "Quick Actions" },
 
-    { "<Leader>a", group = "󱙺 AI Assistance" },
-    { "<Leader>a", group = "󱙺 AI Assistance", mode = "v" },
+    { "<Leader>a", group = "󱙺 AI Assistance", mode = { "n", "v" } },
     { "<Leader>G", group = "󱎓 Games" },
-    { "<Leader>O", group = "  Octo /  Overseer" },
+    { "<Leader>O", group = "  Octo" },
+    { "<Leader>o", group = "  Overseer" },
     { "<Leader>s", group = "󰛔 Search/Replace" },
 
     { "<Leader><Enter>", "<cmd>noh | NoiceDismiss<cr>", desc = "No Highlight" },

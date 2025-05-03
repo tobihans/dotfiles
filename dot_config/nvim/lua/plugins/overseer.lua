@@ -17,8 +17,8 @@ return {
       "OverseerToggle",
     },
     keys = {
-      { "<Leader>Or", "<cmd>OverseerRun<cr>", desc = " Run Task" },
-      { "<Leader>Ot", "<cmd>OverseerToggle<CR>", desc = " Toggle tasks" },
+      { "<Leader>or", "<cmd>OverseerRun<cr>", desc = " Run Task" },
+      { "<Leader>ot", "<cmd>OverseerToggle<CR>", desc = " Toggle tasks" },
     },
     opts = {
       strategy = {

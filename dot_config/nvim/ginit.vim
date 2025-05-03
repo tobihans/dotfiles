@@ -8,7 +8,7 @@ let g:neovide_cursor_animation_length = 0.1
 let g:neovide_fullscreen = v:false
 let g:neovide_cursor_animate_command_line = v:false
 let g:neovide_cursor_animate_in_insert_mode = v:false
-let g:neovide_cursor_vfx_mode = rand() % 2 == 0 ? "sonicboom" : "pixiedust"
+let g:neovide_cursor_vfx_mode = rand() % 2 == 0 ? "torpedo" : "pixiedust"
 let g:neovide_cursor_vfx_particle_lifetime = 1.1
 let g:neovide_cursor_vfx_particle_density = 10.0
 let g:neovide_floating_shadow = v:false

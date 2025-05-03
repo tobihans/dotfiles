@@ -6,3 +6,4 @@ rules:
     max: 120
     level: warning
   truthy: disable
+  comments: disable

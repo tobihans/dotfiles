@@ -101,15 +101,30 @@ function M.quickfixtextfunc(info)
   return ret
 end
 
---- Open a file. Provided for integration purposes
+--- Open a file. Provided for integration purposes.
+--- Helps open files from developer extensions.
 ---@param filename string
 ---@param line integer
 ---@param column integer
 function M.open_file(filename, line, column)
-  -- local window = require("window-picker").pick_window()
-  -- TODO: Implement this function for use when opening neovim from web apps.
-  print(string.format("Display file from %s:%s,%s", filename, line, column))
-  -- vim.fn.cursor(line, column)
+  local win_id ---@type integer | nil
+  local bufnr = vim.fn.bufnr(filename)
+
+  if bufnr ~= -1 then
+    ---@type integer | nil
+    win_id = vim.iter(vim.api.nvim_list_wins()):find(function(id) return vim.api.nvim_win_get_buf(id) == bufnr end)
+  end
+
+  win_id = win_id or require("window-picker").pick_window { hint = "floating-big-letter" }
+
+  if win_id then
+    vim.api.nvim_set_current_win(win_id)
+    vim.cmd.edit(filename)
+  else -- HACK: Fallback to a split if we can't get a window to open
+    vim.cmd.vsplit(filename)
+  end
+
+  if line and column then vim.api.nvim_win_set_cursor(0, { line, column - 1 }) end
 end
 
 --- Loads local configuration file. Useful when cwd changes in process.
@@ -133,9 +148,11 @@ function M.load_exrc()
 end
 
 function M.load_neovim_config()
-  vim.cmd.cd(vim.fn.stdpath "config")
-  vim.cmd.edit "init.lua"
-  require("resession").load(vim.fn.getcwd(), { dir = "dirsession", reset = true, silence_errors = true })
+  require("resession").load(vim.fn.stdpath "config", {
+    dir = "dirsession",
+    reset = true,
+    silence_errors = false,
+  })
 end
 
 ---@param key string

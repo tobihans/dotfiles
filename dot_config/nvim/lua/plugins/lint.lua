@@ -15,7 +15,7 @@ return {
         php = { "tlint" },
         proto = { "protolint", "buf_lint" },
         sh = { "shellcheck" },
-        sql = { "sqlfluff" },
+        sql = { "sqruff" },
         yaml = { "yamllint" },
       }
 

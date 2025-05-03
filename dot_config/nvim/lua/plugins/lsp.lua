@@ -132,14 +132,6 @@ return {
           },
         },
       },
-      tailwindcss = {
-        -- NOTE: preparing for v4
-        -- root_dir = function(filename, _)
-        --   if not deno_root(filename) then
-        --     return lsp_util.root_pattern("tailwind.config.js", "tailwind.config.ts")(filename)
-        --   end
-        -- end,
-      },
       tinymist = {
         settings = {
           exportPdf = "never", -- Choose onType, onSave or never.

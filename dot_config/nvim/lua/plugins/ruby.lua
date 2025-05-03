@@ -57,6 +57,9 @@ return {
           },
         },
       },
+      handlers = {
+        solargraph = false, -- disable for now
+      },
     },
   },
   {

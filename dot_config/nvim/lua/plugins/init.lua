@@ -41,6 +41,7 @@ return {
           ["<C-Right>"] = false,
           ["<Leader>ua"] = false,
           ["<Leader>uA"] = false,
+          ["<Leader>o"] = false,
         },
       },
     },

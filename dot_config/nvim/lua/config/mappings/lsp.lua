@@ -1,4 +1,3 @@
---- TODO: Clear no longer used mappings.
 return {
   go = {
     { "<Localleader>g", group = " Go Tools" },

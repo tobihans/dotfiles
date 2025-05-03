@@ -8,14 +8,9 @@ local function biome_or_prettier(bufnr)
   local biome_root = root_p("biome.json", "biome.jsonc")(vim.api.nvim_buf_get_name(bufnr))
 
   if biome_root then
-    -- Assuming formatting is always enabled
     return { "biome" }
   else
-    return {
-      "prettierd",
-      "prettier",
-      stop_after_first = true,
-    }
+    return { "prettier" }
   end
 end
 
@@ -33,14 +28,6 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters = {
-        hurlfmt = {
-          meta = {
-            url = "https://github.com/Orange-OpenSource/hurl",
-            description = "Run HTTP requests defined in a simple plain text format.",
-          },
-          command = "hurlfmt",
-          args = {},
-        },
         injected = {
           options = {
             ignore_errors = true,
@@ -48,10 +35,6 @@ return {
           },
         },
         typstyle = {
-          meta = {
-            url = "https://github.com/Enter-tainer/typstyle/",
-            description = "Beautiful and reliable typst code formatter.",
-          },
           command = "typstyle",
           args = { "-c", "120" },
         },
@@ -73,7 +56,7 @@ return {
         python = { "ruff_format" },
         rust = { "rustfmt" },
         sh = { "shfmt" },
-        sql = { "sleek" },
+        sql = { "sqruff" },
         svelte = biome_or_prettier,
         typescriptreact = biome_or_prettier,
         typescript = function(bufnr)
