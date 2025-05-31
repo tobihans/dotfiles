@@ -37,7 +37,7 @@ remember_window_size yes
 shell_integration title
 placement_strategy center
 window_padding_width 0 0 0 1
-background_opacity 0.95
+background_opacity 0.84
 background_image ~/.config/kitty/wallpaper.png
 background_tint 0.95
 background_image_layout cscaled
@@ -60,9 +60,3 @@ notify_on_cmd_finish unfocused 10.0 notify
 include mappings.conf
 
 include open-actions.conf
-
-
-# BEGIN_KITTY_THEME
-# Nightfox
-include current-theme.conf
-# END_KITTY_THEME

@@ -29,6 +29,13 @@ if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 fi
 # "waydroid"
 # "wkhtmltopdf"
+# Optional WPS Office dependencies
+# wps-office
+# libtiff5: Provide libtiff.so.5 for wpspdf working
+# ttf-wps-fonts: Symbol fonts required by wps-office
+# ttf-ms-fonts: Microsoft Fonts recommended for wps-office
+# wps-office-fonts: FZ TTF fonts provided by wps community
+# wps-office-mime: Use mime files provided by Kingsoft
 
 # Install packages
 for package in "${packages[@]}"; do

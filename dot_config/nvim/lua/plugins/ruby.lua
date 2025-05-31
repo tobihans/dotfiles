@@ -19,6 +19,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+    -- TODO: Remove dependency on this plugin and implement simple solution.
     dependencies = { "suketa/nvim-dap-ruby", config = true },
   },
   {
@@ -37,9 +38,24 @@ return {
           init_options = {
             enabledFeatures = {
               formatting = true,
-              onTypeFormatting = true,
+              onTypeFormatting = false,
             },
             experimentalFeaturesEnabled = true,
+            indexing = {
+              excludedPatterns = {
+                "**/test/**/*.rb",
+                "**/node_modules/**/*",
+                "**/bin/**/*",
+                "**/tmp/**/*",
+                "**/.bundle/**/*",
+              },
+              -- includedPatterns = { "**/bin/**/*" },
+              excludedGems = { "rubocop", "rubocop-performance", "debug" },
+              excludedMagicComments = { "compiled:true" },
+            },
+            rubyVersionManager = {
+              identifier = "mise",
+            },
           },
         },
         solargraph = {

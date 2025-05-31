@@ -1,8 +1,8 @@
 ---@type LazySpec
 return {
   { "OXY2DEV/helpview.nvim", ft = "help" },
-  { "tobihans/vim-caddyfile", ft = "caddyfile" },
-  { "kaarmu/typst.vim", ft = "typst", init = function() vim.g.typst_syntax_highlight = 0 end },
+  -- { "tobihans/vim-caddyfile", ft = "caddyfile" },
+  { "kaarmu/typst.vim",      ft = "typst", init = function() vim.g.typst_syntax_highlight = 0 end },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown", "Avante" },
@@ -11,7 +11,6 @@ return {
       render_modes = { "n", "v", "i", "c" },
     },
   },
-  --
   {
     "danymat/neogen",
     cmd = "Neogen",
@@ -24,7 +23,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
     event = "User AstroFile",
     keys = {
-      { "<Leader>rr", function() require("refactoring").select_refactor() end, desc = "Refactors" },
+      { "<Leader>rr", function() require("refactoring").select_refactor() end,             desc = "Refactors" },
       { "<Leader>rp", function() require("refactoring").debug.printf { below = true } end, desc = "Debug print" },
       {
         "<Leader>rv",

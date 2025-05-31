@@ -1,35 +1,22 @@
+local secret = require("utilities").secret
+
 ---@type LazySpec
 return {
   {
     "yetone/avante.nvim",
-    event = "User AstroFile",
+    event = "VeryLazy",
     version = false,
     build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-      or "make",
-    dependencies = {
-      {
-        "zbirenbaum/copilot.lua",
-        opts = {
-          panel = { enabled = false },
-          suggestion = { enabled = false },
-          filetypes = {
-            ["*"] = false,
-          },
-        },
-      },
-    },
-    keys = {
-      {
-        "<Leader>as",
-        function() require("utilities.pickers").avante_switch_llm() end,
-        desc = "avante: switch llm",
-      },
-    },
+        or "make",
+    dependencies = {},
+    keys = {},
     ---@type avante.Config
+    ---@diagnostic disable-next-line: missing-fields
     opts = {
-      provider = "copilot",
-      copilot = {
-        model = "claude-3.5-sonnet",
+      provider = "gemini",
+      gemini = {
+        api_key_name = "cmd:get_develop_secret GEMINI_API_KEY",
+        model = "gemini-2.5-flash-preview-05-20",
       },
       file_selector = {},
       windows = {
@@ -54,30 +41,13 @@ return {
           close = { "q" },
         },
       },
-      vendors = {
-        ---@type AvanteProvider
-        ---@diagnostic disable-next-line: missing-fields
-        deepseek = {
-          __inherited_from = "openai",
-          api_key_name = "DEEPSEEK_API_KEY",
-          endpoint = "https://api.deepseek.com",
-          model = "deepseek-coder",
-        },
-        ---@type AvanteProvider
-        ---@diagnostic disable-next-line: missing-fields
-        groq = {
-          __inherited_from = "openai",
-          endpoint = "https://api.groq.com/openai/v1/chat/completions",
-          model = "llama-3.3-70b-versatile",
-          api_key_name = "GROQ_API_KEY",
-        },
-      },
+      vendors = {},
     },
     config = function(_, opts)
       require("avante_lib").load()
       require("avante").setup(opts)
 
-      require("utilities").secret("TAVILY_API_KEY", true)
+      secret("TAVILY_API_KEY", true)
     end,
   },
 }

@@ -1,17 +1,8 @@
-local is_windows = vim.fn.has "win32" == 1
-
-local M = {
-  PATH_SEPARATOR = is_windows and "\\" or "/",
-}
+local M = {}
 
 local get_icon = require("astroui").get_icon
 
-function M.tbl_flatten(t) return vim.iter(t):flatten(math.huge):totable() end
-
---- Join a list of paths
----@vararg string
----@return string
-function M.join_paths(...) return table.concat(M.tbl_flatten { ... }, M.PATH_SEPARATOR) end
+function M.trim(s) return (string.gsub(s, "^%s*(.-)%s*$", "%1")) end
 
 --- Diff with clipboard
 function M.compare_to_clipboard()
@@ -31,8 +22,6 @@ function M.compare_to_clipboard()
   vim.cmd.diffthis()
   vim.cmd.wincmd "l"
 end
-
-function M.trim(s) return (string.gsub(s, "^%s*(.-)%s*$", "%1")) end
 
 --- Pretty display for quickfix and location list
 --- From github.com/kevinhwang91/nvim-bqf
@@ -136,7 +125,7 @@ function M.load_exrc()
     ".exrc",
   } do
     local source = vim.secure.read(exrc)
-    if source ~= nil then
+    if source ~= nil and source ~= true then
       if exrc == ".nvim.lua" then
         assert(loadstring(source, exrc), string.format("Cannot load %s!", exrc))()
       else
@@ -162,7 +151,7 @@ function M.secret(key, set)
     vim.system(
       { "get_develop_secret", key },
       { text = true },
-      vim.schedule_wrap(function(--[[@param job vim.SystemCompleted]]job)
+      vim.schedule_wrap(function( --[[@param job vim.SystemCompleted]] job)
         if job.code == 0 then vim.env[key] = job.stdout:gsub("%s+", "") end
       end)
     )
@@ -191,6 +180,15 @@ function M.load_dotenv(file_path)
   end
 
   return env_vars
+end
+
+-- NOTE: Copied as is from https://github.com/nvim-neo-tree/neo-tree.nvim/blob/e968cda658089b56ee1eaa1772a2a0e50113b902/lua/neo-tree/utils.lua#L157-L165
+function M.find_buffer_by_name(name)
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    local buf_name = vim.api.nvim_buf_get_name(buf)
+    if buf_name == name then return buf end
+  end
+  return -1
 end
 
 return M

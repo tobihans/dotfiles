@@ -2,7 +2,7 @@ return {
   go = {
     { "<Localleader>g", group = " Go Tools" },
     { "<Localleader>gf", "<cmd>GoIfErr<cr>", desc = " Generate if err" },
-    { "<Localleader>gi", "<cmd>GoImpl<cr>", desc = " Implement interace" },
+    { "<Localleader>gi", "<cmd>GoImpl<cr>", desc = " Implement interface" },
 
     { "<Localleader>gt", group = "󰗇 Tests" },
     { "<Localleader>gta", "<cmd>GoTestAdd<cr>", desc = " Generate test" },

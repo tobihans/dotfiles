@@ -24,21 +24,21 @@ return {
     },
     config = true,
   },
-  {
-    "zeioth/garbage-day.nvim",
-    dependencies = "neovim/nvim-lspconfig",
-    event = "LspAttach",
-    opts = {
-      grace_period = 60 * 30,
-      excluded_lsp_clients = {
-        "copilot",
-        "dartls",
-        "jdtls",
-        "rust-analyzer",
-      },
-    },
-    config = true,
-  },
+  -- {
+  --   "zeioth/garbage-day.nvim",
+  --   dependencies = "neovim/nvim-lspconfig",
+  --   event = "LspAttach",
+  --   opts = {
+  --     grace_period = 60 * 30,
+  --     excluded_lsp_clients = {
+  --       "copilot",
+  --       "dartls",
+  --       "jdtls",
+  --       "rust-analyzer",
+  --     },
+  --   },
+  --   config = true,
+  -- },
   {
     "mg979/vim-visual-multi",
     event = "User AstroFile",

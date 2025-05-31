@@ -13,7 +13,7 @@ return {
         underline = true,
         virtual_text = false,
         virtual_lines = { current_line = true },
-        update_in_insert = true,
+        update_in_insert = false,
       },
       sessions = {
         autosave = {
@@ -44,6 +44,21 @@ return {
           ["<Leader>o"] = false,
         },
       },
+    },
+  },
+  {
+    "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
+    opts = {
+      features = { inlay_hints = true },
+      formatting = {
+        format_on_save = {
+          enabled = true,
+        },
+        disabled = {},
+        timeout_ms = 5000,
+      },
+      native_lsp_config = true,
     },
   },
   {
@@ -89,14 +104,14 @@ return {
       preset = "modern",
     },
   },
-  { "AstroNvim/astrotheme", enabled = false },
-  { "L3MON4D3/LuaSnip", enabled = false },
-  { "RRethy/vim-illuminate", enabled = false },
-  { "dmmulroy/tsc.nvim", enabled = false },
-  { "echasnovski/mini.icons", enabled = false },
+  { "AstroNvim/astrotheme",             enabled = false },
+  { "L3MON4D3/LuaSnip",                 enabled = false },
+  { "RRethy/vim-illuminate",            enabled = false },
+  { "dmmulroy/tsc.nvim",                enabled = false },
+  { "echasnovski/mini.icons",           enabled = false },
   { "linux-cultist/venv-selector.nvim", enabled = false },
-  { "nvimtools/none-ls.nvim", enabled = false },
-  { "sigmasd/deno-nvim", enabled = false },
-  { "windwp/nvim-autopairs", enabled = false },
-  { "windwp/nvim-ts-autotag", enabled = false },
+  { "nvimtools/none-ls.nvim",           enabled = false },
+  { "sigmasd/deno-nvim",                enabled = false },
+  { "windwp/nvim-autopairs",            enabled = false },
+  { "windwp/nvim-ts-autotag",           enabled = false },
 }

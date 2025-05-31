@@ -13,7 +13,6 @@
 "cargo:tree-sitter-cli" = "latest"
 "cargo:typstyle" = "latest"
 "cargo:watchexec-cli" = "latest"
-"go:mvdan.cc/sh/v3/cmd/shfmt" = "latest"
 "npm:markdownlint-cli" = "latest"
 "npm:oxlint" = "latest"
 "npm:prettier" = "latest"
@@ -41,17 +40,17 @@
 "ubi:neovide/neovide" = "latest"
 "ubi:quarylabs/sqruff" = "latest"
 "ubi:typst/typst" = "latest"
-"ubi:zigtools/zls" = "latest"
 cargo-binstall = "latest"
 deno = "latest"
 node = "latest"
 ruby = "3.2.7"
 uv = "latest"
-zig = "latest"
+zls = "latest"
 
 [settings]
 experimental = true
-pipx_uvx = true     # WARN: See https://github.com/astral-sh/uv/issues/6314.
+pipx_uvx = true                                                  # WARN: See https://github.com/astral-sh/uv/issues/6314.
 asdf = false
 vfox = false
 paranoid = true
+idiomatic_version_file_enable_tools = ["ruby", "python", "node"]
