@@ -1,5 +1,4 @@
 [tools]
-"cargo:bob-nvim" = "latest"
 "cargo:cargo-watch" = "latest"
 "cargo:difftastic" = "latest"
 "cargo:hurl" = "latest"
@@ -45,7 +44,9 @@ deno = "latest"
 node = "latest"
 ruby = "3.2.7"
 uv = "latest"
-zls = "latest"
+zig = "0.14.0"
+zls = "0.14.0"
+"cargo:bob-nvim" = "latest"
 
 [settings]
 experimental = true

@@ -14,10 +14,6 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     opts = {
       provider = "gemini",
-      gemini = {
-        api_key_name = "cmd:get_develop_secret GEMINI_API_KEY",
-        model = "gemini-2.5-flash-preview-05-20",
-      },
       file_selector = {},
       windows = {
         width = 25,
@@ -31,14 +27,14 @@ return {
         },
       },
       mappings = {
-        suggestion = {
-          accept = "<C-Enter>",
-          next = "<C-]>",
-          prev = "<C-[>",
-          dismiss = "<C-Esc>",
-        },
         sidebar = {
           close = { "q" },
+        },
+      },
+      providers = {
+        gemini = {
+          api_key_name = "cmd:get_develop_secret GEMINI_API_KEY",
+          model = "gemini-2.5-flash-preview-05-20",
         },
       },
       vendors = {},
