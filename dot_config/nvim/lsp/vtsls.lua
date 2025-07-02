@@ -5,10 +5,6 @@ local utils = require "utilities.lsp"
 ---@diagnostic disable-next-line: missing-fields
 return {
   workspace_required = true,
-  on_attach = function(client, bufnr)
-    require("astrolsp").on_attach(client, bufnr)
-    require("which-key").add(require("config.mappings.lsp").typescript, { buffer = bufnr })
-  end,
   before_init = function(_params, config)
     if config.root_dir and utils.has_vue(config.root_dir) then
       table.insert(config.settings.vtsls.tsserver.globalPlugins, {

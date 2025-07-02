@@ -1,8 +1,8 @@
 ---@diagnostic disable: missing-fields
 ---@type LazySpec
 return {
-  { "tiagovla/scope.nvim", event = "VeryLazy", priority = 1500 },
-  { "NStefan002/screenkey.nvim", cmd = "Screenkey", config = true },
+  { "tiagovla/scope.nvim",       event = "VeryLazy", priority = 1500 },
+  { "NStefan002/screenkey.nvim", cmd = "Screenkey",  config = true },
   {
     "kosayoda/nvim-lightbulb",
     event = "LspAttach",
@@ -24,21 +24,6 @@ return {
     },
     config = true,
   },
-  -- {
-  --   "zeioth/garbage-day.nvim",
-  --   dependencies = "neovim/nvim-lspconfig",
-  --   event = "LspAttach",
-  --   opts = {
-  --     grace_period = 60 * 30,
-  --     excluded_lsp_clients = {
-  --       "copilot",
-  --       "dartls",
-  --       "jdtls",
-  --       "rust-analyzer",
-  --     },
-  --   },
-  --   config = true,
-  -- },
   {
     "mg979/vim-visual-multi",
     event = "User AstroFile",
@@ -67,42 +52,7 @@ return {
       }
     end,
   },
-  {
-    "folke/drop.nvim",
-    enabled = vim.fn.has "win32" == 0,
-    event = "User AstroFile",
-    opts = function()
-      local themes = {
-        "bugs",
-        "cats",
-        "deepsea",
-        "desert",
-        "explorer",
-        "farm",
-        "garden",
-        "jungle",
-        "leaves",
-        "lunar",
-        "nocturnal",
-        "ocean",
-        "retro",
-        "snow",
-        "space",
-        "spring",
-        "stars",
-        "summer",
-        "tropical",
-        "wilderness",
-        "wildwest",
-      }
-
-      local opts = {
-        max = 15,
-        screensaver = 1000 * 60 * 15, -- 15 minutes
-        theme = themes[math.random(#themes)],
-        filetypes = {},
-      }
-      return opts
-    end,
-  },
+  -- "folke/drop.nvim"
+  -- "tamton-aquib/zone.nvim"
+  -- "zeioth/garbage-day.nvim"
 }

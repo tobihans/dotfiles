@@ -12,8 +12,4 @@ return {
       },
     },
   },
-  on_attach = function(client, bufnr)
-    require("astrolsp").on_attach(client, bufnr)
-    require("which-key").add(require("config.mappings.lsp").go, { buffer = bufnr })
-  end,
 }

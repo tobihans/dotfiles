@@ -4,13 +4,15 @@ function M.new_file()
   vim.ui.select(vim.fn.getcompletion("", "filetype"), {
     prompt = "New File",
   }, function(ft)
-    vim.cmd "enew"
-    vim.cmd("setlocal filetype=" .. ft)
+    if ft ~= nil then
+      vim.cmd.enew()
+      vim.cmd.setlocal(string.format("ft=%s", ft))
+    end
   end)
 end
 
-function M.quick_actions()
-  vim.ui.select(require "utilities.quick_actions", {
+function M.quick()
+  vim.ui.select(require "utilities.quick", {
     prompt = "󱘆 Quick Actions 󱘆",
     format_item = function(item) return string.format("%s %s", item.icon, item.desc) end,
   }, function(item)

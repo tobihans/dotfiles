@@ -28,6 +28,9 @@ return {
             vim.fn.expand "~/dev",
             vim.fn.expand "~/dev/github",
             vim.fn.expand "~/dev/gitlab",
+            vim.fn.expand "~/Downloads",
+            vim.fn.expand "~/Documents/",
+            vim.fn.expand "~/Desktop/",
           },
           filetypes = { "gitcommit", "gitrebase", "octo", "sql" },
           buftypes = {},
@@ -59,6 +62,11 @@ return {
         timeout_ms = 5000,
       },
       native_lsp_config = true,
+      --- Loads extra mappings for the given language server, if any.
+      on_attach = function(_client, bufnr)
+        local mappings = require("config.mappings.lsp")[vim.bo[bufnr].filetype]
+        if mappings then require("which-key").add(mappings, { buffer = bufnr }) end
+      end,
     },
   },
   {

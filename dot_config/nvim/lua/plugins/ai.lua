@@ -1,49 +1,69 @@
-local secret = require("utilities").secret
-
 ---@type LazySpec
 return {
   {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    version = false,
-    build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-        or "make",
-    dependencies = {},
-    keys = {},
-    ---@type avante.Config
-    ---@diagnostic disable-next-line: missing-fields
-    opts = {
-      provider = "gemini",
-      file_selector = {},
-      windows = {
-        width = 25,
-        height = 30,
-        sidebar_header = {
-          align = "left",
-          rounded = false,
-        },
-        input = {
-          prefix = " ",
-        },
-      },
-      mappings = {
-        sidebar = {
-          close = { "q" },
-        },
-      },
-      providers = {
-        gemini = {
-          api_key_name = "cmd:get_develop_secret GEMINI_API_KEY",
-          model = "gemini-2.5-flash-preview-05-20",
-        },
-      },
-      vendors = {},
+    "olimorris/codecompanion.nvim",
+    keys = {
+      { "<F2>", "<cmd>CodeCompanion<cr>", desc = "Inline Assistant", mode = { "n", "v", "i" } },
+      { "<F12>", "<cmd>CodeCompanionChat Toggle<cr>", desc = "󰭹 Open Chat Buffer", mode = { "n", "v", "i" } },
+      { "gaa", "<cmd>CodeCompanionChat Add<cr>", desc = "󱐏 Add to Chat Buffer", mode = "v" },
+      { "gac", "<cmd>CodeCompanionActions<cr>", desc = " Code Companion Actions", mode = { "n", "v" } },
     },
-    config = function(_, opts)
-      require("avante_lib").load()
-      require("avante").setup(opts)
-
-      secret("TAVILY_API_KEY", true)
-    end,
+    opts = {
+      adapters = {
+        gemini = function()
+          return require("codecompanion.adapters").extend("gemini", {
+            env = {
+              api_key = "cmd:get_develop_secret GEMINI_API_KEY",
+            },
+          })
+        end,
+        openrouter = function()
+          return require("codecompanion.adapters").extend("openai_compatible", {
+            env = {
+              url = "https://openrouter.ai/api",
+              api_key = "cmd:get_develop_secret OPENROUTER_API_KEY",
+              chat_url = "/v1/chat/completions",
+            },
+            schema = {
+              model = {
+                default = "anthropic/claude-3.7-sonnet",
+              },
+            },
+          })
+        end,
+        tavily = function()
+          return require("codecompanion.adapters").extend("tavily", {
+            env = {
+              api_key = "cmd:get_develop_secret TAVILY_API_KEY",
+            },
+          })
+        end,
+      },
+      display = {
+        action_palette = {
+          provider = "snacks",
+        },
+        diff = { enabled = true, provide = "mini_diff" },
+        window = { width = 0.4 },
+      },
+      extensions = {
+        spinner = { enabled = false }, -- TODO: Work on it and reenable later.
+      },
+      strategies = {
+        chat = {
+          adapter = "gemini",
+          auto_scroll = false,
+          show_settings = true,
+          slash_commands = {
+            ["buffer"] = { opts = { provider = "snacks" } },
+            ["fetch"] = { opts = { provider = "snacks" } },
+            ["file"] = { opts = { provider = "snacks" } },
+            ["help"] = { opts = { provider = "snacks" } },
+            ["symbols"] = { opts = { provider = "snacks" } },
+          },
+        },
+        inline = { adapter = { name = "openrouter", model = "mistralai/devstral-small" } },
+      },
+    },
   },
 }

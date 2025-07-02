@@ -37,6 +37,18 @@ return {
         function() require("astrocore").toggle_term_cmd "btop" end,
         desc = "ToggleTerm btop",
       },
+      {
+        "<F1>",
+        function() require("astrocore").toggle_term_cmd "goose" end,
+        desc = "ToggleTerm goose",
+        mode = { "n", "t" },
+      },
+      {
+        "<S-F1>",
+        function() require("astrocore").toggle_term_cmd "opencode" end,
+        desc = "ToggleTerm opencode",
+        mode = { "n", "t" },
+      },
     },
     opts = {
       direction = "float",

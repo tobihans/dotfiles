@@ -7,8 +7,4 @@ return {
       vim.env.HOME .. "/.local/share/fonts/",
     },
   },
-  on_attach = function(client, bufnr)
-    require("astrolsp").on_attach(client, bufnr)
-    require("which-key").add(require("config.mappings.lsp").typst, { buffer = bufnr })
-  end,
 }

@@ -47,6 +47,10 @@ uv = "latest"
 zig = "0.14.0"
 zls = "0.14.0"
 "cargo:bob-nvim" = "latest"
+"ubi:block/goose" = "latest"
+"npm:heroku" = "latest"
+"ubi:terrastruct/d2" = "latest"
+"ubi:sst/opencode" = "latest"
 
 [settings]
 experimental = true

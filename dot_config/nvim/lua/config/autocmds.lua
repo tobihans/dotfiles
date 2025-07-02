@@ -1,5 +1,3 @@
--- local utilities = require "utilities"
-
 -- Buffer Management Autocommands
 vim.api.nvim_create_augroup("BufferManagement", { clear = true })
 

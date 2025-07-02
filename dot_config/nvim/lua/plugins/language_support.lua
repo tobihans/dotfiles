@@ -1,14 +1,14 @@
 ---@type LazySpec
 return {
   { "OXY2DEV/helpview.nvim", ft = "help" },
-  -- { "tobihans/vim-caddyfile", ft = "caddyfile" },
+  { "terrastruct/d2-vim",    ft = "d2" },
   { "kaarmu/typst.vim",      ft = "typst", init = function() vim.g.typst_syntax_highlight = 0 end },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "Avante" },
+    ft = { "markdown", "Avante", "codecompanion" },
     opts = {
-      file_types = { "Avante", "markdown", "noice", "octo" },
-      render_modes = { "n", "v", "i", "c" },
+      file_types = { "Avante", "codecompanion", "markdown", "noice", "octo" },
+      render_modes = { "n", "v", "c" },
     },
   },
   {
@@ -16,7 +16,6 @@ return {
     cmd = "Neogen",
     keys = { { "<Leader>lg", "<cmd>Neogen<cr>", desc = "Generate symbol documentation" } },
     opts = { snippet_engine = "nvim" },
-    config = true,
   },
   {
     "ThePrimeagen/refactoring.nvim",

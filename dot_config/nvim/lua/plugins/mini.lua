@@ -23,6 +23,9 @@ return {
     end
   end,
   config = function()
+    require("mini.diff").setup {
+      source = require("mini.diff").gen_source.none(),
+    }
     require("mini.move").setup()
     require("mini.bufremove").setup()
     require("mini.cursorword").setup()
@@ -50,7 +53,9 @@ return {
       lsp = {
         supermaven = { glyph = "", hl = "MiniIconsBlue" },
       },
-      file = {},
+      extension = {
+        d2 = { glyph = "", hl = "MiniIconsBlue" },
+      },
     }
   end,
 }
