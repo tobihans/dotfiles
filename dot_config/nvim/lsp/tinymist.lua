@@ -4,7 +4,7 @@ return {
   settings = {
     exportPdf = "never", -- Choose onType, onSave or never.
     fontPaths = {
-      vim.env.HOME .. "/.local/share/fonts/",
+      vim.fs.joinpath(vim.env.HOME, "/.local/share/fonts/"),
     },
   },
 }

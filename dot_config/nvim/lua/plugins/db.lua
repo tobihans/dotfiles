@@ -13,7 +13,10 @@ return {
             desc = "dadbod output",
             group = vim.api.nvim_create_augroup("dadbod_output", { clear = true }),
             pattern = { "dbout" },
-            callback = function() vim.cmd [[setl nonumber norelativenumber]] end,
+            callback = function(event)
+              vim.cmd [[setl nonumber norelativenumber]]
+              vim.keymap.set("n", "q", "<Cmd>q<CR>", { desc = "Close output", silent = true, buffer = event.buf })
+            end,
           })
         end,
       },

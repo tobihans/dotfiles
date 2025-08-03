@@ -28,6 +28,29 @@ M.clock = status.component.builder {
   surround = { separator = "right", color = status.hl.mode_bg },
 }
 
+M.ai = {
+  static = {
+    processing = false,
+  },
+  update = {
+    "User",
+    pattern = "CodeCompanionRequest*",
+    callback = function(self, args)
+      if args.match == "CodeCompanionRequestStarted" then
+        self.processing = true
+      elseif args.match == "CodeCompanionRequestFinished" then
+        self.processing = false
+      end
+      vim.cmd.redrawstatus()
+    end,
+  },
+  {
+    condition = function(self) return self.processing end,
+    provider = " ",
+    hl = status.hl.get_attributes "label",
+  },
+}
+
 function M.start_clock_timer()
   vim.uv.new_timer():start(
     (60 - tonumber(os.date "%S")) * 1000, -- offset timer based on current seconds past the minute

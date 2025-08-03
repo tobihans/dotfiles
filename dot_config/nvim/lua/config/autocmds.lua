@@ -16,6 +16,13 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "man",
   command = [[setl nobuflisted]],
 })
+-- TODO: Check back later. Disable inlay hints for now in vue files.
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local bufnr = args.buf
+    if vim.bo[bufnr].filetype == "vue" then vim.lsp.inlay_hint.enable(false, { bufnr = bufnr }) end
+  end,
+})
 
 --- Loads local configuration file when cwd changes
 --- This is especially useful with Neovide, where I use :cd a lot.

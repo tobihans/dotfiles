@@ -22,7 +22,6 @@ return {
         -- LSPs
         "ansible-language-server",
         "astro-language-server",
-        "basedpyright",
         "bash-language-server",
         "biome",
         "css-lsp",
@@ -37,7 +36,6 @@ return {
         "shfmt",
         "taplo",
         "tinymist",
-        -- "unocss-language-server",
         "vue-language-server",
         "vtsls",
         "yaml-language-server",

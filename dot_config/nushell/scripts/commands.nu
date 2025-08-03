@@ -26,24 +26,9 @@ def pet --wrapped --env [...args: string] {
   _setcreds PET_GITHUB_ACCESS_TOKEN; core-pet ...$args
 }
 
-# alias core-goose = goose
-# goose [with credentials]
-# def goose --wrapped --env [...args: string] {
-#   _setcreds OPENROUTER_API_KEY
-#   core-goose ...$args
-# }
-
-
-# opencode [with credentials]
-# TODO: Add path to mason.nvim lsp binaries
-# def oc --wrapped --env [...args: string] {
-#   _setcreds GEMINI_API_KEY
-#   opencode ...$args
-# }
-
 def television [] {
   let query = (commandline)
-  let channel: string = (tv list-channels | grep -v ':' | xargs | split row (char space) | input list --fuzzy 'Select tv channel')
+  let channel: string = (tv list-channels | split row (char newline) | input list --fuzzy 'Select tv channel')
   let result: string = (tv -i $"($query)" $channel)
 
   if $result != "" {

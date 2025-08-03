@@ -67,6 +67,16 @@ $env.config = {
                 cmd: "try { television }"
             }
         }
+        {
+            name: goose
+            modifier: control
+            keycode: char_g
+            mode: emacs
+            event: {
+                send: executehostcommand,
+                cmd: "goose project"
+            }
+        }
     ],
 }
 
@@ -91,4 +101,6 @@ use integrations/hooks/nuenv.nu [ "nuenv allow", "nuenv disallow" ]
 source integrations/atuin.nu # WARN: Keep empty on Windows.
 
 # QoL
-ulimit -Sn unlimited
+if $nu.os-info.name == "linux" {
+  ulimit -Sn unlimited
+}

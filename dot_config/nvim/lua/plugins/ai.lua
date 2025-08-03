@@ -5,8 +5,8 @@ return {
     keys = {
       { "<F2>", "<cmd>CodeCompanion<cr>", desc = "Inline Assistant", mode = { "n", "v", "i" } },
       { "<F12>", "<cmd>CodeCompanionChat Toggle<cr>", desc = "󰭹 Open Chat Buffer", mode = { "n", "v", "i" } },
-      { "gaa", "<cmd>CodeCompanionChat Add<cr>", desc = "󱐏 Add to Chat Buffer", mode = "v" },
-      { "gac", "<cmd>CodeCompanionActions<cr>", desc = " Code Companion Actions", mode = { "n", "v" } },
+      { "<LocalLeader>ga", "<cmd>CodeCompanionChat Add<cr>", desc = "󱐏 Add to Chat Buffer", mode = "v" },
+      { "<LocalLeader>gg", "<cmd>CodeCompanionActions<cr>", desc = " Code Companion Actions", mode = { "n", "v" } },
     },
     opts = {
       adapters = {
@@ -53,6 +53,9 @@ return {
         chat = {
           adapter = "gemini",
           auto_scroll = false,
+          keymaps = {
+            clear = { modes = { n = "gX" }, opts = {} },
+          },
           show_settings = true,
           slash_commands = {
             ["buffer"] = { opts = { provider = "snacks" } },
@@ -62,7 +65,7 @@ return {
             ["symbols"] = { opts = { provider = "snacks" } },
           },
         },
-        inline = { adapter = { name = "openrouter", model = "mistralai/devstral-small" } },
+        inline = { adapter = { name = "openrouter", model = "moonshotai/kimi-k2" } },
       },
     },
   },

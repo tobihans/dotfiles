@@ -1,4 +1,5 @@
 [tools]
+"cargo:bob-nvim" = "latest"
 "cargo:cargo-watch" = "latest"
 "cargo:difftastic" = "latest"
 "cargo:hurl" = "latest"
@@ -12,6 +13,7 @@
 "cargo:tree-sitter-cli" = "latest"
 "cargo:typstyle" = "latest"
 "cargo:watchexec-cli" = "latest"
+"npm:heroku" = "latest"
 "npm:markdownlint-cli" = "latest"
 "npm:oxlint" = "latest"
 "npm:prettier" = "latest"
@@ -29,6 +31,7 @@
 "ubi:Kampfkarren/selene" = "latest"
 "ubi:alexpasmantier/television" = { version = "latest", exe = "tv" }
 "ubi:ast-grep/ast-grep" = "latest"
+"ubi:block/goose" = "latest"
 "ubi:git-lfs/git-lfs" = "latest"
 "ubi:google/yamlfmt" = "latest"
 "ubi:jesseduffield/lazydocker" = "latest"
@@ -38,19 +41,19 @@
 "ubi:koalaman/shellcheck" = "latest"
 "ubi:neovide/neovide" = "latest"
 "ubi:quarylabs/sqruff" = "latest"
+"ubi:terrastruct/d2" = "latest"
 "ubi:typst/typst" = "latest"
 cargo-binstall = "latest"
 deno = "latest"
+elixir = "latest"
+erlang = "latest"
+java = "latest"
 node = "latest"
 ruby = "3.2.7"
 uv = "latest"
 zig = "0.14.0"
 zls = "0.14.0"
-"cargo:bob-nvim" = "latest"
-"ubi:block/goose" = "latest"
-"npm:heroku" = "latest"
-"ubi:terrastruct/d2" = "latest"
-"ubi:sst/opencode" = "latest"
+"ubi:charmbracelet/crush" = "latest"
 
 [settings]
 experimental = true
@@ -58,4 +61,4 @@ pipx_uvx = true                                                  # WARN: See htt
 asdf = false
 vfox = false
 paranoid = true
-idiomatic_version_file_enable_tools = ["ruby", "python", "node"]
+idiomatic_version_file_enable_tools = ["ruby", "python", "node", "go"]

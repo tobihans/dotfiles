@@ -18,7 +18,9 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend $env.GOBIN)
 $env.ANDROID_HOME = $"($env.HOME)/Android/Sdk"
 
 let tools = [cmdline-tools/latest/bin emulator platform-tools tools]
-$tools | each { |tool| $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.ANDROID_HOME)/$($tool)") }
+for $tool in $tools {
+  $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.ANDROID_HOME)/($tool)")
+}
 
 $env.LATEST_NDK_VERSION = (/bin/ls -l $"($env.ANDROID_HOME)/ndk/" | awk '{print $NF}' | /bin/sort -n | tail -n 1)
 $env.NDK_HOME = $"($env.ANDROID_HOME)/ndk/($env.LATEST_NDK_VERSION)"
@@ -60,5 +62,16 @@ $env.FZF_DEFAULT_OPTS = "
 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
     --multi"
 
+# Paging
 $env.LESS = '--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 $env.MANPAGER = 'bat -l man --italic-text always --decorations always --style=numbers,grid'
+
+# Goose
+$env.GOOSE_CLI_THEME = "ansi"
+$env.GOOSE_PROVIDER = "openrouter" # GOOSE_PLANNER_PROVIDER/GOOSE_LEAD_PROVIDER
+$env.GOOSE_LEAD_MODEL = "anthropic/claude-3.5-sonnet"  # strong reasoning
+$env.GOOSE_LEAD_TURNS = 3  # Use lead model for first 3 turns
+$env.GOOSE_LEAD_FAILURE_THRESHOLD = 3  # Switch back to lead after 3 failures
+$env.GOOSE_LEAD_FALLBACK_TURNS = 1  # Use lead model for 1 turns before retrying worker
+$env.GOOSE_MODEL = "qwen/qwen3-coder" # fast execution
+$env.GOOSE_PLANNER_MODEL = "anthropic/claude-3.7-sonnet" # /plan execution

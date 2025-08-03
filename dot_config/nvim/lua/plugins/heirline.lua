@@ -22,6 +22,7 @@ return {
       status.component.file_info(),
       status.component.git_diff(),
       status.component.diagnostics(),
+      components.ai,
       status.component.fill(),
       status.component.cmd_info(),
       status.component.fill(),

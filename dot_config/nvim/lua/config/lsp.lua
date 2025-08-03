@@ -12,6 +12,7 @@ vim.fn.sign_define {
 table.insert(vim.lsp.config.vtsls.filetypes, "vue")
 table.insert(vim.lsp.config.html.filetypes, "templ")
 table.insert(vim.lsp.config.html.filetypes, "eruby")
+table.insert(vim.lsp.config.html.filetypes, "htmldjango")
 vim.lsp.config("emmet_ls", {
   filetypes = {
     "css",
@@ -28,21 +29,6 @@ vim.lsp.config("emmet_ls", {
     "typescriptreact",
   },
 })
-vim.lsp.config("basedpyright", {
-  root_markers = {
-    ".env/pyvenv.cfg",
-    ".git",
-    ".venv/pyvenv.cfg",
-    "Pipfile",
-    "env/pyvenv.cfg",
-    "pyproject.toml",
-    "pyrightconfig.json",
-    "requirements.txt",
-    "setup.cfg",
-    "setup.py",
-    "venv/pyvenv.cfg",
-  },
-})
 vim.lsp.config("denols", { root_markers = { "deno.json", "deno.jsonc" } })
 -- FIXME: mrcjkb/rustaceanvim passes the filename instead of bufnr to the cb.
 -- This is supposed to be used as a workaround for now.
@@ -57,10 +43,13 @@ vim.lsp.config("denols", { root_markers = { "deno.json", "deno.jsonc" } })
 --   })
 -- end
 
--- Enable/Disable some servers
+-- Enabled LSPs
 vim.lsp.enable {
   "nushell",
   "pyrefly",
   "vue_ls",
 }
-vim.lsp.enable("volar", false) -- FIXME: Remove after lspconfig 3.0
+-- Disabled LSPs
+vim.lsp.enable({
+  "volar",
+}, false) -- FIXME: Remove after lspconfig 3.0

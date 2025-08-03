@@ -39,7 +39,7 @@ return {
       },
       {
         "<F1>",
-        function() require("astrocore").toggle_term_cmd "goose" end,
+        function() require("astrocore").toggle_term_cmd "goose project" end,
         desc = "ToggleTerm goose",
         mode = { "n", "t" },
       },

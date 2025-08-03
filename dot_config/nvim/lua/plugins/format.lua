@@ -54,7 +54,7 @@ return {
         lua = { "stylua" },
         mardown = { "prettierd", "prettier", "injected" },
         php = { "pint" },
-        python = { "ruff_format" },
+        python = { "ruff_organize_imports", "ruff_format" },
         rust = { "rustfmt" },
         sh = { "shfmt" },
         sql = { "sqruff" },

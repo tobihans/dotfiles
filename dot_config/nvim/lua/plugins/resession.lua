@@ -4,6 +4,7 @@ return {
   opts = function(_, opts)
     if not opts.extensions then opts.extensions = {} end
 
+    -- opts.extensions.overseer = { unique = true }
     opts.extensions.dap = {}
     opts.extensions.quickfix = {}
     opts.extensions.scope = {}
