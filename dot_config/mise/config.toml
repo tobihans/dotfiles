@@ -53,7 +53,7 @@ ruby = "3.2.7"
 uv = "latest"
 zig = "0.14.0"
 zls = "0.14.0"
-"ubi:charmbracelet/crush" = "latest"
+"ubi:cloudflare/cloudflared" = "latest"
 
 [settings]
 experimental = true

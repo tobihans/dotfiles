@@ -43,7 +43,7 @@ return {
         action_palette = {
           provider = "snacks",
         },
-        diff = { enabled = true, provide = "mini_diff" },
+        -- diff = { enabled = true, provide = "mini_diff" },
         window = { width = 0.4 },
       },
       extensions = {

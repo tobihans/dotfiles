@@ -56,3 +56,7 @@ if ! [[ -x "$(command -v yay)" ]]; then
 	rm -rf yay
 	cd "$pwdir" || exit
 fi
+
+if ! [[ -x "$(command -v mise)" ]]; then
+	curl https://mise.run | sh
+fi

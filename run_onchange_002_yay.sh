@@ -14,8 +14,9 @@ fi
 
 # Installs yay packages
 packages=(
-	"atuin" "fswatch" "mise"
+	"atuin" "fswatch"
 )
+# "mise"
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
