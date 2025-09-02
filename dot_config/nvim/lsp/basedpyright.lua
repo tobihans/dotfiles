@@ -19,6 +19,12 @@ return {
         disableOrganizeImports = true,
         typeCheckingMode = "standard",
         useLibraryCodeForTypes = true,
+        inlayHints = {
+          variableTypes = false,
+          callArgumentNames = false,
+          functionReturnTypes = false,
+          genericTypes = false,
+        },
       },
     },
     python = {},

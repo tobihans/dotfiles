@@ -44,7 +44,7 @@ return {
           provider = "snacks",
         },
         -- diff = { enabled = true, provide = "mini_diff" },
-        window = { width = 0.4 },
+        window = { width = 0.35 },
       },
       extensions = {
         spinner = { enabled = false }, -- TODO: Work on it and reenable later.
@@ -65,7 +65,7 @@ return {
             ["symbols"] = { opts = { provider = "snacks" } },
           },
         },
-        inline = { adapter = { name = "openrouter", model = "moonshotai/kimi-k2" } },
+        inline = { adapter = { name = "openrouter", model = "qwen/qwen3-coder" } },
       },
     },
   },

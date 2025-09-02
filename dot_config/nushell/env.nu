@@ -69,9 +69,9 @@ $env.MANPAGER = 'bat -l man --italic-text always --decorations always --style=nu
 # Goose
 $env.GOOSE_CLI_THEME = "ansi"
 $env.GOOSE_PROVIDER = "openrouter" # GOOSE_PLANNER_PROVIDER/GOOSE_LEAD_PROVIDER
-$env.GOOSE_LEAD_MODEL = "anthropic/claude-3.5-sonnet"  # strong reasoning
-$env.GOOSE_LEAD_TURNS = 3  # Use lead model for first 3 turns
-$env.GOOSE_LEAD_FAILURE_THRESHOLD = 3  # Switch back to lead after 3 failures
-$env.GOOSE_LEAD_FALLBACK_TURNS = 1  # Use lead model for 1 turns before retrying worker
+# $env.GOOSE_LEAD_MODEL = "anthropic/claude-3.5-sonnet"  # strong reasoning
+# $env.GOOSE_LEAD_TURNS = 3  # Use lead model for first 3 turns
+# $env.GOOSE_LEAD_FAILURE_THRESHOLD = 3  # Switch back to lead after 3 failures
+# $env.GOOSE_LEAD_FALLBACK_TURNS = 1  # Use lead model for 1 turns before retrying worker
 $env.GOOSE_MODEL = "qwen/qwen3-coder" # fast execution
-$env.GOOSE_PLANNER_MODEL = "anthropic/claude-3.7-sonnet" # /plan execution
+# $env.GOOSE_PLANNER_MODEL = "anthropic/claude-3.7-sonnet" # /plan execution

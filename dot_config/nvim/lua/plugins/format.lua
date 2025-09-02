@@ -38,6 +38,9 @@ return {
           command = "typstyle",
           args = { "-c", "120" },
         },
+        -- qmlformat = {
+        --   command = "qmlformat",
+        -- }
       },
       formatters_by_ft = {
         astro = biome_or_prettier,

@@ -3,7 +3,7 @@ def _setcreds --env [...args: string] {
   mut secrets = {}
 
   for arg in $args {
-    let _env = ($env | get -i $arg)
+    let _env = ($env | get -o $arg)
     if $_env == null {
       $secrets = ($secrets | insert $arg { get_develop_secret $arg })
     }

@@ -32,6 +32,7 @@
 "ubi:alexpasmantier/television" = { version = "latest", exe = "tv" }
 "ubi:ast-grep/ast-grep" = "latest"
 "ubi:block/goose" = "latest"
+"ubi:cloudflare/cloudflared" = "latest"
 "ubi:git-lfs/git-lfs" = "latest"
 "ubi:google/yamlfmt" = "latest"
 "ubi:jesseduffield/lazydocker" = "latest"
@@ -40,6 +41,7 @@
 "ubi:knqyf263/pet" = "latest"
 "ubi:koalaman/shellcheck" = "latest"
 "ubi:neovide/neovide" = "latest"
+"aqua:pulumi/pulumi" = "latest"
 "ubi:quarylabs/sqruff" = "latest"
 "ubi:terrastruct/d2" = "latest"
 "ubi:typst/typst" = "latest"
@@ -49,16 +51,18 @@ elixir = "latest"
 erlang = "latest"
 java = "latest"
 node = "latest"
-ruby = "3.2.7"
 uv = "latest"
 zig = "0.14.0"
 zls = "0.14.0"
-"ubi:cloudflare/cloudflared" = "latest"
+ruby = "3.2.7"
 
 [settings]
-experimental = true
-pipx_uvx = true                                                  # WARN: See https://github.com/astral-sh/uv/issues/6314.
 asdf = false
-vfox = false
-paranoid = true
+auto_install = false # TODO: Set to true again later.
+experimental = true
+http_timeout = "1800s"
 idiomatic_version_file_enable_tools = ["ruby", "python", "node", "go"]
+paranoid = true
+pipx_uvx = true
+python.uv_venv_auto = true
+vfox = false

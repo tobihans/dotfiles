@@ -47,6 +47,7 @@ vim.lsp.config("denols", { root_markers = { "deno.json", "deno.jsonc" } })
 vim.lsp.enable {
   "nushell",
   "pyrefly",
+  "qmlls",
   "vue_ls",
 }
 -- Disabled LSPs
