@@ -4,6 +4,7 @@ return {
     "nvim-neotest/neotest",
     dependencies = {
       { "nvim-neotest/neotest-jest" },
+      { "jfpedroza/neotest-elixir" },
       -- { "marilari88/neotest-vitest" }, -- for vitest
       {
         "andythigpen/nvim-coverage",
@@ -42,12 +43,8 @@ return {
       -- additional adapters
       if not opts.adapters then opts.adapters = {} end
       table.insert(opts.adapters, require "rustaceanvim.neotest")
-      table.insert(
-        opts.adapters,
-        require "neotest-jest" {
-          env = { CI = true },
-        }
-      )
+      table.insert(opts.adapters, require "neotest-jest" { env = { CI = true } })
+      table.insert(opts.adapters, require "neotest-elixir")
 
       return opts
     end,

@@ -1,7 +1,8 @@
 {
     "diagnostics.disable": [
         "undefined-doc-name",
-        "unused-local"
+        "unused-local",
+        "duplicate-set-field"
     ],
     "diagnostics.globals": [
         "ignore",

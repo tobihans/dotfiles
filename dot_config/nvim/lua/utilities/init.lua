@@ -81,7 +81,7 @@ function M.quickfixtextfunc(info)
 
       str = valid_fmt:format(fname, lnum, col, qtype .. icon .. " ", e.text)
     else
-      -- NOTE: Don't trim unless it's actually empty.
+      -- Don't trim unless it's actually empty.
       str = string.format("%-" .. limit .. "s" .. " ┃%10s┃ %s", " ", " ", M.trim(e.text) ~= "" and e.text or "")
     end
 
@@ -109,7 +109,7 @@ function M.open_file(filename, line, column)
   if win_id then
     vim.api.nvim_set_current_win(win_id)
     vim.cmd.edit(filename)
-  else -- HACK: Fallback to a split if we can't get a window to open
+  else -- Fallback to a split if we can't get a window to open
     vim.cmd.vsplit(filename)
   end
 
@@ -182,7 +182,7 @@ function M.load_dotenv(file_path)
   return env_vars
 end
 
--- NOTE: Copied as is from https://github.com/nvim-neo-tree/neo-tree.nvim/blob/e968cda658089b56ee1eaa1772a2a0e50113b902/lua/neo-tree/utils.lua#L157-L165
+-- Copied as is from https://github.com/nvim-neo-tree/neo-tree.nvim/blob/e968cda658089b56ee1eaa1772a2a0e50113b902/lua/neo-tree/utils.lua#L157-L165
 function M.find_buffer_by_name(name)
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     local buf_name = vim.api.nvim_buf_get_name(buf)

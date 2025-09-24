@@ -3,31 +3,11 @@
 return {
   { "tpope/vim-rails", ft = { "ruby", "eruby" } },
   {
-    "nvim-neotest/neotest",
-    dependencies = {
-      { "olimorris/neotest-rspec" },
-    },
-    ---@param _ LazySpec
-    ---@param opts neotest.Config
-    ---@return neotest.Config
-    opts = function(_, opts)
-      if not opts.adapters then opts.adapters = {} end
-      table.insert(opts.adapters, require "neotest-rspec")
-
-      return opts
-    end,
-  },
-  {
-    "mfussenegger/nvim-dap",
-    -- TODO: Remove dependency on this plugin and implement simple solution.
-    dependencies = { "suketa/nvim-dap-ruby", config = true },
-  },
-  {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, { "solargraph", "ruby_lsp" })
+          require("astrocore").list_insert_unique(opts.ensure_installed, { "solargraph", "ruby_lsp" })
     end,
   },
   {

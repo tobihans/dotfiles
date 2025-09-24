@@ -1,0 +1,21 @@
+{
+  "setup": {
+    "prefix": "setup",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "",
+      "</script>",
+      "",
+      "<template>",
+      "\t<div>",
+      "\t\t$0",
+      "\t</div>",
+      "</template>",
+      "",
+      "<style scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Vue File Setup Composition API - Typescript"
+  }
+}

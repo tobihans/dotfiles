@@ -1,23 +1,7 @@
 ---@type LazySpec
 return {
-  {
-    "mrcjkb/rustaceanvim",
-    ---@type RustaceanOpts
-    opts = {
-      tools = {
-        reload_workspace_from_cargo_toml = true,
-        hover_actions = {
-          replace_builtin_hover = false,
-        },
-        executor = {
-          execute_command = function(cmd, args, cwd, _opts)
-            local task = require("overseer").new_task { cmd = cmd, args = args, cwd = cwd }
-            task:start()
-          end,
-        },
-      },
-    },
-  },
+  -- Rust
+  { "mrcjkb/rustaceanvim", lazy = false },
   {
     "Saecki/crates.nvim",
     opts = function(_, opts)
@@ -78,6 +62,7 @@ return {
       return opts
     end,
   },
+  -- JS/TS
   {
     "vuki656/package-info.nvim",
     dependencies = "MunifTanjim/nui.nvim",

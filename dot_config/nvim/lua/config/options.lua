@@ -48,9 +48,9 @@ vim.opt.smarttab = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.magic = true -- magic on for regex
+vim.opt.magic = true     -- magic on for regex
 vim.opt.showmatch = true -- show matching brackets
-vim.opt.mat = 2 -- blink for 2 thenth of a second for brackets matching
+vim.opt.mat = 2          -- blink for 2 thenth of a second for brackets matching
 vim.opt.nrformats = "bin,hex,blank"
 vim.opt.spelllang:append "fr"
 
@@ -115,7 +115,7 @@ if vim.fn.executable "nu" == 1 then
   vim.opt.shellxquote = ""
   vim.opt.shellquote = ""
   vim.opt.shellpipe =
-    "| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
+  "| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
 elseif vim.fn.has "win32" == 1 then
   vim.cmd [[
   let &shell = executable('pwsh') ? 'pwsh' : 'powershell'

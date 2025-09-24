@@ -6,7 +6,7 @@ return {
     event = "User AstroFile",
     opts = {
       disable_mouse = false,
-      force_exit_insert_mode = false,
+      force_exit_insert_mode = true,
       max_insert_idle_ms = 5 * 60 * 1000, -- 5 mins
       disabled_filetypes = {
         Avante = false,

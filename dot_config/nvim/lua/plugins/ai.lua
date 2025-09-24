@@ -10,45 +10,44 @@ return {
     },
     opts = {
       adapters = {
-        gemini = function()
-          return require("codecompanion.adapters").extend("gemini", {
-            env = {
-              api_key = "cmd:get_develop_secret GEMINI_API_KEY",
-            },
-          })
-        end,
-        openrouter = function()
-          return require("codecompanion.adapters").extend("openai_compatible", {
-            env = {
-              url = "https://openrouter.ai/api",
-              api_key = "cmd:get_develop_secret OPENROUTER_API_KEY",
-              chat_url = "/v1/chat/completions",
-            },
-            schema = {
-              model = {
-                default = "anthropic/claude-3.7-sonnet",
+        http = {
+          gemini = function()
+            return require("codecompanion.adapters").extend("gemini", {
+              env = {
+                api_key = "cmd:get_develop_secret GEMINI_API_KEY",
               },
-            },
-          })
-        end,
-        tavily = function()
-          return require("codecompanion.adapters").extend("tavily", {
-            env = {
-              api_key = "cmd:get_develop_secret TAVILY_API_KEY",
-            },
-          })
-        end,
+            })
+          end,
+          openrouter = function()
+            return require("codecompanion.adapters").extend("openai_compatible", {
+              env = {
+                url = "https://openrouter.ai/api",
+                api_key = "cmd:get_develop_secret OPENROUTER_API_KEY",
+                chat_url = "/v1/chat/completions",
+              },
+              schema = {
+                model = {
+                  default = "qwen/qwen3-coder",
+                },
+              },
+            })
+          end,
+          tavily = function()
+            return require("codecompanion.adapters").extend("tavily", {
+              env = {
+                api_key = "cmd:get_develop_secret TAVILY_API_KEY",
+              },
+            })
+          end,
+        },
       },
       display = {
         action_palette = {
           provider = "snacks",
         },
-        -- diff = { enabled = true, provide = "mini_diff" },
         window = { width = 0.35 },
       },
-      extensions = {
-        spinner = { enabled = false }, -- TODO: Work on it and reenable later.
-      },
+      extensions = {},
       strategies = {
         chat = {
           adapter = "gemini",
