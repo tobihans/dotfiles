@@ -73,5 +73,5 @@ $env.GOOSE_PROVIDER = "openrouter" # GOOSE_PLANNER_PROVIDER/GOOSE_LEAD_PROVIDER
 # $env.GOOSE_LEAD_TURNS = 3  # Use lead model for first 3 turns
 # $env.GOOSE_LEAD_FAILURE_THRESHOLD = 3  # Switch back to lead after 3 failures
 # $env.GOOSE_LEAD_FALLBACK_TURNS = 1  # Use lead model for 1 turns before retrying worker
-$env.GOOSE_MODEL = "qwen/qwen3-coder" # fast execution
+$env.GOOSE_MODEL = "x-ai/grok-code-fast-1" # fast execution
 # $env.GOOSE_PLANNER_MODEL = "anthropic/claude-3.7-sonnet" # /plan execution

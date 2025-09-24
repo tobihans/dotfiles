@@ -1,4 +1,5 @@
 [tools]
+"aqua:pulumi/pulumi" = "latest"
 "cargo:bob-nvim" = "latest"
 "cargo:cargo-watch" = "latest"
 "cargo:difftastic" = "latest"
@@ -33,6 +34,7 @@
 "ubi:ast-grep/ast-grep" = "latest"
 "ubi:block/goose" = "latest"
 "ubi:cloudflare/cloudflared" = "latest"
+"ubi:exercism/cli" = { version = "latest", exe = "exercism" }
 "ubi:git-lfs/git-lfs" = "latest"
 "ubi:google/yamlfmt" = "latest"
 "ubi:jesseduffield/lazydocker" = "latest"
@@ -41,8 +43,8 @@
 "ubi:knqyf263/pet" = "latest"
 "ubi:koalaman/shellcheck" = "latest"
 "ubi:neovide/neovide" = "latest"
-"aqua:pulumi/pulumi" = "latest"
 "ubi:quarylabs/sqruff" = "latest"
+"ubi:sigstore/cosign" = "latest"
 "ubi:terrastruct/d2" = "latest"
 "ubi:typst/typst" = "latest"
 cargo-binstall = "latest"
@@ -51,10 +53,11 @@ elixir = "latest"
 erlang = "latest"
 java = "latest"
 node = "latest"
-uv = "latest"
-zig = "0.14.0"
-zls = "0.14.0"
 ruby = "3.2.7"
+uv = "latest"
+zig = "latest"
+zls = "latest"
+"ubi:elixir-lang/expert" = "latest"
 
 [settings]
 asdf = false
