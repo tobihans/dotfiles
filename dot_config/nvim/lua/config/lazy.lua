@@ -25,6 +25,7 @@ local lazy_spec = {
   { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
   { import = "astrocommunity.recipes.neovide" },
+  -- { import = "astrocommunity.recipes.picker-nvchad-theme" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.test.nvim-coverage" },
 
@@ -58,7 +59,13 @@ local lazy_opts = {
       disabled_plugins = {
         "gzip",
         "netrwPlugin",
+        "perl_provider",
+        "python_provider",
         "rplugin",
+        "ruby_provider",
+        "specPlugin",
+        "swapmousePlugin",
+        "tarPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",

@@ -16,17 +16,18 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "man",
   command = [[setl nobuflisted]],
 })
--- TODO: Check back later. Disable inlay hints for now in vue files.
-vim.api.nvim_create_autocmd("LspAttach", {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { -- Enable spell checking for certain file types
+  pattern = { "*.txt", "*.md", "*.typ" },
+  command = [[setlocal spell]],
+})
+vim.api.nvim_create_autocmd("LspAttach", { -- TODO: Check back later. Disable inlay hints for now in vue files.
   callback = function(args)
-    local bufnr = args.buf
-    if vim.bo[bufnr].filetype == "vue" then vim.lsp.inlay_hint.enable(false, { bufnr = bufnr }) end
+    if vim.bo[args.buf].filetype == "vue" then vim.lsp.inlay_hint.enable(false, { bufnr = args.buf }) end
   end,
 })
 
---- Loads local configuration file when cwd changes
---- This is especially useful with Neovide, where I use :cd a lot.
-vim.api.nvim_create_autocmd("DirChanged", {
+vim.api.nvim_create_autocmd("DirChanged", { -- Loads local configuration file when cwd changes
+  -- This is especially useful with Neovide, where I use :cd a lot.
   group = vim.api.nvim_create_augroup("LoadExrc", { clear = true }),
   pattern = "global",
   callback = function(_event) require("utilities").load_exrc() end,

@@ -27,7 +27,7 @@ return {
               },
               schema = {
                 model = {
-                  default = "qwen/qwen3-coder",
+                  default = "qwen/qwen3-coder-plus",
                 },
               },
             })
@@ -50,7 +50,7 @@ return {
       extensions = {},
       strategies = {
         chat = {
-          adapter = "gemini",
+          adapter = { name = "openrouter", model = "z-ai/glm-4.5-air" },
           auto_scroll = false,
           keymaps = {
             clear = { modes = { n = "gX" }, opts = {} },
@@ -64,7 +64,7 @@ return {
             ["symbols"] = { opts = { provider = "snacks" } },
           },
         },
-        inline = { adapter = { name = "openrouter", model = "qwen/qwen3-coder" } },
+        inline = { adapter = { name = "openrouter", model = "qwen/qwen3-coder-flash" } },
       },
     },
   },

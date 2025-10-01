@@ -2,6 +2,7 @@
 return {
   {
     "rebelot/kanagawa.nvim",
+    enabled = false,
     opts = {
       colors = {
         theme = {
@@ -15,8 +16,13 @@ return {
     },
   },
   {
+    "olivercederborg/poimandres.nvim",
+    lazy = false,
+    opts = {},
+  },
+  {
     "AstroNvim/astroui",
     ---@type AstroUIOpts
-    opts = { colorscheme = "kanagawa" },
+    opts = { colorscheme = "poimandres" },
   },
 }

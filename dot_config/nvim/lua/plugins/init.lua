@@ -104,6 +104,7 @@ return {
           tab = { "", "" },
         },
       },
+      lazygit = false,
     },
   },
   {

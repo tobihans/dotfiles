@@ -161,34 +161,4 @@ function M.secret(key, set)
   end
 end
 
-function M.load_dotenv(file_path)
-  if not file_path then file_path = ".env" end
-
-  local env_vars = {}
-  local file, _ = io.open(file_path, "r")
-  if not file then return end
-
-  local content = file:read "*all"
-  file:close()
-
-  for line in content:gmatch "[^\r\n]+" do
-    local key, value = line:match "^([%w_]+)%s*=%s*(.+)$"
-    if key and value then
-      value = value:gsub("^[\"'](.-)[\"']$", "%1")
-      env_vars[key] = value
-    end
-  end
-
-  return env_vars
-end
-
--- Copied as is from https://github.com/nvim-neo-tree/neo-tree.nvim/blob/e968cda658089b56ee1eaa1772a2a0e50113b902/lua/neo-tree/utils.lua#L157-L165
-function M.find_buffer_by_name(name)
-  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    local buf_name = vim.api.nvim_buf_get_name(buf)
-    if buf_name == name then return buf end
-  end
-  return -1
-end
-
 return M

@@ -9,6 +9,7 @@ vim.filetype.add {
     har = "json",
     hurl = "hurl",
     mdx = "mdx",
+    mjml = "html",
     meta = "json",
     tcss = "tcss",
     wsx = "xml",
