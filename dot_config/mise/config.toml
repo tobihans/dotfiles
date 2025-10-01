@@ -33,8 +33,13 @@
 "ubi:alexpasmantier/television" = { version = "latest", exe = "tv" }
 "ubi:ast-grep/ast-grep" = "latest"
 "ubi:block/goose" = "latest"
+"ubi:charmbracelet/crush" = "latest"
 "ubi:cloudflare/cloudflared" = "latest"
+"ubi:docker/docker-credential-helpers" = { version = "latest", exe = "docker-credential-secretservice" }
+"ubi:elixir-lang/expert" = "nightly"
 "ubi:exercism/cli" = { version = "latest", exe = "exercism" }
+"ubi:git-ecosystem/git-credential-manager" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
+# "ubi:hovancik/stretchly" = { version = "latest", extract_all = "true", matching_regex = "tar.xz$" }
 "ubi:git-lfs/git-lfs" = "latest"
 "ubi:google/yamlfmt" = "latest"
 "ubi:jesseduffield/lazydocker" = "latest"
@@ -51,13 +56,11 @@ cargo-binstall = "latest"
 deno = "latest"
 elixir = "latest"
 erlang = "latest"
-java = "latest"
+java = "17"
 node = "latest"
 ruby = "3.2.7"
 uv = "latest"
-zig = "latest"
-zls = "latest"
-"ubi:elixir-lang/expert" = "latest"
+# "ubi:TibixDev/winboat" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
 
 [settings]
 asdf = false

@@ -56,55 +56,19 @@ type = "file"
 refreshPeriod = "72h"
 url = "https://github.com/nushell/nu_scripts/raw/main/nu-hooks/nu-hooks/rusty-paths/rusty-paths.nu"
 
-# Binaries
-["bin/"]
-type = "archive"
-include = ["git-credential-manager", "libHarfBuzzSharp.so", "libSkiaSharp.so"]
-url = "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.6.1/gcm-linux_amd64.2.6.1.tar.gz"
+# ["bin/dynamicwallpaperconverter"]
+# type = "file"
+# executable = true
+# url = "https://raw.githubusercontent.com/zzag/plasma5-wallpapers-dynamic-extras/master/dynamicwallpaperconverter"
 
-["bin/docker-credential-secretservice"]
-type = "file"
-executable = true
-url = "https://github.com/docker/docker-credential-helpers/releases/download/v0.8.2/docker-credential-secretservice-v0.8.2.linux-amd64"
-
+# Assets
 [".local/share/fonts/VictorMono"]
 type = "archive"
 url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/VictorMono.tar.xz"
 
-[".local/share/fonts/Monaspace"]
-type = "archive"
-url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Monaspace.tar.xz"
-
-["bin/dynamicwallpaperconverter"]
-type = "file"
-executable = true
-url = "https://raw.githubusercontent.com/zzag/plasma5-wallpapers-dynamic-extras/master/dynamicwallpaperconverter"
-
-# ["bin/minikube"]
-# type = "file"
-# executable = true
-# refreshPeriod = "720h"
-# url = "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
-
-# ["bin/kubectl"]
-# type = "file"
-# executable = true
-# refreshPeriod = "720h"
-# url = 'https://dl.k8s.io/release/{{ output "curl" "-L" "-s" "https://dl.k8s.io/release/stable.txt" | trim }}/bin/linux/amd64/kubectl'
-
-# ["bin/helm"]
-# type = "archive-file"
-# executable = true
-# path = "{{ .chezmoi.os }}-{{ .chezmoi.arch }}/helm"
-# refreshPeriod = "168h"
-# url = 'https://get.helm.sh/helm-{{ output "curl" "-L" "-s" "https://get.helm.sh/helm-latest-version" | trim }}-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz'
-
-# ["bin/ngrok"]
-# type = "archive-file"
-# executable = true
-# path = "ngrok"
-# refreshPeriod = "168h"
-# url = 'https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz'
+# [".local/share/fonts/Monaspace"]
+# type = "archive"
+# url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Monaspace.tar.xz"
 
 # Vim/Neovim
 [".vim/colors/nord.vim"]
