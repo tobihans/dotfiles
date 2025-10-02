@@ -76,6 +76,16 @@ $env.config = {
                 send: executehostcommand,
                 cmd: "goose project"
             }
+        },
+        {
+            name: crush
+            modifier: control
+            keycode: char_h
+            mode: emacs
+            event: {
+                send: executehostcommand,
+                cmd: "crush"
+            }
         }
     ],
 }

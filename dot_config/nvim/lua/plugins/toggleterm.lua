@@ -4,30 +4,6 @@ return {
     "akinsho/toggleterm.nvim",
     keys = {
       {
-        "<Leader>th",
-        function()
-          local cmd = string.format(
-            [[%dToggleTerm size=10 direction=horizontal name='Interactive Terminal %d']],
-            vim.v.count1,
-            vim.v.count1
-          )
-          vim.cmd(cmd)
-        end,
-        desc = "ToggleTerm horizontal split",
-      },
-      {
-        "<Leader>tv",
-        function()
-          local cmd = string.format(
-            [[%dToggleTerm size=80 direction=vertical name='Interactive Terminal %d']],
-            vim.v.count1,
-            vim.v.count1
-          )
-          vim.cmd(cmd)
-        end,
-        desc = "ToggleTerm vertical split",
-      },
-      {
         "<Leader>td",
         function() require("astrocore").toggle_term_cmd "lazydocker" end,
         desc = "ToggleTerm lazydocker",
@@ -39,18 +15,31 @@ return {
       },
       {
         "<F1>",
-        function() require("astrocore").toggle_term_cmd "goose project" end,
+        function()
+          require("astrocore").toggle_term_cmd {
+            cmd = "goose project",
+            direction = "horizontal",
+            display_name = "Goose",
+          }
+        end,
         desc = "ToggleTerm goose",
         mode = { "n", "t" },
       },
       {
-        "<S-F1>",
-        function() require("astrocore").toggle_term_cmd "opencode" end,
-        desc = "ToggleTerm opencode",
+        "<F3>",
+        function()
+          require("astrocore").toggle_term_cmd {
+            cmd = "crush",
+            direction = "horizontal",
+            display_name = "Crush",
+          }
+        end,
+        desc = "ToggleTerm crush",
         mode = { "n", "t" },
       },
     },
     opts = {
+      size = function(term) return (term.direction == "horizontal" and (vim.o.lines * 0.35) or (vim.o.columns * 0.4)) end,
       direction = "float",
       on_open = function(terminal)
         local setl = function(name, value)

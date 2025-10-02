@@ -59,7 +59,6 @@ alias gl = glab
 
 alias lzd = lazydocker
 alias lzg = lazygit
-# alias tv = tidy-viewer # collides with television's tv
 alias prism = npx @stoplight/prism-cli@latest # api mocking
 # alias cookiecutter = pipx run cookiecutter
 
