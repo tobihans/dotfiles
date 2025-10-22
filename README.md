@@ -1,11 +1,10 @@
 # My dotfiles
 
-This repository contains my managed dotfiles.
-Based on [chezmoi](https://github.com/twpayne/chezmoi).
+This repository contains my dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
 
 ## Requirements
 
-- OS: _Manjaro_ or _Arch_
+- OS: _Arch_ based OS or MacOS
 
 ## Setup
 

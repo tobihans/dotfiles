@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
+if [[ ! -f /etc/arch-release ]]; then
+    echo "Not Arch based, skipping."
+    exit 0
+fi
+
 if [[ -z "${XDG_CURRENT_DESKTOP}" ]]; then
     exit 0
 fi

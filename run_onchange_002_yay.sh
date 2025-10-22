@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-# shellcheck disable=1091
-OS=$(
-	source /etc/os-release
-	echo "$ID"
-)
-
-if [[ "$OS" != "manjaro" ]]; then
-	echo "Not Manjaro, skipping."
+if [[ ! -f /etc/arch-release ]]; then
+	echo "Not Arch based, skipping."
 	exit 0
 fi
 
