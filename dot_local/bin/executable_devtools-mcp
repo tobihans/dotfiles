@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+CHROME_BIN="${CHROME_BIN:-chromium}"
+HEADLESS="${HEADLESS:-}"
+
+DEBUGGING_PORT=$(shuf -i 9000-65000 -n 1)
+while ss -tuln | grep -q ":$DEBUGGING_PORT "; do
+  DEBUGGING_PORT=$(shuf -i 9000-65000 -n 1)
+done
+
+USER_DATA_DIR=$(mktemp -d)
+STDOUT="$USER_DATA_DIR/stdout.log"
+STDERR="$USER_DATA_DIR/stderr.log"
+CHROME_ARGS=(
+  --remote-debugging-port="$DEBUGGING_PORT"
+  --user-data-dir="$USER_DATA_DIR"
+  --window-size="1360,768"
+)
+
+if [[ -n "$HEADLESS" ]]; then CHROME_ARGS+=(--headless); fi
+
+echo -e "Running $CHROME_BIN on port $DEBUGGING_PORT.\nSTDOUT=$STDOUT STDERR=$STDERR"
+
+"$CHROME_BIN" "${CHROME_ARGS[@]}" >"$STDOUT" 2>"$STDERR" &
+
+CHROMIUM_PID=$!
+
+clean() {
+  if kill -0 "$CHROMIUM_PID" 2>/dev/null; then
+    kill -9 "$CHROMIUM_PID" || true
+  fi
+}
+
+trap clean SIGINT EXIT
+
+mise x node@latest npm:chrome-devtools-mcp@latest -- chrome-devtools-mcp --browser-url="http://127.0.0.1:$DEBUGGING_PORT"
