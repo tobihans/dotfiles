@@ -31,9 +31,12 @@
 "ubi:ast-grep/ast-grep" = "latest"
 "ubi:block/goose" = "latest"
 "ubi:charmbracelet/crush" = "latest"
+"ubi:dagger/container-use" = "latest"
+"ubi:dagger/dagger" = "latest"
 "ubi:docker/docker-credential-helpers" = { version = "latest", exe = "docker-credential-secretservice" }
 "ubi:elixir-lang/expert" = "nightly"
 "ubi:exercism/cli" = { version = "latest", exe = "exercism" }
+"ubi:git-bug/git-bug" = "latest"
 "ubi:git-ecosystem/git-credential-manager" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
 "ubi:git-lfs/git-lfs" = "latest"
 "ubi:google/yamlfmt" = "latest"
@@ -64,9 +67,9 @@ uv = "latest"
 
 [settings]
 asdf = false
-auto_install = false # TODO: Set to true again later.
+auto_install = false
 experimental = true
-http_timeout = "1800s"
+http_timeout = "600s"
 idiomatic_version_file_enable_tools = ["ruby", "python", "node", "go"]
 paranoid = true
 pipx_uvx = true

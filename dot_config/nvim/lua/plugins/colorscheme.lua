@@ -1,28 +1,24 @@
 ---@type LazySpec
 return {
   {
-    "rebelot/kanagawa.nvim",
-    enabled = false,
-    opts = {
-      colors = {
-        theme = {
-          all = {
-            ui = {
-              bg_gutter = "none",
-            },
-          },
-        },
-      },
-    },
-  },
-  {
-    "olivercederborg/poimandres.nvim",
+    "webhooked/kanso.nvim",
     lazy = false,
-    opts = {},
+    priority = 1000,
+    opts = {
+      background = {
+        dark = "ink",
+        light = "pearl",
+      },
+      overrides = function(_colors)
+        return {
+          WinSeparator = { link = "FloatBorder" },
+        }
+      end,
+    },
   },
   {
     "AstroNvim/astroui",
     ---@type AstroUIOpts
-    opts = { colorscheme = "poimandres" },
+    opts = { colorscheme = "kanso" },
   },
 }

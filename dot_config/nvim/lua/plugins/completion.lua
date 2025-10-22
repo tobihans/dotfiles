@@ -28,9 +28,6 @@ return {
       }
       opts.sources = {
         default = {
-          "avante_commands",
-          "avante_mentions",
-          "avante_files",
           "supermaven",
           "lsp",
           "dadbod",
@@ -39,9 +36,6 @@ return {
           "buffer",
         },
         providers = {
-          avante_commands = { name = "avante_commands", module = "blink.compat.source", score_offset = 90 },
-          avante_files = { name = "avante_files", module = "blink.compat.source", score_offset = 100 },
-          avante_mentions = { name = "avante_mentions", module = "blink.compat.source", score_offset = 200 },
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
           supermaven = {
             name = "supermaven",

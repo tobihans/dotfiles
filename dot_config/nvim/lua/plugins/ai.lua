@@ -39,6 +39,20 @@ return {
               },
             })
           end,
+          zai = function()
+            return require("codecompanion.adapters").extend("openai_compatible", {
+              env = {
+                url = "https://api.z.ai/api/coding/paas/v4",
+                api_key = "cmd:get_develop_secret ZAI_API_KEY",
+                chat_url = "/chat/completions",
+              },
+              schema = {
+                model = {
+                  default = "GLM-4.6",
+                },
+              },
+            })
+          end,
         },
       },
       display = {
@@ -50,7 +64,7 @@ return {
       extensions = {},
       strategies = {
         chat = {
-          adapter = { name = "openrouter", model = "z-ai/glm-4.5-air" },
+          adapter = "zai",
           auto_scroll = false,
           keymaps = {
             clear = { modes = { n = "gX" }, opts = {} },

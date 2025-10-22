@@ -4,6 +4,30 @@ return {
     "akinsho/toggleterm.nvim",
     keys = {
       {
+        "<Leader>th",
+        function()
+          local cmd = string.format(
+            [[%dToggleTerm direction=horizontal name='Interactive Terminal %d']],
+            vim.v.count1,
+            vim.v.count1
+          )
+          vim.cmd(cmd)
+        end,
+        desc = "ToggleTerm horizontal split",
+      },
+      {
+        "<Leader>tv",
+        function()
+          local cmd = string.format(
+            [[%dToggleTerm direction=vertical name='Interactive Terminal %d']],
+            vim.v.count1,
+            vim.v.count1
+          )
+          vim.cmd(cmd)
+        end,
+        desc = "ToggleTerm vertical split",
+      },
+      {
         "<Leader>td",
         function() require("astrocore").toggle_term_cmd "lazydocker" end,
         desc = "ToggleTerm lazydocker",
@@ -30,7 +54,8 @@ return {
         function()
           require("astrocore").toggle_term_cmd {
             cmd = "crush",
-            direction = "horizontal",
+            -- direction = "float",
+            direction = "tab",
             display_name = "Crush",
           }
         end,
@@ -38,13 +63,15 @@ return {
         mode = { "n", "t" },
       },
     },
-    opts = {
-      size = function(term) return (term.direction == "horizontal" and (vim.o.lines * 0.35) or (vim.o.columns * 0.4)) end,
-      direction = "float",
-      on_open = function(terminal)
+    opts = function(_, opts)
+      opts.size = function(term)
+        return (term.direction == "horizontal" and (vim.o.lines * 0.4) or (vim.o.columns * 0.4))
+      end
+      opts.direction = "float"
+      opts.on_open = function(term)
         local setl = function(name, value)
           vim.api.nvim_set_option_value(name, value, {
-            win = terminal.window,
+            win = term.window,
           })
         end
 
@@ -55,7 +82,9 @@ return {
         setl("winfixbuf", true)
         -- setl("winfixheight", true)
         -- setl("winfixwidth", true)
-      end,
-    },
+      end
+
+      return opts
+    end,
   },
 }

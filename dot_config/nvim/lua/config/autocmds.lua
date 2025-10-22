@@ -20,11 +20,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { -- Enable spell check
   pattern = { "*.txt", "*.md", "*.typ" },
   command = [[setlocal spell]],
 })
-vim.api.nvim_create_autocmd("LspAttach", { -- TODO: Check back later. Disable inlay hints for now in vue files.
-  callback = function(args)
-    if vim.bo[args.buf].filetype == "vue" then vim.lsp.inlay_hint.enable(false, { bufnr = args.buf }) end
-  end,
-})
 
 vim.api.nvim_create_autocmd("DirChanged", { -- Loads local configuration file when cwd changes
   -- This is especially useful with Neovide, where I use :cd a lot.

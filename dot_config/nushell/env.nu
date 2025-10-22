@@ -67,5 +67,7 @@ $env.MANPAGER = 'bat -l man --italic-text always --decorations always --style=nu
 
 # Goose
 $env.GOOSE_CLI_THEME = "ansi"
-$env.GOOSE_PROVIDER = "openrouter"
-$env.GOOSE_MODEL = "z-ai/glm-4.6"
+
+# DoNotTrack
+$env.DO_NOT_TRACK = 1
+$env.GLAB_SEND_TELEMETRY = false

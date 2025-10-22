@@ -32,6 +32,7 @@ return {
         "html-lsp",
         "json-lsp",
         "lua-language-server",
+        "pyrefly",
         "shfmt",
         "taplo",
         "tinymist",
