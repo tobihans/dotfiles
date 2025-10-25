@@ -22,11 +22,9 @@ for $tool in $tools {
   $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.ANDROID_HOME)/($tool)")
 }
 
-$env.LATEST_NDK_VERSION = (/bin/ls -l $"($env.ANDROID_HOME)/ndk/" | awk '{print $NF}' | /bin/sort -n | tail -n 1)
+$env.LATEST_NDK_VERSION = (ls $"($env.ANDROID_HOME)/ndk/" | get name | path basename | sort -r | get 0)
 $env.NDK_HOME = $"($env.ANDROID_HOME)/ndk/($env.LATEST_NDK_VERSION)"
 $env.CHROME_EXECUTABLE = "/usr/bin/chromium"
-$env.FLUTTER_BIN = $"($env.HOME)/flutter/bin"
-$env.PATH = ($env.PATH | split row (char esep) | prepend $env.FLUTTER_BIN)
 
 # Cargo
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.cargo/bin")
