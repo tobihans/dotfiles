@@ -1,4 +1,4 @@
 # vim: ft=gitignore
 
 # NOTE: Contains config files to be ignored on any non Darwin system
-Library/*
+Library/
