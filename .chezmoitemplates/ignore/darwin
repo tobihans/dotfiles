@@ -2,3 +2,4 @@
 
 # NOTE: Contains config files to be ignored on any non Darwin system
 Library/
+.zprofile
