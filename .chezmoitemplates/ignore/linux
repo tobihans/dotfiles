@@ -1,0 +1,13 @@
+# vim: ft=gitignore
+
+# NOTE: Contains config files to be ignored on any non Linux system
+
+.config/app/file.conf
+.config/systemd/
+.disk-prune.sh
+.functions
+.inputrc
+.local/share/icons
+.local/share/plasma_notes
+.nanorc
+

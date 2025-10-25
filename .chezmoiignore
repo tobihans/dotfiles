@@ -3,29 +3,21 @@
 *.md
 **/.supermaven
 
-.config/nushell/history.txt
-.config/nushell/scripts/integrations
-
 .config/git/*
 !.config/git/config
+
+.config/nushell/history.txt
+.config/nushell/scripts/integrations
 
 assets/
 keepassxc-browser_settings.json
 key.txt.age
 
-# Darwin specific config files
 {{ if ne .chezmoi.os "darwin" }}
+  {{ template "ignore/darwin" }}
 {{ end }}
 
-# Linux specific config files
 {{ if ne .chezmoi.os "linux" }}
-.config/app/file.conf
-.config/systemd/
-.disk-prune.sh
-.functions
-.inputrc
-.local/share/icons
-.local/share/plasma_notes
-.nanorc
+  {{ template "ignore/linux" }}
 {{ end }}
 
