@@ -2,6 +2,7 @@
 
 # NOTE: Contains config files to be ignored on any non Linux system
 
+.audiorelay/
 .bash_aliases
 .bash_profile
 .bashrc
