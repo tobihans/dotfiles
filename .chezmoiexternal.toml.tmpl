@@ -56,6 +56,8 @@ type = "file"
 refreshPeriod = "72h"
 url = "https://github.com/nushell/nu_scripts/raw/main/nu-hooks/nu-hooks/rusty-paths/rusty-paths.nu"
 
+# Linux only files
+{{ if eq .chezmoi.os "linux" }}
 # ["bin/dynamicwallpaperconverter"]
 # type = "file"
 # executable = true
@@ -69,15 +71,4 @@ url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/VictorMo
 # [".local/share/fonts/Monaspace"]
 # type = "archive"
 # url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Monaspace.tar.xz"
-
-# Vim/Neovim
-[".vim/colors/nord.vim"]
-type = "file"
-url = "https://github.com/nordtheme/vim/raw/main/colors/nord.vim"
-
-# https://github.com/thjbdvlt/spell-fr.vim
-# TODO: Update manually for now
-# [".config/nvim/spell/fr.utf-8.spl"]
-# type = "file"
-# refreshPeriod = "672h"
-# url = "https://github.com/thjbdvlt/spell-fr.vim/releases/latest/download/fr.utf-8.spl"
+{{ end }}

@@ -3,8 +3,6 @@
 *.md
 **/.supermaven
 
-# .config/nvim/spell/*.spl
-# !.config/nvim/spell/*.add.spl
 .config/nushell/history.txt
 .config/nushell/scripts/integrations
 
@@ -14,3 +12,20 @@
 assets/
 keepassxc-browser_settings.json
 key.txt.age
+
+# Darwin specific config files
+{{ if ne .chezmoi.os "darwin" }}
+{{ end }}
+
+# Linux specific config files
+{{ if ne .chezmoi.os "linux" }}
+.config/app/file.conf
+.config/systemd/
+.disk-prune.sh
+.functions
+.inputrc
+.local/share/icons
+.local/share/plasma_notes
+.nanorc
+{{ end }}
+
