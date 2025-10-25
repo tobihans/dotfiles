@@ -15,13 +15,14 @@ packages=(
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
 		"plasma5-wallpapers-dynamic" "opensnitch" "python-pyclip"
-		"slack-desktop" "supertuxkart"
+		"supertuxkart"
 		"trash-cli"
 		"wl-clipboard"
 		"koi"
 		"zoom" "zen-browser-bin"
 	)
 fi
+# "slack-desktop"
 # "waydroid"
 # "wkhtmltopdf"
 # Optional WPS Office dependencies

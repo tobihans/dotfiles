@@ -11,10 +11,12 @@ if [[ -z "${XDG_CURRENT_DESKTOP}" ]]; then
 fi
 
 packages=(
-    "dev.vencord.Vesktop"
+    # "dev.vencord.Vesktop"
     # "io.github.seadve.Kooha"
 )
 
-for package in "${packages[@]}"; do
-    flatpak install --assumeyes --noninteractive "$package"
-done
+if [[ ${#packages[@]} -gt 0 ]]; then
+    for package in "${packages[@]}"; do
+        flatpak install --assumeyes --noninteractive "$package"
+    done
+fi
