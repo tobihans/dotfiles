@@ -5,7 +5,7 @@
 .bash_aliases
 .bash_profile
 .bashrc
-.config/app/file.conf
+.config/environment.d/
 .config/systemd/
 .disk-prune.sh
 .functions
