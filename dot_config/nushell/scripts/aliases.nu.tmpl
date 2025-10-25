@@ -1,1 +1,6 @@
+{{- if eq .chezmoi.os "darwin" -}}
+$env.HOMEBREW_BIN = "/opt/homebrew/bin"
+$env.PATH = ($env.PATH | split row (char esep) | prepend $env.HOME_BIN)
+{{- end -}}
+
 {{- template "nushell/scripts/aliases.nu" . -}}
