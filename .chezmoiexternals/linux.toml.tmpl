@@ -1,0 +1,18 @@
+# vim: ft=toml
+
+{{- if eq .chezmoi.os "linux" }}
+
+# ["bin/dynamicwallpaperconverter"]
+# type = "file"
+# executable = true
+# url = "https://raw.githubusercontent.com/zzag/plasma5-wallpapers-dynamic-extras/master/dynamicwallpaperconverter"
+
+[".local/share/fonts/VictorMono"]
+  type = "archive"
+  url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/VictorMono.tar.xz"
+
+# [".local/share/fonts/Monaspace"]
+# type = "archive"
+# url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Monaspace.tar.xz"
+
+{{- end }}

@@ -1,0 +1,20 @@
+// Nushell scripts source from https://github.com/nushell/nu_scripts with their path relative to the scripts config location.
+{
+  "nu_scripts": {
+    "completions": {
+      "cargo-make": "https://github.com/nushell/nu_scripts/raw/main/custom-completions/cargo-make/cargo-make-completions.nu",
+      "ssh": "https://github.com/nushell/nu_scripts/raw/main/custom-completions/ssh/ssh-completions.nu",
+      "git": "https://github.com/nushell/nu_scripts/raw/main/custom-completions/git/git-completions.nu",
+      "gh": "https://github.com/nushell/nu_scripts/raw/main/custom-completions/gh/gh-completions.nu",
+      "docker": "https://github.com/nushell/nu_scripts/raw/main/custom-completions/docker/docker-completions.nu",
+      "make": "https://github.com/nushell/nu_scripts/raw/main/custom-completions/make/make-completions.nu",
+      "just": "https://github.com/nushell/nu_scripts/raw/main/custom-completions/just/just-completions.nu",
+      "tar": "https://github.com/nushell/nu_scripts/raw/main/custom-completions/tar/tar-completions.nu",
+      "virsh": "https://github.com/nushell/nu_scripts/raw/main/custom-completions/virsh/virsh-completions.nu"
+    },
+    "hooks": {
+      "nuenv": "https://github.com/nushell/nu_scripts/raw/main/nu-hooks/nu-hooks/nuenv/hook.nu",
+      "rusty-paths": "https://github.com/nushell/nu_scripts/raw/main/nu-hooks/nu-hooks/rusty-paths/rusty-paths.nu"
+    }
+  }
+}

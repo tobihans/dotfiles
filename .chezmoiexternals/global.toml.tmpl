@@ -1,0 +1,22 @@
+# vim: ft=toml
+
+{{ $path_prefix := ".config/nushell/scripts/integrations" }}
+{{ if eq .chezmoi.os "darwin" }}
+  {{ $path_prefix = "Library/Application Support/nushell/scripts/integrations" }}
+{{ end }}
+
+# Nushell completion scripts
+{{- range $file, $url := .nu_scripts.completions }}
+["{{- $path_prefix }}/completions/{{- $file }}.nu"]
+  type = "file"
+  refreshPeriod = "72h"
+  url = "{{- $url }}"
+{{- end }}
+
+# Nushell hooks
+{{- range $file, $url := .nu_scripts.hooks }}
+["{{- $path_prefix }}/hooks/{{- $file }}.nu"]
+  type = "file"
+  refreshPeriod = "72h"
+  url = "{{- $url }}"
+{{- end }}
