@@ -8,6 +8,7 @@
 .bashrc
 .config/environment.d/
 .config/systemd/
+.config/nushell/
 .disk-prune.sh
 .functions
 .inputrc
