@@ -2,6 +2,9 @@
 
 # NOTE: Contains config files to be ignored on any non Linux system
 
+.bash_aliases
+.bash_profile
+.bashrc
 .config/app/file.conf
 .config/systemd/
 .disk-prune.sh
@@ -10,4 +13,3 @@
 .local/share/icons
 .local/share/plasma_notes
 .nanorc
-
