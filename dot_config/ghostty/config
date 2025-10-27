@@ -1,1 +1,4 @@
+# vim: ft=ini
+
 command = nu
+config-file = ?theme
