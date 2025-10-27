@@ -10,6 +10,10 @@ if [[ -x "$(command -v bob)" ]]; then
 	bob update --all
 fi
 
+if [[ -x "$(command -v tv)" ]]; then
+	tv update-channels
+fi
+
 UNAME=$(uname)
 NUSHELL_SCRIPTS_PATH="$HOME/.config/nushell/scripts/integrations"
 
