@@ -1,0 +1,6 @@
+# vim: ft=ini
+
+command = /opt/homebrew/bin/nu
+config-file = ?theme
+font-family = "Victor Mono"
+background-opacity = 0.95
