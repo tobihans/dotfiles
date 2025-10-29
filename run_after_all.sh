@@ -11,7 +11,7 @@ if [[ -x "$(command -v bob)" ]]; then
 fi
 
 if [[ -x "$(command -v tv)" ]]; then
-	tv update-channels
+	tv update-channels >/dev/null
 fi
 
 UNAME=$(uname)

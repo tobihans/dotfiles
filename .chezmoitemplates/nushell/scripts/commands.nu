@@ -29,7 +29,7 @@ def pet --wrapped [...args: string] {
 alias core-crush = crush
 def crush --wrapped [...args: string] {
   $env.CRUSH_DISABLE_METRICS = 1
-  _setcreds OPENROUTER_API_KEY; core-crush ...$args
+  core-crush ...$args
 }
 
 
