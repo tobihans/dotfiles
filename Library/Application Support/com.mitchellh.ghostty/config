@@ -5,3 +5,6 @@ command = /opt/homebrew/bin/nu
 config-file = ?theme
 font-family = "Victor Mono"
 font-size = 14
+macos-option-as-alt = left
+window-height = 75
+window-width = 125
