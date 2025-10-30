@@ -6,5 +6,5 @@ config-file = ?theme
 font-family = "Victor Mono"
 font-size = 14
 macos-option-as-alt = left
-window-height = 75
-window-width = 125
+window-height = 50
+window-width = 100
