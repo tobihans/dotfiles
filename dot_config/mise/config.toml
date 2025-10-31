@@ -14,7 +14,6 @@
 "cargo:typstyle" = "latest"
 "cargo:watchexec-cli" = "latest"
 "npm:@google/gemini-cli" = "latest"
-"npm:@just-every/code" = "latest"
 "npm:@qwen-code/qwen-code" = "latest"
 "npm:heroku" = "latest"
 "npm:markdownlint-cli" = "latest"
