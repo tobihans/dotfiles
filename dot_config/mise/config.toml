@@ -64,6 +64,8 @@ java = "17"
 node = "latest"
 ruby = "3.2.7"
 uv = "latest"
+"cargo:zellij" = "latest"
+"npm:@withgraphite/graphite-cli" = "stable"
 
 [settings]
 asdf = false
