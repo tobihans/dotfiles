@@ -282,7 +282,7 @@ web_client {
 // Choose the theme that is specified in the themes section.
 // Default: default
 // 
-theme "kanso-ink"
+theme "kanso-mist"
  
 // Choose the base input mode of zellij.
 // Default: normal
