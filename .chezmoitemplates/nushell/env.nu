@@ -14,8 +14,8 @@ $env.GOBIN = $"($env.HOME)/go/bin"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.GOBIN)
 
 # Android
-(/bin/mkdir -p ~/Android/Sdk/ndk)
-$env.ANDROID_HOME = $"($env.HOME)/Android/Sdk"
+$env.ANDROID_HOME = if $nu.os-info.name == "macos" { $"($env.HOME)/Library/Android/sdk/" } else { $"($env.HOME)/Android/Sdk" }
+(/bin/mkdir -p $"($env.ANDROID_HOME)/ndk/")
 
 let tools = [cmdline-tools/latest/bin emulator platform-tools tools]
 for $tool in $tools {
