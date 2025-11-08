@@ -9,6 +9,8 @@
 .config/nushell/history.txt
 .config/nushell/scripts/integrations
 
+.config/zellik/plugins/*
+
 assets/
 keepassxc-browser_settings.json
 key.txt.age

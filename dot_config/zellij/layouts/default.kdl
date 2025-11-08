@@ -1,0 +1,57 @@
+layout {
+  default_tab_template {
+    children
+    pane size=1 borderless=true {
+      plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+        format_left   "{mode} #[fg=#89B4FA,bold]{session}"
+        format_center "{tabs}"
+        format_right  "{command_git_branch} {datetime}"
+        format_space  ""
+
+        border_enabled  "false"
+        border_char     "─"
+        border_format   "#[fg=#6C7086]{char}"
+        border_position "top"
+
+        hide_frame_for_single_pane "false"
+
+        mode_normal        "#[fg=#b8bb26,bold]{name}"
+        mode_locked        "#[fg=#fb4934,bold]{name}"
+        mode_resize        "#[fg=#fabd2f,bold]{name}"
+        mode_pane          "#[fg=#d3869b,bold]{name}"
+        mode_tab           "#[fg=#83a598,bold]{name}"
+        mode_scroll        "#[fg=#8ec07c,bold]{name}"
+        mode_session       "#[fg=#fe8019,bold]{name}"
+        mode_move          "#[fg=#a89984,bold]{name}"
+
+        tab_normal               "#[fg=#6C7086,bg=#181825] {name} {fullscreen_indicator}{sync_indicator}{floating_indicator}"
+        tab_active               "#[fg=#9399B2,bg=#181825,bold,italic] {name} {fullscreen_indicator}{sync_indicator}{floating_indicator}"
+        tab_fullscreen_indicator "□ "
+        tab_sync_indicator       "  "
+        tab_floating_indicator   "󰉈 "
+
+        command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+        command_git_branch_format      "#[fg=blue] {stdout} "
+        command_git_branch_interval    "10"
+        command_git_branch_rendermode  "static"
+
+        datetime        "#[fg=#6C7086,bold] {format} "
+        // datetime_format "%A, %d %b %Y %H:%M"
+        datetime_format "%A, %d %b %Y"
+        datetime_timezone "Africa/Porto-Novo"
+      }
+    }
+  }
+
+  tab name="default" {
+    pane
+    floating_panes {
+      pane {
+        x "20%"
+        y "15%"
+        width "60%"
+        height "70%"
+      }
+    }
+  }
+}
