@@ -33,7 +33,6 @@
 "ubi:block/goose" = "latest"
 "ubi:charmbracelet/crush" = "latest"
 "ubi:dagger/container-use" = "latest"
-"ubi:dagger/dagger" = "latest"
 "ubi:docker/docker-credential-helpers" = { version = "latest", exe = "docker-credential-secretservice" }
 "ubi:elixir-lang/expert" = "nightly"
 "ubi:exercism/cli" = { version = "latest", exe = "exercism" }

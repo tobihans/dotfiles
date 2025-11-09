@@ -15,4 +15,5 @@
 .inputrc
 .local/share/icons
 .local/share/plasma_notes
+.local/share/applications
 .nanorc

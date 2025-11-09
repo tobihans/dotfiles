@@ -27,4 +27,6 @@ mkdir -p "$NUSHELL_SCRIPTS_PATH"
 # HINT: https://unix.stackexchange.com/questions/45201/bash-what-does-do/45203#45203
 atuin init nu >|"$NUSHELL_SCRIPTS_PATH/atuin.nu"
 starship init nu >|"$NUSHELL_SCRIPTS_PATH/starship.nu"
-mise activate nu >|"$NUSHELL_SCRIPTS_PATH/mise.nu"
+
+MISE_BIN=$(bash -c '{ read _; read -r mise_bin; } < <(type -P -a mise); echo $mise_bin')
+env -i "$MISE_BIN" activate nu >|"$NUSHELL_SCRIPTS_PATH/mise.nu"
