@@ -43,7 +43,7 @@ layout {
     }
   }
 
-  tab name="default" {
+  tab {
     pane
     floating_panes {
       pane {
