@@ -69,3 +69,6 @@ $env.GOOSE_CLI_THEME = "ansi"
 # DoNotTrack
 $env.DO_NOT_TRACK = 1
 $env.GLAB_SEND_TELEMETRY = false
+
+
+$env.BOB_CONFIG = "~/.config/bob/config.toml"
