@@ -1,6 +1,0 @@
-default_profile = "sqlite"
-
-[profiles.sqlite]
-adapter = "sqlite"
-theme = "nord"
-limit = 100000
