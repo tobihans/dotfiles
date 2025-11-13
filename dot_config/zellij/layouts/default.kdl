@@ -42,16 +42,4 @@ layout {
       }
     }
   }
-
-  tab {
-    pane
-    floating_panes {
-      pane {
-        x "20%"
-        y "15%"
-        width "60%"
-        height "70%"
-      }
-    }
-  }
 }
