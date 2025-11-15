@@ -1,4 +1,10 @@
 # vim: ft=gitconfig
+
+{{ $gh_bin := "!/usr/bin/gh" }}
+{{ if eq .chezmoi.os "darwin" }}
+  {{ $gh_bin = "/opt/homebrew/bin/gh" }}
+{{ end }}
+
 [user]
 	email = git@tobihans.space
 	name = Hans B. K. Tognon
@@ -42,9 +48,11 @@
 [credential]
 	credentialStore = secretservice
 [credential "https://github.com"]
-	helper = !/usr/bin/gh auth git-credential
+	helper =
+	helper = !{{- $gh_bin }} auth git-credential
 [credential "https://gist.github.com"]
-	helper = !/usr/bin/gh auth git-credential
+	helper =
+	helper = !{{- $gh_bin }} auth git-credential
 [branch]
 	sort = committerdate
 [push]
