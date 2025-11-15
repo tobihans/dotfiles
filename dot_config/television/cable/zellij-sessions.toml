@@ -1,0 +1,9 @@
+[metadata]
+name = "zellij-sessions"
+description = "List zellij sessions"
+requirements = ["zellij"]
+
+[source]
+ansi = true
+command = "zellij list-sessions"
+output = "zellij attach {strip_ansi|split: :0}"
