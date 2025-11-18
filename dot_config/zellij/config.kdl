@@ -1,6 +1,16 @@
 keybinds clear-defaults=true {
+    normal {
+        bind "Enter" {
+            // Passthru `Enter`.
+            WriteChars "\u{000D}";
+            MessagePlugin "autolock" {};
+        }
+    }
     locked {
-        bind "Ctrl g" { SwitchToMode "normal"; }
+        bind "Alt z" {
+            MessagePlugin "autolock" {payload "disable";};
+            SwitchToMode "normal";
+        }
     }
     pane {
         bind "left" { MoveFocus "left"; }
@@ -133,6 +143,12 @@ keybinds clear-defaults=true {
             SwitchToMode "normal"
         }
     }
+    shared {
+        bind "Alt Shift z" {
+            MessagePlugin "autolock" {payload "enable";};
+        }
+        bind "Ctrl Shift q" { Quit; }
+    }
     shared_except "locked" {
         bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt down" { MoveFocus "down"; }
@@ -144,7 +160,6 @@ keybinds clear-defaults=true {
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
-        bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt i" { MoveTab "left"; }
         bind "Alt j" { MoveFocus "down"; }
@@ -154,10 +169,15 @@ keybinds clear-defaults=true {
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
-        bind "Ctrl Shift q" { Quit; }
+        bind "Alt z" {
+            MessagePlugin "autolock" {payload "disable";};
+            // Lock Zellij.
+            SwitchToMode "Locked";
+        }
+        bind "Ctrl q" { Quit; }
     }
     shared_except "locked" "move" {
-        bind "Ctrl Alt h" { SwitchToMode "move"; }
+        bind "Ctrl h" { SwitchToMode "move"; }
     }
     shared_except "locked" "session" {
         bind "Ctrl o" { SwitchToMode "session"; }
@@ -261,12 +281,20 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
+    // 3rd party plugins
+    autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
+        is_enabled true
+        triggers "crush|nvim|vim|git|fzf|zoxide|atuin|tv|nano"
+        reaction_seconds "0.3"
+        print_to_log true
+    }
 }
 
 // Plugins to load in the background when a new session starts
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
 load_plugins {
+    autolock
 }
 web_client {
     font "monospace"
