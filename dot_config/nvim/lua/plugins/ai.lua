@@ -78,7 +78,7 @@ return {
             ["symbols"] = { opts = { provider = "snacks" } },
           },
         },
-        inline = { adapter = { name = "openrouter", model = "qwen/qwen3-coder-flash" } },
+        inline = { adapter = "zai" },
       },
     },
   },

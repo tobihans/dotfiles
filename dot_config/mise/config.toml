@@ -61,10 +61,12 @@ elixir = "latest"
 erlang = "latest"
 java = "17"
 node = "latest"
-ruby = "3.2.7"
+ruby = "3.4.7"
 uv = "latest"
 "cargo:zellij" = "latest"
 "npm:@withgraphite/graphite-cli" = "stable"
+bun = "latest"
+"npm:@github/copilot" = "latest"
 
 [settings]
 asdf = false

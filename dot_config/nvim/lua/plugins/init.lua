@@ -89,6 +89,7 @@ return {
         ScrollText = "",
         VimIcon = "",
         Linux = "",
+        Darwin = "",
       },
       status = {
         attributes = {
