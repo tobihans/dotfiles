@@ -67,6 +67,7 @@ uv = "latest"
 "npm:@withgraphite/graphite-cli" = "stable"
 bun = "latest"
 "npm:@github/copilot" = "latest"
+prek = "latest"
 
 [settings]
 asdf = false

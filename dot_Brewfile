@@ -16,8 +16,6 @@ brew "chezmoi"
 brew "colima", restart_service: :changed
 # Pack, ship and run any application as a lightweight container
 brew "docker"
-# Docker CLI plugin for extended build capabilities with BuildKit
-brew "docker-buildx"
 # Isolated development environments using Docker
 brew "docker-compose"
 # Platform keystore credential helper for Docker
@@ -26,6 +24,12 @@ brew "docker-credential-helper"
 brew "fd"
 # GNU multiple precision arithmetic library
 brew "gmp"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Disk usage analyzer with console interface written in Go
+brew "gdu"
 # GitHub command-line tool
 brew "gh"
 # Library for command-line editing
@@ -37,7 +41,7 @@ brew "pkgconf"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Postgres C API library
-brew "libpq"
+brew "libpq", link: true
 # YAML Parser
 brew "libyaml"
 # Package manager for the Lua programming language
@@ -54,10 +58,14 @@ brew "nushell"
 brew "onefetch"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.14"
+# Generic machine emulator and virtualizer
+brew "qemu"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Image processing library
 brew "vips"
+# Internet file retriever
+brew "wget"
 # GTK+ dialog boxes for the command-line
 brew "zenity"
 # Web browser
@@ -69,10 +77,16 @@ cask "ghostty"
 cask "maccy"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Customizable email client
 cask "thunderbird"
+# Google Chromium, sans integration with Google
+cask "ungoogled-chromium"
+# Virtual machines UI using QEMU
+cask "utm"
 # Gecko based web browser
 cask "zen"
 # Video communication and virtual meeting platform
