@@ -42,3 +42,13 @@ def television [] {
       commandline edit --replace $result
   }
 }
+
+def stirlingpdf [] {
+  let container_name = "stirlingpdf"
+
+  try {
+    ^docker run -d --rm -p 8080:8080 --name $container_name --health-cmd "nc -z localhost 8080" --health-interval 5s --health-timeout 3s --health-retries 3 docker.stirlingpdf.com/stirlingtools/stirling-pdf
+  }
+
+  docker stop $container_name | ignore
+}
