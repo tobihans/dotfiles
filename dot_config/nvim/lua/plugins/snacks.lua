@@ -56,11 +56,8 @@ return {
       },
     },
     gitbrowse = {
-      notify = false,
-      open = function(url)
-        vim.fn.setreg("+", url)
-        vim.notify(string.format("Copied '%s' to the system clipboard", url))
-      end,
+      notify = true,
+      open = function(url) vim.fn.setreg("+", url) end,
     },
     input = { enabled = true },
     quickfile = { enabled = true },

@@ -127,4 +127,5 @@ return {
   { "sigmasd/deno-nvim",                enabled = false },
   { "windwp/nvim-autopairs",            enabled = false },
   { "windwp/nvim-ts-autotag",           enabled = false },
+  { "akinsho/toggleterm.nvim",          enabled = false },
 }
