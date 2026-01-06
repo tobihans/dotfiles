@@ -13,13 +13,17 @@
 "cargo:tree-sitter-cli" = "latest"
 "cargo:typstyle" = "latest"
 "cargo:watchexec-cli" = "latest"
+"cargo:zellij" = "latest"
+"npm:@github/copilot" = "latest"
 "npm:@google/gemini-cli" = "latest"
 "npm:@qwen-code/qwen-code" = "latest"
+"npm:@withgraphite/graphite-cli" = "stable"
 "npm:heroku" = "latest"
 "npm:markdownlint-cli" = "latest"
 "npm:oxlint" = "latest"
 "npm:prettier" = "latest"
 "npm:surge" = "latest"
+"pipx:ansible" = { version = "latest", uvx_args = "--with-executables-from ansible-core,ansible-lint" }
 "pipx:ansible-lint" = "latest"
 "pipx:djlint" = "latest"
 "pipx:grip" = "latest"
@@ -55,19 +59,16 @@
 # "ubi:TibixDev/winboat" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
 # "ubi:cloudflare/cloudflared" = "latest"
 # "ubi:hovancik/stretchly" = { version = "latest", extract_all = "true", matching_regex = "tar.xz$" }
+bun = "latest"
 cargo-binstall = "latest"
 deno = "latest"
 elixir = "latest"
 erlang = "latest"
 java = "17"
 node = "latest"
+prek = "latest"
 ruby = "3.4.7"
 uv = "latest"
-"cargo:zellij" = "latest"
-"npm:@withgraphite/graphite-cli" = "stable"
-bun = "latest"
-"npm:@github/copilot" = "latest"
-prek = "latest"
 
 [settings]
 asdf = false
