@@ -20,7 +20,7 @@ return {
         trash = function(state)
           local inputs = require "neo-tree.ui.inputs"
           local path = state.tree:get_node().path
-          local msg = string.format("Are you sure you want to trash '%s'?", path)
+          local msg = ("Are you sure you want to trash '%s'?"):format(path)
           inputs.confirm(msg, function(confirmed)
             if confirmed then
               vim.system({ unpack(TRASH_CMD), path }, {}):wait()
@@ -30,7 +30,7 @@ return {
         end,
         trash_visual = function(state, selected_nodes)
           local inputs = require "neo-tree.ui.inputs"
-          local msg = string.format("Are you sure you want to trash %d items?", #selected_nodes)
+          local msg = ("Are you sure you want to trash %d items?"):format(#selected_nodes)
           inputs.confirm(msg, function(confirmed)
             if confirmed then
               local paths = vim.iter(selected_nodes):map(function(n) return n.path end):totable()

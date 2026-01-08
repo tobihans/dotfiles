@@ -27,15 +27,13 @@ local tmpl = {
       stderr = false,
       stdout = function(err, data)
         if err ~= nil then
-          vim.schedule(
-            function() log:error(string.format("`python %s help --commands` failed: %s.", manage_py, err)) end
-          )
+          vim.schedule(function() log:error(("`python %s help --commands` failed: %s."):format(manage_py, err)) end)
         end
         if data == nil or err ~= nil then return end
 
         for i, command in pairs(vim.split(data, "\n", { trimempty = true })) do
           table.insert(tasks, {
-            name = string.format("manage.py %s", command),
+            name = ("manage.py %s"):format(command),
             priority = 70 + i,
             params = {
               args = { optional = true, type = "list", delimiter = " " },
@@ -54,7 +52,7 @@ local tmpl = {
     }, function(obj)
       if obj.code ~= 0 then
         vim.schedule(
-          function() log:error(string.format("`python %s help --commands` exited with %d code.", manage_py, obj.code)) end
+          function() log:error(("`python %s help --commands` exited with %d code."):format(manage_py, obj.code)) end
         )
       end
     end)
