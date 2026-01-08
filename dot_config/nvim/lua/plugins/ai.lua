@@ -1,7 +1,9 @@
 ---@type LazySpec
 return {
   {
+    -- NOTE: Replacing in favor of CLI agents (crush, copilot...).
     "olimorris/codecompanion.nvim",
+    enabled = false,
     keys = {
       { "<F2>", "<cmd>CodeCompanion<cr>", desc = "Inline Assistant", mode = { "n", "v", "i" } },
       { "<F12>", "<cmd>CodeCompanionChat Toggle<cr>", desc = "󰭹 Open Chat Buffer", mode = { "n", "v", "i" } },

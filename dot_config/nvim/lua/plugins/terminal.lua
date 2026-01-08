@@ -28,7 +28,7 @@ return {
         end
 
         if vim.fn.executable "node" == 1 then
-          maps.n["<Leader>tn"] = { function() Snacks.terminal.toggle "node" end, desc = "Node REPL" }
+          maps.n["<Leader>tn"] = { function() Snacks.terminal.toggle "mise x -- node" end, desc = "Node REPL" }
         end
 
         local gdu = "gdu"
@@ -49,14 +49,21 @@ return {
 
         local python = vim.fn.executable "python" == 1 and "python" or vim.fn.executable "python3" == 1 and "python3"
         if python then
-          maps.n["<Leader>tp"] = { function() Snacks.terminal.toggle(python) end, desc = "Python REPL" }
+          maps.n["<Leader>tp"] = { function() Snacks.terminal.toggle("mise x -- " .. python) end, desc = "Python REPL" }
         end
 
-        local toggle = function() Snacks.terminal.toggle() end
-        maps.n["<Leader>th"] = { toggle, desc = "Toggle terminal" }
-        maps.n["<F7>"] = { toggle, desc = "Toggle terminal" }
-        maps.t["<F7>"] = { toggle, desc = "Toggle terminal" }
-        maps.i["<F7>"] = { toggle, desc = "Toggle terminal" }
+        local copilot_cli = function() Snacks.terminal.toggle "mise x node@22 npm:@github/copilot -- copilot" end
+        maps.n["<F12>"] = { copilot_cli, desc = "Copilot CLI" }
+        maps.n["<Leader>tc"] = { copilot_cli, desc = "Copilot CLI" }
+        maps.n["<F12>"] = { copilot_cli, desc = "Copilot CLI" }
+        maps.t["<F12>"] = { copilot_cli, desc = "Copilot CLI" }
+        maps.i["<F12>"] = { copilot_cli, desc = "Copilot CLI" }
+
+        local terminal = function() Snacks.terminal.toggle() end
+        maps.n["<Leader>th"] = { terminal, desc = "Toggle terminal" }
+        maps.n["<F7>"] = { terminal, desc = "Toggle terminal" }
+        maps.t["<F7>"] = { terminal, desc = "Toggle terminal" }
+        maps.i["<F7>"] = { terminal, desc = "Toggle terminal" }
       end,
     },
   },
