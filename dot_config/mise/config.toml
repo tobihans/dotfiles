@@ -14,6 +14,28 @@
 "cargo:typstyle" = "latest"
 "cargo:watchexec-cli" = "latest"
 "cargo:zellij" = "latest"
+"github:Kampfkarren/selene" = "latest"
+"github:alexpasmantier/television" = { version = "latest", exe = "tv" }
+"github:ast-grep/ast-grep" = "latest"
+"github:block/goose" = "latest"
+"github:charmbracelet/crush" = "latest"
+"github:dagger/container-use" = "latest"
+"github:docker/docker-credential-helpers" = { version = "latest", exe = "docker-credential-secretservice" }
+"github:elixir-lang/expert" = { version = "nightly", version_prefix = "" }
+"github:exercism/cli" = { version = "latest", exe = "exercism" }
+"github:git-bug/git-bug" = "latest"
+"github:git-ecosystem/git-credential-manager" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
+"github:git-lfs/git-lfs" = "latest"
+"github:google/yamlfmt" = "latest"
+"github:jesseduffield/lazydocker" = "latest"
+"github:jesseduffield/lazygit" = "latest"
+"github:k1LoW/tbls" = "latest"
+"github:knqyf263/pet" = "latest"
+"github:koalaman/shellcheck" = "latest"
+"github:quarylabs/sqruff" = "latest"
+"github:sigstore/cosign" = "latest"
+"github:terrastruct/d2" = "latest"
+"github:typst/typst" = "latest"
 "npm:@github/copilot" = "latest"
 "npm:@google/gemini-cli" = "latest"
 "npm:@qwen-code/qwen-code" = "latest"
@@ -31,34 +53,12 @@
 "pipx:poetry" = "latest"
 "pipx:sqlite-utils" = "latest"
 "pipx:yamllint" = "latest"
-"ubi:Kampfkarren/selene" = "latest"
-"ubi:alexpasmantier/television" = { version = "latest", exe = "tv" }
-"ubi:ast-grep/ast-grep" = "latest"
-"ubi:block/goose" = "latest"
-"ubi:charmbracelet/crush" = "latest"
-"ubi:dagger/container-use" = "latest"
-"ubi:docker/docker-credential-helpers" = { version = "latest", exe = "docker-credential-secretservice" }
-"ubi:elixir-lang/expert" = "nightly"
-"ubi:exercism/cli" = { version = "latest", exe = "exercism" }
-"ubi:git-bug/git-bug" = "latest"
-"ubi:git-ecosystem/git-credential-manager" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
-"ubi:git-lfs/git-lfs" = "latest"
-"ubi:google/yamlfmt" = "latest"
-"ubi:jesseduffield/lazydocker" = "latest"
-"ubi:jesseduffield/lazygit" = "latest"
-"ubi:k1LoW/tbls" = "latest"
-"ubi:knqyf263/pet" = "latest"
-"ubi:koalaman/shellcheck" = "latest"
-"ubi:quarylabs/sqruff" = "latest"
-"ubi:sigstore/cosign" = "latest"
-"ubi:terrastruct/d2" = "latest"
-"ubi:typst/typst" = "latest"
+# "github:TibixDev/winboat" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
+# "github:cloudflare/cloudflared" = "latest"
+# "github:hovancik/stretchly" = { version = "latest", extract_all = "true", matching_regex = "tar.xz$" }
 # "pipx:harlequin" = "latest"
 # "pipx:mitmproxy" = "latest"
 # "pipx:virtualenv" = "latest"
-# "ubi:TibixDev/winboat" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
-# "ubi:cloudflare/cloudflared" = "latest"
-# "ubi:hovancik/stretchly" = { version = "latest", extract_all = "true", matching_regex = "tar.xz$" }
 bun = "latest"
 cargo-binstall = "latest"
 deno = "latest"
