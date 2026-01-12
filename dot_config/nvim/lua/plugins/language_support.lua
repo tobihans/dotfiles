@@ -1,13 +1,11 @@
 ---@type LazySpec
 return {
   { "OXY2DEV/helpview.nvim", ft = "help" },
-  { "terrastruct/d2-vim",    ft = "d2" },
-  { "kaarmu/typst.vim",      ft = "typst", init = function() vim.g.typst_syntax_highlight = 0 end },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "Avante", "codecompanion" },
+    ft = { "markdown" },
     opts = {
-      file_types = { "Avante", "codecompanion", "markdown", "noice", "octo" },
+      file_types = { "markdown", "noice", "octo" },
       render_modes = { "n", "v", "c" },
     },
   },

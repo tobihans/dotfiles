@@ -1,14 +1,4 @@
 return {
-  go = {
-    { "<Localleader>g", group = " Go Tools" },
-    { "<Localleader>gf", "<cmd>GoIfErr<cr>", desc = " Generate if err" },
-    { "<Localleader>gi", "<cmd>GoImpl<cr>", desc = " Implement interface" },
-
-    { "<Localleader>gt", group = "󰗇 Tests" },
-    { "<Localleader>gta", "<cmd>GoTestAdd<cr>", desc = " Generate test" },
-    { "<Localleader>gte", "<cmd>GoTestsExp<cr>", desc = " Generate test for exported" },
-    { "<Localleader>gtA", "<cmd>GoTestsAll<cr>", desc = " Generate test for all" },
-  },
   rust = {
     { "<Localleader>r", group = "󱘗 Rust Tools" },
     { "<Localleader>rD", function() vim.cmd.RustLsp "renderDiagnostic" end, desc = " Render diagnostics" },
@@ -27,13 +17,8 @@ return {
       function() vim.cmd.RustLsp { "workspaceSymbol", "allSymbols" } end,
       desc = " Search workspace symbols",
     },
-    { "<Localleader>rt", function() vim.cmd.RustLsp "syntaxTree" end, desc = " View syntax tree" },
+    { "<Localleader>rt", function() vim.cmd.RustLsp "syntaxTree" end,  desc = " View syntax tree" },
     { "<Localleader>rx", function() vim.cmd.RustLsp "expandMacro" end, desc = " Expand Macros Recursively" },
-  },
-  typst = {
-    { "<Localleader>t", group = "󰈦 Typst tools" },
-    { "<Localleader>tw", "<cmd>TypstWatch<cr>", desc = " Watch and compile your document" },
-    { "<Localleader>tc", "<cmd>Tocv<cr>", desc = " Table of contents" },
   },
   typescript = {
     { "<Localleader>t", group = " Typescript tools" },

@@ -34,21 +34,11 @@ return {
             lang_to_formatters = {},
           },
         },
-        typstyle = {
-          command = "typstyle",
-          args = { "-c", "120" },
-        },
-        -- qmlformat = {
-        --   command = "qmlformat",
-        -- }
       },
       formatters_by_ft = {
         astro = biome_or_prettier,
         css = biome_or_prettier,
-        d2 = { "d2" },
-        go = { "goimports", "gofmt" },
         graphql = biome_or_prettier,
-        -- html = biome_or_prettier,
         htmldjango = { "djlint" },
         hurl = { "hurlfmt", "injected" },
         javascript = biome_or_prettier,
@@ -70,7 +60,6 @@ return {
             return biome_or_prettier(bufnr)
           end
         end,
-        typst = { "typstyle", "injected" },
         yaml = { "yamlfmt" },
       },
       format_on_save = function(bufnr)

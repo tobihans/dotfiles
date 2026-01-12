@@ -28,7 +28,6 @@ return {
         "deno",
         "docker-compose-language-service",
         "dockerfile-language-server",
-        "gopls",
         "html-lsp",
         "json-lsp",
         "lua-language-server",
