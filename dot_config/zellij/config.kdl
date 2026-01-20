@@ -11,6 +11,7 @@ keybinds clear-defaults=true {
             MessagePlugin "autolock" {payload "disable";};
             SwitchToMode "normal";
         }
+        bind "Alt f" { ToggleFloatingPanes; }
     }
     pane {
         bind "left" { MoveFocus "left"; }

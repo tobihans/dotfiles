@@ -14,6 +14,7 @@
 "github:Kampfkarren/selene" = "latest"
 "github:alexpasmantier/television" = { version = "latest", exe = "tv" }
 "github:ast-grep/ast-grep" = "latest"
+"github:dagger/container-use" = "latest"
 "github:docker/docker-credential-helpers" = { version = "latest", exe = "docker-credential-secretservice" }
 "github:exercism/cli" = { version = "latest", exe = "exercism" }
 "github:git-ecosystem/git-credential-manager" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
@@ -48,7 +49,6 @@
 # "github:block/goose" = "latest"
 # "github:charmbracelet/crush" = "latest"
 # "github:cloudflare/cloudflared" = "latest"
-# "github:dagger/container-use" = "latest"
 # "github:elixir-lang/expert" = { version = "latest", version_prefix = "" }
 # "github:git-bug/git-bug" = "latest"
 # "github:hovancik/stretchly" = { version = "latest", extract_all = "true", matching_regex = "tar.xz$" }
