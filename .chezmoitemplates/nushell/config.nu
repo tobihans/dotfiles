@@ -64,27 +64,7 @@ $env.config = {
             mode: emacs
             event: {
                 send: executehostcommand,
-                cmd: "try { television }"
-            }
-        }
-        {
-            name: goose
-            modifier: control
-            keycode: char_g
-            mode: emacs
-            event: {
-                send: executehostcommand,
-                cmd: "goose project"
-            }
-        },
-        {
-            name: crush
-            modifier: control
-            keycode: char_h
-            mode: emacs
-            event: {
-                send: executehostcommand,
-                cmd: "crush"
+                cmd: "television"
             }
         }
     ],

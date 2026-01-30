@@ -36,6 +36,9 @@ def crush --wrapped [...args: string] {
 def television [] {
   let query = (commandline)
   let channel: string = (tv list-channels | split row (char newline) | input list --fuzzy 'Select tv channel')
+
+  if $channel == "" { return }
+
   let result: string = (tv -i $"($query)" $channel)
 
   if $result != "" {
