@@ -28,11 +28,9 @@
 "github:sigstore/cosign" = "latest"
 "github:terrastruct/d2" = "latest"
 "github:typst/typst" = "latest"
-"npm:@github/copilot" = "latest"
 "npm:heroku" = "latest"
 "npm:markdownlint-cli" = "latest"
 "npm:opencode-ai" = "latest"
-"npm:oxlint" = "latest"
 "npm:pnpm" = "latest"
 "npm:prettier" = "latest"
 "npm:surge" = "latest"
@@ -53,9 +51,11 @@
 # "github:git-bug/git-bug" = "latest"
 # "github:hovancik/stretchly" = { version = "latest", extract_all = "true", matching_regex = "tar.xz$" }
 # "github:k1LoW/tbls" = "latest"
+# "npm:@github/copilot" = "latest"
 # "npm:@google/gemini-cli" = "latest"
 # "npm:@qwen-code/qwen-code" = "latest"
 # "npm:@withgraphite/graphite-cli" = "stable"
+# "npm:oxlint" = "latest"
 # "pipx:ansible-lint" = "latest"
 # "pipx:harlequin" = "latest"
 # "pipx:mitmproxy" = "latest"
@@ -82,3 +82,4 @@ paranoid = true
 pipx_uvx = true
 python.uv_venv_auto = true
 vfox = false
+
