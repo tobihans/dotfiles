@@ -287,7 +287,7 @@ plugins {
     // 3rd party plugins
     autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
         is_enabled true
-        triggers "crush|nvim|vim|git|fzf|zoxide|atuin|tv|nano"
+        triggers "opencode|nvim|vim|git|fzf|zoxide|atuin|tv|nano"
         reaction_seconds "0.3"
         print_to_log true
     }
