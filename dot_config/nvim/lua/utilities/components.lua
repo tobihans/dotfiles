@@ -17,8 +17,8 @@ M.clock = status.component.builder {
     "ModeChanged",
     callback = vim.schedule_wrap(function(_, args)
       if
-          (args.event == "User" and args.match == "UpdateTime")
-          or (args.event == "ModeChanged" and args.match:match ".*:.*")
+        (args.event == "User" and args.match == "UpdateTime")
+        or (args.event == "ModeChanged" and args.match:match ".*:.*")
       then
         vim.cmd.redrawstatus()
       end
@@ -54,9 +54,9 @@ M.ai = {
 function M.start_clock_timer()
   vim.uv.new_timer():start(
     (60 - tonumber(os.date "%S")) * 1000, -- offset timer based on current seconds past the minute
-    60000,                                -- update every 60 seconds
+    60000, -- update every 60 seconds
     vim.schedule_wrap(function()
-      vim.api.nvim_exec_autocmds(         -- emit our new User event
+      vim.api.nvim_exec_autocmds( -- emit our new User event
         "User",
         { pattern = "UpdateTime", modeline = false }
       )

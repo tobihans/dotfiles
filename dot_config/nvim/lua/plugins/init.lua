@@ -102,10 +102,7 @@ return {
         },
         separators = {
           center = { "  ", "  " },
-          -- left = { "", "" },
           none = { "", "" },
-          -- right = { " ", "" },
-          -- tab = { "", "" },
         },
       },
       lazygit = false,
@@ -114,7 +111,7 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      preset = "modern",
+      preset = "classic",
     },
   },
   { "AstroNvim/astrotheme",                enabled = false },
@@ -129,4 +126,9 @@ return {
   { "windwp/nvim-ts-autotag",              enabled = false },
   { "akinsho/toggleterm.nvim",             enabled = false },
   { "antosha417/nvim-lsp-file-operations", enabled = false },
+  { "max397574/better-escape.nvim",        enabled = false },
+  --- 3rd party plugins
+  { "OXY2DEV/helpview.nvim",               enabled = false, ft = "help" },
+  { "NStefan002/screenkey.nvim",           enabled = false, cmd = "Screenkey", config = true },
+  { "vuki656/package-info.nvim",           enabled = false },
 }

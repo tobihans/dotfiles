@@ -151,7 +151,7 @@ function M.secret(key, set)
     vim.system(
       { "get_develop_secret", key },
       { text = true },
-      vim.schedule_wrap(function( --[[@param job vim.SystemCompleted]] job)
+      vim.schedule_wrap(function( --[[@param job vim.SystemCompleted]]job)
         if job.code == 0 then vim.env[key] = job.stdout:gsub("%s+", "") end
       end)
     )

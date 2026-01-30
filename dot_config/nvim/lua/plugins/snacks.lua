@@ -4,7 +4,7 @@ return {
   lazy = false,
   priority = 1000,
   keys = {
-    { "<Leader>:",      function() Snacks.picker.command_history() end, desc = "Command History" },
+    { "<Leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
     {
       "<Leader>c",
       function()
@@ -14,8 +14,8 @@ return {
       end,
       desc = "Close buffer",
     },
-    { "<Localleader>.", function() Snacks.scratch() end,                desc = "Toggle Scratch Buffer" },
-    { "<Localleader>S", function() Snacks.scratch.select() end,         desc = "Select Scratch Buffer" },
+    { "<Localleader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    { "<Localleader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {
@@ -51,7 +51,7 @@ return {
       },
       sections = {
         { section = "header" },
-        { section = "keys",   gap = 1, padding = 1 },
+        { section = "keys", gap = 1, padding = 1 },
         { section = "startup" },
       },
     },

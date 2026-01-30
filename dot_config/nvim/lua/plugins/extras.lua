@@ -1,8 +1,7 @@
 ---@diagnostic disable: missing-fields
 ---@type LazySpec
 return {
-  { "tiagovla/scope.nvim",       event = "VeryLazy", priority = 1500 },
-  { "NStefan002/screenkey.nvim", cmd = "Screenkey",  config = true },
+  { "tiagovla/scope.nvim", event = "VeryLazy", priority = 1500 },
   {
     "kosayoda/nvim-lightbulb",
     event = "LspAttach",
@@ -52,7 +51,4 @@ return {
       }
     end,
   },
-  -- "folke/drop.nvim"
-  -- "tamton-aquib/zone.nvim"
-  -- "zeioth/garbage-day.nvim"
 }

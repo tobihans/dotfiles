@@ -1,6 +1,5 @@
 ---@type LazySpec
 return {
-  { "OXY2DEV/helpview.nvim", ft = "help" },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown" },
@@ -20,7 +19,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
     event = "User AstroFile",
     keys = {
-      { "<Leader>rr", function() require("refactoring").select_refactor() end,             desc = "Refactors" },
+      { "<Leader>rr", function() require("refactoring").select_refactor() end, desc = "Refactors" },
       { "<Leader>rp", function() require("refactoring").debug.printf { below = true } end, desc = "Debug print" },
       {
         "<Leader>rv",

@@ -9,13 +9,11 @@ local M = {
     { "<M-Right>", "<Cmd>vertical resize +2<CR>", desc = "Resize split right" },
     { "<Localleader><Localleader>", require("utilities.pickers").quick, desc = "Quick Actions" },
 
-    -- { "<Leader>a", group = "󱙺 AI Assistance", mode = { "n", "v" } },
     { "<Leader>G", group = "󱎓 Games" },
     { "<Leader>O", group = "  Octo" },
     { "<Leader>o", group = "  Overseer" },
     { "<Leader>s", group = "󰛔 Search/Replace" },
 
-    { "<Leader><Enter>", "<cmd>noh | NoiceDismiss<cr>", desc = "No Highlight" },
     { "<Leader>n", require("utilities.pickers").new_file, desc = "New File" },
     {
       "<Leader>um",
@@ -46,16 +44,13 @@ local M = {
       desc = "Save",
     },
 
-    { "<Localleader>R", "<cmd>edit<cr>", desc = "Reload Buffer" },
+    -- { "<Localleader>R", "<cmd>edit<cr>", desc = "Reload Buffer" },
 
     {
       "<Leader>Sc",
       require("utilities").load_neovim_config,
       desc = "Open Config",
     },
-  },
-  t = {
-    { "<C-`>", "<C-\\><C-n>", desc = " Exit Terminal Mode" },
   },
 }
 

@@ -18,11 +18,11 @@ function M.get_python_path(workspace)
   local glob = vim.fn.glob(vim.fs.joinpath(workspace, "poetry.lock"))
   if glob ~= "" then
     local obj = vim
-        .system({ "mise", "x", "pipx:poetry", "--", "poetry", "env", "info", "-p" }, {
-          text = true,
-          cwd = vim.fn.fnamemodify(glob, ":h"),
-        })
-        :wait()
+      .system({ "mise", "x", "pipx:poetry", "--", "poetry", "env", "info", "-p" }, {
+        text = true,
+        cwd = vim.fn.fnamemodify(glob, ":h"),
+      })
+      :wait()
 
     if obj.code ~= 0 then
       vim.notify_once("Failed to inspect poetry environment", vim.log.levels.ERROR)

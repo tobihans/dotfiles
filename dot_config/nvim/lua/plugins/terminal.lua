@@ -14,7 +14,7 @@ return {
             callback = function()
               local worktree = astro.file_worktree()
               local flags = worktree and (" --work-tree=%s --git-dir=%s"):format(worktree.toplevel, worktree.gitdir)
-                  or ""
+                or ""
               Snacks.terminal.toggle("mise x -- lazygit " .. flags)
             end,
             desc = "Lazygit",

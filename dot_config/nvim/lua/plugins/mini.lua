@@ -23,9 +23,10 @@ return {
     end
   end,
   config = function()
-    require("mini.move").setup()
-    require("mini.bufremove").setup()
-    require("mini.cursorword").setup()
+    require("mini.move").setup {}
+    require("mini.bufremove").setup {}
+    require("mini.cursorword").setup {}
+    require("mini.keymap").setup {}
     require("mini.pairs").setup {
       modes = { insert = true, command = true },
     }
@@ -54,5 +55,17 @@ return {
         d2 = { glyph = "", hl = "MiniIconsBlue" },
       },
     }
+
+    --- Keymaps (TODO: Find a better way to organize these)
+    local map_combo = require("mini.keymap").map_combo
+
+    --- Escape into Normal mode from Insert or Command-line mode
+    map_combo({ "i", "c", "x", "s" }, "jk", "<BS><BS><Esc>")
+    -- Escape into Normal mode from Terminal mode
+    map_combo("t", "jk", "<BS><BS><C-\\><C-n>")
+    --- Hide search highlighting
+    map_combo({ "n", "i", "x", "c" }, "<Esc><Esc>", "<cmd>noh | NoiceDismiss<cr>")
+    --- Reload file
+    map_combo({ "i" }, "rr", "<cmd>edit<cr>")
   end,
 }

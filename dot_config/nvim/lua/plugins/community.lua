@@ -62,28 +62,4 @@ return {
       return opts
     end,
   },
-  -- JS/TS
-  {
-    "vuki656/package-info.nvim",
-    dependencies = "MunifTanjim/nui.nvim",
-    init = function()
-      vim.api.nvim_create_autocmd("BufRead", {
-        group = vim.api.nvim_create_augroup("PackageJsonKeymap", { clear = true }),
-        desc = "Setup package-info.nvim keymaps into package.json buffers",
-        pattern = "package.json",
-        callback = function()
-          local package_info = require "package-info"
-
-          require("which-key").add({
-            { "<Localleader>p", group = "󰏗 Package.json tools" },
-            { "<Localleader>pt", function() package_info.toggle { force = true } end, desc = "Toggle" },
-            { "<Localleader>pd", package_info.delete, desc = "Delete package" },
-            { "<Localleader>pi", package_info.install, desc = "Install a package" },
-            { "<Localleader>pu", package_info.update, desc = "Update package" },
-            { "<Localleader>pv", package_info.change_version, desc = "Change package version" },
-          }, { silent = true, noremap = true })
-        end,
-      })
-    end,
-  },
 }

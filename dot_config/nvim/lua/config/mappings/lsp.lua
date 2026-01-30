@@ -17,7 +17,7 @@ return {
       function() vim.cmd.RustLsp { "workspaceSymbol", "allSymbols" } end,
       desc = " Search workspace symbols",
     },
-    { "<Localleader>rt", function() vim.cmd.RustLsp "syntaxTree" end,  desc = " View syntax tree" },
+    { "<Localleader>rt", function() vim.cmd.RustLsp "syntaxTree" end, desc = " View syntax tree" },
     { "<Localleader>rx", function() vim.cmd.RustLsp "expandMacro" end, desc = " Expand Macros Recursively" },
   },
   typescript = {
