@@ -14,7 +14,7 @@ return {
             callback = function()
               local worktree = astro.file_worktree()
               local flags = worktree and (" --work-tree=%s --git-dir=%s"):format(worktree.toplevel, worktree.gitdir)
-                or ""
+                  or ""
               Snacks.terminal.toggle("mise x -- lazygit " .. flags)
             end,
             desc = "Lazygit",
@@ -52,12 +52,12 @@ return {
           maps.n["<Leader>tp"] = { function() Snacks.terminal.toggle("mise x -- " .. python) end, desc = "Python REPL" }
         end
 
-        local copilot_cli = function() Snacks.terminal.toggle "mise x node@22 npm:@github/copilot -- copilot" end
-        maps.n["<F12>"] = { copilot_cli, desc = "Copilot CLI" }
-        maps.n["<Leader>tc"] = { copilot_cli, desc = "Copilot CLI" }
-        maps.n["<F12>"] = { copilot_cli, desc = "Copilot CLI" }
-        maps.t["<F12>"] = { copilot_cli, desc = "Copilot CLI" }
-        maps.i["<F12>"] = { copilot_cli, desc = "Copilot CLI" }
+        -- local opencode = function() Snacks.terminal.toggle "mise x node@latest npm:opencode-ai -- opencode" end
+        -- maps.n["<F12>"] = { opencode, desc = "OpenCode CLI" }
+        -- maps.n["<Leader>to"] = { opencode, desc = "OpenCode CLI" }
+        -- maps.n["<F12>"] = { opencode, desc = "OpenCode CLI" }
+        -- maps.t["<F12>"] = { opencode, desc = "OpenCode CLI" }
+        -- maps.i["<F12>"] = { opencode, desc = "OpenCode CLI" }
 
         local terminal = function() Snacks.terminal.toggle() end
         maps.n["<Leader>th"] = { terminal, desc = "Toggle terminal" }

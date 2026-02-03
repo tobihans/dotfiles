@@ -61,11 +61,11 @@ return {
 
     --- Escape into Normal mode from Insert or Command-line mode
     map_combo({ "i", "c", "x", "s" }, "jk", "<BS><BS><Esc>")
+    map_combo({ "i", "c", "x", "s" }, "kj", "<BS><BS><Esc>")
     -- Escape into Normal mode from Terminal mode
     map_combo("t", "jk", "<BS><BS><C-\\><C-n>")
+    map_combo("t", "kj", "<BS><BS><C-\\><C-n>")
     --- Hide search highlighting
     map_combo({ "n", "i", "x", "c" }, "<Esc><Esc>", "<cmd>noh | NoiceDismiss<cr>")
-    --- Reload file
-    map_combo({ "i" }, "rr", "<cmd>edit<cr>")
   end,
 }
