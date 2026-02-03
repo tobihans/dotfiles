@@ -22,23 +22,29 @@ brew "docker-compose"
 brew "docker-credential-helper"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# GNU multiple precision arithmetic library
-brew "gmp"
-# Play, record, convert, and stream audio and video
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU multiple precision arithmetic library
+brew "gmp"
 # Disk usage analyzer with console interface written in Go
 brew "gdu"
 # GitHub command-line tool
 brew "gh"
+# Distributed revision control system
+brew "git"
+# Tcl/Tk UI for the git revision control system
+brew "git-gui"
 # Library for command-line editing
 brew "readline"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Popular GNU data compression program
+brew "gzip"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
-# Tools and libraries to manipulate images in many formats
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Postgres C API library
 brew "libpq", link: true
@@ -70,6 +76,7 @@ brew "wget"
 brew "zenity"
 # Web browser
 cask "firefox@developer-edition"
+cask "font-iosevka"
 cask "font-victor-mono"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
@@ -83,10 +90,6 @@ cask "obsidian"
 cask "raycast"
 # Customizable email client
 cask "thunderbird"
-# Google Chromium, sans integration with Google
-cask "ungoogled-chromium"
-# Virtual machines UI using QEMU
-cask "utm"
 # Gecko based web browser
 cask "zen"
 # Video communication and virtual meeting platform

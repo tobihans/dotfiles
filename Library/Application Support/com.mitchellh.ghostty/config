@@ -3,7 +3,8 @@
 background-opacity = 0.95
 command = /opt/homebrew/bin/nu
 config-file = ?theme
-font-family = "Victor Mono"
+# font-family = "Victor Mono"
+font-family = "Iosevka Term"
 font-size = 14
 macos-option-as-alt = left
 window-height = 30
