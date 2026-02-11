@@ -137,8 +137,8 @@ keybinds clear-defaults=true {
         }
         bind "w" {
             LaunchOrFocusPlugin "session-manager" {
-                floating true
-                move_to_focused_tab true
+                floating false
+                move_to_focused_tab false
             }
             SwitchToMode "normal"
         }
@@ -277,10 +277,7 @@ plugins {
     strider location="zellij:strider"
     tab-bar location="zellij:tab-bar"
     welcome-screen location="zellij:session-manager" {
-        welcome_screen true
-        floating false
-        move_to_focused_tab true
-        close_on_exit true
+        welcome_screen false
     }
     // 3rd party plugins
     autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
