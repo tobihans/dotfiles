@@ -1,7 +1,7 @@
 # Simple, modern, secure file encryption
 brew "age"
 # Improved shell history for zsh, bash, fish and nushell
-brew "atuin"
+brew "atuin", restart_service: :changed
 # Automatic configure script builder
 brew "autoconf"
 # Cryptography and SSL/TLS Toolkit
@@ -76,7 +76,6 @@ brew "wget"
 brew "zenity"
 # Web browser
 cask "firefox@developer-edition"
-cask "font-iosevka"
 cask "font-victor-mono"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
