@@ -11,7 +11,6 @@ keybinds clear-defaults=true {
             MessagePlugin "autolock" {payload "disable";};
             SwitchToMode "normal";
         }
-        bind "Alt f" { ToggleFloatingPanes; }
     }
     pane {
         bind "left" { MoveFocus "left"; }
@@ -145,12 +144,8 @@ keybinds clear-defaults=true {
         }
     }
     shared {
-        bind "Alt Shift z" {
-            MessagePlugin "autolock" {payload "enable";};
-        }
+        bind "Alt Shift z" { MessagePlugin "autolock" {payload "enable";}; }
         bind "Ctrl Shift q" { Quit; }
-    }
-    shared_except "locked" {
         bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt down" { MoveFocus "down"; }
         bind "Alt up" { MoveFocus "up"; }
@@ -163,19 +158,19 @@ keybinds clear-defaults=true {
         bind "Alt f" { ToggleFloatingPanes; }
         bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt i" { MoveTab "left"; }
-        bind "Alt j" { MoveFocus "down"; }
-        bind "Alt k" { MoveFocus "up"; }
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
+    }
+    shared_except "locked" {
+        bind "Alt j" { MoveFocus "down"; }
+        bind "Alt k" { MoveFocus "up"; }
         bind "Alt z" {
             MessagePlugin "autolock" {payload "disable";};
-            // Lock Zellij.
             SwitchToMode "Locked";
         }
-        bind "Ctrl q" { Quit; }
     }
     shared_except "locked" "move" {
         bind "Ctrl h" { SwitchToMode "move"; }
@@ -283,6 +278,9 @@ plugins {
     tab-bar location="zellij:tab-bar"
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
+        floating false
+        move_to_focused_tab true
+        close_on_exit true
     }
     // 3rd party plugins
     autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
