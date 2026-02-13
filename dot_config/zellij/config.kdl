@@ -115,16 +115,16 @@ keybinds clear-defaults=true {
         }
         bind "c" {
             LaunchOrFocusPlugin "configuration" {
-                floating true
-                move_to_focused_tab true
+                floating false
+                move_to_focused_tab false
             }
             SwitchToMode "normal"
         }
         bind "Ctrl o" { SwitchToMode "normal"; }
         bind "p" {
             LaunchOrFocusPlugin "plugin-manager" {
-                floating true
-                move_to_focused_tab true
+                floating false
+                move_to_focused_tab false
             }
             SwitchToMode "normal"
         }
