@@ -108,12 +108,7 @@ return {
       lazygit = false,
     },
   },
-  {
-    "folke/which-key.nvim",
-    opts = {
-      preset = "classic",
-    },
-  },
+  { "folke/which-key.nvim",                opts = { preset = "modern" } },
   { "AstroNvim/astrotheme",                enabled = false },
   { "L3MON4D3/LuaSnip",                    enabled = false },
   { "RRethy/vim-illuminate",               enabled = false },
@@ -128,7 +123,7 @@ return {
   { "antosha417/nvim-lsp-file-operations", enabled = false },
   { "max397574/better-escape.nvim",        enabled = false },
   --- 3rd party plugins
-  { "OXY2DEV/helpview.nvim",               enabled = false, ft = "help" },
-  { "NStefan002/screenkey.nvim",           enabled = false, cmd = "Screenkey", config = true },
+  { "OXY2DEV/helpview.nvim",               enabled = false,             ft = "help" },
+  { "NStefan002/screenkey.nvim",           enabled = false,             cmd = "Screenkey", config = true },
   { "vuki656/package-info.nvim",           enabled = false },
 }

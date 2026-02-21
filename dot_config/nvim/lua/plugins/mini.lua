@@ -65,6 +65,9 @@ return {
     -- Escape into Normal mode from Terminal mode
     map_combo("t", "jk", "<BS><BS><C-\\><C-n>")
     map_combo("t", "kj", "<BS><BS><C-\\><C-n>")
+    -- Reload in normal mode
+    map_combo({ "n" }, "jk", "<cmd>edit<cr>")
+    map_combo({ "n" }, "kj", "<cmd>edit<cr>")
     --- Hide search highlighting
     map_combo({ "n", "i", "x", "c" }, "<Esc><Esc>", "<cmd>noh | NoiceDismiss<cr>")
   end,
