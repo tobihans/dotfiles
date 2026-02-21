@@ -26,14 +26,13 @@
 "github:koalaman/shellcheck" = "latest"
 "github:quarylabs/sqruff" = "latest"
 "github:sigstore/cosign" = "latest"
-"github:terrastruct/d2" = "latest"
+# "github:terrastruct/d2" = "latest"
 "github:typst/typst" = "latest"
 "npm:heroku" = "latest"
 "npm:markdownlint-cli" = "latest"
 "npm:opencode-ai" = "latest"
 "npm:pnpm" = "latest"
 "npm:prettier" = "latest"
-"npm:surge" = "latest"
 "pipx:ansible" = { version = "latest", uvx_args = "--with-executables-from ansible-core,ansible-lint" }
 "pipx:djlint" = "latest"
 "pipx:grip" = "latest"
@@ -71,6 +70,7 @@ node = "latest"
 prek = "latest"
 ruby = "3.4.7"
 uv = "latest"
+"github:lightpanda-io/gomcp" = { version = "latest", bin = "lightpanda-io-mcp" }
 
 [settings]
 asdf = false
