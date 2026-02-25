@@ -8,23 +8,11 @@ return {
   {
     icon = "󰡱",
     desc = "Github Action Watch",
-    fn = function()
-      require("astrocore").toggle_term_cmd {
-        cmd = "gh run watch --exit-status",
-        auto_scroll = true,
-        close_on_exit = false,
-      }
-    end,
+    fn = function() Snacks.terminal.toggle "gh run watch --exit-status" end,
   },
   {
     icon = "󰡱",
     desc = "Gitlab CI View",
-    function()
-      require("astrocore").toggle_term_cmd {
-        cmd = "glab pipeline ci view",
-        auto_scroll = false,
-        close_on_exit = true,
-      }
-    end,
+    fn = function() Snacks.terminal.toggle "glab pipeline ci view" end,
   },
 }

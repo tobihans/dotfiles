@@ -7,7 +7,7 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, { "solargraph", "ruby_lsp" })
+          require("astrocore").list_insert_unique(opts.ensure_installed, { "solargraph", "ruby_lsp" })
     end,
   },
   {
@@ -15,6 +15,7 @@ return {
     opts = {
       config = {
         ruby_lsp = {
+          cmd = { "mise", "x", "--", "ruby-lsp" },
           init_options = {
             enabledFeatures = {
               formatting = true,
