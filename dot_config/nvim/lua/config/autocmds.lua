@@ -22,8 +22,17 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { -- Enable spell check
 })
 
 vim.api.nvim_create_autocmd("DirChanged", { -- Loads local configuration file when cwd changes
-  -- This is especially useful with Neovide, where I use :cd a lot.
   group = vim.api.nvim_create_augroup("LoadExrc", { clear = true }),
   pattern = "global",
   callback = function(_event) require("utilities").load_exrc() end,
 })
+
+if vim.v.vim_did_enter then
+  require("utilities").zellij_load_dirsession()
+else
+  vim.api.nvim_create_autocmd("VimEnter", {
+    group = vim.api.nvim_create_augroup("LoadExrc", { clear = false }),
+    pattern = "*",
+    callback = function(_event) require("utilities").zellij_load_dirsession() end,
+  })
+end

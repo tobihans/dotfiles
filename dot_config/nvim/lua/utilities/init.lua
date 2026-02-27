@@ -151,7 +151,7 @@ function M.secret(key, set)
     vim.system(
       { "get_develop_secret", key },
       { text = true },
-      vim.schedule_wrap(function( --[[@param job vim.SystemCompleted]]job)
+      vim.schedule_wrap(function( --[[@param job vim.SystemCompleted]] job)
         if job.code == 0 then vim.env[key] = job.stdout:gsub("%s+", "") end
       end)
     )
@@ -159,6 +159,11 @@ function M.secret(key, set)
     local job = vim.system({ "get_develop_secret", key }, { text = true }):wait()
     if job.code == 0 then return job.stdout:gsub("%s+", "") end
   end
+end
+
+function M.zellij_load_dirsession()
+  if vim.env.ZELLIJ == nil then return end
+  require("resession").load(vim.fn.getcwd(), { dir = "dirsession" })
 end
 
 return M
