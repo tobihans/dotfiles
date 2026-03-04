@@ -4,7 +4,7 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown" },
     opts = {
-      file_types = { "markdown", "noice", "octo" },
+      file_types = { "markdown", "noice" },
       render_modes = { "n", "v", "c" },
     },
   },
@@ -19,7 +19,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
     event = "User AstroFile",
     keys = {
-      { "<Leader>rr", function() require("refactoring").select_refactor() end, desc = "Refactors" },
+      { "<Leader>rr", function() require("refactoring").select_refactor() end,             desc = "Refactors" },
       { "<Leader>rp", function() require("refactoring").debug.printf { below = true } end, desc = "Debug print" },
       {
         "<Leader>rv",

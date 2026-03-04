@@ -10,7 +10,6 @@ local M = {
     { "<Localleader><Localleader>", require("utilities.pickers").quick, desc = "Quick Actions" },
 
     { "<Leader>G", group = "󱎓 Games" },
-    { "<Leader>O", group = "  Octo" },
     { "<Leader>o", group = "  Overseer" },
     { "<Leader>s", group = "󰛔 Search/Replace" },
 

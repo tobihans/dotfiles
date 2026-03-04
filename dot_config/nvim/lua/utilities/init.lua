@@ -163,7 +163,7 @@ end
 
 function M.zellij_load_dirsession()
   if vim.env.ZELLIJ == nil then return end
-  require("resession").load(vim.fn.getcwd(), { dir = "dirsession" })
+  vim.schedule(function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true }) end)
 end
 
 return M

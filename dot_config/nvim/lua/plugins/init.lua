@@ -32,7 +32,7 @@ return {
             vim.fn.expand "~/Documents/",
             vim.fn.expand "~/Desktop/",
           },
-          filetypes = { "gitcommit", "gitrebase", "octo", "sql" },
+          filetypes = { "gitcommit", "gitrebase", "markdown.gh", "sql" },
           buftypes = {},
         },
       },
