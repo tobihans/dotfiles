@@ -24,12 +24,14 @@
 "github:jesseduffield/lazygit" = "latest"
 "github:knqyf263/pet" = "latest"
 "github:koalaman/shellcheck" = "latest"
+"github:lightpanda-io/gomcp" = { version = "latest", bin = "lightpanda-io-mcp" }
+"github:max-sixty/worktrunk" = "latest"
 "github:quarylabs/sqruff" = "latest"
 "github:sigstore/cosign" = "latest"
-# "github:terrastruct/d2" = "latest"
 "github:typst/typst" = "latest"
 "npm:heroku" = "latest"
 "npm:markdownlint-cli" = "latest"
+"npm:neonctl" = "latest"
 "npm:opencode-ai" = "latest"
 "npm:pnpm" = "latest"
 "npm:prettier" = "latest"
@@ -37,7 +39,6 @@
 "pipx:djlint" = "latest"
 "pipx:grip" = "latest"
 "pipx:litecli" = "latest"
-"pipx:poetry" = "latest"
 "pipx:yamllint" = "latest"
 # "aqua:pulumi/pulumi" = "latest"
 # "cargo:mdbook" = "latest"
@@ -50,6 +51,7 @@
 # "github:git-bug/git-bug" = "latest"
 # "github:hovancik/stretchly" = { version = "latest", extract_all = "true", matching_regex = "tar.xz$" }
 # "github:k1LoW/tbls" = "latest"
+# "github:terrastruct/d2" = "latest"
 # "npm:@github/copilot" = "latest"
 # "npm:@google/gemini-cli" = "latest"
 # "npm:@qwen-code/qwen-code" = "latest"
@@ -58,6 +60,7 @@
 # "pipx:ansible-lint" = "latest"
 # "pipx:harlequin" = "latest"
 # "pipx:mitmproxy" = "latest"
+# "pipx:poetry" = "latest"
 # "pipx:sqlite-utils" = "latest"
 # "pipx:virtualenv" = "latest"
 bun = "latest"
@@ -70,7 +73,6 @@ node = "latest"
 prek = "latest"
 ruby = "3.4.7"
 uv = "latest"
-"github:lightpanda-io/gomcp" = { version = "latest", bin = "lightpanda-io-mcp" }
 
 [settings]
 asdf = false
