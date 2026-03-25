@@ -13,6 +13,7 @@ local M = {
     { "<Leader>o", group = "  Overseer" },
     { "<Leader>s", group = "󰛔 Search/Replace" },
 
+    { "<Leader>gw", require("utilities.pickers").worktrees, desc = "Worktrees" },
     { "<Leader>n", require("utilities.pickers").new_file, desc = "New File" },
     {
       "<Leader>um",
