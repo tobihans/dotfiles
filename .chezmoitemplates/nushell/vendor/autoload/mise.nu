@@ -1,1 +1,1 @@
-{{ output "mise" "activate" "nu" | trim }}
+{{ output "nu" "-c" "^mise activate nu" | trim }}
