@@ -6,6 +6,7 @@ keybinds {
             WriteChars "\u{000D}";
             MessagePlugin "autolock" {};
         }
+        bind "Alt q" { SwitchToMode "Locked"; }
     }
     locked {
         bind "Alt z" {
@@ -184,6 +185,28 @@ keybinds {
         bind "d" { Detach; }
         bind "Space" { NextSwapLayout; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
+    }
+    shared {
+        bind "Ctrl Shift q" { Quit; }
+        bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt n" { NewPane; }
+        bind "Alt i" { MoveTab "Left"; }
+        bind "Alt o" { MoveTab "Right"; }
+        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Alt Down" { MoveFocus "Down"; }
+        bind "Alt Up" { MoveFocus "Up"; }
+        bind "Alt =" "Alt +" { Resize "Increase"; }
+        bind "Alt -" { Resize "Decrease"; }
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
+        bind "Alt p" { TogglePaneInGroup; }
+        bind "Alt z" {
+            MessagePlugin "autolock" {payload "disable";};
+            SwitchToMode "Locked";
+        }
+        bind "Alt Shift p" { ToggleGroupMarking; }
+        bind "Alt Shift z" { MessagePlugin "autolock" {payload "enable";}; }
     }
     shared_except "locked" {
         bind "Ctrl Shift q" { Quit; }

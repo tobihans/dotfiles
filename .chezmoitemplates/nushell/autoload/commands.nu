@@ -34,6 +34,8 @@ def crush --wrapped [...args: string] {
 
 
 def television [] {
+  $env.SHELL = "nu"
+
   let query = (commandline)
   let channel: string = (mise x -- tv list-channels | split row (char newline) | input list --fuzzy 'Select tv channel')
 
