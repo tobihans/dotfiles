@@ -1,18 +1,15 @@
 ---@type LazySpec
 return {
   -- Rust
-  { "mrcjkb/rustaceanvim", lazy = false },
+  { "mrcjkb/rustaceanvim", lazy = false, disabled = true },
   {
     "Saecki/crates.nvim",
+    enabled = false, -- FIXME: enable once rustaceanvim is fixed.
     opts = function(_, opts)
       opts.popup = {
         autofocus = true,
         hide_on_select = true,
         border = "rounded",
-      }
-
-      opts.null_ls = {
-        enabled = false,
       }
 
       opts.lsp = {
