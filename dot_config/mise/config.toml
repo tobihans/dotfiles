@@ -73,15 +73,17 @@ node = "latest"
 prek = "latest"
 ruby = "3.4.7"
 uv = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
+"github:LuaLS/lua-language-server" = "latest"
+"npm:@vtsls/language-server" = "latest"
+"npm:vscode-langservers-extracted" = "latest"
+"npm:@tailwindcss/language-server" = "latest"
 
 [settings]
-asdf = false
 auto_install = false
 experimental = true
 http_timeout = "600s"
 idiomatic_version_file_enable_tools = ["ruby", "python", "node", "go"]
 paranoid = true
-pipx_uvx = true
 python.uv_venv_auto = true
-vfox = false
 
