@@ -378,7 +378,7 @@ themes {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "kanso-mist"
+theme "kanagawa"
 
 // The name of the default layout to load on startup
 // Default: "default"
