@@ -1,23 +1,21 @@
-# dotfiles/dot_config/nvim
+# Minimax
 
-<a href="https://dotfyle.com/tobihans/dotfiles-dotconfig-nvim"><img src="https://dotfyle.com/tobihans/dotfiles-dotconfig-nvim/badges/plugins?style=for-the-badge" /></a>
-<a href="https://dotfyle.com/tobihans/dotfiles-dotconfig-nvim"><img src="https://dotfyle.com/tobihans/dotfiles-dotconfig-nvim/badges/leaderkey?style=for-the-badge" /></a>
-<a href="https://dotfyle.com/tobihans/dotfiles-dotconfig-nvim"><img src="https://dotfyle.com/tobihans/dotfiles-dotconfig-nvim/badges/plugin-manager?style=for-the-badge" /></a>
+> [!WARNING]
+> This is a personal WIP project. Expect breaking changes and rough edges.
+> This repo will eventually be merged into my [dotfiles](https://github.com/tobihans/dotfiles) and archived.
 
-## Install Instructions
+A complete rewrite of my Neovim configuration from scratch, using only a minimal set of handpicked plugins. Built on [mini.nvim](https://github.com/echasnovski/mini.nvim) MiniMax template as the foundation, spiced with [snacks.nvim](https://github.com/folke/snacks.nvim).
 
-> Install requires Neovim 0.9+. Always review the code before installing a configuration.
+## Setup
 
-Clone the repository and install the plugins:
-
-```sh
-git clone git@github.com:tobihans/dotfiles ~/.config/tobihans/dotfiles
-```
-
-Open Neovim with this config:
+Nvim nightly is the default version this has been tested with.
 
 ```sh
-NVIM_APPNAME=tobihans/dotfiles/dot_config/nvim nvim
-```
+# This is required since plugins use the gh:user/repo format.
+git config --global url."https://github.com/".insteadOf "gh:"
 
-More info at [https://dotfyle.com/tobihans/dotfiles-dotconfig-nvim](https://dotfyle.com/tobihans/dotfiles-dotconfig-nvim).
+# Clone config
+git clone https://github.com/tobihans/minimax.git ~/.config/minimax
+
+NVIM_APPNAME=minimax nvim
+```

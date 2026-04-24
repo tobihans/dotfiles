@@ -21,3 +21,4 @@ hi def link qfInfo DiagnosticInfo
 hi def link qfNote DiagnosticHint
 
 let b:current_syntax = 'qf'
+

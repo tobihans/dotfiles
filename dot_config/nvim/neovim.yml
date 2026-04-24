@@ -1,13 +1,18 @@
 base: lua51
 globals:
-  Snacks:
-    any: true
   vim:
     any: true
-  # LuaSnip globals
-  s:
+  Config:
     any: true
-  t:
+  Snacks:
     any: true
-  i:
+  MiniIcons:
+    any: true
+  MiniCompletion:
+    any: true
+  MiniFiles:
+    any: true
+  MiniKeymap:
+    any: true
+  MiniExtra:
     any: true

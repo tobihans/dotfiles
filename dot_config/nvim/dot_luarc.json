@@ -1,17 +1,12 @@
 {
-    "diagnostics.disable": [
-        "undefined-doc-name",
-        "unused-local",
-        "duplicate-set-field"
-    ],
+  "format.enable": false,
     "diagnostics.globals": [
-        "ignore",
-        "self",
-        "cache",
-        "globals",
-        "t",
-        "i",
-        "s",
-        "Snacks"
+        "Snacks",
+        "MiniIcons",
+        "MiniKeymap",
+        "MiniExtra"
+    ],
+    "diagnostics.disable": [
+        "different-requires"
     ]
 }
