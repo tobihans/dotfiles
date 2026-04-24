@@ -2,9 +2,9 @@
 
 background-opacity = 0.95
 initial-command = /opt/homebrew/bin/nu
-theme = Kanso Mist
 font-family = "Victor Mono"
 font-size = 14
 macos-option-as-alt = left
+theme = "Kanagawa Wave"
 window-height = 30
 window-width = 120
