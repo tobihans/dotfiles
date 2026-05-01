@@ -26,6 +26,9 @@ now_if_args(function()
   }
   require("nvim-treesitter-textobjects").setup { select = { lookahead = true } }
 
+  -- Link parsers
+  vim.treesitter.language.register("yaml", { "eruby.yaml" })
+
   local treesitter = require "nvim-treesitter"
   local is_lang_available = function(lang) return vim.list_contains(treesitter.get_available(), lang) end
   local isnt_installed = function(lang) return #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".*", false) == 0 end
@@ -56,7 +59,6 @@ now_if_args(function()
   vim.lsp.enable {
     "basedpyright",
     "cssls",
-    "elixirls",
     "emmet_ls",
     "expert",
     "gopls",
@@ -144,6 +146,19 @@ later(function()
       lsp_format = "fallback",
     },
     formatters = {
+      herb = {
+        -- selene: allow(unused_variable)
+        ---@diagnostic disable-next-line: unused-local
+        format = function(self, ctx, lines, callback)
+          vim.system({ "herb-format" }, { stdin = lines, text = true, timeout = 3000 }, function(job)
+            if job.code ~= 0 then
+              vim.schedule(function() callback(nil, lines) end)
+            else
+              vim.schedule(function() callback(nil, vim.split(job.stdout, "\n")) end)
+            end
+          end)
+        end,
+      },
       injected = {
         options = {
           ignore_errors = true,
@@ -154,6 +169,7 @@ later(function()
     formatters_by_ft = {
       astro = { "biome", "prettier", stop_after_first = true },
       css = { "biome", "prettier", stop_after_first = true },
+      eruby = { "herb" },
       graphql = { "biome", "prettier", stop_after_first = true },
       htmldjango = { "djlint" },
       hurl = { "hurlfmt", "injected" },
