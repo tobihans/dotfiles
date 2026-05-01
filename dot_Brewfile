@@ -74,6 +74,8 @@ brew "vips"
 brew "wget"
 # GTK+ dialog boxes for the command-line
 brew "zenity"
+# Runbook editor for terminal workflows
+cask "atuin-desktop"
 # Web browser
 cask "firefox@developer-edition"
 cask "font-victor-mono"

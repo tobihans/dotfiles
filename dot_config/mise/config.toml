@@ -2,7 +2,6 @@
 "cargo:bob-nvim" = "latest"
 "cargo:cargo-watch" = "latest"
 "cargo:difftastic" = "latest"
-"cargo:hurl" = "latest"
 "cargo:just" = "latest"
 "cargo:mprocs" = "latest"
 "cargo:selene" = "latest"
@@ -78,6 +77,9 @@ node = "latest"
 prek = "latest"
 ruby = "3.4.7"
 uv = "latest"
+"github:expert-lsp/expert" = { version = "latest", bin = "expert" }
+"npm:@herb-tools/formatter" = "latest"
+"github:Orange-OpenSource/hurl" = "latest"
 
 [settings]
 auto_install = false
