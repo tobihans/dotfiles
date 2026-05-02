@@ -2,8 +2,7 @@
 set -eo pipefail
 
 if [[ ! -f /etc/arch-release ]]; then
-	echo "Not Arch based, skipping."
-	exit 0
+	echo "Not Arch based, skipping."; exit 0
 fi
 
 # Base requirements
@@ -35,14 +34,11 @@ else
 fi
 
 # Yay
-if ! [[ -x "$(command -v git)" ]]; then
-	pacman -S --noconfirm git
-fi
 if ! [[ -x "$(command -v yay)" ]]; then
 	pwdir=$(pwd)
 	cd /tmp/ || exit
 
-	git clone https://aur.archlinux.org/yay-git.git yay
+	git clone --filter=blob:none --depth=1 https://aur.archlinux.org/yay-git.git yay
 	cd yay || exit
 	makepkg -si --noconfirm
 
