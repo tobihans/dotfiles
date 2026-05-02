@@ -2,8 +2,7 @@
 set -eo pipefail
 
 if [[ ! -f /etc/arch-release ]]; then
-	echo "Not Arch based, skipping."
-	exit 0
+	echo "Not Arch based, skipping."; exit 0
 fi
 
 # Installs yay packages
@@ -14,8 +13,9 @@ packages=(
 
 if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 	packages+=(
-		"plasma5-wallpapers-dynamic" "opensnitch" "python-pyclip"
-		"supertuxkart"
+		# "plasma5-wallpapers-dynamic"
+		"opensnitch" "python-pyclip"
+		# "supertuxkart"
 		"trash-cli"
 		"wl-clipboard"
 		"koi"
