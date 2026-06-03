@@ -20,9 +20,8 @@ return {
     },
   },
   sources = {
-    default = { "supermaven", "lsp", "path", "snippets", "buffer", "dadbod" },
+    default = { "supermaven", "lsp", "path", "snippets", "buffer" },
     providers = {
-      dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
       supermaven = {
         name = "supermaven",
         module = "blink.compat.source",

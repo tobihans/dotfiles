@@ -6,7 +6,7 @@ requirements = ["zellij"]
 [source]
 ansi = true
 command = "zellij list-sessions"
-output = "zellij a {strip_ansi|split: :0}"
+output = "mise x -- zellij a {strip_ansi|split: :0}"
 watch = 5
 
 [keybindings]
@@ -14,5 +14,5 @@ ctrl-q = "actions:delete"
 
 [actions.delete]
 description = "Kill the selected session"
-command = "zellij d {strip_ansi|split: :0}"
+command = "mise x -- zellij d {strip_ansi|split: :0}"
 mode = "fork"

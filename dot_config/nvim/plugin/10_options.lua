@@ -213,3 +213,32 @@ local diagnostic_opts = {
 }
 -- Use `later()` to avoid sourcing `vim.diagnostic` on startup
 Config.later(function() vim.diagnostic.config(diagnostic_opts) end)
+
+-- Filtetypes =================================================================
+vim.filetype.add {
+  filename = {
+    [".env"] = "dotenv",
+    ["uv.lock"] = "toml",
+    ["inventory.txt"] = "confini",
+    ["docker-compose.yaml"] = "yaml.docker-compose",
+  },
+  extension = {
+    har = "json",
+    hurl = "hurl",
+    j2 = "jinja",
+    mdx = "mdx",
+    mjml = "html",
+    meta = "json",
+    tcss = "tcss",
+    wsx = "xml",
+    wxl = "xml",
+  },
+  pattern = {
+    -- Chezmoi dotfiles
+    ["dot_bash.*"] = "sh",
+    ["dot.*%.sh"] = "sh",
+    ["dot_functions.*"] = "sh",
+    ["%.env%.[%w_.-]+"] = "dotenv",
+    ["docker%-compose[%w_.-]*%.ya?ml"] = "yaml.docker-compose",
+  },
+}

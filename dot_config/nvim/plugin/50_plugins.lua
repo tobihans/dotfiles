@@ -26,9 +26,6 @@ now_if_args(function()
   }
   require("nvim-treesitter-textobjects").setup { select = { lookahead = true } }
 
-  -- Link parsers
-  vim.treesitter.language.register("yaml", { "eruby.yaml" })
-
   local treesitter = require "nvim-treesitter"
   local is_lang_available = function(lang) return vim.list_contains(treesitter.get_available(), lang) end
   local isnt_installed = function(lang) return #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".*", false) == 0 end
@@ -50,6 +47,12 @@ now_if_args(function()
 
     if is_lang_available(lang) then start(ev.buf) end
   end, "Treesitter")
+  Config.later(function()
+    vim.treesitter.language.register("markdown", "mdx")
+    vim.treesitter.language.register("bash", "dotenv")
+    vim.treesitter.language.register("css", "tcss")
+    vim.treesitter.language.register("yaml", "eruby.yaml")
+  end)
 end)
 
 -- Language servers ===========================================================
@@ -57,20 +60,25 @@ now_if_args(function()
   add { "gh:neovim/nvim-lspconfig" }
 
   vim.lsp.enable {
+    "ansiblels",
     "basedpyright",
+    "bashls",
     "cssls",
     "emmet_ls",
     "expert",
     "gopls",
+    "jsonls",
     "html",
     "lua_ls",
     "nushell",
     "pyrefly",
     "ruby_lsp",
+    "ruff",
     "rust_analyzer",
     "tailwindcss",
     "tinymist",
     "vtsls",
+    "yamlls",
   }
 
   local gr = vim.api.nvim_create_augroup("code-action-sign", { clear = true })
@@ -178,6 +186,7 @@ later(function()
       json = { "biome", "prettier", stop_after_first = true },
       lua = { "stylua" },
       markdown = { "prettierd", "prettier", "injected" },
+      python = { "ruff" },
       rust = { "rustfmt" },
       sh = { "shfmt" },
       sql = { "sqruff" },
@@ -295,13 +304,6 @@ later(function()
     save(vim.fn.getcwd(), { dir = "dirsession", notify = false })
   end, "Save session on close")
 end)
--- File Tree ==================================================================
-later(function()
-  add {
-    { src = "https://github.com/nvim-neo-tree/neo-tree.nvim", version = vim.version.range "3" },
-  }
-  require("neo-tree").setup(require "config.neo-tree")
-end)
 -- Utils ======================================================================
 now(function()
   add {
@@ -324,37 +326,24 @@ later(function()
   }
 end)
 -- Languages support ================================================================
-later(function()
-  add {
-    "gh:lewis6991/gitsigns.nvim",
-  }
-
-  local git_sign = "┃"
-  require("gitsigns").setup {
-    signs = {
-      add = { text = git_sign },
-      change = { text = git_sign },
-      delete = { text = git_sign },
-      topdelete = { text = git_sign },
-      changedelete = { text = git_sign },
-      untracked = { text = git_sign },
-    },
-    signs_staged = {
-      add = { text = git_sign },
-      change = { text = git_sign },
-      delete = { text = git_sign },
-      topdelete = { text = git_sign },
-      changedelete = { text = git_sign },
-      untracked = { text = git_sign },
-    },
-  }
-end)
+later(function() end)
 -- Languages support ================================================================
 later(function()
   add {
     "gh:tpope/vim-rails",
-    "gh:b0o/schemastore.nvim", -- TODO: Configure in LSPs
+    "gh:b0o/schemastore.nvim",
   }
+  -- configure schemas for some LSPs
+  later(function()
+    local schemastore = require "schemastore"
+
+    vim.lsp.config("jsonls", {
+      settings = { json = { schemas = schemastore.json.schemas(), validate = { enable = true } } },
+    })
+    vim.lsp.config("yamlls", {
+      settings = { yaml = { schemaStore = { enable = false, url = "" }, schemas = schemastore.yaml.schemas() } },
+    })
+  end)
 end)
 -- Search & Replace =================================================================
 later(function()
@@ -368,17 +357,6 @@ later(function()
     },
   }
 end)
--- Datatabase supoort ===============================================================
-later(
-  function()
-    add {
-      "gh:tpope/vim-dotenv",
-      "gh:tpope/vim-dadbod",
-      "gh:kristijanhusak/vim-dadbod-ui",
-      "gh:kristijanhusak/vim-dadbod-completion",
-    }
-  end
-)
 -- Other plugins ====================================================================
 later(function()
   add {

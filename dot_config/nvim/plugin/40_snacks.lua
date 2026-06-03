@@ -24,6 +24,7 @@ Config.now(function()
       },
     },
     gh = {},
+    git = {},
     gitbrowse = {
       notify = false,
       open = function(url) vim.fn.setreg("+", url) end,
@@ -42,6 +43,8 @@ Config.now(function()
     statuscolumn = { folds = { open = true, git_hl = true } },
     styles = {
       input = { title_pos = "left", relative = "cursor", row = -3, col = 0, b = { completion = true } },
+      blame_line = { title_pos = "left", relative = "cursor", height = 0.15, width = 0.6 },
+      terminal = { wo = { winblend = 5 }, b = { miniindentscope_disable = true } },
     },
     terminal = {},
     zen = { enabled = true },

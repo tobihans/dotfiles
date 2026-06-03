@@ -64,6 +64,12 @@ nmap_leader("n", pickers.new_file, "New File")
 nmap_leader("/", "gcc", "Toggle comment line", { remap = true })
 xmap_leader("/", "gcc", "Toggle comment", { remap = true })
 nmap_leader(":", function() Snacks.picker.command_history() end, "Command History")
+nmap_leader("e", function()
+  if not MiniFiles.close() then MiniFiles.open(nil, false) end
+end, "Explorer")
+nmap_leader("o", function()
+  if not MiniFiles.close() then MiniFiles.open(vim.api.nvim_buf_get_name(0), false) end
+end, "Explorer (current file)")
 
 -- Lists
 nmap_leader("xq", "<Cmd>copen<CR>", "Quickfix List")
@@ -227,6 +233,11 @@ tmap("<C-J>", term_nav "j", "Terminal down window navigation")
 tmap("<C-K>", term_nav "k", "Terminal up window navigation")
 tmap("<C-L>", term_nav "l", "Terminal right window navigation")
 
+local oc = function() Snacks.terminal.toggle "mise x -- opencode" end
+nmap("<F10>", oc, "Opencode")
+tmap("<F10>", oc, "Opencode")
+imap("<F10>", oc, "Opencode")
+
 nmap_leader("gg", function() Snacks.terminal.toggle "mise x -- lazygit" end, "Lazygit")
 nmap_leader("tl", function() Snacks.terminal.toggle "mise x -- lazygit" end, "Lazygit")
 nmap_leader("td", function() Snacks.terminal.toggle "mise x -- lazydocker" end, "Lazydocker")
@@ -251,22 +262,9 @@ end
 local python = vim.fn.executable "python" == 1 and "python" or vim.fn.executable "python3" == 1 and "python3"
 if python then nmap_leader("tp", function() Snacks.terminal.toggle("mise x -- " .. python) end, "Python REPL") end
 
--- Plugin: Gitsigns ===========================================================
-nmap("[G", function() require("gitsigns").nav_hunk "first" end, "First Git hunk")
-nmap("]G", function() require("gitsigns").nav_hunk "last" end, "Last Git hunk")
-nmap("]g", function() require("gitsigns").nav_hunk "next" end, "Next Git hunk")
-nmap("[g", function() require("gitsigns").nav_hunk "prev" end, "Previous Git hunk")
-
-nmap_leader("gl", function() require("gitsigns").blame_line() end, "View Git blame")
-nmap_leader("gL", function() require("gitsigns").blame_line { full = true } end, "View full Git blame")
-nmap_leader("gp", function() require("gitsigns").preview_hunk_inline() end, "Preview Git hunk")
-nmap_leader("gr", function() require("gitsigns").reset_hunk() end, "Reset Git hunk")
-vmap("<Leader>gr", function() require("gitsigns").reset_hunk { vim.fn.line ".", vim.fn.line "v" } end, "Reset Git hunk")
-nmap_leader("gR", function() require("gitsigns").reset_buffer() end, "Reset Git buffer")
-nmap_leader("gs", function() require("gitsigns").stage_hunk() end, "Stage/Unstage Git hunk")
-vmap("<Leader>gs", function() require("gitsigns").stage_hunk { vim.fn.line ".", vim.fn.line "v" } end, "Stage Git hunk")
-nmap_leader("gS", function() require("gitsigns").stage_buffer() end, "Stage Git buffer")
-nmap_leader("gd", function() require("gitsigns").diffthis() end, "View Git diff")
+-- Git ================================================================
+nmap_leader("gl", function() Snacks.git.blame_line { count = vim.v.count1 } end, "View Git blame")
+nmap_leader("gd", function() MiniDiff.toggle_overlay() end, "View Git diff")
 
 -- Plugin: Grug-far ==========================================================
 nmap_leader("ss", function() require("grug-far").open {} end, "Grug")
@@ -287,19 +285,16 @@ vmap_leader(
   "Grug (current file)"
 )
 
--- Plugin: Neo-tree ===========================================================
-nmap_leader("e", "<Cmd>Neotree toggle<CR>", "Toggle Explorer")
-
 -- Plugin: Resession ==========================================================
 nmap_leader("Sc", misc.nvim_config, "Neovim Config")
 nmap_leader("Sl", function() require("resession").load "Last Session" end, "Load last session")
+nmap_leader("SD", function() require("resession").delete(nil, { dir = "dirsession" }) end, "Delete a dirsession")
+nmap_leader("SF", function() require("resession").load(nil, { dir = "dirsession" }) end, "Load a dirsession")
 nmap_leader(
   "SS",
   function() require("resession").save(vim.fn.getcwd(), { dir = "dirsession" }) end,
   "Save this dirsession"
 )
-nmap_leader("SD", function() require("resession").delete(nil, { dir = "dirsession" }) end, "Delete a dirsession")
-nmap_leader("SF", function() require("resession").load(nil, { dir = "dirsession" }) end, "Load a dirsession")
 nmap_leader(
   "S.",
   function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession" }) end,
@@ -307,10 +302,12 @@ nmap_leader(
 )
 
 -- Plugin: Buffers ============================================================
+--FIXME: Implement buffer features.
 nmap(">b", function() require("buffer").move(vim.v.count1) end, "Move buffer tab right")
 nmap("<b", function() require("buffer").move(-vim.v.count1) end, "Move buffer tab left")
 nmap_leader("c", function() require("buffer").close() end, "Close buffer")
 nmap_leader("C", function() require("buffer").close(0, true) end, "Force close buffer")
+
 -- Plugin: Treesitter textobjects =================================================
 local xo = { "x", "o" }
 local nxo = { "n", "x", "o" }

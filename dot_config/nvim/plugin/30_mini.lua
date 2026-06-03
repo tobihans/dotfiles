@@ -43,7 +43,10 @@ end)
 now(function() require("mini.statusline").setup() end)
 
 -- mini.tabline -> Tabline. Sets `:h 'tabline'` to show all listed buffers in a line at the top.
-now(function() require("mini.tabline").setup() end)
+now(function()
+  require("mini.tabline").setup()
+  Config.new_autocmd("Filetype", { "qf" }, function(ev) vim.bo[ev.buf].buflisted = false end, "Unlist buffers")
+end)
 
 -- Step two ===================================================================
 -- Load now if Neovim is started like `nvim -- path/to/file`, otherwise - later.
@@ -173,3 +176,84 @@ later(
     }
   end
 )
+
+-- mini.files -> navigate and manipulate file system
+later(function()
+  require("mini.files").setup {
+    options = {
+      permanent_delete = false,
+    },
+    windows = {
+      preview = true,
+    },
+  }
+
+  local map_split = function(buf_id, lhs, direction)
+    local rhs = function()
+      local cur_target = MiniFiles.get_explorer_state().target_window
+      local new_target = vim.api.nvim_win_call(cur_target, function()
+        vim.cmd(direction .. " split")
+        return vim.api.nvim_get_current_win()
+      end)
+      MiniFiles.set_target_window(new_target)
+    end
+    vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = "Split " .. direction })
+  end
+
+  local system_open = function() vim.ui.open(MiniFiles.get_fs_entry().path) end
+
+  local copy_selector = function()
+    local entry = MiniFiles.get_fs_entry() or {}
+    local filepath = entry.path
+    local filename = entry.name
+    local modify = vim.fn.fnamemodify
+    local vals = {
+      ["BASENAME"] = modify(filename, ":r"),
+      ["EXTENSION"] = modify(filename, ":e"),
+      ["FILENAME"] = filename,
+      ["PATH (CWD)"] = modify(filepath, ":."),
+      ["PATH (HOME)"] = modify(filepath, ":~"),
+      ["PATH"] = filepath,
+      ["URI"] = vim.uri_from_fname(filepath),
+    }
+    local options = vim.tbl_filter(function(val) return vals[val] ~= "" end, vim.tbl_keys(vals))
+    if vim.tbl_isempty(options) then
+      vim.notify("No values to copy", vim.log.levels.WARN)
+      return
+    end
+    table.sort(options)
+    vim.ui.select(options, {
+      prompt = "Choose to copy to clipboard:",
+      format_item = function(item) return ("%s: %s"):format(item, vals[item]) end,
+    }, function(choice)
+      local result = vals[choice]
+      if result then
+        vim.notify(("Copied: `%s`"):format(result))
+        vim.fn.setreg("+", result)
+      end
+    end)
+  end
+
+  Config.new_autocmd("User", "MiniFilesBufferCreate", function(ev)
+    local buf_id = ev.data.buf_id
+    map_split(buf_id, "S", "belowright horizontal")
+    map_split(buf_id, "s", "belowright vertical")
+    map_split(buf_id, "t", "tab")
+    vim.keymap.set("n", "go", system_open, { buffer = buf_id, desc = "OS open" })
+    vim.keymap.set("n", "Y", copy_selector, { buffer = buf_id, desc = "Copy path" })
+  end)
+end)
+
+-- mini.diff -> Diff hunks
+later(function()
+  local icon = "┃"
+  require("mini.diff").setup {
+    view = { signs = { add = icon, change = icon, delete = icon } },
+    mappings = {
+      goto_first = "[G",
+      goto_prev = "[g",
+      goto_next = "]g",
+      goto_last = "]G",
+    },
+  }
+end)

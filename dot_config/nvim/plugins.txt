@@ -11,9 +11,5 @@
     ○ neotest-python  neotest 
     ● nvim-coverage 6.65ms  User AstroFile
 -------------------------
-    ● render-markdown.nvim 10.45ms 󰢱 render-markdown  snacks.nvim
     ● rustaceanvim 0.17ms  start
-    ● smart-splits.nvim 7.03ms 󰢱 smart-splits  AstroNvim
-    ○ neogen  Neogen  <Leader>lg 
-    ○ nvim-vtsls  -- live with the LSP only to see for now.
     ○ nvim-window-picker 

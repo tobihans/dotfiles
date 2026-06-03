@@ -10,14 +10,15 @@
 "cargo:tree-sitter-cli" = "latest"
 "cargo:typstyle" = "latest"
 "cargo:watchexec-cli" = "latest"
-"cargo:zellij" = "latest"
 "github:LuaLS/lua-language-server" = "latest"
+"github:Orange-OpenSource/hurl" = "latest"
 "github:adrienverge/yamllint" = "latest"
 "github:alexpasmantier/television" = { version = "latest", exe = "tv" }
 "github:ast-grep/ast-grep" = "latest"
 "github:dagger/container-use" = "latest"
 "github:docker/docker-credential-helpers" = { version = "latest", exe = "docker-credential-secretservice" }
 "github:exercism/cli" = { version = "latest", exe = "exercism" }
+"github:expert-lsp/expert" = { version = "latest", bin = "expert" }
 "github:git-ecosystem/git-credential-manager" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
 "github:git-lfs/git-lfs" = "latest"
 "github:google/yamlfmt" = "latest"
@@ -29,20 +30,26 @@
 "github:quarylabs/sqruff" = "latest"
 "github:sigstore/cosign" = "latest"
 "github:typst/typst" = "latest"
+"github:zellij-org/zellij" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
+"npm:@herb-tools/formatter" = "latest"
 "npm:@tailwindcss/language-server" = "latest"
 "npm:@vtsls/language-server" = "latest"
 "npm:heroku" = "latest"
 "npm:markdownlint-cli" = "latest"
 "npm:neonctl" = "latest"
-"npm:opencode-ai" = "latest"
 "npm:pnpm" = "latest"
 "npm:prettier" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
+"npm:yaml-language-server" = "latest"
 "pipx:ansible" = { version = "latest", uvx_args = "--with-executables-from ansible-core,ansible-lint" }
 "pipx:djlint" = "latest"
 "pipx:grip" = "latest"
+"pipx:harlequin" = { version = "latest", extras = "postgres,mysql,s3" }
 "pipx:litecli" = "latest"
+"pipx:posting" = "latest"
+"pipx:pyrefly" = "latest"
+"pipx:ruff" = "latest"
 "pipx:yamllint" = "latest"
 # "aqua:pulumi/pulumi" = "latest"
 # "cargo:mdbook" = "latest"
@@ -77,9 +84,9 @@ node = "latest"
 prek = "latest"
 ruby = "3.4.7"
 uv = "latest"
-"github:expert-lsp/expert" = { version = "latest", bin = "expert" }
-"npm:@herb-tools/formatter" = "latest"
-"github:Orange-OpenSource/hurl" = "latest"
+"npm:bash-language-server" = "latest"
+"npm:@ansible/ansible-language-server" = "latest"
+"npm:opencode-ai" = { version = "latest", npm_args = "--ignore-scripts=false" }
 
 [settings]
 auto_install = false
@@ -88,4 +95,8 @@ http_timeout = "600s"
 idiomatic_version_file_enable_tools = ["ruby", "python", "node", "go"]
 paranoid = true
 python.uv_venv_auto = true
+disable_backends = ["asdf"]
+
+[settings.github]
+use_git_credentials = true
 

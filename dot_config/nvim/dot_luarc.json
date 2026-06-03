@@ -4,7 +4,9 @@
         "Snacks",
         "MiniIcons",
         "MiniKeymap",
-        "MiniExtra"
+        "MiniExtra",
+        "MiniFiles",
+        "MiniDiff"
     ],
     "diagnostics.disable": [
         "different-requires"
