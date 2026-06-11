@@ -6,7 +6,8 @@
         "MiniKeymap",
         "MiniExtra",
         "MiniFiles",
-        "MiniDiff"
+        "MiniDiff",
+        "MiniTabline"
     ],
     "diagnostics.disable": [
         "different-requires"

@@ -44,7 +44,7 @@ Config.now(function()
     styles = {
       input = { title_pos = "left", relative = "cursor", row = -3, col = 0, b = { completion = true } },
       blame_line = { title_pos = "left", relative = "cursor", height = 0.15, width = 0.6 },
-      terminal = { wo = { winblend = 5 }, b = { miniindentscope_disable = true } },
+      terminal = { wo = { winblend = 20 }, b = { miniindentscope_disable = true } },
     },
     terminal = {},
     zen = { enabled = true },

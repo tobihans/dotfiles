@@ -55,6 +55,12 @@ nmap("gl", function() vim.diagnostic.open_float() end, "Hover diagnostics")
 nmap("]t", function() vim.cmd.tabnext() end, "Next tab")
 nmap("[t", function() vim.cmd.tabprevious() end, "Previous tab")
 
+-- Buffer splits (with count, e.g. 3]\ for horizontal split 3 right)
+nmap("]\\", function() require("buffer").split(vim.v.count1) end, "Horizontal split with buffer right")
+nmap("[\\", function() require("buffer").split(-vim.v.count1) end, "Horizontal split with buffer left")
+nmap("]|", function() require("buffer").split(vim.v.count1, true) end, "Vertical split with buffer right")
+nmap("[|", function() require("buffer").split(-vim.v.count1, true) end, "Vertical split with buffer left")
+
 -- Leader: General ============================================================
 nmap_leader("q", "<Cmd>confirm q<CR>", "Quit Window")
 nmap_leader("Q", "<Cmd>confirm qall<CR>", "Exit Neovim")
@@ -302,11 +308,10 @@ nmap_leader(
 )
 
 -- Plugin: Buffers ============================================================
---FIXME: Implement buffer features.
-nmap(">b", function() require("buffer").move(vim.v.count1) end, "Move buffer tab right")
-nmap("<b", function() require("buffer").move(-vim.v.count1) end, "Move buffer tab left")
 nmap_leader("c", function() require("buffer").close() end, "Close buffer")
 nmap_leader("C", function() require("buffer").close(0, true) end, "Force close buffer")
+nmap_leader("bl", function() require("buffer").close_left() end, "Close all buffers to the left")
+nmap_leader("br", function() require("buffer").close_right() end, "Close all buffers to the right")
 
 -- Plugin: Treesitter textobjects =================================================
 local xo = { "x", "o" }
