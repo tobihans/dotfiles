@@ -144,16 +144,30 @@ end)
 -- mini.hipatterns -> Highlight patterns in text.
 later(function()
   local hipatterns = require "mini.hipatterns"
-  local hi_words = MiniExtra.gen_highlighter.words
+  local comment_markers = { "//", "#", "<!%-%-", "%-%-", ";", "%%" }
+  local hi_line = function(words, hl_group)
+    local patterns = {}
+    for _, m in ipairs(comment_markers) do
+      for _, w in ipairs(words) do
+        table.insert(patterns, m .. ".-" .. w)
+      end
+    end
+    return {
+      pattern = patterns,
+      group = hl_group,
+      extmark_opts = function(buf_id, _, data)
+        local line_text = vim.api.nvim_buf_get_lines(buf_id, data.line - 1, data.line, false)[1]
+        return { end_col = #line_text, hl_group = data.hl_group }
+      end,
+    }
+  end
+  -- TODO: Let's work on this properly.
   hipatterns.setup {
     highlighters = {
-      -- Highlight a fixed set of common words. Will be highlighted in any place,
-      -- not like "only in comments".
-      fixme = hi_words({ "FIXME", "Fixme", "fixme" }, "MiniHipatternsFixme"),
-      hack = hi_words({ "HACK", "Hack", "hack" }, "MiniHipatternsHack"),
-      todo = hi_words({ "TODO", "Todo", "todo" }, "MiniHipatternsTodo"),
-      note = hi_words({ "NOTE", "Note", "note" }, "MiniHipatternsNote"),
-      -- Highlight hex color string (#aabbcc) with that color as a background
+      fixme = hi_line({ "FIXME", "Fixme", "fixme" }, "MiniHipatternsFixme"),
+      hack = hi_line({ "HACK", "Hack", "hack" }, "MiniHipatternsHack"),
+      todo = hi_line({ "TODO", "Todo", "todo" }, "MiniHipatternsTodo"),
+      note = hi_line({ "NOTE", "Note", "note" }, "MiniHipatternsNote"),
       hex_color = hipatterns.gen_highlighter.hex_color(),
     },
   }

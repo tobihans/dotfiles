@@ -177,7 +177,7 @@ later(function()
     formatters_by_ft = {
       astro = { "biome", "prettier", stop_after_first = true },
       css = { "biome", "prettier", stop_after_first = true },
-      eruby = { "herb" },
+      -- eruby = { "herb" },
       graphql = { "biome", "prettier", stop_after_first = true },
       htmldjango = { "djlint" },
       hurl = { "hurlfmt", "injected" },

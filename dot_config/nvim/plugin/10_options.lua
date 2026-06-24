@@ -8,7 +8,7 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 vim.g.completion = true
-vim.g.autoformat_enabled = true
+vim.g.autoformat = true
 vim.g.lsp_handlers_enabled = false
 
 -- Vim Visual Multi (multi-cursor)

@@ -4,7 +4,7 @@ local function has_words_before()
 end
 
 return {
-  enabled = function() return vim.F.if_nil(vim.b.completion, vim.g.completion) end,
+  enabled = function() return vim.nonnil(vim.b.completion, vim.g.completion) end,
   completion = {
     ghost_text = { enabled = true },
     list = { selection = { preselect = false, auto_insert = true } },

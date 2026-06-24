@@ -11,21 +11,14 @@ function M.new_file()
   end)
 end
 
--- TODO: Finish this.
-function M.worktrees()
-  vim.system({ "mise", "x", "--", "wt", "list", "--format", "json" }, { text = true, timeout = 5000 }, function(job)
-    if job.code ~= 0 then return end
-    local worktrees = vim.json.decode(job.stdout)
-    print(vim.inspect(worktrees))
-
-    -- FIXME: Properly format worktree items
-    vim.ui.select(worktrees, {
-      prompt = "󱘆 Worktrees 󱘆",
-      format_item = function(item) return ("%s %s"):format(item.icon, item.desc) end,
-    }, function(item)
-      if item then pcall(item.fn) end
-    end)
-  end)
+function M.todos()
+  Snacks.picker.grep {
+    search = "FIXME|HACK|TODO|NOTE",
+    regex = true,
+    live = false,
+    need_search = false,
+    title = " Todo Comments",
+  }
 end
 
 return M

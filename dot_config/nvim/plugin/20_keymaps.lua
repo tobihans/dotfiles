@@ -121,7 +121,7 @@ nmap_leader("ls", function() Snacks.picker.lsp_symbols() end, "Search symbols")
 
 -- LSP Toggles
 nmap_leader("uf", function()
-  vim.b.autoformat = not vim.b.autoformat
+  vim.b.autoformat = not (vim.b.autoformat or vim.g.autoformat)
   vim.notify("Buffer autoformat: " .. (vim.b.autoformat and "on" or "off"))
 end, "Toggle autoformatting (buffer)")
 nmap_leader("uF", function()
@@ -196,6 +196,7 @@ nmap_leader("fu", function() Snacks.picker.undo() end, "Find undo history")
 if vim.fn.executable "rg" == 1 then
   nmap_leader("fw", function() Snacks.picker.grep() end, "Find words")
   nmap_leader("fW", function() Snacks.picker.grep { hidden = true, ignored = true } end, "Find words in all files")
+  nmap_leader("fT", pickers.todos, "Find todos")
 end
 
 -- Picker: Git
@@ -212,7 +213,6 @@ if vim.fn.executable "git" == 1 then
   nmap_leader("gP", function() Snacks.picker.gh_pr() end, "GitHub Pull Requests (open)")
   nmap_leader("gt", function() Snacks.picker.git_status() end, "Git status")
   nmap_leader("gT", function() Snacks.picker.git_stash() end, "Git stash")
-  nmap_leader("gw", pickers.worktrees, "Worktrees")
   nmap_leader("fg", function() Snacks.picker.git_files() end, "Find git files")
 end
 
@@ -310,6 +310,7 @@ nmap_leader(
 -- Plugin: Buffers ============================================================
 nmap_leader("c", function() require("buffer").close() end, "Close buffer")
 nmap_leader("C", function() require("buffer").close(0, true) end, "Force close buffer")
+nmap_leader("bc", function() require("buffer").close_all() end, "Close all buffers except current")
 nmap_leader("bl", function() require("buffer").close_left() end, "Close all buffers to the left")
 nmap_leader("br", function() require("buffer").close_right() end, "Close all buffers to the right")
 

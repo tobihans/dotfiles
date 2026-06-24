@@ -14,10 +14,6 @@
       "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "gh:stevearc/conform.nvim"
     },
-    "d2-vim": {
-      "rev": "cb3eb7fcb1a2d45c4304bf2e91077d787b724a39",
-      "src": "gh:terrastruct/d2-vim"
-    },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "gh:rafamadriz/friendly-snippets"
@@ -39,7 +35,7 @@
       "src": "gh:rebelot/kanagawa.nvim"
     },
     "mini.nvim": {
-      "rev": "ff8b3580935818ef2f21bdd651f057a2ae071eab",
+      "rev": "1345d191bb3da9c7b0e977f4387c5761f9bff68d",
       "src": "gh:nvim-mini/mini.nvim"
     },
     "noice.nvim": {
@@ -55,11 +51,11 @@
       "src": "gh:kevinhwang91/nvim-bqf"
     },
     "nvim-lint": {
-      "rev": "99cbc3ca8a76845fca50e496be7212bebf907dd3",
+      "rev": "01c9842c089069ab497430159312b2c8868a4590",
       "src": "gh:mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "ed19590a3a9792901553c388d1aadafce012f80d",
+      "rev": "bfcc0171a43f22afa61d927ffe9fcb6cb85dc99e",
       "src": "gh:neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -83,7 +79,7 @@
       "src": "gh:stevearc/resession.nvim"
     },
     "schemastore.nvim": {
-      "rev": "0f3cd0e584b4ed221fc44eee5b0b6ce335f7e263",
+      "rev": "e034560c0266d5a99d811f595b04ce839ab868ff",
       "src": "gh:b0o/schemastore.nvim"
     },
     "scope.nvim": {

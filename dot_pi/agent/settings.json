@@ -1,0 +1,14 @@
+{
+  "lastChangelogVersion": "0.79.10",
+  "theme": "dark",
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "enableInstallTelemetry": false,
+  "defaultProvider": "zai",
+  "defaultModel": "glm-5.2",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "git:github.com/obra/superpowers"
+  ]
+}

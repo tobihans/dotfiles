@@ -55,6 +55,15 @@ function M.close_left(force)
   end
 end
 
+--- Close all buffers except the current one
+---@param force? boolean Whether or not to force close (default: false)
+function M.close_all(force)
+  local current = vim.api.nvim_get_current_buf()
+  for _, bufnr in ipairs(M.list()) do
+    if bufnr ~= current then M.close(bufnr, force) end
+  end
+end
+
 --- Close buffers to the right of the current buffer
 ---@param force? boolean Whether or not to force close the buffers or confirm changes (default: false)
 function M.close_right(force)

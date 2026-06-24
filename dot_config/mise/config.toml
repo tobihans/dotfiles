@@ -9,15 +9,13 @@
 "cargo:stylua" = "latest"
 "cargo:tree-sitter-cli" = "latest"
 "cargo:typstyle" = "latest"
-"cargo:watchexec-cli" = "latest"
+"github:Ataraxy-Labs/sem" = "latest"
 "github:LuaLS/lua-language-server" = "latest"
 "github:Orange-OpenSource/hurl" = "latest"
 "github:adrienverge/yamllint" = "latest"
 "github:alexpasmantier/television" = { version = "latest", exe = "tv" }
 "github:ast-grep/ast-grep" = "latest"
-"github:dagger/container-use" = "latest"
 "github:docker/docker-credential-helpers" = { version = "latest", exe = "docker-credential-secretservice" }
-"github:exercism/cli" = { version = "latest", exe = "exercism" }
 "github:expert-lsp/expert" = { version = "latest", bin = "expert" }
 "github:git-ecosystem/git-credential-manager" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
 "github:git-lfs/git-lfs" = "latest"
@@ -32,12 +30,13 @@
 "github:typst/typst" = "latest"
 "github:zellij-org/zellij" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
-"npm:@herb-tools/formatter" = "latest"
+"npm:@ansible/ansible-language-server" = "latest"
 "npm:@tailwindcss/language-server" = "latest"
 "npm:@vtsls/language-server" = "latest"
+"npm:bash-language-server" = "latest"
 "npm:heroku" = "latest"
 "npm:markdownlint-cli" = "latest"
-"npm:neonctl" = "latest"
+"npm:opencode-ai" = { version = "latest", npm_args = "--ignore-scripts=false" }
 "npm:pnpm" = "latest"
 "npm:prettier" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
@@ -52,26 +51,17 @@
 "pipx:ruff" = "latest"
 "pipx:yamllint" = "latest"
 # "aqua:pulumi/pulumi" = "latest"
-# "cargo:mdbook" = "latest"
 # "cargo:sshx" = "latest"
-# "github:TibixDev/winboat" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
-# "github:block/goose" = "latest"
-# "github:charmbracelet/crush" = "latest"
+# "cargo:watchexec-cli" = "latest"
 # "github:cloudflare/cloudflared" = "latest"
 # "github:elixir-lang/expert" = { version = "latest", version_prefix = "" }
-# "github:git-bug/git-bug" = "latest"
+# "github:exercism/cli" = { version = "latest", exe = "exercism" }
 # "github:hovancik/stretchly" = { version = "latest", extract_all = "true", matching_regex = "tar.xz$" }
-# "github:k1LoW/tbls" = "latest"
 # "github:terrastruct/d2" = "latest"
-# "npm:@github/copilot" = "latest"
-# "npm:@google/gemini-cli" = "latest"
-# "npm:@qwen-code/qwen-code" = "latest"
-# "npm:@withgraphite/graphite-cli" = "stable"
+# "npm:@herb-tools/formatter" = "latest"
 # "npm:oxlint" = "latest"
-# "pipx:ansible-lint" = "latest"
 # "pipx:harlequin" = "latest"
 # "pipx:mitmproxy" = "latest"
-# "pipx:poetry" = "latest"
 # "pipx:sqlite-utils" = "latest"
 # "pipx:virtualenv" = "latest"
 bun = "latest"
@@ -84,9 +74,7 @@ node = "latest"
 prek = "latest"
 ruby = "3.4.7"
 uv = "latest"
-"npm:bash-language-server" = "latest"
-"npm:@ansible/ansible-language-server" = "latest"
-"npm:opencode-ai" = { version = "latest", npm_args = "--ignore-scripts=false" }
+"npm:@earendil-works/pi-coding-agent" = "latest"
 
 [settings]
 auto_install = false
@@ -99,4 +87,7 @@ disable_backends = ["asdf"]
 
 [settings.github]
 use_git_credentials = true
+
+[settings.ruby]
+compile = false
 
