@@ -23,7 +23,7 @@
       "src": "gh:akinsho/git-conflict.nvim"
     },
     "grug-far.nvim": {
-      "rev": "c995bbacf8229dc096ec1c3d60f8531059c86c1b",
+      "rev": "c69859c1d5427ab5fc7ed12380ab521b4e336691",
       "src": "gh:MagicDuck/grug-far.nvim"
     },
     "guess-indent.nvim": {
@@ -35,7 +35,7 @@
       "src": "gh:rebelot/kanagawa.nvim"
     },
     "mini.nvim": {
-      "rev": "1345d191bb3da9c7b0e977f4387c5761f9bff68d",
+      "rev": "1599a473aa6f5290a5d740b1144846e6f0c3963d",
       "src": "gh:nvim-mini/mini.nvim"
     },
     "noice.nvim": {
@@ -51,11 +51,11 @@
       "src": "gh:kevinhwang91/nvim-bqf"
     },
     "nvim-lint": {
-      "rev": "01c9842c089069ab497430159312b2c8868a4590",
+      "rev": "a219b2c9e5b4765e5c845aba119dad55806fcaf1",
       "src": "gh:mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "bfcc0171a43f22afa61d927ffe9fcb6cb85dc99e",
+      "rev": "3371bf298c1f56efc26771ee961f461176958fb5",
       "src": "gh:neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -79,7 +79,7 @@
       "src": "gh:stevearc/resession.nvim"
     },
     "schemastore.nvim": {
-      "rev": "e034560c0266d5a99d811f595b04ce839ab868ff",
+      "rev": "490afbd7fd3b316330550405ac74758a971104a4",
       "src": "gh:b0o/schemastore.nvim"
     },
     "scope.nvim": {

@@ -9,7 +9,6 @@
 "cargo:stylua" = "latest"
 "cargo:tree-sitter-cli" = "latest"
 "cargo:typstyle" = "latest"
-"github:Ataraxy-Labs/sem" = "latest"
 "github:LuaLS/lua-language-server" = "latest"
 "github:Orange-OpenSource/hurl" = "latest"
 "github:adrienverge/yamllint" = "latest"
