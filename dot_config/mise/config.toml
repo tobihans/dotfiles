@@ -30,12 +30,12 @@
 "github:zellij-org/zellij" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "npm:@ansible/ansible-language-server" = "latest"
+"npm:@earendil-works/pi-coding-agent" = "latest"
 "npm:@tailwindcss/language-server" = "latest"
 "npm:@vtsls/language-server" = "latest"
 "npm:bash-language-server" = "latest"
 "npm:heroku" = "latest"
 "npm:markdownlint-cli" = "latest"
-"npm:opencode-ai" = { version = "latest", npm_args = "--ignore-scripts=false" }
 "npm:pnpm" = "latest"
 "npm:prettier" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
@@ -63,6 +63,7 @@
 # "pipx:mitmproxy" = "latest"
 # "pipx:sqlite-utils" = "latest"
 # "pipx:virtualenv" = "latest"
+aube = "latest"
 bun = "latest"
 cargo-binstall = "latest"
 deno = "latest"
@@ -73,7 +74,6 @@ node = "latest"
 prek = "latest"
 ruby = "3.4.7"
 uv = "latest"
-"npm:@earendil-works/pi-coding-agent" = "latest"
 
 [settings]
 auto_install = false

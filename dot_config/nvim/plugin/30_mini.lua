@@ -3,19 +3,19 @@ local now, later = Config.now, Config.later
 -- Step one ===================================================================
 
 -- mini.basics -> Common configuration presets.
-now(
-  function()
-    require("mini.basics").setup {
-      options = { basic = false, extra_ui = false, win_borders = "bold" },
-      mappings = {
-        basics = false,
-        windows = true,
-        option_toggle_prefix = [[<Leader>u]],
-        move_with_alt = true,
-      },
-    }
-  end
-)
+now(function()
+  require("mini.basics").setup {
+    -- FIXME: Revert win_borders to auto or bold later after troubleshooting. See https://github.com/nvim-mini/mini.basics/blob/main/lua/mini/basics.lua#L535
+    options = { basic = false, extra_ui = false, win_borders = "none" },
+    mappings = {
+      basics = false,
+      windows = true,
+      option_toggle_prefix = [[<Leader>u]],
+      move_with_alt = true,
+    },
+  }
+end)
+
 -- mini.extras -> Extra useful functionalities.
 now(function() require("mini.extra").setup {} end)
 

@@ -1,18 +1,15 @@
 {
-  "lastChangelogVersion": "0.80.2",
+  "lastChangelogVersion": "0.80.3",
   "theme": "dark",
   "terminal": {
     "showTerminalProgress": true,
     "clearOnShrink": false
   },
   "enableInstallTelemetry": false,
-  "defaultProvider": "zai",
-  "defaultModel": "glm-5.2",
+  "defaultProvider": "opencode",
+  "defaultModel": "deepseek-v4-flash-free",
   "defaultThinkingLevel": "high",
-  "packages": [
-    "git:github.com/obra/superpowers",
-    "npm:@tintinweb/pi-subagents"
-  ],
+  "packages": ["npm:@tintinweb/pi-subagents"],
   "quietStartup": false,
   "defaultProjectTrust": "ask",
   "transport": "auto",

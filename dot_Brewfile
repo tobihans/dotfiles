@@ -1,3 +1,4 @@
+tap "android/tap", trusted: true
 # Simple, modern, secure file encryption
 brew "age"
 # Cryptography and SSL/TLS Toolkit
@@ -16,6 +17,10 @@ brew "bat"
 brew "btop"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# YAML Parser
+brew "libyaml"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima", restart_service: :changed
 # Pack, ship and run any application as a lightweight container
@@ -26,8 +31,6 @@ brew "docker-buildx"
 brew "docker-compose"
 # Platform keystore credential helper for Docker
 brew "docker-credential-helper"
-# YAML Parser
-brew "libyaml"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Play, record, convert, and stream select audio and video codecs
@@ -82,6 +85,8 @@ brew "vips"
 brew "wget"
 # GTK+ dialog boxes for the command-line
 brew "zenity"
+# Android Developer command-line tools
+cask "android/tap/android-cli"
 # Runbook editor for terminal workflows
 cask "atuin-desktop"
 cask "font-victor-mono"
