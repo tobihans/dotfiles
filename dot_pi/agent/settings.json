@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.80.3",
+  "lastChangelogVersion": "0.80.6",
   "theme": "dark",
   "terminal": {
     "showTerminalProgress": true,
@@ -9,10 +9,43 @@
   "defaultProvider": "opencode",
   "defaultModel": "deepseek-v4-flash-free",
   "defaultThinkingLevel": "high",
-  "packages": ["npm:@tintinweb/pi-subagents"],
+  "packages": [
+    "npm:pi-subagents",
+    "npm:pi-ask-user",
+    "npm:pi-web-access",
+    "npm:@plannotator/pi-extension",
+    "npm:pi-slopchop",
+    "npm:pi-interactive-shell",
+    "git:github.com/davebcn87/pi-autoresearch",
+    "npm:@tmustier/pi-ralph-wiggum",
+    "npm:@gotgenes/pi-permission-system",
+    "npm:@tintinweb/pi-tasks"
+  ],
   "quietStartup": false,
   "defaultProjectTrust": "ask",
   "transport": "auto",
   "editorPaddingX": 0,
-  "hideThinkingBlock": true
+  "hideThinkingBlock": true,
+  "subagents": {
+    "agentOverrides": {
+      "context-builder": {
+        "model": ""
+      },
+      "planner": {
+        "model": ""
+      },
+      "researcher": {
+        "model": ""
+      },
+      "reviewer": {
+        "model": ""
+      },
+      "scout": {
+        "model": ""
+      },
+      "worker": {
+        "model": ""
+      }
+    }
+  }
 }

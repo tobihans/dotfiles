@@ -1,0 +1,23 @@
+{
+  "permission": {
+    "*": "allow",
+    "path": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "bash": {
+      "*": "allow",
+      "git add .": "deny",
+      "git add -A *": "deny",
+      "git commit -a *": "deny",
+      "rm -rf *": "deny",
+      "trash *": "deny",
+      "sudo *": "ask"
+    },
+    "external_directory": {
+      "*": "ask"
+    }
+  }
+}
