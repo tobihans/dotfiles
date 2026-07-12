@@ -14,6 +14,10 @@
       "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "gh:stevearc/conform.nvim"
     },
+    "evergarden": {
+      "rev": "6a47a90e5caf1b21e54ff7967017c255bab80fdd",
+      "src": "https://codeberg.org/evergarden/nvim.git"
+    },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "gh:rafamadriz/friendly-snippets"

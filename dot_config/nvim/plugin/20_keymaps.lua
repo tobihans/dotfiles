@@ -291,21 +291,19 @@ vmap_leader(
   "Grug (current file)"
 )
 
--- Plugin: Resession ==========================================================
+-- Plugin: Session (mini.sessions) ============================================
 nmap_leader("Sc", misc.nvim_config, "Neovim Config")
-nmap_leader("Sl", function() require("resession").load "Last Session" end, "Load last session")
-nmap_leader("SD", function() require("resession").delete(nil, { dir = "dirsession" }) end, "Delete a dirsession")
-nmap_leader("SF", function() require("resession").load(nil, { dir = "dirsession" }) end, "Load a dirsession")
-nmap_leader(
-  "SS",
-  function() require("resession").save(vim.fn.getcwd(), { dir = "dirsession" }) end,
-  "Save this dirsession"
-)
-nmap_leader(
-  "S.",
-  function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession" }) end,
-  "Load current dirsession"
-)
+nmap_leader("Sl", function() MiniSessions.read("Last Session") end, "Load last session")
+nmap_leader("S.", function()
+  local name = misc.path_to_session_name(vim.fn.getcwd())
+  pcall(MiniSessions.read, name)
+end, "Load session for this directory")
+nmap_leader("SD", function() MiniSessions.select("delete") end, "Delete a session")
+nmap_leader("SF", function() MiniSessions.select("read") end, "Load a session")
+nmap_leader("SS", function()
+  local name = misc.path_to_session_name(vim.fn.getcwd())
+  MiniSessions.write(name, { force = true })
+end, "Save session for this directory")
 
 -- Plugin: Buffers ============================================================
 nmap_leader("c", function() require("buffer").close() end, "Close buffer")

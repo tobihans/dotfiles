@@ -250,30 +250,35 @@ end)
 -- User Interface =============================================================
 now(function()
   add {
-    "gh:rebelot/kanagawa.nvim",
+    { src = "https://codeberg.org/evergarden/nvim.git", name = "evergarden" },
     "gh:nvim-lua/plenary.nvim",
     "gh:MunifTanjim/nui.nvim",
     "gh:folke/noice.nvim",
   }
 
   require("noice").setup(require "config.noice")
-  require("kanagawa").setup {
-    colors = {
-      theme = {
-        all = { ui = { bg_gutter = "none" } },
-      },
+  require("evergarden").setup {
+    theme = {
+      variant = "winter",
+      accent = "green",
     },
-    -- selene: allow(unused_variable)
-    --- @diagnostic disable-next-line: unused-local]]
-    overrides = function(colors)
-      return {
-        NormalFloat = { bg = "none" },
-        FloatBorder = { bg = "none" },
-        FloatTitle = { bg = "none" },
-      }
-    end,
+    integrations = {
+      blink_cmp = true,
+      mini = {
+        enable = true,
+        cursorword = true,
+        diff = true,
+        hipatterns = true,
+        icons = true,
+        indentscope = true,
+        statusline = true,
+        surround = true,
+        tabline = true,
+      },
+      which_key = true,
+    },
   }
-  vim.cmd.colorscheme "kanagawa-wave"
+  vim.cmd.colorscheme "evergarden"
 end)
 
 -- Keymaps XP =================================================================
@@ -282,27 +287,6 @@ later(function()
   require("which-key").setup { preset = "modern" }
   require("which-key").add(Config.leader_groups)
   require("which-key").add(Config.localleader_groups)
-end)
--- Session ====================================================================
-later(function()
-  add { "gh:stevearc/resession.nvim" }
-
-  require("resession").setup {
-    buf_filter = function(bufnr) return require("buffer").is_restorable(bufnr) end,
-    tab_buf_filter = function(tabpage, bufnr) return vim.tbl_contains(vim.t[tabpage].bufs, bufnr) end,
-    extensions = {
-      dap = {},
-      quickfix = {},
-      scope = {},
-    },
-  }
-  require("resession").add_hook("post_load", function() vim.schedule(require("misc").load_exrc) end)
-
-  Config.new_autocmd("VimLeavePre", nil, function()
-    local save = require("resession").save
-    save("Last Session", { notify = false })
-    save(vim.fn.getcwd(), { dir = "dirsession", notify = false })
-  end, "Save session on close")
 end)
 -- Utils ======================================================================
 now(function()
@@ -325,8 +309,6 @@ later(function()
     },
   }
 end)
--- Languages support ================================================================
-later(function() end)
 -- Languages support ================================================================
 later(function()
   add {

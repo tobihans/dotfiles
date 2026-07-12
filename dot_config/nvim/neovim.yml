@@ -16,3 +16,5 @@ globals:
     any: true
   MiniExtra:
     any: true
+  MiniSessions:
+    any: true

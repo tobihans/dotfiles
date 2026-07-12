@@ -1,4 +1,4 @@
-local now, later = Config.now, Config.later
+local now, later, new_autocmd = Config.now, Config.later, Config.new_autocmd
 
 -- Step one ===================================================================
 
@@ -69,7 +69,7 @@ now(function()
       return string.format(" %d%s", math.abs(buf_idx - cur_idx), default)
     end,
   }
-  Config.new_autocmd("Filetype", { "qf" }, function(ev) vim.bo[ev.buf].buflisted = false end, "Unlist buffers")
+  new_autocmd("Filetype", { "qf" }, function(ev) vim.bo[ev.buf].buflisted = false end, "Unlist buffers")
 end)
 
 -- Step two ===================================================================
@@ -120,7 +120,7 @@ later(function()
       )
     end
   end
-  Config.new_autocmd("CursorMoved", "*", minicursorword_disable, "mini.cursorword disable")
+  new_autocmd("CursorMoved", "*", minicursorword_disable, "mini.cursorword disable")
 
   require("mini.cursorword").setup()
 end)
@@ -161,7 +161,6 @@ later(function()
       end,
     }
   end
-  -- TODO: Let's work on this properly.
   hipatterns.setup {
     highlighters = {
       fixme = hi_line({ "FIXME", "Fixme", "fixme" }, "MiniHipatternsFixme"),
@@ -273,7 +272,7 @@ later(function()
     end)
   end
 
-  Config.new_autocmd("User", "MiniFilesBufferCreate", function(ev)
+  new_autocmd("User", "MiniFilesBufferCreate", function(ev)
     local buf_id = ev.data.buf_id
     map_split(buf_id, "S", "belowright horizontal")
     map_split(buf_id, "s", "belowright vertical")
@@ -295,4 +294,31 @@ later(function()
       goto_last = "]G",
     },
   }
+end)
+
+-- mini.sessions -> Session management
+now(function()
+  require("mini.sessions").setup {
+    autoread = false,
+    autowrite = false,
+    directory = vim.fn.stdpath "data" .. "/session",
+    file = "", -- no local .session.vim files, use global sessions only
+    force = { read = false, write = true, delete = false },
+    verbose = { read = false, write = false, delete = false },
+    hooks = {
+      post = {
+        ---@diagnostic disable-next-line: unused-local
+        read = function(_data) vim.schedule(require("misc").load_exrc) end,
+      },
+    },
+  }
+
+  -- Only save when there are meaningful buffers (no dashboard-only saves)
+  new_autocmd("VimLeavePre", nil, function()
+    if not require("misc").has_meaningful_buffers() then return end
+
+    local name = require("misc").path_to_session_name(vim.fn.getcwd())
+    MiniSessions.write(name, { force = true, verbose = false })
+    MiniSessions.write("Last Session", { force = true, verbose = false })
+  end, "Save session on close")
 end)

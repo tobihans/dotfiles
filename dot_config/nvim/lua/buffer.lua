@@ -86,7 +86,11 @@ function M.split(offset, vertical)
       local target = bufs[i + offset]
       if not target then return end
       local dir = offset < 0 and "leftabove" or "rightbelow"
-      if vertical then vim.cmd(dir .. " vsplit") else vim.cmd(dir .. " split") end
+      if vertical then
+        vim.cmd(dir .. " vsplit")
+      else
+        vim.cmd(dir .. " split")
+      end
       vim.api.nvim_win_set_buf(0, target)
       return
     end
