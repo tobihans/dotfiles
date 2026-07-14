@@ -1,11 +1,14 @@
-# vim: ft=ini
+# vim: ft=conf
 
 background-opacity = 0.925
-command = /opt/homebrew/bin/nu
 font-family = "Victor Mono"
 font-size = 14
-macos-option-as-alt = left
+fullscreen = true
 theme = "Rose Pine"
 window-height = 30
 window-width = 120
+
+initial-command = /opt/homebrew/bin/herdr
+command = /opt/homebrew/bin/nu
+macos-option-as-alt = left
 keybind = global:cmd+backquote=toggle_quick_terminal
