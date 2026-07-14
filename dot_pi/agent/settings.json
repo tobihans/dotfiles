@@ -6,8 +6,8 @@
     "clearOnShrink": false
   },
   "enableInstallTelemetry": false,
-  "defaultProvider": "opencode",
-  "defaultModel": "deepseek-v4-flash-free",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "glm-5.2",
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:pi-subagents",

@@ -50,6 +50,13 @@ async function checkCommand(
 }
 
 export default async function (pi: ExtensionAPI) {
+  if (DCG_DISABLED) {
+    console.warn(
+      "[dcg] DCG_DISABLED=1 — extension disabled, commands pass through",
+    );
+    return;
+  }
+
   // Probe dcg version at load time.
   let dcgAvailable = false;
   try {
@@ -57,18 +64,9 @@ export default async function (pi: ExtensionAPI) {
       timeout: DCG_TIMEOUT_MS,
     });
     dcgAvailable = ver.code === 0;
-    if (dcgAvailable)
-      console.log(`[dcg] dcg ${ver.stdout.trim()} — guard active`);
-    else console.warn("[dcg] dcg binary not found in PATH");
+    if (!dcgAvailable) console.warn("[dcg] dcg binary not found in PATH");
   } catch {
     console.warn("[dcg] dcg binary not found in PATH");
-  }
-
-  if (DCG_DISABLED) {
-    console.warn(
-      "[dcg] DCG_DISABLED=1 — extension disabled, commands pass through",
-    );
-    return;
   }
 
   pi.on("tool_call", async (event, ctx) => {
@@ -78,9 +76,6 @@ export default async function (pi: ExtensionAPI) {
       const cmd = event.input.command;
       if (typeof cmd !== "string" || cmd.trim() === "") return;
 
-      // Don't recursively guard dcg itself.
-      if (cmd.startsWith("dcg ")) return;
-
       if (!dcgAvailable) {
         return {
           block: true,
@@ -89,10 +84,7 @@ export default async function (pi: ExtensionAPI) {
       }
 
       const { deny, reason } = await checkCommand(pi, cmd, ctx.signal);
-      if (deny) {
-        return { block: true, reason };
-      }
-      // Allowed — pass through for rtk to rewrite if installed.
+      if (deny) return { block: true, reason };
     } catch (err: any) {
       // Fail-closed: block on unexpected extension errors too.
       return {
