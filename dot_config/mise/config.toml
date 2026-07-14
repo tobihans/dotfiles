@@ -9,6 +9,7 @@
 "cargo:stylua" = "latest"
 "cargo:tree-sitter-cli" = "latest"
 "cargo:typstyle" = "latest"
+"github:Dicklesworthstone/destructive_command_guard" = "latest"
 "github:LuaLS/lua-language-server" = "latest"
 "github:Orange-OpenSource/hurl" = "latest"
 "github:adrienverge/yamllint" = "latest"
@@ -25,8 +26,10 @@
 "github:koalaman/shellcheck" = "latest"
 "github:max-sixty/worktrunk" = "latest"
 "github:quarylabs/sqruff" = "latest"
+"github:rtk-ai/rtk" = "latest"
 "github:sigstore/cosign" = "latest"
 "github:typst/typst" = "latest"
+"github:yt-dlp/yt-dlp" = "latest"
 "github:zellij-org/zellij" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "npm:@ansible/ansible-language-server" = "latest"
@@ -74,8 +77,6 @@ node = "latest"
 prek = "latest"
 ruby = "3.4.7"
 uv = "latest"
-"github:rtk-ai/rtk" = "latest"
-"github:yt-dlp/yt-dlp" = "latest"
 
 [settings]
 auto_install = false

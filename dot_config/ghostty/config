@@ -1,0 +1,4 @@
+# vim: ft=ini
+
+command = /opt/homebrew/bin/nu
+config-file = ?theme
