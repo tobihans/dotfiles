@@ -8,7 +8,7 @@ theme = "Rose Pine"
 window-height = 30
 window-width = 120
 
-initial-command = /opt/homebrew/bin/herdr
+# initial-command = /opt/homebrew/bin/herdr
 command = /opt/homebrew/bin/nu
 macos-option-as-alt = left
 keybind = global:cmd+backquote=toggle_quick_terminal
