@@ -250,35 +250,29 @@ end)
 -- User Interface =============================================================
 now(function()
   add {
-    { src = "https://codeberg.org/evergarden/nvim.git", name = "evergarden" },
+    -- { src = "https://codeberg.org/evergarden/nvim.git", name = "evergarden" },
+    { src = "gh:rose-pine/neovim", name = "rose-pine" },
     "gh:nvim-lua/plenary.nvim",
     "gh:MunifTanjim/nui.nvim",
     "gh:folke/noice.nvim",
   }
 
   require("noice").setup(require "config.noice")
-  require("evergarden").setup {
-    theme = {
-      variant = "winter",
-      accent = "green",
+  require("rose-pine").setup {
+    variant = "auto",
+    dark_variant = "main",
+    dim_inactive_windows = false,
+    extend_background_behind_borders = true,
+    enable = {
+      terminal = true,
+      legacy_highlights = false,
+      migrations = true,
     },
-    integrations = {
-      blink_cmp = true,
-      mini = {
-        enable = true,
-        cursorword = true,
-        diff = true,
-        hipatterns = true,
-        icons = true,
-        indentscope = true,
-        statusline = true,
-        surround = true,
-        tabline = true,
-      },
-      which_key = true,
+    styles = {
+      transparency = true,
     },
   }
-  vim.cmd.colorscheme "evergarden"
+  vim.cmd.colorscheme "rose-pine"
 end)
 
 -- Keymaps XP =================================================================

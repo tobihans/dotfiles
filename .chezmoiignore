@@ -9,7 +9,10 @@
 .config/nushell/history.txt
 .config/nushell/scripts/integrations
 
-.config/zellik/plugins/*
+.config/zellij/plugins/*
+
+.config/herdr/*
+!.config/herdr/config.toml
 
 assets/
 keepassxc-browser_settings.json

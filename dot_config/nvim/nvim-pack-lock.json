@@ -39,7 +39,7 @@
       "src": "gh:rebelot/kanagawa.nvim"
     },
     "mini.nvim": {
-      "rev": "fc5c7167adc51d5f39219e86739d5c193b777f44",
+      "rev": "05a80b0340a92136a93ab04346cf97de3f165948",
       "src": "gh:nvim-mini/mini.nvim"
     },
     "noice.nvim": {
@@ -81,6 +81,10 @@
     "resession.nvim": {
       "rev": "0983fbdd3fe938c80fb7dd33817f08f428426ac8",
       "src": "gh:stevearc/resession.nvim"
+    },
+    "rose-pine": {
+      "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
+      "src": "gh:rose-pine/neovim"
     },
     "schemastore.nvim": {
       "rev": "19adbfb1c4d4049b691be0d840936b109de0f5ea",

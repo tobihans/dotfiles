@@ -1,0 +1,23 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+space"
+
+[terminal]
+default_shell = "nu"
+
+[ui]
+agent_panel_sort = "spaces"
+hide_tab_bar_when_single_tab = true
+pane_gaps = false
+sidebar_collapsed_mode = "hidden"
+
+[ui.toast]
+delivery = "terminal"
+
+[theme]
+name = "rose-pine"
+auto_switch = false
+
+[experimental]
+pane_history = true
