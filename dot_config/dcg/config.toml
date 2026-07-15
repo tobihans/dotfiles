@@ -1,0 +1,13 @@
+[packs]
+enabled = [
+  "backup"
+  "cdn",
+  "container",
+  "core",
+  "database",
+  "dns",
+  "infrastructure",
+  "platform",
+  "remote",
+  "system",
+]
