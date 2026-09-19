@@ -17,11 +17,11 @@
     "npm:@plannotator/pi-extension",
     "npm:@gotgenes/pi-permission-system",
     "npm:@tintinweb/pi-tasks",
-    "git:github.com/DietrichGebert/ponytail"
+    "git:github.com/DietrichGebert/ponytail",
+    "npm:pi-intercom"
   ],
   "quietStartup": false,
   "defaultProjectTrust": "ask",
-  "transport": "auto",
   "editorPaddingX": 0,
   "hideThinkingBlock": false,
   "subagents": {
