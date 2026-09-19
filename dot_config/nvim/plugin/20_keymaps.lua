@@ -220,6 +220,7 @@ end
 -- Toggles
 nmap_leader("u|", function() Snacks.toggle.indent():toggle() end, "Toggle indent guides")
 nmap_leader("uD", function() Snacks.notifier.hide() end, "Dismiss notifications")
+nmap_leader("up", function() Snacks.toggle.option("winpinned", {}):toggle() end, "Pin/Unpin window")
 nmap_leader("ur", function() Snacks.toggle.words():toggle() end, "Toggle reference highlighting")
 nmap_leader("uZ", function() Snacks.toggle.zen():toggle() end, "Toggle zen mode")
 

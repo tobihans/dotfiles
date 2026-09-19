@@ -47,6 +47,7 @@ Config.now(function()
       terminal = { wo = { winblend = 20 }, b = { miniindentscope_disable = true } },
     },
     terminal = {},
+    toggle = {},
     zen = { enabled = true },
   }
 end)

@@ -187,8 +187,15 @@ later(function()
   -- Reload in normal mode
   MiniKeymap.map_combo({ "n" }, "jk", "<cmd>edit<cr>")
   MiniKeymap.map_combo({ "n" }, "kj", "<cmd>edit<cr>")
-  --- Hide search highlighting
-  MiniKeymap.map_combo({ "n", "i", "x", "c" }, "<Esc><Esc>", "<cmd>noh | NoiceDismiss<cr>")
+  --- Hide search highlighting and/or remove multiple cursors
+  local action = function()
+    if vim.v.hlsearch == 1 then vim.cmd [[noh | NoiceDismiss]] end
+
+    local ns = vim.api.nvim_create_namespace "nvim.multicursor"
+    local has_mcursors = #vim.api.nvim_buf_get_extmarks(0, ns, 0, -1) > 0
+    if has_mcursors then vim.api.nvim_buf_clear_namespace(0, ns, 0, -1) end
+  end
+  MiniKeymap.map_combo({ "n", "i", "x", "c" }, "<Esc><Esc>", action)
 end)
 
 -- mini.move -> Move any selection in any direction.
