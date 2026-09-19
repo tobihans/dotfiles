@@ -1,8 +1,5 @@
 onboarding = false
 
-[keys]
-prefix = "ctrl+space"
-
 [terminal]
 default_shell = "nu"
 
@@ -11,13 +8,39 @@ agent_panel_sort = "spaces"
 hide_tab_bar_when_single_tab = true
 pane_gaps = false
 sidebar_collapsed_mode = "hidden"
+show_agent_labels_on_pane_borders = true
 
 [ui.toast]
 delivery = "terminal"
 
 [theme]
-name = "rose-pine"
 auto_switch = false
+light_name = "rose-pine-dawn"
+dark_name = "rose-pine"
 
+name = "rose-pine"
 [experimental]
-pane_history = true
+kitty_graphics = true
+pane_history = false
+switch_ascii_input_source_in_prefix = true
+
+[keys]
+prefix = "ctrl+space"
+focus_agent = "prefix+alt+1..9"
+switch_workspace = "prefix+shift+1..9"
+
+# --- Worktree picker (overrides built-in new_worktree) ---
+[[keys.command]]
+key = "prefix+shift+g"
+type = "popup"
+command = "bash ~/.config/herdr/scripts/worktree-picker.sh --create-base=default"
+description = "worktree: switch / create"
+width = "80%"
+height = "80%"
+
+# --- Worktree remove ---
+[[keys.command]]
+key = "prefix+alt+d"
+type = "popup"
+command = "bash ~/.config/herdr/scripts/worktree-remove.sh"
+description = "worktree: remove"

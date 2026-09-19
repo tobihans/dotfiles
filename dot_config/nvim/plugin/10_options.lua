@@ -74,10 +74,9 @@ vim.opt.shellpipe =
 _G.qftf = require("quickfix").textfunc
 vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 
-vim.o.sessionoptions = "buffers,curdir,folds,tabpages,winsize,globals,terminal"
+vim.o.sessionoptions = "buffers,curdir,folds,tabpages,winsize,globals"
 
 -- UI =========================================================================
-vim.o.background = "dark"
 vim.o.breakindent = true
 vim.o.breakindentopt = "list:-1"
 vim.o.colorcolumn = "+1"

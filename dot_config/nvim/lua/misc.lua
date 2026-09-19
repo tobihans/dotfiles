@@ -1,9 +1,5 @@
 local M = {}
 
---- Convert a filesystem path to a safe global session name.
---- Example: /Users/tobihans/project -> Users-tobihans-project
-function M.path_to_session_name(path) return path:gsub("^/+", ""):gsub("/", "-") end
-
 --- Returns true when there are meaningful buffers worth saving a session for.
 --- Filters out dashboard-only, scratch, terminal, and unnamed buffers.
 function M.has_meaningful_buffers()
@@ -20,10 +16,6 @@ function M.has_meaningful_buffers()
   return false
 end
 
-function M.nvim_config()
-  local name = M.path_to_session_name(vim.fn.stdpath "config")
-  pcall(MiniSessions.read, name)
-end
 function M.save()
   if vim.fn.getreg "%" == "" then
     vim.ui.input({ prompt = "Path: ", completion = "file" }, function(input)
@@ -52,6 +44,18 @@ function M.load_exrc()
       return exrc
     end
   end
+end
+
+function M.which(bin)
+  local result = vim.system({ "mise", "which", bin }):wait()
+  if result.code ~= 0 then return nil end
+  return vim.trim(result.stdout)
+end
+
+function M.where(tool)
+  local result = vim.system({ "mise", "where", tool }):wait()
+  if result.code ~= 0 then return nil end
+  return vim.trim(result.stdout)
 end
 
 return M

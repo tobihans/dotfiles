@@ -233,7 +233,7 @@ later(function()
   Config.new_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, nil, function() lint.try_lint() end, "Lint")
 end)
 
--- Completion & Snippets ===================================================================
+-- Completion & Snippets ======================================================
 later(function()
   add {
     "gh:rafamadriz/friendly-snippets",
@@ -286,7 +286,7 @@ end)
 now(function()
   add {
     "gh:tiagovla/scope.nvim",
-    "gh:mg979/vim-visual-multi",
+    -- "gh:mg979/vim-visual-multi",
   }
 
   require("scope").setup()
@@ -333,6 +333,15 @@ later(function()
     },
   }
 end)
+-- DAP ====================================================================
+later(function()
+  add {
+    { src = "gh:mfussenegger/nvim-dap" },
+    { src = "gh:igorlfs/nvim-dap-view", version = vim.version.range "1.*" },
+  }
+  require "config.dap"
+end)
+
 -- Other plugins ====================================================================
 later(function()
   add {

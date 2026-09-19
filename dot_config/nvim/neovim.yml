@@ -18,3 +18,5 @@ globals:
     any: true
   MiniSessions:
     any: true
+  MiniDiff:
+    any: true

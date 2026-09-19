@@ -5,18 +5,19 @@ gui:
   spinner:
     #NOTE: https://stackoverflow.com/questions/2685435/cooler-ascii-spinners
     frames:
-      - "\U0001F311"
-      - "\U0001F312"
-      - "\U0001F313"
-      - "\U0001F314"
-      - "\U0001F315"
-      - "\U0001F316"
-      - "\U0001F317"
-      - "\U0001F318"
+      - "🌑"
+      - "🌒"
+      - "🌓"
+      - "🌔"
+      - "🌕"
+      - "🌖"
+      - "🌗"
+      - "🌘"
     rate: 80
 git:
   parseEmoji: true
-  pagers:
-    - externalDiffCommand: difft --color=always --display=inline
+  diffRenderers:
+    - command: difft --color=always --display=inline
+      type: extDiff
 os:
   editPreset: nvim

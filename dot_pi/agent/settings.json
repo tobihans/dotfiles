@@ -1,31 +1,29 @@
 {
-  "lastChangelogVersion": "0.80.6",
+  "lastChangelogVersion": "0.85.1",
   "theme": "dark",
   "terminal": {
     "showTerminalProgress": true,
-    "clearOnShrink": false
+    "clearOnShrink": false,
+    "imageWidthCells": 60
   },
   "enableInstallTelemetry": false,
-  "defaultProvider": "opencode-go",
-  "defaultModel": "glm-5.2",
+  "defaultProvider": "opencode",
+  "defaultModel": "muse-spark-1.2-contributor-free",
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:pi-subagents",
     "npm:pi-ask-user",
     "npm:pi-web-access",
     "npm:@plannotator/pi-extension",
-    "npm:pi-slopchop",
-    "npm:pi-interactive-shell",
-    "git:github.com/davebcn87/pi-autoresearch",
-    "npm:@tmustier/pi-ralph-wiggum",
     "npm:@gotgenes/pi-permission-system",
-    "npm:@tintinweb/pi-tasks"
+    "npm:@tintinweb/pi-tasks",
+    "git:github.com/DietrichGebert/ponytail"
   ],
   "quietStartup": false,
   "defaultProjectTrust": "ask",
   "transport": "auto",
   "editorPaddingX": 0,
-  "hideThinkingBlock": true,
+  "hideThinkingBlock": false,
   "subagents": {
     "agentOverrides": {
       "context-builder": {
@@ -47,5 +45,14 @@
         "model": ""
       }
     }
-  }
+  },
+  "markdown": {
+    "mermaid": "streaming"
+  },
+  "treeFilterMode": "default",
+  "tuiMode": "regular",
+  "showHardwareCursor": false,
+  "collapseChangelog": true,
+  "showCacheMissNotices": true,
+  "autocompleteMaxVisible": 7
 }

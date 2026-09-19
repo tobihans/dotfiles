@@ -1,6 +1,5 @@
 [tools]
 "cargo:bob-nvim" = "latest"
-"cargo:cargo-watch" = "latest"
 "cargo:difftastic" = "latest"
 "cargo:just" = "latest"
 "cargo:mprocs" = "latest"
@@ -9,11 +8,13 @@
 "cargo:stylua" = "latest"
 "cargo:tree-sitter-cli" = "latest"
 "cargo:typstyle" = "latest"
+"github:Ataraxy-Labs/sem" = "latest"
 "github:Dicklesworthstone/destructive_command_guard" = "latest"
 "github:LuaLS/lua-language-server" = "latest"
 "github:Orange-OpenSource/hurl" = "latest"
 "github:adrienverge/yamllint" = "latest"
 "github:alexpasmantier/television" = { version = "latest", exe = "tv" }
+"github:alibaba/open-code-review" = { version = "latest", bin = "ocr" }
 "github:ast-grep/ast-grep" = "latest"
 "github:docker/docker-credential-helpers" = { version = "latest", exe = "docker-credential-secretservice" }
 "github:expert-lsp/expert" = { version = "latest", bin = "expert" }
@@ -29,15 +30,15 @@
 "github:rtk-ai/rtk" = "latest"
 "github:sigstore/cosign" = "latest"
 "github:typst/typst" = "latest"
-"github:yt-dlp/yt-dlp" = "latest"
-"github:zellij-org/zellij" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "npm:@ansible/ansible-language-server" = "latest"
 "npm:@earendil-works/pi-coding-agent" = "latest"
+"npm:@nanonets/graft" = "latest"
 "npm:@tailwindcss/language-server" = "latest"
 "npm:@vtsls/language-server" = "latest"
 "npm:bash-language-server" = "latest"
 "npm:heroku" = "latest"
+"npm:impeccable" = "latest"
 "npm:markdownlint-cli" = "latest"
 "npm:pnpm" = "latest"
 "npm:prettier" = "latest"
@@ -52,32 +53,17 @@
 "pipx:pyrefly" = "latest"
 "pipx:ruff" = "latest"
 "pipx:yamllint" = "latest"
-# "aqua:pulumi/pulumi" = "latest"
-# "cargo:sshx" = "latest"
-# "cargo:watchexec-cli" = "latest"
-# "github:cloudflare/cloudflared" = "latest"
-# "github:elixir-lang/expert" = { version = "latest", version_prefix = "" }
-# "github:exercism/cli" = { version = "latest", exe = "exercism" }
-# "github:hovancik/stretchly" = { version = "latest", extract_all = "true", matching_regex = "tar.xz$" }
-# "github:terrastruct/d2" = "latest"
-# "npm:@herb-tools/formatter" = "latest"
-# "npm:oxlint" = "latest"
-# "pipx:harlequin" = "latest"
-# "pipx:mitmproxy" = "latest"
-# "pipx:sqlite-utils" = "latest"
-# "pipx:virtualenv" = "latest"
-aube = "latest"
 bun = "latest"
 cargo-binstall = "latest"
-deno = "latest"
 elixir = "latest"
 erlang = "latest"
-java = "17"
+herdr = "latest"
+java = "27"
+js-debug = "latest"
 node = "latest"
 prek = "latest"
-ruby = "3.4.7"
+ruby = "4.0.6"
 uv = "latest"
-herdr = "latest"
 
 [settings]
 auto_install = false

@@ -10,6 +10,7 @@ local imap = function(lhs, rhs, desc, opts) map("i", lhs, rhs, vim.tbl_extend("f
 local tmap = function(lhs, rhs, desc, opts) map("t", lhs, rhs, vim.tbl_extend("force", { desc = desc }, opts or {})) end
 
 Config.leader_groups = {
+  { "<Leader>d", group = " Debug", icon = "󰃤" },
   { "<Leader>f", group = " Find" },
   { "<Leader>g", group = " Git" },
   { "<Leader>l", group = " Language", icon = "" },
@@ -292,18 +293,20 @@ vmap_leader(
 )
 
 -- Plugin: Session (mini.sessions) ============================================
-nmap_leader("Sc", misc.nvim_config, "Neovim Config")
-nmap_leader("Sl", function() MiniSessions.read("Last Session") end, "Load last session")
-nmap_leader("S.", function()
-  local name = misc.path_to_session_name(vim.fn.getcwd())
-  pcall(MiniSessions.read, name)
-end, "Load session for this directory")
-nmap_leader("SD", function() MiniSessions.select("delete") end, "Delete a session")
-nmap_leader("SF", function() MiniSessions.select("read") end, "Load a session")
-nmap_leader("SS", function()
-  local name = misc.path_to_session_name(vim.fn.getcwd())
-  MiniSessions.write(name, { force = true })
-end, "Save session for this directory")
+nmap_leader("Sc", function() pcall(MiniSessions.read, vim.fs.slug(vim.fn.stdpath "config")) end, "Neovim Config")
+nmap_leader("Sl", function() MiniSessions.read "=last-session" end, "Load last session")
+nmap_leader(
+  "S.",
+  function() pcall(MiniSessions.read, vim.fs.slug(vim.fn.getcwd())) end,
+  "Load session for this directory"
+)
+nmap_leader("Sd", function() MiniSessions.select "delete" end, "Delete a session")
+nmap_leader("Sf", function() MiniSessions.select "read" end, "Load a session")
+nmap_leader(
+  "Ss",
+  function() MiniSessions.write(vim.fs.slug(vim.fn.getcwd()), { force = true }) end,
+  "Save session for this directory"
+)
 
 -- Plugin: Buffers ============================================================
 nmap_leader("c", function() require("buffer").close() end, "Close buffer")
@@ -357,3 +360,38 @@ nmap(">A", textobj_swap("swap_next", "@parameter.inner"), "Swap next argument")
 nmap("<K", textobj_swap("swap_previous", "@block.outer"), "Swap previous block")
 nmap("<F", textobj_swap("swap_previous", "@function.outer"), "Swap previous function")
 nmap("<A", textobj_swap("swap_previous", "@parameter.inner"), "Swap previous argument")
+
+-- Plugin: DAP ==================================================================
+nmap("<F5>", function() require("dap").continue() end, "Debugger: Start")
+nmap("<F17>", function() require("dap").terminate() end, "Debugger: Stop")
+nmap("<F21>", function()
+  vim.ui.input({ prompt = "Condition: " }, function(condition)
+    if condition then require("dap").set_breakpoint(condition) end
+  end)
+end, "Debugger: Conditional Breakpoint")
+nmap("<F29>", function() require("dap").restart_frame() end, "Debugger: Restart")
+nmap("<F6>", function() require("dap").pause() end, "Debugger: Pause")
+nmap("<F9>", function() require("dap").toggle_breakpoint() end, "Debugger: Toggle Breakpoint")
+nmap("<F10>", function() require("dap").step_over() end, "Debugger: Step Over")
+nmap("<F11>", function() require("dap").step_into() end, "Debugger: Step Into")
+nmap("<F23>", function() require("dap").step_out() end, "Debugger: Step Out")
+nmap_leader("db", function() require("dap").toggle_breakpoint() end, "Toggle Breakpoint")
+nmap_leader("dB", function() require("dap").clear_breakpoints() end, "Clear Breakpoints")
+nmap_leader("dc", function() require("dap").continue() end, "Continue")
+nmap_leader("dC", function()
+  vim.ui.input({ prompt = "Condition: " }, function(condition)
+    if condition then require("dap").set_breakpoint(condition) end
+  end)
+end, "Conditional Breakpoint")
+nmap_leader("di", function() require("dap").step_into() end, "Step Into")
+nmap_leader("do", function() require("dap").step_over() end, "Step Over")
+nmap_leader("dO", function() require("dap").step_out() end, "Step Out")
+nmap_leader("dp", function() require("dap").pause() end, "Pause")
+nmap_leader("dr", function() require("dap").restart_frame() end, "Restart")
+nmap_leader("dR", function() require("dap").repl.toggle() end, "Toggle REPL")
+nmap_leader("ds", function() require("dap").run_to_cursor() end, "Run To Cursor")
+nmap_leader("dq", function() require("dap").close() end, "Close Session")
+nmap_leader("dQ", function() require("dap").terminate() end, "Terminate Session")
+nmap_leader("du", function() require("dap-view").toggle() end, "Toggle DAP View")
+nmap_leader("dh", function() require("dap.ui.widgets").hover() end, "Hover")
+vmap_leader("dE", function() require("dapui").eval() end, "Evaluate Selection")

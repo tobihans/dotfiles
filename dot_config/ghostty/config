@@ -4,7 +4,7 @@ background-opacity = 0.925
 font-family = "Victor Mono"
 font-size = 14
 fullscreen = true
-theme = "Rose Pine"
+theme = light:Rose Pine Moon,dark:Rose Pine
 window-height = 30
 window-width = 120
 

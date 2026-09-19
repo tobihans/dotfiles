@@ -1,6 +1,6 @@
 [packs]
 enabled = [
-  "backup"
+  "backup",
   "cdn",
   "container",
   "core",

@@ -9,7 +9,7 @@ Config.now(function()
           { icon = " ", key = "r", desc = "Recent Files", action = "<leader>fo" },
           { icon = " ", key = "b", desc = "Bookmarks", action = "<leader>f'" },
           { icon = " ", key = "c", desc = "Config", action = "<leader>Sc" },
-          { icon = " ", key = "s", desc = "Restore Session", action = "<leader>SF" },
+          { icon = " ", key = "s", desc = "Restore Session", action = "<leader>Sf" },
           { icon = " ", key = "l", desc = "Last Session", action = "<leader>Sl" },
           { icon = "󰒲 ", key = "p", desc = "Packages", action = function() vim.pack.update() end },
           { icon = " ", key = "q", desc = "Quit", action = "<leader>Q" },

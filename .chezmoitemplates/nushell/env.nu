@@ -24,7 +24,6 @@ for $tool in $tools {
 
 $env.LATEST_NDK_VERSION = (ls $"($env.ANDROID_HOME)/ndk/" | get name | path basename | sort -r | get -o 0)
 $env.NDK_HOME = $"($env.ANDROID_HOME)/ndk/($env.LATEST_NDK_VERSION)"
-$env.CHROME_EXECUTABLE = "/usr/bin/chromium"
 
 # Cargo
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.cargo/bin")
