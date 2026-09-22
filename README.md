@@ -1,26 +1,21 @@
 # My dotfiles
 
-This repository contains my dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
+This repository contains my dotfiles managed by [chezmoi](https://www.chezmoi.io/).
 
 ## Requirements
 
-- OS: _Arch_ based OS or MacOS
+- OS: Arch-based Linux or macOS
+- macOS: [Homebrew](https://brew.sh) installed first (the setup script will not bootstrap it)
+- `rustup` in PATH if you build cargo-based packages (AUR builds via paru, `mise cargo:` tools)
 
 ## Setup
-
-- One line
 
 ```bash
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply https://github.com/tobihans/dotfiles.git
 ```
 
-- Script
+You will be prompted once for the age-key passphrase.
 
-```bash
-dotfiles_location='https://github.com/tobihans/dotfiles.git'
-
-if ! [[ -x "$(command -v chezmoi)" ]]; then
-    sudo pacman -Syu chezmoi
-    chezmoi init --verbose --apply $dotfiles_location
-fi
-```
+See [docs/setup.md](docs/setup.md) for the full runbook: what runs when,
+manual steps after first install, and how to keep things updated
+(`~/.local/bin/sysupdate.sh`).

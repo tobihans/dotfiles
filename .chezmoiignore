@@ -1,6 +1,7 @@
 # vim: ft=gitignore
 
 *.md
+docs/
 **/.supermaven
 
 .config/git/*

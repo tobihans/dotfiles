@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# vim: ft=bash
+# Unified dependency/config convergence for all OSes.
+# Per-OS fragments live in .chezmoitemplates/setup/.
+# Runs only when this script's rendered content changes (run_onchange).
+# See docs/setup.md. Tool/updater work lives in ~/.local/bin/sysupdate, not here.
+set -uo pipefail
+
+echo "[setup] start"
+
+{{ if eq .chezmoi.os "linux" }}
+{{ template "setup/linux_base.sh" . }}
+{{ template "setup/linux_packages.sh" . }}
+{{ end }}
+
+{{ if eq .chezmoi.os "darwin" }}
+{{ template "setup/darwin_brew.sh" . }}
+{{ end }}
+
+{{ template "setup/post_install.sh" . }}
+
+echo "[setup] done"
