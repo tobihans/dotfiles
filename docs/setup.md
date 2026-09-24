@@ -17,9 +17,9 @@ scripts, zellij plugin, VictorMono on Linux) are handled by
 
 ### What the setup script does per OS
 
-- **macOS**: `brew bundle` against the repo's Brewfile (44 formulas/casks).
-  Requires Homebrew as a **prerequisite** — install it first, then re-run
-  `chezmoi apply` if it was missing.
+- **macOS**: prints a reminder to run `brew bundle` manually (deliberately **not**
+  executed during apply — it takes many minutes and first-run setup must stay
+  fast). Homebrew itself is a prerequisite; see manual steps below.
 - **Linux (Arch-based)**:
   1. `pacman -Syu --needed` in one batch: missing base requirements
      (`age curl git unzip zip`, `base-devel`, `paru`), then mise via
@@ -41,19 +41,22 @@ scripts, zellij plugin, VictorMono on Linux) are handled by
 
 ## Manual steps after first apply
 
-1. **Install language/runtime tools**: `mise install`
+1. **macOS**: install your packages when you have time to wait:
+   `brew bundle --file ~/.local/share/chezmoi/dot_Brewfile`
+   (idempotent; safe to re-run after editing the Brewfile).
+2. **Install language/runtime tools**: `mise install`
    (~60 tools: node, ruby, LSPs, CLIs from `~/.config/mise/config.toml`).
-2. **Linux only**: enable the ssh-agent systemd unit:
+3. **Linux only**: enable the ssh-agent systemd unit:
    `systemctl --user enable --now ssh-agent.service`
-3. **Linux only, if you want AudioRelay**: run `~/.audiorelay/setup.sh`
+4. **Linux only, if you want AudioRelay**: run `~/.audiorelay/setup.sh`
    (downloads the app, creates the .desktop entry).
-4. **macOS only**: select the Victor Mono Nerd Font (installed via the
+5. **macOS only**: select the Victor Mono Nerd Font (installed via the
    `font-victor-mono` cask) in Ghostty/terminal if it isn't picked up.
-5. **KeePassXC-Browser**: import `keepassxc-browser_settings.json` (kept
+6. **KeePassXC-Browser**: import `keepassxc-browser_settings.json` (kept
    unmanaged in the repo root on purpose) into your browser.
-6. **Karabiner (macOS)**: `~/.config/karabiner/karabiner.json` is applied by
+7. **Karabiner (macOS)**: `~/.config/karabiner/karabiner.json` is applied by
    chezmoi; grant Input Monitoring / Accessibility permissions when prompted.
-7. Sign into tools that sync their own state (atuin, gh, glab).
+8. Sign into tools that sync their own state (atuin, gh, glab).
 
 ## Keeping things updated
 

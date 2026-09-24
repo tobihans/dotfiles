@@ -1,10 +1,7 @@
-# --- macOS package convergence (Homebrew Bundle) ---
-# Fragment rendered into run_onchange_setup.sh.tmpl; caller guards on .chezmoi.os.
-# brew bundle is idempotent; reads the Brewfile straight from the source tree so
-# ordering vs the ~/.Brewfile target doesn't matter.
+# --- macOS packages (Homebrew Bundle) — intentionally NOT run here ---
+# brew bundle can take many minutes; first-run setup must stay fast.
+# The user runs it manually after the dotfiles are in place (docs/setup.md).
 
-if command -v brew >/dev/null 2>&1; then
-	brew bundle --file "{{ .chezmoi.sourceDir }}/dot_Brewfile"
-else
-	echo "[setup] Homebrew not found. Install it first (see docs/setup.md), then: chezmoi apply"
-fi
+echo "[setup] macOS: to install your packages, run manually when ready:"
+echo "[setup]   brew bundle --file \"{{ .chezmoi.sourceDir }}/dot_Brewfile\""
+# brew bundle --file "{{ .chezmoi.sourceDir }}/dot_Brewfile"
