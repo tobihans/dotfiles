@@ -46,14 +46,16 @@ scripts, zellij plugin, VictorMono on Linux) are handled by
    (idempotent; safe to re-run after editing the Brewfile).
 2. **Install language/runtime tools**: `mise install`
    (~60 tools: node, ruby, LSPs, CLIs from `~/.config/mise/config.toml`).
-3. **Set nushell as your login shell** (so terminals *and* TTYs start in `nu`;
-   zsh/bashrc stay installed as fallbacks; do this once `nu` exists — automatic
-   on Linux after apply, after step 1 on macOS):
-   ```bash
-   grep -qxF "$(command -v nu)" /etc/shells || echo "$(command -v nu)" | sudo tee -a /etc/shells
-   chsh -s "$(command -v nu)"
+3. **Getting `nu` on shell start** — no system change needed: the Ghostty
+   config in these dotfiles already runs it per window:
+   ```ini
+   # ~/.config/ghostty/config
+   command = /opt/homebrew/bin/nu   # macOS/brew path; /usr/bin/nu on Arch
    ```
-   (macOS: brew installs `nu` but never registers it in `/etc/shells` itself.)
+   Set your terminal emulator's startup command to `nu` the same way (kitty:
+   `shell` in its config). `chsh -s $(command -v nu)` (plus registering it in
+   `/etc/shells`) is **optional** — only if you also want raw TTY/logins to
+   start in nushell. zsh/bashrc stay installed as fallbacks either way.
 4. **Linux only**: enable the ssh-agent systemd unit:
    `systemctl --user enable --now ssh-agent.service`
 5. **Linux only, if you want AudioRelay**: run `~/.audiorelay/setup.sh`
