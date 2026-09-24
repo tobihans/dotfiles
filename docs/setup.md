@@ -46,17 +46,25 @@ scripts, zellij plugin, VictorMono on Linux) are handled by
    (idempotent; safe to re-run after editing the Brewfile).
 2. **Install language/runtime tools**: `mise install`
    (~60 tools: node, ruby, LSPs, CLIs from `~/.config/mise/config.toml`).
-3. **Linux only**: enable the ssh-agent systemd unit:
+3. **Set nushell as your login shell** (so terminals *and* TTYs start in `nu`;
+   zsh/bashrc stay installed as fallbacks; do this once `nu` exists — automatic
+   on Linux after apply, after step 1 on macOS):
+   ```bash
+   grep -qxF "$(command -v nu)" /etc/shells || echo "$(command -v nu)" | sudo tee -a /etc/shells
+   chsh -s "$(command -v nu)"
+   ```
+   (macOS: brew installs `nu` but never registers it in `/etc/shells` itself.)
+4. **Linux only**: enable the ssh-agent systemd unit:
    `systemctl --user enable --now ssh-agent.service`
-4. **Linux only, if you want AudioRelay**: run `~/.audiorelay/setup.sh`
+5. **Linux only, if you want AudioRelay**: run `~/.audiorelay/setup.sh`
    (downloads the app, creates the .desktop entry).
-5. **macOS only**: select the Victor Mono Nerd Font (installed via the
+6. **macOS only**: select the Victor Mono Nerd Font (installed via the
    `font-victor-mono` cask) in Ghostty/terminal if it isn't picked up.
-6. **KeePassXC-Browser**: import `keepassxc-browser_settings.json` (kept
+7. **KeePassXC-Browser**: import `keepassxc-browser_settings.json` (kept
    unmanaged in the repo root on purpose) into your browser.
-7. **Karabiner (macOS)**: `~/.config/karabiner/karabiner.json` is applied by
+8. **Karabiner (macOS)**: `~/.config/karabiner/karabiner.json` is applied by
    chezmoi; grant Input Monitoring / Accessibility permissions when prompted.
-8. Sign into tools that sync their own state (atuin, gh, glab).
+9. Sign into tools that sync their own state (atuin, gh, glab).
 
 ## Keeping things updated
 
