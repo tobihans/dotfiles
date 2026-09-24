@@ -2,6 +2,7 @@
 
 *.md
 docs/
+plans/
 **/.supermaven
 
 .config/git/*
