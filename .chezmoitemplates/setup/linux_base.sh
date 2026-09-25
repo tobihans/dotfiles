@@ -5,7 +5,7 @@ if [[ ! -f /etc/arch-release ]]; then
 	echo "[setup] not Arch based, skipping linux base."
 else
 	base_pkgs=()
-	for requirement in age curl git unzip zip; do
+	for requirement in age curl git mise unzip zip; do
 		command -v "$requirement" >/dev/null 2>&1 || base_pkgs+=("$requirement")
 	done
 	pacman -Qqi "base-devel" >/dev/null 2>&1 || base_pkgs+=("base-devel")

@@ -22,10 +22,9 @@ scripts, zellij plugin, VictorMono on Linux) are handled by
   fast). Homebrew itself is a prerequisite; see manual steps below.
 - **Linux (Arch-based)**:
   1. `pacman -Syu --needed` in one batch: missing base requirements
-     (`age curl git unzip zip`, `base-devel`, `paru`).
-  2. One batched `pacman` pass for the package list (incl. `mise` from the
-     official repos) and one batched `paru` pass for the AUR list
-     (`atuin`, `fswatch`, …).
+     (`age curl git mise unzip zip`, `base-devel`, `paru`).
+  2. One batched `pacman` pass for the package list and one batched `paru`
+     pass for the AUR list (`atuin`, `fswatch`, …).
   3. Non-Arch Linux: package steps are skipped.
 - **Desktop-gated extras**: GUI packages (chromium, kitty, keepassxc, zoom, …)
   are only installed when `XDG_CURRENT_DESKTOP` is set. Headless/SSH setup
