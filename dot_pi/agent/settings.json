@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "0.87.1",
   "theme": "dark",
   "terminal": {
     "showTerminalProgress": true,
@@ -16,14 +16,13 @@
     "npm:pi-web-access",
     "npm:@plannotator/pi-extension",
     "npm:@gotgenes/pi-permission-system",
-    "npm:@tintinweb/pi-tasks",
     "git:github.com/DietrichGebert/ponytail",
     "npm:pi-intercom"
   ],
   "quietStartup": false,
   "defaultProjectTrust": "ask",
   "editorPaddingX": 0,
-  "hideThinkingBlock": false,
+  "hideThinkingBlock": true,
   "subagents": {
     "agentOverrides": {
       "context-builder": {

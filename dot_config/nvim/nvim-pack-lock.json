@@ -31,7 +31,7 @@
       "src": "gh:NMAC427/guess-indent.nvim"
     },
     "mini.nvim": {
-      "rev": "ac5dffcc52b8378fbb15efeb0497a83e57a0b01c",
+      "rev": "561751e839b99a4baca36b9d963166b66d2536a6",
       "src": "gh:nvim-mini/mini.nvim"
     },
     "noice.nvim": {
@@ -60,7 +60,7 @@
       "src": "gh:mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "ffd261c09c3dabd0bf1a438f47a8ae3b22f3c3ff",
+      "rev": "046b1a797af1effe8e0474b9af9657a3761ec58a",
       "src": "gh:neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -84,7 +84,7 @@
       "src": "gh:rose-pine/neovim"
     },
     "schemastore.nvim": {
-      "rev": "460358f4de896230269a76c23ab558069f6e1e43",
+      "rev": "76faabd8d091e4316ec8e1e90aa9371210b574b3",
       "src": "gh:b0o/schemastore.nvim"
     },
     "scope.nvim": {
