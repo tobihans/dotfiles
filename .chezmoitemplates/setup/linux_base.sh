@@ -14,10 +14,4 @@ else
 	if ((${#base_pkgs[@]})); then
 		sudo pacman -Syu --needed --noconfirm "${base_pkgs[@]}"
 	fi
-
-	if ! command -v mise >/dev/null 2>&1; then
-		curl https://mise.run | sh
-		mkdir -p "{{ .chezmoi.homeDir }}/.config/mise"
-		cp "{{ .chezmoi.sourceDir }}/dot_config/mise/config.toml" "{{ .chezmoi.homeDir }}/.config/mise/config.toml"
-	fi
 fi

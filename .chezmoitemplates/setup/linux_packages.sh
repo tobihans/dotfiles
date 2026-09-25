@@ -14,7 +14,7 @@ else
 		"gdu" "git" "github-cli" "glab" "go"
 		"jq"
 		"lua51" "luarocks"
-		"m4" "make" "mosh"
+		"m4" "make" "mise" "mosh"
 		"ninja" "nushell"
 		"onefetch" "openssh" "openssl"
 		"pigz" "postgresql-libs" "protobuf"
