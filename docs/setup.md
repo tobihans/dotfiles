@@ -6,10 +6,10 @@ How this repo behaves on a fresh machine and what to do afterwards.
 
 Deliberately minimal — exactly two scripts:
 
-| Script | When | Does |
-|---|---|---|
-| `run_once_before_001-decrypt-private-key.sh` | first apply only | Prompts for the **age-key passphrase**, decrypts `key.txt.age` to `~/.config/chezmoi/key.txt` so encrypted (`private_*`) files can be applied. |
-| `run_onchange_setup.sh` | when its rendered content changes | Package convergence per OS (see below) + regenerates nushell integration scripts. |
+| Script                                       | When                              | Does                                                                                                                                           |
+| -------------------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `run_once_before_001-decrypt-private-key.sh` | first apply only                  | Prompts for the **age-key passphrase**, decrypts `key.txt.age` to `~/.config/chezmoi/key.txt` so encrypted (`private_*`) files can be applied. |
+| `run_onchange_setup.sh`                      | when its rendered content changes | Package convergence per OS (see below) + regenerates nushell integration scripts.                                                              |
 
 Everything else is plain file placement. External downloads (nushell completion
 scripts, zellij plugin, VictorMono on Linux) are handled by
@@ -58,15 +58,11 @@ scripts, zellij plugin, VictorMono on Linux) are handled by
    start in nushell. zsh/bashrc stay installed as fallbacks either way.
 4. **Linux only**: enable the ssh-agent systemd unit:
    `systemctl --user enable --now ssh-agent.service`
-5. **Linux only, if you want AudioRelay**: run `~/.audiorelay/setup.sh`
-   (downloads the app, creates the .desktop entry).
-6. **macOS only**: select the Victor Mono Nerd Font (installed via the
+5. **macOS only**: select the Victor Mono Nerd Font (installed via the
    `font-victor-mono` cask) in Ghostty/terminal if it isn't picked up.
-7. **KeePassXC-Browser**: import `keepassxc-browser_settings.json` (kept
-   unmanaged in the repo root on purpose) into your browser.
-8. **Karabiner (macOS)**: `~/.config/karabiner/karabiner.json` is applied by
+6. **Karabiner (macOS)**: `~/.config/karabiner/karabiner.json` is applied by
    chezmoi; grant Input Monitoring / Accessibility permissions when prompted.
-9. Sign into tools that sync their own state (atuin, gh, glab).
+7. Sign into tools that sync their own state (atuin, gh, glab).
 
 ## Keeping things updated
 
@@ -74,9 +70,9 @@ scripts, zellij plugin, VictorMono on Linux) are handled by
   `chezmoi update`).
 - **Add a package**: edit the list in `.chezmoitemplates/setup/` →
   `chezmoi apply` (the rendered script changes, so it re-runs).
-- **Tool/upstream updates** (deliberately *not* part of apply):
+- **Tool/upstream updates** (deliberately _not_ part of apply):
   `~/.local/bin/sysupdate.sh` — pulls the repo, `mise plugins update &&
-  mise up`, `bob update --all`, `tv update-channels`, regenerates the
+mise up`, `bob update --all`, `tv update-channels`, regenerates the
   atuin/starship nushell integrations.
 
 ## Encrypted files
