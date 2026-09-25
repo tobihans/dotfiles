@@ -26,15 +26,4 @@ if command -v tv >/dev/null 2>&1; then
 	tv update-channels
 fi
 
-# Regenerate the nushell integration scripts (atuin/starship may have upgraded above).
-NUSHELL_SCRIPTS_PATH="$HOME/.config/nushell/scripts/integrations"
-if [[ "$(uname)" == "Darwin" ]]; then
-	NUSHELL_SCRIPTS_PATH="$HOME/Library/Application Support/nushell/scripts/integrations"
-fi
-if [[ -d "$(dirname "$NUSHELL_SCRIPTS_PATH")" ]]; then
-	mkdir -p "$NUSHELL_SCRIPTS_PATH"
-	command -v atuin >/dev/null 2>&1 && atuin init nu >|"$NUSHELL_SCRIPTS_PATH/atuin.nu"
-	command -v starship >/dev/null 2>&1 && starship init nu >|"$NUSHELL_SCRIPTS_PATH/starship.nu"
-fi
-
 echo "[sysupdate] done"
