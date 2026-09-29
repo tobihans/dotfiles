@@ -31,7 +31,7 @@
       "src": "gh:NMAC427/guess-indent.nvim"
     },
     "mini.nvim": {
-      "rev": "ac5dffcc52b8378fbb15efeb0497a83e57a0b01c",
+      "rev": "561751e839b99a4baca36b9d963166b66d2536a6",
       "src": "gh:nvim-mini/mini.nvim"
     },
     "noice.nvim": {
