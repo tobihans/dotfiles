@@ -8,7 +8,7 @@ if [[ ! -f /etc/arch-release ]]; then
 else
 	packages=(
 		"bat" "btop"
-		"chezmoi" "cmake" "composer" "cryfs" "curl"
+		"chezmoi" "cmake" "composer"
 		"docker" "docker-buildx" "docker-compose"
 		"fd" "ffmpeg" "fzf"
 		"gdu" "git" "github-cli" "glab" "go"
@@ -19,8 +19,6 @@ else
 		"onefetch" "openssh" "openssl"
 		"pigz" "postgresql-libs" "protobuf"
 		"ripgrep"
-		"unzip"
-		"zip"
 		"wget"
 	)
 	# "php" "php-apache" "php-cgi" "php-embed" "php-fpm" "php-gd" "php-igbinary" "php-redis" "php-snmp"
@@ -33,15 +31,12 @@ else
 
 	if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 		packages+=(
-			"android-tools" "android-udev" "appmenu-gtk-module"
+			"android-udev"
 			"chromium"
-			"gtk3"
 			"keepassxc" "kimageformats" "kitty"
-			"libappindicator-gtk3" "librsvg" "libvips"
+			"librsvg" "libvips"
 			"remmina"
 			"scrcpy"
-			"webkit2gtk"
-			"xdg-desktop-portal-gtk"
 		)
 		aur_packages+=(
 			"opensnitch" "python-pyclip"
@@ -50,10 +45,14 @@ else
 			"koi"
 			"zoom" "zen-browser-bin"
 		)
+		# "appmenu-gtk-module"
+		# "android-tools"
+		# "gtk3" "libappindicator-gtk3" 
 		# "plasma5-wallpapers-dynamic"
 		# "supertuxkart"
 		# "slack-desktop"
-		# "waydroid"
+		# "waydroid" "webkit2gtk"
+		# "xdg-desktop-portal-gtk"
 		# Optional WPS Office deps: wps-office libtiff5 ttf-wps-fonts ttf-ms-fonts wps-office-fonts wps-office-mime
 	fi
 
