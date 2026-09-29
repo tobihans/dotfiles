@@ -11,8 +11,6 @@ plans/
 .config/nushell/history.txt
 .config/nushell/scripts/integrations
 
-.config/zellij/plugins/*
-
 .config/herdr/*
 !.config/herdr/config.toml
 
