@@ -71,8 +71,8 @@ scripts, zellij plugin, VictorMono on Linux) are handled by
   `chezmoi apply` (the rendered script changes, so it re-runs).
 - **Tool/upstream updates** (deliberately _not_ part of apply):
   `~/.local/bin/sysupdate.sh` — pulls the repo, `mise plugins update &&
-mise up`, `bob update --all`, `tv update-channels`, regenerates the
-  atuin/starship nushell integrations.
+mise up`, `bob update --all`, `tv update-channels`. Nushell hooks
+  (atuin/starship/mise/nuenv) are rendered from templates at every apply.
 
 ## Encrypted files
 
