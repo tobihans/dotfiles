@@ -79,12 +79,8 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "gh:nvim-lua/plenary.nvim"
     },
-    "rose-pine": {
-      "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
-      "src": "gh:rose-pine/neovim"
-    },
     "schemastore.nvim": {
-      "rev": "411163b2be396495c76788a016cb1354f1e8acd0",
+      "rev": "b5d7de0d5be19ff7c1df71fa4ad1ea63ba1d2ea6",
       "src": "gh:b0o/schemastore.nvim"
     },
     "scope.nvim": {

@@ -1,9 +1,9 @@
 -- stylua: ignore start
 local palette = {
-  base00 = '#1f1f28', base01 = '#16161d', base02 = '#223249', base03 = '#54546d',
-  base04 = '#727169', base05 = '#dcd7ba', base06 = '#c8c093', base07 = '#717c7c',
-  base08 = '#c34043', base09 = '#ffa066', base0A = '#c0a36e', base0B = '#76946a',
-  base0C = '#6a9589', base0D = '#7e9cd8', base0E = '#957fb8', base0F = '#d27e99',
+  base00 = '#1d2230', base01 = '#242a39', base02 = '#30394a', base03 = '#526074',
+  base04 = '#8593a7', base05 = '#c7ced9', base06 = '#dbe1e9', base07 = '#edf1f6',
+  base08 = '#c77e91', base09 = '#c99868', base0A = '#b8a975', base0B = '#8eaa8b',
+  base0C = '#81aca8', base0D = '#7f9fc0', base0E = '#a28fba', base0F = '#ac8578',
 }
 -- stylua: ignore end
 
@@ -16,7 +16,7 @@ vim.api.nvim_set_hl(0, "FoldColumn", { fg = palette.base03 })
 vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = palette.base00, bg = palette.base00 })
 vim.api.nvim_set_hl(0, "LineNrAbove", { fg = palette.base03 })
 vim.api.nvim_set_hl(0, "LineNrBelow", { fg = palette.base03 })
-vim.api.nvim_set_hl(0, "CursorLineSign", { fg = palette.base03 })
+vim.api.nvim_set_hl(0, "CursorLineSignglas", { fg = palette.base03 })
 vim.api.nvim_set_hl(0, "CursorLineFold", { fg = palette.base0C })
 
-vim.g.colors_name = "kanagawa"
+vim.g.colors_name = "cobalt-nightebony"

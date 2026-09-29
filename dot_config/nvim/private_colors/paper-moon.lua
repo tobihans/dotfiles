@@ -1,9 +1,9 @@
 -- stylua: ignore start
 local palette = {
-  base00 = '#1f1f28', base01 = '#16161d', base02 = '#223249', base03 = '#54546d',
-  base04 = '#727169', base05 = '#dcd7ba', base06 = '#c8c093', base07 = '#717c7c',
-  base08 = '#c34043', base09 = '#ffa066', base0A = '#c0a36e', base0B = '#76946a',
-  base0C = '#6a9589', base0D = '#7e9cd8', base0E = '#957fb8', base0F = '#d27e99',
+  base00 = '#f4f0e8', base01 = '#e9e2d6', base02 = '#ddd5c8', base03 = '#b7ab9e',
+  base04 = '#897d73', base05 = '#514a45', base06 = '#393430', base07 = '#25211e',
+  base08 = '#9f5f67', base09 = '#a97852', base0A = '#88743f', base0B = '#5b7b61',
+  base0C = '#4d7c79', base0D = '#5977a1', base0E = '#80658e', base0F = '#966c58',
 }
 -- stylua: ignore end
 
@@ -19,4 +19,4 @@ vim.api.nvim_set_hl(0, "LineNrBelow", { fg = palette.base03 })
 vim.api.nvim_set_hl(0, "CursorLineSign", { fg = palette.base03 })
 vim.api.nvim_set_hl(0, "CursorLineFold", { fg = palette.base0C })
 
-vim.g.colors_name = "kanagawa"
+vim.g.colors_name = "paper-moon"

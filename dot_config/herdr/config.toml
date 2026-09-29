@@ -14,11 +14,12 @@ show_agent_labels_on_pane_borders = true
 delivery = "terminal"
 
 [theme]
-auto_switch = false
-light_name = "rose-pine-dawn"
-dark_name = "rose-pine"
+# auto_switch = false
+# light_name = "rose-pine-dawn"
+# dark_name = "rose-pine"
 
-name = "rose-pine"
+name = "terminal"
+
 [experimental]
 kitty_graphics = true
 pane_history = false
