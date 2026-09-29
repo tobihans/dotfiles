@@ -44,28 +44,17 @@ now(function() require("mini.statusline").setup() end)
 
 -- mini.tabline -> Tabline. Sets `:h 'tabline'` to show all listed buffers in a line at the top.
 now(function()
-  -- Cache: recomputed once per render pass (invalidated when current buf changes)
-  local index_cache, cache_tick = {}, -1
-
   require("mini.tabline").setup {
     format = function(buf_id, label)
-      local current = vim.api.nvim_get_current_buf()
-      -- Rebuild index map once per render (current buf is stable within a render)
-      if cache_tick ~= current then
-        index_cache = {}
-        local i = 0
-        for _, b in ipairs(vim.api.nvim_list_bufs()) do
-          if require("buffer").is_valid(b) and vim.bo[b].buflisted then
-            i = i + 1
-            index_cache[b] = i
-          end
-        end
-        cache_tick = current
-      end
-
       local default = MiniTabline.default_format(buf_id, label)
-      local cur_idx, buf_idx = index_cache[current], index_cache[buf_id]
+      local current = vim.api.nvim_get_current_buf()
+      local cur_idx, buf_idx
+      for i, b in ipairs(require("buffer").list()) do
+        if b == current then cur_idx = i end
+        if b == buf_id then buf_idx = i end
+      end
       if not cur_idx or not buf_idx or buf_id == current then return default end
+      -- note: adds an index relative to current buffer for easy navigation.
       return string.format(" %d%s", math.abs(buf_idx - cur_idx), default)
     end,
   }

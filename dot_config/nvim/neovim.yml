@@ -20,3 +20,5 @@ globals:
     any: true
   MiniDiff:
     any: true
+  MiniTabline:
+    any: true
