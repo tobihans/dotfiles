@@ -38,11 +38,12 @@ function M.close(bufnr, force)
   if not bufnr or bufnr == 0 then bufnr = vim.api.nvim_get_current_buf() end
   if M.is_valid(bufnr) then
     require("snacks").bufdelete { buf = bufnr, force = force }
-    return
+  else
+    -- fallback
+    local buftype = vim.bo[bufnr].buftype
+    vim.cmd(("silent! %s %d"):format((force or buftype == "terminal") and "bdelete!" or "confirm bdelete", bufnr))
   end
-  -- fallback
-  local buftype = vim.bo[bufnr].buftype
-  vim.cmd(("silent! %s %d"):format((force or buftype == "terminal") and "bdelete!" or "confirm bdelete", bufnr))
+  vim.schedule(function() vim.cmd "redrawtabline" end)
 end
 
 --- Close buffers to the left of the current buffer
