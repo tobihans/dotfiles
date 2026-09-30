@@ -250,7 +250,6 @@ end)
 -- User Interface =============================================================
 now(function()
   add {
-    -- { src = "https://codeberg.org/evergarden/nvim.git", name = "evergarden" },
     "gh:nvim-lua/plenary.nvim",
     "gh:MunifTanjim/nui.nvim",
     "gh:folke/noice.nvim",

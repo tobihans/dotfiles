@@ -64,6 +64,7 @@ node = "latest"
 prek = "latest"
 ruby = "4.0.6"
 uv = "latest"
+"github:vercel-labs/agent-browser" = "latest"
 
 [settings]
 auto_install = false
