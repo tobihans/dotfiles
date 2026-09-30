@@ -237,7 +237,8 @@ end)
 later(function()
   add {
     "gh:rafamadriz/friendly-snippets",
-    "gh:supermaven-inc/supermaven-nvim",
+    "gh:supermaven-inc/supermaven-nvim", -- fixme: deprecated; remove.
+    -- "gh:milanglacier/minuet-ai.nvim", -- note: an alternative to deprecated supermaven to evaluate.
     { src = "gh:saghen/blink.cmp", version = vim.version.range "1.*" },
     { src = "gh:saghen/blink.compat", version = vim.version.range "2.*" },
   }
