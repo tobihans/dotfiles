@@ -257,7 +257,7 @@ now(function()
   }
 
   require("noice").setup(require "config.noice")
-  vim.cmd.colorscheme "cobalt-night"
+  vim.cmd.colorscheme "solarized"
 end)
 
 -- Keymaps XP =================================================================

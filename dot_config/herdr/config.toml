@@ -30,6 +30,7 @@ prefix = "ctrl+space"
 focus_agent = "prefix+alt+1..9"
 switch_workspace = "prefix+shift+1..9"
 
+
 # --- Worktree picker (overrides built-in new_worktree) ---
 [[keys.command]]
 key = "prefix+shift+g"

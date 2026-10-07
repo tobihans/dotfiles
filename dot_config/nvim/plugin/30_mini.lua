@@ -163,7 +163,7 @@ later(function()
 end)
 
 -- mini.indentscope -> Visualize and work with indent scope.
-later(function() require("mini.indentscope").setup() end)
+later(function() require("mini.indentscope").setup { symbol = "┊" } end)
 
 -- mini.keymap -> Special key mappings.
 later(function()
