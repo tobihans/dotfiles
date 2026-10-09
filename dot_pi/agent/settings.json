@@ -10,10 +10,7 @@
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-terra",
   "defaultThinkingLevel": "high",
-  "defaultTools": [
-    "+codemode",
-    "+tool_search"
-  ],
+  "defaultTools": ["+codemode", "+tool_search"],
   "packages": [
     "npm:pi-subagents",
     "npm:pi-ask-user",
@@ -27,28 +24,6 @@
   "defaultProjectTrust": "ask",
   "editorPaddingX": 0,
   "hideThinkingBlock": true,
-  "subagents": {
-    "agentOverrides": {
-      "context-builder": {
-        "model": ""
-      },
-      "planner": {
-        "model": ""
-      },
-      "researcher": {
-        "model": ""
-      },
-      "reviewer": {
-        "model": ""
-      },
-      "scout": {
-        "model": ""
-      },
-      "worker": {
-        "model": ""
-      }
-    }
-  },
   "markdown": {
     "mermaid": "streaming"
   },
@@ -56,5 +31,6 @@
   "showHardwareCursor": false,
   "collapseChangelog": false,
   "showCacheMissNotices": true,
-  "autocompleteMaxVisible": 7
+  "autocompleteMaxVisible": 7,
+  "extensions": ["-builtin:mcp"]
 }
