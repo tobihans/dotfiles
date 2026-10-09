@@ -1,0 +1,10 @@
+# vim: ft=gitignore
+
+# NOTE: Patterns emitted ONLY on macOS. These targets belong to Linux *and*
+# Windows, which read them from ~/.config; macOS gets its own copies under
+# Library/ instead, so the .config versions must not land there.
+# Emitted from .chezmoiignore only when the OS is darwin.
+
+.config/nushell/
+.config/lazygit/
+.config/lazydocker/

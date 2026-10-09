@@ -1,0 +1,27 @@
+# vim: ft=gitignore
+
+# NOTE: Patterns emitted ONLY on Windows: files that need a POSIX shell, a
+# Unix-only binary, or a Unix path convention. Linux-only and macOS-only files
+# already live in ignore/linux and ignore/darwin (both are emitted on Windows),
+# so they are not repeated here.
+# chezmoi matches ignore patterns against target paths, and that includes run
+# scripts, whose "target path" is the source name with the run_* phase prefix
+# (and .tmpl) stripped — hence "setup.sh", not "run_onchange_setup.sh.tmpl".
+# Verified against chezmoi v2.73.0.
+# Emitted from .chezmoiignore only when the OS is windows.
+
+# chezmoi has no .sh interpreter on Windows (defaults: bat cmd com exe nu pl py ps1 rb),
+# so these must not be managed there at all.
+setup.sh
+001-decrypt-private-key.sh
+.local/bin/sysupdate.sh
+.local/bin/launch_editor.sh
+
+# No Windows build, or Unix-path conventions.
+.config/btop/
+.config/dcg/
+.config/ghostty/
+.config/herdr/
+.config/karabiner/
+.goosehints
+.vimrc
