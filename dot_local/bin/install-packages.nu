@@ -1,13 +1,17 @@
 # Windows package convergence for scoop.sh — run it by hand, never from apply.
 #
-#   nu ~/.local/bin/install-packages.nu
+#   nu ~/.local/bin/install-packages.nu              # converge
+#   nu ~/.local/bin/install-packages.nu --preview    # show the plan, install nothing
 #
 # chezmoi does not execute this: keeping package installs out of `chezmoi apply`
 # is the whole point (docs/setup.md). scoop skips apps that are already
 # installed, so re-running after you edit the list is cheap.
 #
-# Prereqs on a fresh box: scoop itself, then `scoop bucket add main` (default),
-# `scoop install main/nu main/git main/chezmoi extras/vcredist2022`.
+# Prereqs on a fresh box: scoop itself, then `scoop install main/nu main/git
+# main/chezmoi`. Two entries below are load-bearing rather than taste:
+# extras/vcredist2022 because main/btop (and others) list it under "suggest", and
+# main/mise because the docs' `mise install` step needs mise and scoop is the only
+# thing that would provide it.
 
 let buckets = [
     extras
@@ -24,6 +28,7 @@ let packages = [
     extras/neovide
     extras/obsidian
     extras/powertoys
+    extras/vcredist2022
     extras/vscode
     extras/zoom
     main/7zip
@@ -46,12 +51,11 @@ let packages = [
     main/jq
     main/luarocks
     main/make
+    main/mise
     main/msys2
     main/neofetch
     main/nu
     main/php
-    main/pipx
-    main/poetry
     main/ripgrep
     main/unzip
     main/vim
@@ -60,7 +64,6 @@ let packages = [
     main/zig
     nerd-fonts/VictorMono-NF-Mono
     versions/lua51
-    versions/python312
 ]
 
 # Provided by mise (dot_config/mise/config.toml). Kept here, commented out, as
@@ -78,8 +81,22 @@ let packages = [
 # main/nodejs-lts  -> node
 # extras/pet       -> github:knqyf263/pet
 
-# `scoop bucket add` warns and exits non-zero when the bucket already exists;
-# do -i keeps that expected case from aborting the loop.
-$buckets | each {|b| do -i { scoop bucket add $b } }
+# Dropped on purpose: versions/python312, main/pipx and main/poetry. Python and the
+# pipx backend come from mise, and a second scoop python only starts a PATH fight
+# with mise's shims (PATH order is documented in docs/setup.md).
 
-scoop install ...$packages
+def main [--preview] {
+    if $preview {
+        let count = ($packages | length)
+        print $"buckets: ($buckets | str join ', ')"
+        print $"packages ($count):"
+        print ($packages | str join "\n")
+        return
+    }
+
+    # `scoop bucket add` warns and exits non-zero when the bucket already exists;
+    # do -i keeps that expected case from aborting the loop.
+    $buckets | each {|b| do -i { scoop bucket add $b } }
+
+    scoop install ...$packages
+}
