@@ -18,14 +18,18 @@ setup.sh
 .local/bin/sysupdate.sh
 .local/bin/launch_editor.sh
 
-# No Windows build.
-.config/btop/
+# No Windows build (dcg is a POSIX command guard; goosehints/virsh are Unix-side).
 .config/dcg/
 .config/ghostty/
 .config/herdr/
 .config/karabiner/
 .goosehints
 .virsh/
+
+# btop DOES have a Windows port (scoop main/btop = btop4win) and stays installed,
+# but it keeps themes + btop.conf in its own app dir (the manifest persists them),
+# so ~/.config/btop would be read by nothing.
+.config/btop/
 
 # ~/.vimrc is read by nothing on Windows (_console Vim looks for _vimrc).
 .vimrc
