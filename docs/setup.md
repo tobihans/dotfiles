@@ -4,7 +4,7 @@ How this repo behaves on a fresh machine and what to do afterwards.
 
 ## What runs on `chezmoi init --apply`
 
-Deliberately minimal — exactly two scripts:
+Deliberately minimal — two scripts on macOS/Linux, **zero on Windows**:
 
 | Script                                       | When                              | Does                                                                                                                                           |
 | -------------------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -89,5 +89,103 @@ re-decrypts it). Re-encrypt changed `private_*` files with
 
 ## Windows
 
-Not yet supported — tracked separately (planned merge of
-`tobihans/win-dotfiles` into this repo).
+Windows is supported through the same source tree: chezmoi writes
+`%USERPROFILE%\.config\**` for every `dot_config/**` entry, and the tools you
+use there read that location too.
+
+### Prerequisites (in order, before the one-liner)
+
+1. **scoop** — <https://scoop.sh> (per its README, in a PowerShell window).
+2. `scoop bucket add main` is implicit; then
+   `scoop install main/nu main/git main/chezmoi`
+   (`chezmoi` is also installable with `iex "&{$(irm 'https://get.chezmoi.io/ps1')}"`).
+3. **Set `XDG_CONFIG_HOME`** to `%USERPROFILE%\.config` in _Edit user
+   environment variables_ and open a new terminal. This is what lets nushell,
+   Neovim, television and lazygit/lazydocker read the shared `~/.config` tree
+   instead of `%APPDATA%`/`%LOCALAPPDATA%`. Without it those tools look in
+   AppData and will not see your configs.
+4. Optional: Windows Terminal from the Store, and rustup if you want
+   `cargo:`/`github:` mise builds.
+
+### First apply
+
+```powershell
+chezmoi init --apply https://github.com/tobihans/dotfiles.git
+```
+
+**No chezmoi script runs on Windows.** The bash setup dispatcher and the age-key
+bootstrap are skipped there (chezmoi has no `.sh` interpreter on Windows), so two
+steps are manual:
+
+```powershell
+# 1. decrypt the age identity once, before private_* files can be applied
+chezmoi age decrypt --output "$HOME\.config\chezmoi\key.txt" --passphrase "$HOME\.local\share\chezmoi\key.txt.age"
+
+# 2. apply again
+chezmoi apply
+```
+
+Skipping step 1 is not silent: `chezmoi apply` fails on the encrypted files
+(`private_pet`, `private_karabiner`, nvim spell/color files) until the identity
+exists. Re-run `chezmoi apply` after fixing it.
+
+### Then, in order
+
+```nu
+nu ~/.local/bin/install-packages.nu   # scoop convergence: buckets + one batched install
+mise install                          # ~60 tools from ~/.config/mise/config.toml
+```
+
+`install-packages.nu` is a managed file that chezmoi never executes. Apps mise
+also provides are commented out inside it — uncomment one only if that
+`mise install` fails on Windows and you want scoop to own the binary instead.
+
+### Manual leftovers on Windows
+
+- **Windows Terminal settings** stay machine-local (`settings.json` is not in
+  this repo). Set its startup command to `nu` if you want nu on launch.
+- **Nerd font**: `install-packages.nu` adds the `nerd-fonts` bucket and installs
+  `VictorMono-NF-Mono`; select it in the terminal profile if it is not picked up.
+- **pwsh 7 vs Windows PowerShell 5.1**: the profile here is applied to
+  `Documents\PowerShell\`, which only pwsh 7 reads. For 5.1 either
+  `scoop install main/powershell` or add
+  `Documents\WindowsPowerShell\profile.ps1` containing
+  `. "$HOME\Documents\PowerShell\profile.ps1"`.
+- **Execution policy**: `Documents\PowerShell\powershell.config.json` sets
+  CurrentUser `RemoteSigned`. If you would rather not track that in the repo,
+  delete the file and run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`.
+- **Git credentials**: check that `%APPDATA%\Git\config` does not exist — Git for
+  Windows prefers it over the managed `~/.config/git/config`.
+- **`nu` on start**: same story as other OSes — set the terminal's startup
+  command to `nu` (see step 3 above); `scoop` puts shims on PATH.
+
+### Deliberately not ported to Windows
+
+The old `win-dotfiles` repo's nushell `env.nu` (nushell's own boilerplate), its
+`Documents/PowerShell/config/starship.toml` (starship never reads that path —
+`%LOCALAPPDATA%`/`%APPDATA%` are not consulted), its external downloads from
+this repo (6 of them were already 404 — the source tree now holds one copy of
+every file), `run_before_base.nu` (mkdir — chezmoi creates parent dirs),
+`run_after_all.nu` (starship/mise/atuin integrations render from templates),
+`run_after_update_dots.nu` (nvim tarball rename hack), and its
+`interpreters.ps1 = nu` config hack plus the tracked destination
+`chezmoi.toml`.
+
+### Known Windows gaps (open, tracked in `plans/windows-support.md`)
+
+- **Skipped by design on Windows** (their configs are not applied there, because
+  those tools do not read `~/.config` on Windows): `bob` (`%APPDATA%\bob`),
+  `pet` (`%APPDATA%\pet`), `glow` (`%AppData%\glow`). Re-enable one by removing
+  it from `.chezmoitemplates/ignore/on-windows` and adding either an AppData
+  wrapper or an absolute `BOB_CONFIG` / `PET_CONFIG_DIR` / `GLOW_CONFIG` override.
+- **Unverified paths**: `neovide/config.toml` and `luacheck` are applied under
+  `~/.config`; confirm they are read on Windows before relying on them.
+- Neovim has never been booted from this config on Windows — the Lua config may
+  assume Unix paths or `!` shell commands.
+- Encrypted files that _are_ applied on Windows (nvim `private_colors`,
+  `private_spell`) need the age identity from step 1 above.
+- `sysupdate.sh` and `launch_editor.sh` are bash and not managed on Windows; use
+  `scoop update *`, `mise up`, `nu ~/.local/bin/install-packages.nu` instead.
+- Nothing has been applied on real Windows yet — run the checklist in
+  `plans/windows-support.md` on a Windows VM or fresh user profile.
+

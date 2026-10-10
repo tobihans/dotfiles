@@ -10,18 +10,37 @@
 # Verified against chezmoi v2.73.0.
 # Emitted from .chezmoiignore only when the OS is windows.
 
-# chezmoi has no .sh interpreter on Windows (defaults: bat cmd com exe nu pl py ps1 rb),
-# so these must not be managed there at all.
+# chezmoi has no .sh interpreter on Windows (defaults: bat cmd com exe nu pl py rb),
+# so the bash dispatcher, the age bootstrap and the bash helpers must not be
+# managed there at all.
 setup.sh
 001-decrypt-private-key.sh
 .local/bin/sysupdate.sh
 .local/bin/launch_editor.sh
 
-# No Windows build, or Unix-path conventions.
+# No Windows build.
 .config/btop/
 .config/dcg/
 .config/ghostty/
 .config/herdr/
 .config/karabiner/
 .goosehints
+.virsh/
+
+# ~/.vimrc is read by nothing on Windows (_console Vim looks for _vimrc).
 .vimrc
+
+# Verified Windows config dirs that are NOT ~/.config, so the shared copy would
+# be inert. Re-enable with an AppData wrapper or the tool's own override
+# (PET_CONFIG_DIR, BOB_CONFIG) once they are on your scoop/mise list:
+#   bob   -> dirs::config_dir  = %APPDATA%\bob\config.toml
+#   pet   -> os.Getenv APPDATA = %APPDATA%\pet\config.toml
+#   glow  -> os.UserConfigDir = %AppData%\glow\glow.yml
+.config/bob/
+.config/pet/
+.config/glow/
+
+# Everything else under .config is live on Windows: nushell, nvim, git, starship,
+# mise, television, lazygit and lazydocker all read XDG_CONFIG_HOME when it is
+# set (verified per tool in plans/windows-support.md), so no AppData/ tree is
+# needed.
