@@ -139,6 +139,19 @@ mise install                          # ~60 tools from ~/.config/mise/config.tom
 `install-packages.nu` is a managed file that chezmoi never executes. Apps mise
 also provides are commented out inside it — uncomment one only if that
 `mise install` fails on Windows and you want scoop to own the binary instead.
+Run `nu ~/.local/bin/install-packages.nu --preview` to see the resolved buckets
+and package list without installing anything.
+
+**Who wins a PATH fight — scoop or mise:** inside nushell it is **mise**. The
+integration rendered into `.config/nushell/vendor/autoload/mise.nu` runs
+`mise activate nu`, which prepends mise's own tool directories every time nu
+starts, so a mise-managed tool (starship, lazygit, television, bob) resolves to
+mise's copy there even though scoop put `%USERPROFILE%\scoop\shims` on the
+machine PATH first. In pwsh or cmd there is no `mise activate`, so **scoop wins**
+and a tool that only mise provides is simply not on PATH — which is why
+`install-packages.nu` keeps those apps commented out instead of half-installing
+them. Check what a shell actually resolves with `which starship` (nu) or
+`Get-Command starship` (pwsh).
 
 ### Manual leftovers on Windows
 
