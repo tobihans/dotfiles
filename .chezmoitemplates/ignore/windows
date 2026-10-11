@@ -1,0 +1,10 @@
+# vim: ft=gitignore
+
+# NOTE: Windows-only paths; ignored on any non-Windows system.
+# Windows reads the shared tool configs from ~/.config exactly like Linux
+# (XDG_CONFIG_HOME=%USERPROFILE%\.config), so there is no AppData/ tree here —
+# only genuine Windows locations and the hand-run scoop helper.
+# Emitted from .chezmoiignore when the OS is not windows.
+
+Documents/
+.local/bin/install-packages.nu

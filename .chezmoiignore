@@ -11,8 +11,13 @@ plans/
 .config/nushell/history.txt
 .config/nushell/scripts/integrations
 
+{{ if ne .chezmoi.os "windows" }}
+# herdr has no Windows build. The exclude below beats every include pattern, so
+# this pair must be skipped wholesale on Windows (ignore/on-windows lists
+# .config/herdr/ for the rest).
 .config/herdr/*
 !.config/herdr/config.toml
+{{ end }}
 
 assets/
 keepassxc-browser_settings.json
@@ -24,5 +29,18 @@ key.txt.age
 
 {{ if ne .chezmoi.os "linux" }}
   {{ template "ignore/linux" }}
+{{ end }}
+
+# Windows routing: emit the Unix-only paths when on Windows, and the
+# Windows-only paths everywhere else. See the headers of those templates.
+{{ if eq .chezmoi.os "windows" }}
+  {{ template "ignore/on-windows" }}
+{{ else }}
+  {{ template "ignore/windows" }}
+{{ end }}
+
+# These targets belong to Linux *and* Windows; only macOS must skip them.
+{{ if eq .chezmoi.os "darwin" }}
+  {{ template "ignore/on-darwin" }}
 {{ end }}
 

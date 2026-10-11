@@ -1,6 +1,9 @@
 # vim: ft=gitignore
 
 # NOTE: Contains config files to be ignored on any non Linux system
+# .config/{nushell,lazygit,lazydocker} are NOT here: Linux and Windows both read
+# them from ~/.config (chezmoi writes %USERPROFILE%\.config on Windows), so they
+# moved to ignore/on-darwin.
 
 .audiorelay/
 .bash_aliases
@@ -8,9 +11,6 @@
 .bashrc
 .config/environment.d/
 .config/kitty/
-.config/lazydocker/
-.config/lazygit/
-.config/nushell/
 .config/systemd/
 .disk-prune.sh
 .functions

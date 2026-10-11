@@ -12,7 +12,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend $env.PNPM_HOME)
 # Go
 $env.GOBIN = $"($env.HOME)/go/bin"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.GOBIN)
-
+{{ if ne .chezmoi.os "windows" }}
 # Android
 $env.ANDROID_HOME = if $nu.os-info.name == "macos" { $"($env.HOME)/Library/Android/sdk/" } else { $"($env.HOME)/Android/Sdk" }
 (/bin/mkdir -p $"($env.ANDROID_HOME)/ndk/")
@@ -24,22 +24,24 @@ for $tool in $tools {
 
 $env.LATEST_NDK_VERSION = (ls $"($env.ANDROID_HOME)/ndk/" | get name | path basename | sort -r | get -o 0)
 $env.NDK_HOME = $"($env.ANDROID_HOME)/ndk/($env.LATEST_NDK_VERSION)"
-
+{{ end }}
 # Cargo
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.cargo/bin")
-
+{{ if ne .chezmoi.os "windows" }}
 ## Bob nvim
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.local/share/bob/nvim-bin")
 
 # Jetbrains Toolbox
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.local/share/JetBrains/Toolbox/scripts")
-
+{{ end }}
 # Editing
-$env.EDITOR = 'nvim'
+$env.EDITOR = 'nvim'{{ if ne .chezmoi.os "windows" }}
 $env.LAUNCH_EDITOR = "launch_editor.sh"
+{{- end }}
 
-# Git
+# Git{{ if ne .chezmoi.os "windows" }}
 $env.GCM_CREDENTIAL_STORE = "secretservice"
+{{- end }}
 
 # Fzf
 # Catppuccin
@@ -69,5 +71,6 @@ $env.GOOSE_CLI_THEME = "ansi"
 $env.DO_NOT_TRACK = 1
 $env.GLAB_SEND_TELEMETRY = false
 
-
+{{ if ne .chezmoi.os "windows" }}
 $env.BOB_CONFIG = "~/.config/bob/config.toml"
+{{- end }}
