@@ -9,11 +9,11 @@ Deliberately minimal — two scripts on macOS/Linux, **zero on Windows**:
 | Script                                       | When                              | Does                                                                                                                                           |
 | -------------------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `run_once_before_001-decrypt-private-key.sh` | first apply only                  | Prompts for the **age-key passphrase**, decrypts `key.txt.age` to `~/.config/chezmoi/key.txt` so encrypted (`private_*`) files can be applied. |
-| `run_onchange_setup.sh`                      | when its rendered content changes | Package convergence per OS (see below) + regenerates nushell integration scripts.                                                              |
+| `run_onchange_setup.sh`                      | when its rendered content changes | Package convergence per OS (see below). It does **not** regenerate nushell integrations — those render from `.chezmoitemplates/` on every apply.                |
 
-Everything else is plain file placement. External downloads (nushell completion
-scripts, zellij plugin, VictorMono on Linux) are handled by
-`.chezmoiexternals/` with their own refresh periods.
+Everything else is plain file placement. External downloads (the nushell
+completion scripts from `nu_scripts` and, on Linux, the VictorMono Nerd Font) are
+handled by `.chezmoiexternals/` with their own refresh periods.
 
 ### What the setup script does per OS
 
@@ -26,9 +26,12 @@ scripts, zellij plugin, VictorMono on Linux) are handled by
   2. One batched `pacman` pass for the package list and one batched `paru`
      pass for the AUR list (`atuin`, `fswatch`, …).
   3. Non-Arch Linux: package steps are skipped.
-- **Desktop-gated extras**: GUI packages (chromium, kitty, keepassxc, zoom, …)
+- **Desktop-gated extras (Linux)**: GUI packages (chromium, kitty, keepassxc, zoom, …)
   are only installed when `XDG_CURRENT_DESKTOP` is set. Headless/SSH setup
   silently skips them — that is expected.
+- **Windows**: nothing. Both bash scripts are unmanaged there (chezmoi has no `.sh`
+  interpreter on Windows), so package installs and the age-key decrypt are manual —
+  see the Windows section at the end of this runbook.
 
 ## Prerequisites (before the one-liner)
 
@@ -76,16 +79,18 @@ mise up`, `bob update --all`, `tv update-channels`. Nushell hooks
 
 ## Encrypted files
 
-Anything matching `private_*` (zed settings, karabiner, nvim spells/colors)
-is age-encrypted. Config lives in `~/.config/chezmoi/chezmoi.toml`
-(identity: `~/.config/chezmoi/key.txt`).
+Anything with a `private_` prefix is age-encrypted: the nvim `colors`, `spell`,
+`after/lsp` and `after/queries` directories, `glow`, `karabiner`, `pet`, and
+`dot_pi/agent/extensions/private_rtk.ts`. Config lives in
+`~/.config/chezmoi/chezmoi.toml` (identity: `~/.config/chezmoi/key.txt`).
 
 **Rotating the age key**: generate a new identity, re-encrypt `key.txt.age`
 with the new passphrase, update `recipient` in
 `dot_config/chezmoi/chezmoi.toml.tmpl`, then on each machine delete
-`~/.config/chezmoi/key.txt` and run `chezmoi apply` (the before-script
-re-decrypts it). Re-encrypt changed `private_*` files with
-`chezmoi add --encrypt <path>`.
+`~/.config/chezmoi/key.txt` and run `chezmoi apply` — on macOS/Linux the
+before-script re-decrypts it, on Windows you must re-run the `chezmoi age
+decrypt` command from the Windows section because that script is not managed
+there. Re-encrypt changed `private_*` files with `chezmoi add --encrypt <path>`.
 
 ## Windows
 
@@ -107,6 +112,12 @@ use there read that location too.
 4. Optional: Windows Terminal from the Store, and rustup if you want
    `cargo:`/`github:` mise builds.
 
+**Nothing will prompt you for the age-key passphrase here.** On macOS/Linux
+`run_once_before_001-decrypt-private-key.sh` asks for it on the first apply; that
+script is not managed on Windows, so the identity must be decrypted by hand — see
+step 1 of "First apply" below. It cannot be a prerequisite, because it reads
+`key.txt.age` out of the clone `chezmoi init` creates.
+
 ### First apply
 
 ```powershell
@@ -125,9 +136,11 @@ chezmoi age decrypt --output "$HOME\.config\chezmoi\key.txt" --passphrase "$HOME
 chezmoi apply
 ```
 
-Skipping step 1 is not silent: `chezmoi apply` fails on the encrypted files
-(`private_pet`, `private_karabiner`, nvim spell/color files) until the identity
-exists. Re-run `chezmoi apply` after fixing it.
+Skipping step 1 is not silent: `chezmoi apply` fails on the encrypted files it
+does manage here — nvim `colors`, `spell`, `after/lsp`, `after/queries` — until
+the identity exists. (`pet`, `glow` and `karabiner` are also encrypted but are
+not applied on Windows at all, so they cannot fail.) Re-run `chezmoi apply` after
+fixing it.
 
 ### Then, in order
 
