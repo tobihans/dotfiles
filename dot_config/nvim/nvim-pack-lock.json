@@ -79,6 +79,10 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "gh:nvim-lua/plenary.nvim"
     },
+    "rose-pine": {
+      "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
+      "src": "https://github.com/rose-pine/neovim"
+    },
     "schemastore.nvim": {
       "rev": "9485dacfff2828f06c4678b059e382e49ec54aeb",
       "src": "gh:b0o/schemastore.nvim"

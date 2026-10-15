@@ -12,3 +12,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$HOME/.local/share/bob/nvim-bin:$PATH"
 
 eval "$(mise activate bash)"
+. "$HOME/.cargo/env"

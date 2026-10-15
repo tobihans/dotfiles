@@ -1,6 +1,6 @@
 # vim: ft=toml
 
-{{ $path_prefix := ".config/nushell/vendor/autoload" }}
+{{ $path_prefix := ".config/nushell/autoload" }}
 {{ if eq .chezmoi.os "darwin" }}
   {{ $path_prefix = "Library/Application Support/nushell/vendor/autoload" }}
 {{ end }}
