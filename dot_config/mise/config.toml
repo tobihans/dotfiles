@@ -82,3 +82,13 @@ use_git_credentials = true
 [settings.ruby]
 compile = false
 
+[tasks."skills.sh"]
+description = "Add skills globally to ~/.agents/skills only"
+usage = '''
+arg "<command>" {
+  choices "add"
+}
+arg "<source>" help="Skill repository, URL, or local directory"
+'''
+run = 'npx skills@latest add "${usage_source:?}" --agent pi --global'
+

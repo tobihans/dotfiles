@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.0.4",
+  "lastChangelogVersion": "1.2.0",
   "theme": "dark",
   "terminal": {
     "showTerminalProgress": true,
@@ -10,15 +10,17 @@
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-terra",
   "defaultThinkingLevel": "high",
-  "defaultTools": ["+codemode", "+tool_search"],
+  "defaultTools": [
+    "+codemode",
+    "+tool_search"
+  ],
   "packages": [
-    "npm:pi-subagents",
-    "npm:pi-ask-user",
-    "npm:pi-web-access",
-    "npm:@plannotator/pi-extension",
-    "npm:@gotgenes/pi-permission-system",
-    "git:github.com/DietrichGebert/ponytail",
-    "npm:pi-intercom"
+    "npm:pi-subagents@0.78.0",
+    "npm:pi-ask-user@0.16.0",
+    "npm:pi-web-access@0.40.0",
+    "npm:@plannotator/pi-extension@0.28.18",
+    "npm:@gotgenes/pi-permission-system@40.2.0",
+    "git:github.com/DietrichGebert/ponytail@2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5"
   ],
   "quietStartup": false,
   "defaultProjectTrust": "ask",
@@ -31,6 +33,5 @@
   "showHardwareCursor": false,
   "collapseChangelog": false,
   "showCacheMissNotices": true,
-  "autocompleteMaxVisible": 7,
-  "extensions": ["-builtin:mcp"]
+  "autocompleteMaxVisible": 7
 }
