@@ -31,7 +31,7 @@
       "src": "gh:NMAC427/guess-indent.nvim"
     },
     "mini.nvim": {
-      "rev": "8831fa150fa26492cfe135801fa498132f1491d2",
+      "rev": "e3f2349a65143ff062f0b70ee9d68d8ce35c7059",
       "src": "gh:nvim-mini/mini.nvim"
     },
     "noice.nvim": {
@@ -79,12 +79,8 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "gh:nvim-lua/plenary.nvim"
     },
-    "rose-pine": {
-      "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
-      "src": "https://github.com/rose-pine/neovim"
-    },
     "schemastore.nvim": {
-      "rev": "9485dacfff2828f06c4678b059e382e49ec54aeb",
+      "rev": "7fca30f2890a6acf9d21d194876c6ac960d92070",
       "src": "gh:b0o/schemastore.nvim"
     },
     "scope.nvim": {
