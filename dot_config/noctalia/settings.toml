@@ -3,43 +3,67 @@
 
 # ── Global UI font (macOS look) ──────────────────────────────────────
 [shell]
-font_family = "SF Pro Display"
+font_family = "SF Pro Display"   # icon theme comes from gsettings (Tela-circle), not this file
 
+# ── Top bar (macOS menu-bar style, glassy) ──────────────────────────
 [bar.default]
 position           = "top"
-thickness          = 28
-reserve_space      = true
-background_opacity = 0.35
-margin_ends        = 0
-margin_edge        = 
-radius             = 0
-concave_edge_corners = false
-start  = ["control-center", "active_window", "workspaces"]
+thickness          = 28         # slim macOS-style menu bar (default 34)
+reserve_space      = true       # keep the ~28px gap so windows never hide under the bar
+background_opacity = 0.35       # near-transparent so niri's blur of the wallpaper does the work
+margin_ends        = 0          # full screen width (default 100 = floating pill)
+margin_edge        = 0          # flush to the top edge
+radius             = 0          # zero border radius, fully square
+concave_edge_corners = false    # no carved-in flare at the screen edges
+start  = ["control-center", "active_window", "workspaces"]   # control-center = Arch icon, far left
 center = ["clock"]
 end    = ["media", "tray", "notifications", "network", "bluetooth", "volume", "battery"]
 
 [widget.control-center]
-custom_image         = "/usr/share/pixmaps/archlinux-logo.svg"
-custom_image_colorize = true
+custom_image         = "/usr/share/pixmaps/archlinux-logo.svg"   # simple Arch glyph
+custom_image_colorize = true                                       # monochrome, follows bar palette
 
 [widget.media]
-hide_when_idle      = true
-hide_when_no_media  = true
+hide_when_idle      = true   # hidden while paused/stopped
+hide_when_no_media  = true   # hidden when no MPRIS player is running at all
 
+# ── Autohiding dock: pinned + running, trash at the far right ───────
 [dock]
 enabled             = true
 position            = "bottom"
-icon_size           = 32
-main_axis_padding   = 8
-cross_axis_padding  = 4
-item_spacing        = 4
-show_dots           = true
-auto_hide           = true
-reserve_space       = false
-show_running        = true
-magnification       = true
-background_opacity  = 0.5
-radius              = 16
+icon_size           = 32        # default 48 was too chunky
+main_axis_padding   = 8         # was 16 — less dead space around the row
+cross_axis_padding  = 4         # was 8  — slimmer capsule
+item_spacing        = 4         # was 6  — tighter icons
+show_dots           = true      # macOS-style running indicator dots
+auto_hide           = true      # slide out, reveal from bottom edge
+reserve_space       = false     # overlay, no window gap
+show_running        = true      # running apps appear after your pins
+magnification       = true      # macOS icon magnification (already default)
+background_opacity  = 0.5       # from macos-dark-niri rice: much more see-through than default 0.88
+radius              = 16        # floating rounded dock; keep concave flare off for "no weird effect"
 concave_edge_corners = false
-margin_edge         = 8
-pinned              = ["com.mitchellh.ghostty", "trash"]
+margin_edge         = 8         # float it slightly off the edge like a macOS dock
+pinned              = ["com.mitchellh.ghostty", "trash"]   # exact desktop-entry IDs; re-pin via right-click → Pin to be sure
+
+# ── Idle: monitors off 5m → lock 8m → lock + suspend 20m ────────────
+# Uses niri's ext-idle-notify-v1 + ext-session-lock-v1. Locking does not
+# count as activity, so the suspend timer still runs after the lock.
+[idle]
+behavior_order        = ["screen-off", "lock", "suspend"]
+pre_action_fade_seconds = 2.0
+
+[idle.behavior.screen-off]
+action  = "screen_off"
+timeout = 300
+enabled = true
+
+[idle.behavior.lock]
+action  = "lock"
+timeout = 480
+enabled = true
+
+[idle.behavior.suspend]
+action  = "lock_and_suspend"
+timeout = 1200
+enabled = true

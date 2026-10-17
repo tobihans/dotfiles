@@ -273,7 +273,6 @@ layout {
 // Noctalia desktop shell: bar, launcher, notifications, dock.
 spawn-at-startup "noctalia"
 
-// Daily drivers: terminal + browser.
 spawn-at-startup "/usr/bin/ghostty"
 spawn-at-startup "/opt/zen-browser-bin/zen-bin"
 
@@ -378,10 +377,10 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock"; }
 
     // Noctalia
-    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Space { spawn "vicinae" "toggle"; }
     Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Shift+M { spawn-sh "noctalia msg settings-toggle"; }
     Alt+Tab { spawn-sh "noctalia msg window-switcher hold"; }
