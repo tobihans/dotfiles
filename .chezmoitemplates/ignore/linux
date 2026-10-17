@@ -9,8 +9,11 @@
 .bash_aliases
 .bash_profile
 .bashrc
+.config/autostart/
 .config/environment.d/
 .config/kitty/
+.config/niri/
+.config/noctalia/
 .config/systemd/
 .disk-prune.sh
 .functions

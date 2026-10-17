@@ -1,0 +1,45 @@
+# Noctalia — minimal macOS-style setup. Everything not listed here stays on default.
+# Docs: https://docs.noctalia.dev/
+
+# ── Global UI font (macOS look) ──────────────────────────────────────
+[shell]
+font_family = "SF Pro Display"
+
+[bar.default]
+position           = "top"
+thickness          = 28
+reserve_space      = true
+background_opacity = 0.35
+margin_ends        = 0
+margin_edge        = 
+radius             = 0
+concave_edge_corners = false
+start  = ["control-center", "active_window", "workspaces"]
+center = ["clock"]
+end    = ["media", "tray", "notifications", "network", "bluetooth", "volume", "battery"]
+
+[widget.control-center]
+custom_image         = "/usr/share/pixmaps/archlinux-logo.svg"
+custom_image_colorize = true
+
+[widget.media]
+hide_when_idle      = true
+hide_when_no_media  = true
+
+[dock]
+enabled             = true
+position            = "bottom"
+icon_size           = 32
+main_axis_padding   = 8
+cross_axis_padding  = 4
+item_spacing        = 4
+show_dots           = true
+auto_hide           = true
+reserve_space       = false
+show_running        = true
+magnification       = true
+background_opacity  = 0.5
+radius              = 16
+concave_edge_corners = false
+margin_edge         = 8
+pinned              = ["com.mitchellh.ghostty", "trash"]
