@@ -1,6 +1,5 @@
 # --- Linux package convergence (pacman + AUR/paru) ---
 # Fragment rendered into run_onchange_setup.sh.tmpl; caller guards on .chezmoi.os.
-# Merged from the old run_onchange_linux_002-pacman.sh / 003-yay.sh.
 # base-devel + paru are installed by setup/linux_base.sh.
 
 if [[ ! -f /etc/arch-release ]]; then
@@ -12,6 +11,7 @@ else
 		"docker" "docker-buildx" "docker-compose"
 		"fd" "ffmpeg" "fzf"
 		"gdu" "git" "github-cli" "glab" "go"
+		"gpu-screen-recorder"
 		"jq"
 		"lua51" "luarocks"
 		"m4" "make" "mosh"
@@ -36,7 +36,7 @@ else
 			"keepassxc" "kimageformats" "kitty"
 			"librsvg" "libvips"
 			"remmina"
-			"scrcpy"
+			"scrcpy" "slurp"
 		)
 		aur_packages+=(
 			"opensnitch" "python-pyclip"
