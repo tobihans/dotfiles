@@ -32,6 +32,7 @@ else
 	if [[ -n "${XDG_CURRENT_DESKTOP}" ]]; then
 		packages+=(
 			"android-udev"
+			"brightnessctl"
 			"chromium"
 			"keepassxc" "kimageformats" "kitty"
 			"librsvg" "libvips"
