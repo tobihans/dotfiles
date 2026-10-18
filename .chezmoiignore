@@ -23,6 +23,10 @@ assets/
 keepassxc-browser_settings.json
 key.txt.age
 
+.pi/agent/extensions/node_modules
+.pi/agent/extensions/pi-permission-system/*
+!.pi/agent/extensions/pi-permission-system/config.json
+
 {{ if ne .chezmoi.os "darwin" }}
   {{ template "ignore/darwin" }}
 {{ end }}
