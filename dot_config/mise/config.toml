@@ -14,7 +14,6 @@
 "github:Orange-OpenSource/hurl" = "latest"
 "github:adrienverge/yamllint" = "latest"
 "github:alexpasmantier/television" = { version = "latest", exe = "tv" }
-"github:alibaba/open-code-review" = { version = "latest", bin = "ocr" }
 "github:ast-grep/ast-grep" = "latest"
 "github:docker/docker-credential-helpers" = { version = "latest", exe = "docker-credential-secretservice" }
 "github:expert-lsp/expert" = { version = "latest", bin = "expert" }
@@ -63,6 +62,7 @@ ruby = "4.0.6"
 uv = "latest"
 "github:vercel-labs/agent-browser" = "latest"
 "npm:cf" = "latest"
+"npm:@open-pencil/cli" = "latest"
 
 [settings]
 auto_install = false
