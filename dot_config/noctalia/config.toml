@@ -5,6 +5,9 @@
 [shell]
 font_family = "SF Pro Display"   # icon theme comes from gsettings (Tela-circle), not here
 
+[location]
+auto_locate = true
+
 # ── Top bar ──────────────────────────────────────────────────────────
 [bar.default]
 position           = "top"
@@ -27,6 +30,9 @@ custom_image_colorize = true                                       # monochrome,
 hide_when_idle      = true
 hide_when_no_media  = true
 
+[widget.network]
+show_label = false
+
 # ── Dock ─────────────────────────────────────────────────────────────
 [dock]
 enabled             = true
@@ -46,8 +52,7 @@ concave_edge_corners = false
 margin_edge         = 8
 pinned              = ["com.mitchellh.ghostty", "trash"]   # desktop-entry IDs, not app names
 
-# ── Idle ─────────────────────────────────────────────────────────────
-# Locking does not count as activity, so the suspend timer still runs after the lock.
+# ── Idle ── locking does not count as activity, so the suspend timer keeps running
 [idle]
 behavior_order        = ["screen-off", "lock", "suspend"]
 pre_action_fade_seconds = 2.0

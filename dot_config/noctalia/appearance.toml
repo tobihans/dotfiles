@@ -1,0 +1,18 @@
+# Theme, palette source, panel style, wallpaper.
+# Changing any of these at runtime reappears as an override in the state file.
+
+[theme]
+mode = "auto"
+shell_mode = "auto"
+source = "wallpaper"
+wallpaper_scheme = "m3-content"
+community_palette = "Solarized Osaka"
+
+[shell.panel]
+transparency_mode = "glass"
+
+[wallpaper.default]
+path = "/home/tobihans/Pictures/Wallpapers/nature-8k-pick7.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/tobihans/Pictures/Wallpapers/nature-8k-pick7.jpg"

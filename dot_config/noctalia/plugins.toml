@@ -1,0 +1,3 @@
+# Installed by default on a fresh machine; materialized caches stay in state.
+[plugins]
+enabled = [ "noctalia/notes", "noctalia/screen_recorder" ]
