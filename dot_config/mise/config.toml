@@ -62,7 +62,7 @@ ruby = "4.0.6"
 uv = "latest"
 "github:vercel-labs/agent-browser" = "latest"
 "npm:cf" = "latest"
-"npm:@open-pencil/cli" = "latest"
+"npm:@open-pencil/mcp" = "latest"
 
 [settings]
 auto_install = false

@@ -15,12 +15,12 @@
     "+tool_search"
   ],
   "packages": [
-    "npm:pi-subagents@0.78.0",
-    "npm:pi-ask-user@0.16.0",
-    "npm:pi-web-access@0.41.0",
-    "npm:@plannotator/pi-extension@0.28.22",
-    "npm:@gotgenes/pi-permission-system@40.2.2",
-    "git:github.com/DietrichGebert/ponytail@2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5"
+    "npm:pi-subagents@0.79.2",
+    "npm:pi-ask-user@0.17.0",
+    "npm:pi-web-access@0.43.0",
+    "npm:@plannotator/pi-extension@0.28.23",
+    "npm:@gotgenes/pi-permission-system@41.0.0",
+    "git:github.com/DietrichGebert/ponytail@16352ac229eb08a9598dcae48fe9f2b342567d86"
   ],
   "quietStartup": false,
   "defaultProjectTrust": "ask",

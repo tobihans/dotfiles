@@ -25,6 +25,7 @@
 [color]
 	ui = true
 [core]
+	excludesFile = ~/.config/git/.gitignore
 	pager = less -r
 	editor = vim
 	fsmonitor = true
@@ -45,7 +46,7 @@
 	lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	clown = clone --filter=blob:none --
 [log]
-	showSignature = true
+	showSignature = false
 [credential]
 	credentialStore = secretservice
 [credential "https://github.com"]
@@ -54,6 +55,8 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !{{- $gh_bin }} auth git-credential
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials
 [branch]
 	sort = committerdate
 [push]

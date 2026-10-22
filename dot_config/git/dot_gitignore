@@ -1,0 +1,5 @@
+# Global git excludes — applies to every repo on this machine.
+# Configured via: git config --global core.excludesFile ~/.config/git/.gitignore
+
+# macOS Finder metadata
+.DS_Store
