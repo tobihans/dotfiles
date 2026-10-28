@@ -1,8 +1,6 @@
 tap "android/tap", trusted: true
 # Simple, modern, secure file encryption
 brew "age"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
 # Code searching, linting, rewriting
 brew "ast-grep"
 # Improved shell history for zsh, bash, fish and nushell
@@ -13,6 +11,8 @@ brew "autoconf"
 brew "readline"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
@@ -98,6 +98,8 @@ cask "ghostty"
 cask "karabiner-elements"
 # Clipboard manager
 cask "maccy"
+# Local-first, agent-native design tool
+cask "open-design"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Code-based music creation and performance tool
@@ -108,6 +110,8 @@ cask "tablepro"
 cask "thunderbird"
 # Application launcher and command palette
 cask "vicinae"
+# Multimedia player
+cask "vlc"
 # Gecko based web browser
 cask "zen"
 # Video communication and virtual meeting platform

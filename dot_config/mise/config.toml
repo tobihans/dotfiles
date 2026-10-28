@@ -15,9 +15,8 @@
 "github:adrienverge/yamllint" = "latest"
 "github:alexpasmantier/television" = { version = "latest", exe = "tv" }
 "github:ast-grep/ast-grep" = "latest"
-"github:docker/docker-credential-helpers" = { version = "latest", exe = "docker-credential-secretservice" }
+"github:docker/docker-credential-helpers" = { version = "latest", filter_bins = ["docker-credential-secretservice"] }
 "github:expert-lsp/expert" = { version = "latest", bin = "expert" }
-"github:git-ecosystem/git-credential-manager" = { version = "latest", extract_all = "true", matching_regex = "\\d+\\.tar.gz" }
 "github:git-lfs/git-lfs" = "latest"
 "github:google/yamlfmt" = "latest"
 "github:jesseduffield/lazydocker" = "latest"
@@ -29,24 +28,24 @@
 "github:rtk-ai/rtk" = "latest"
 "github:sigstore/cosign" = "latest"
 "github:typst/typst" = "latest"
+"github:vercel-labs/agent-browser" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "npm:@ansible/ansible-language-server" = "latest"
 "npm:@earendil-works/pi-coding-agent" = "latest"
 "npm:@tailwindcss/language-server" = "latest"
 "npm:@vtsls/language-server" = "latest"
 "npm:bash-language-server" = "latest"
+"npm:cf" = "latest"
 "npm:heroku" = "latest"
 "npm:impeccable" = "latest"
 "npm:markdownlint-cli" = "latest"
 "npm:pnpm" = "latest"
 "npm:prettier" = "latest"
+"npm:rea-agents" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
 "npm:yaml-language-server" = "latest"
 "pipx:ansible" = { version = "latest", uvx_args = "--with-executables-from ansible-core,ansible-lint" }
 "pipx:djlint" = "latest"
-"pipx:grip" = "latest"
-"pipx:harlequin" = { version = "latest", extras = "postgres,mysql,s3" }
-"pipx:posting" = "latest"
 "pipx:pyrefly" = "latest"
 "pipx:ruff" = "latest"
 "pipx:yamllint" = "latest"
@@ -60,9 +59,6 @@ js-debug = "latest"
 node = "latest"
 ruby = "4.0.6"
 uv = "latest"
-"github:vercel-labs/agent-browser" = "latest"
-"npm:cf" = "latest"
-"npm:@open-pencil/mcp" = "latest"
 
 [settings]
 auto_install = false
@@ -78,14 +74,3 @@ use_git_credentials = true
 
 [settings.ruby]
 compile = false
-
-[tasks."skills.sh"]
-description = "Add skills globally to ~/.agents/skills only"
-usage = '''
-arg "<command>" {
-  choices "add"
-}
-arg "<source>" help="Skill repository, URL, or local directory"
-'''
-run = 'npx skills@latest add "${usage_source:?}" --agent pi --global'
-

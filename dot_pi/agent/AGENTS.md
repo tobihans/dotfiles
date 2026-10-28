@@ -44,6 +44,7 @@
 - Ask one sharp question when ambiguity materially changes the scope or outcome.
 - Batch independent operations when it saves time or context.
 - Use subagents or inter-agent communication only when the environment clearly supports them and coordination costs less than serial work.
+- When **codemode** is available, try to make use of it for batching operations where it makes sense.
 - Name by intention and responsibility, not mechanism.
 
 ## Security

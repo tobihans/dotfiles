@@ -47,8 +47,6 @@
 	clown = clone --filter=blob:none --
 [log]
 	showSignature = false
-[credential]
-	credentialStore = secretservice
 [credential "https://github.com"]
 	helper =
 	helper = !{{- $gh_bin }} auth git-credential
